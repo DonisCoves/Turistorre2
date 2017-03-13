@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 'Google Inc.:Google APIs:24'
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        applicationId "cf.castellon.turistorre"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles.add(file('../../proguard-gvr.txt'))
+        }
+    }
+}
+
+apply plugin: 'com.android.application'
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    //apply plugin: 'com.android.application'
+    compile files('libs/httpclient-4.5.2.jar')
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:support-v13:23.4.0'
+    compile 'com.android.support:support-v4:23.4.'
+    //    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    compile 'com.facebook.android:facebook-android-sdk:4.15.0'
+    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile 'com.mcxiaoke.volley:library:1.0.+'
+    compile 'com.google.firebase:firebase-core:10.2.0'
+    compile 'com.google.firebase:firebase-database:10.2.0'
+    compile 'com.google.firebase:firebase-storage:10.2.0'
+    compile 'com.google.firebase:firebase-auth:10.2.0'
+    compile 'com.google.firebase:firebase-messaging:10.2.0'
+    compile 'com.google.firebase:firebase-config:10.2.0'
+
+    compile 'com.firebaseui:firebase-ui-database:1.2.0'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'org.apache.httpcomponents:httpmime:4.2.3'
+    compile 'com.google.android.gms:play-services-auth:10.2.0'
+    compile 'com.google.vr:sdk-panowidget:1.10.0'
+    compile 'com.google.android.gms:play-services-panorama:10.2.0'
+    //    compile 'com.google.android.gms:play-services:10.0.1'
+    /*compile(name:'sdk-base-1.10.0', ext:'aar')
+            compile(name:'sdk-common-1.10.0', ext:'aar')
+            compile(name:'sdk-commonwidget-1.10.0', ext:'aar')
+            compile(name:'sdk-panowidget-1.10.0', ext:'aar')
+            compile(name:'sdk-videowidget-1.10.0', ext:'aar')
+            compile(name:'sdk-audio-1.10.0', ext:'aar')
+            compile(name:'sdk-videowidget-1.10.0', ext:'aar')
+            compile(name:'sdk-controller-1.10.0', ext:'aar')*/
+    apply plugin: 'com.google.gms.google-services'
+}

@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "351834780446",
+    "firebase_url": "https://turistorre.firebaseio.com",
+    "project_id": "project-1031372115432573568",
+    "storage_bucket": "project-1031372115432573568.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:351834780446:android:4da0d54e1522f2b8",
+        "android_client_info": {
+          "package_name": "cf.castellon.turistorre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cf.castellon.turistorre",
+            "certificate_hash": "6d42c4e5408fa4e2988570ff1cb5ed5f2190c22d"
+          }
+        },
+        {
+          "client_id": "351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWZPb7KqJ-oZqCRQb652WCZPo1NAMnibs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

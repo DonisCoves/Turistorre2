@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:paddingBottom="20dp"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Avisos"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:prompt="@string/notificaciones"
+            android:spinnerMode="dialog"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            android:entries="@array/notificaciones"
+            android:layout_weight="1"
+            android:id="@+id/spNotificaciones" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginRight="60dp"
+            android:text="Idioma"
+            android:layout_weight="1" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spIdiomas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:prompt="@string/idioma"
+            android:spinnerMode="dialog"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            android:entries="@array/idiomas"
+            android:layout_weight="1">
+
+        </android.support.v7.widget.AppCompatSpinner>
+    </LinearLayout>
+
+</LinearLayout>

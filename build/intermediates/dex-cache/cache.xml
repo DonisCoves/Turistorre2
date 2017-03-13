@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\workspace\Turistorre\app\libs\jna-4.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1c12d070e602efd8021891cdd7fd18bc129372d4">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\jna-4.1.0_09a5db280cd609bf46c4e4b8e992fcf0f05f4f8d\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\workspace\Turistorre\app\libs\commons-logging-1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4bfc12adfe4842bf07b657f0369c4cb522955686">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\pre-dexed\debug\commons-logging-1.2_704f319764ab17ee2420400b372c45e3e7f43b08.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\workspace\Turistorre\app\libs\commons-logging-1.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4bfc12adfe4842bf07b657f0369c4cb522955686">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-logging-1.2_704f319764ab17ee2420400b372c45e3e7f43b08\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\workspace\Turistorre\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5561dbd08095879256153c0ea8ba7609925c80de">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_fcc6b772a14be54ee8c4b518d34a497f9f833ce3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\workspace\Turistorre\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_897e787ae916cc820671e2d8123aef730cf401ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\pccc\.android\build-cache\054f8f0ab4183206e8a6ac7e9af93958af2c5802\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4e01b82d664e1a8253b2b9658e74b5da35c8771d">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\pre-dexed\debug\classes_1d8f437927bad22f9c240f9dce901977353ad61e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\workspace\Turistorre\app\libs\jna-4.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1c12d070e602efd8021891cdd7fd18bc129372d4">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\pre-dexed\debug\jna-4.1.0_09a5db280cd609bf46c4e4b8e992fcf0f05f4f8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\workspace\Turistorre\app\libs\jna-platform-4.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="23457ad1cf75c2c16763330de5565a0e67b4bc0a">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\pre-dexed\debug\jna-platform-4.1.0_4cff022ae6fd1a79830513515b779b6ecdaa379d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\pccc\.android\build-cache\e001bc1dbffd0c64956b8d5d4a4814711cda5218\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="74c5a91d6510ad42410e8a047d90d2ea6721a0e0">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_59c6909210d8b72f8ab1fe22857db99535f11c5a\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\workspace\Turistorre\app\libs\commons-codec-1.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9ce04e34240f674bc72680f8b843b1457383161a">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\pre-dexed\debug\commons-codec-1.9_9bedf6c84d1e1bdecae7434397101d1438bb38a5.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\workspace\Turistorre\app\libs\commons-codec-1.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9ce04e34240f674bc72680f8b843b1457383161a">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-codec-1.9_9bedf6c84d1e1bdecae7434397101d1438bb38a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\workspace\Turistorre\app\libs\httpclient-4.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="733db77aa8d9b2d68015189df76ab06304406e50">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\pre-dexed\debug\httpclient-4.5.2_f750dd10f1bc345922b7700b228b540728e9b21b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\pccc\.android\build-cache\7575d029274b9ee305cab06ee7c28d99deaeb983\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b831d3902674d096189451d46fce219e2c2904b7">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\pre-dexed\debug\classes_c8415c2a1bc453c998376a431fb1a8f8070ea2b2.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\workspace\Turistorre\app\libs\jna-platform-4.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="23457ad1cf75c2c16763330de5565a0e67b4bc0a">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\jna-platform-4.1.0_4cff022ae6fd1a79830513515b779b6ecdaa379d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\workspace\Turistorre\app\libs\httpclient-4.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="733db77aa8d9b2d68015189df76ab06304406e50">
+        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\httpclient-4.5.2_f750dd10f1bc345922b7700b228b540728e9b21b\classes.dex" />
+    </item>
+
+</items>

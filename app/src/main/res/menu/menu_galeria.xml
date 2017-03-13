@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itShared"
+        android:title="compartir"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
+    <item
+        android:id="@+id/it_foto"
+        android:title="hacer foto"
+        app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_camera" />
+</menu>

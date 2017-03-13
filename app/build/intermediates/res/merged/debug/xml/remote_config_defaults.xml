@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>Parametro1</key>
+        <value>Parametro1 de la app</value>
+    </entry>
+    <entry>
+        <key>Parametro2</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>Parametro3</key>
+        <value>false</value>
+    </entry>
+</defaultsMap>

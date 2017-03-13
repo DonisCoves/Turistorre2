@@ -1,0 +1,10 @@
+Diseño:
+
+La app es clara/blanca(light) pero la actionbar es oscura/negra(Dark). (Theme.AppCompat.Light.DarkActionBar)
+Los iconos :
+
+En asset studio los iconos que van a la drawer generarlos por action/bar light
+
+el fondo negro
+el dibujo blanco
+

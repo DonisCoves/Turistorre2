@@ -1,0 +1,242 @@
+package cf.castellon.turistorre.fragments;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.StorageMetadata;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import butterknife.ButterKnife;
+import cf.castellon.turistorre.R;
+import cf.castellon.turistorre.adaptadores.MyFireBaseAdapterRecycleView;
+import cf.castellon.turistorre.bean.Imagen;
+
+import static cf.castellon.turistorre.utils.Constantes.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE;
+import static cf.castellon.turistorre.utils.Constantes.PERMISO_CAMARA;
+import static cf.castellon.turistorre.utils.Constantes.PERMISO_ESCRIBIR_SD;
+import static cf.castellon.turistorre.utils.Constantes.TAG;
+import static cf.castellon.turistorre.utils.Constantes.mDataBaseImgRef;
+import static cf.castellon.turistorre.utils.Constantes.mStorageImgRef;
+import static cf.castellon.turistorre.utils.Utils.getOutputMediaFile;
+import static cf.castellon.turistorre.utils.Utils.mFirebaseUser;
+import static cf.castellon.turistorre.utils.Utils.numPermisos;
+import static cf.castellon.turistorre.utils.Utils.pedirPermiso;
+
+public class GaleriaFragment2 extends Fragment {
+    private RecyclerView recView;
+    private Activity mActivity;
+    private Uri fileUri;
+    private ProgressDialog mProgressDialog;
+    private StorageReference mStorageRef;
+    private Imagen mImagen;
+    private MyFireBaseAdapterRecycleView adaptador;
+    LinearLayout layout;
+    GridLayoutManager manager;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        adaptador = new MyFireBaseAdapterRecycleView(Imagen.class,R.layout.fila_fire_recycle,MyFireBaseAdapterRecycleView.MyFireViewHolder.class,mDataBaseImgRef);
+
+        manager = new GridLayoutManager(mActivity,3,GridLayoutManager.VERTICAL,false);
+//        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+//            @Override
+//            public int getSpanSize(int position) {
+//                return 2;
+//            }
+//        });
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        this.mActivity = activity;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.galeria_layout,container,false);
+        ButterKnife.bind(this, view);
+        setHasOptionsMenu(true);
+        recView = (RecyclerView) view.findViewById(R.id.rvGaleria);
+        recView.setHasFixedSize(true);
+        recView.setLayoutManager(manager);
+        recView.setAdapter(adaptador);
+
+
+        
+        return view;
+    }
+
+    public class MyLayoutManager extends GridLayoutManager{
+
+        public MyLayoutManager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+            super(context, attrs, defStyleAttr, defStyleRes);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_galeria, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mFirebaseUser !=null)
+            switch (item.getItemId()){
+                case R.id.it_foto:
+                    pedirPermiso(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, recView);
+                    pedirPermiso(mActivity, Manifest.permission.CAMERA, PERMISO_CAMARA, recView);
+                    if (numPermisos==2)
+                        goCamera();
+            }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void guardarFotoStorageFire() {
+        mStorageRef = mStorageImgRef.child(mFirebaseUser.getDisplayName()+" - "+mFirebaseUser.getUid()).child(fileUri.getLastPathSegment());
+        showProgressDialog();
+        Log.d(TAG, "uploadFromUri:dst:" + mStorageRef.getPath());
+
+        StorageMetadata metadata = new StorageMetadata.Builder()
+                .setCustomMetadata("avatar",mFirebaseUser.getPhotoUrl().toString())
+                .setCustomMetadata("nombre","JAvier Munoz"/*mFirebaseUser.getDisplayName()*/)
+                .build();
+
+        mStorageRef.putFile(fileUri,metadata)
+                .addOnSuccessListener(mActivity, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Log.d(TAG, "uploadFromUri:onSuccess");
+                        hideProgressDialog();
+                        guardarFotoBBDDFire(fileUri.getLastPathSegment(),mFirebaseUser);
+                    }
+                })
+                .addOnFailureListener(mActivity, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        Log.w(TAG, "uploadFromUri:onFailure", exception);
+                        hideProgressDialog();
+                        Toast.makeText(mActivity, "Error: no se ha subido la imagen",Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void goCamera() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        fileUri = getOutputMediaFile(mActivity); // create a file to save the image
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file name
+        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE && resultCode==mActivity.RESULT_OK){
+            ContentResolver cr = mActivity.getContentResolver();
+            guardarFotoStorageFire();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISO_CAMARA :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d(TAG, "Permiso  camara concedido. Permisos vigentes " + ++numPermisos);
+                }
+                else {
+                    Log.i(TAG, "Permiso denegado. Permisos vigentes " + numPermisos);
+                }
+                break;
+            case PERMISO_ESCRIBIR_SD :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d(TAG, "Permiso  escritura concedido. Permisos vigentes " + ++numPermisos);
+                }
+                else {
+                    Log.i(TAG, "Permiso denegado. Permisos vigentes " + numPermisos);
+                }
+                break;
+        }
+        if (numPermisos==2) {
+            goCamera();
+        }
+    }
+
+    private void showMessageDialog(String title, String message) {
+        AlertDialog ad = new AlertDialog.Builder(mActivity)
+                .setTitle(title)
+                .setMessage(message)
+                .create();
+        ad.show();
+    }
+
+    private void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(mActivity);
+            mProgressDialog.setMessage("Cargando...");
+            mProgressDialog.setIndeterminate(true);
+        }
+        mProgressDialog.show();
+    }
+
+    private void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+
+    private void guardarFotoBBDDFire(String nomFoto, FirebaseUser userFire) {
+        showProgressDialog();
+        mImagen = new Imagen(userFire.getUid());
+        mImagen.setUidImagen(nomFoto);
+        nomFoto = nomFoto.substring(0,nomFoto.length()-4);
+        mDataBaseImgRef.child(nomFoto).setValue(mImagen).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                hideProgressDialog();
+                Log.d("guardarFotoBBDDFire","Foto guardada en BBDD");
+            }
+
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("guardarFotoBBDDFire","Error: "+e.getMessage());
+                hideProgressDialog();
+            }
+        });
+
+    }
+
+}

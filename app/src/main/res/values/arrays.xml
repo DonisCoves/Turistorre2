@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="secciones">
+        <item>Home</item>
+        <item>Racons</item>
+        <item>Galeria</item>
+        <item>Bandos</item>
+        <item>Trobam</item>
+        <item>Terrats</item>
+        <item>Login</item>
+        <item>Fiestas</item>
+        <item>Ajustes</item>
+        <item>Acerca_de</item>
+    </string-array>
+
+    <string-array name="titulosHome">
+        <item>Titulo 1</item>
+        <item>Titulo 2</item>
+        <item>Titulo 3</item>
+        <item>Titulo 4</item>
+    </string-array>
+
+    <string-array name="anonimo">
+        <item>Ver imagenes de la galeria</item>
+        <item>Ver los terrats de la gente </item>
+        <item>Recibir notificaciones de bandos</item>
+        <item>Ver las fiestas del pueblo</item>
+        <item>Ver las imágenes que la gente manda de las fiestas </item>
+    </string-array>
+
+    <string-array name="no_anonimo">
+        <item>Subir imagenes a la galeria</item>
+        <item>Subir tu terrat </item>
+        <item>Subir imagenes de las fiestas</item>
+        <item>Crear bandos</item>
+        <item>Crear fiestas</item>
+        <item>Conceder permisos a usuarios</item>
+    </string-array>
+
+    <string-array name="multimedia">
+        <item>Ver imagenes de la galeria</item>
+        <item>Subir imagenes a la galeria</item>
+        <item>Ver los terrats de la gente </item>
+        <item>Subir tu terrat de casa</item>
+        <item>Recibir notificaciones de bandos</item>
+        <item>Ver las fiestas del pueblo</item>
+        <item>Ver las imágenes que la gente manda de las fiestas </item>
+    </string-array>
+
+    <string-array name="no_multimedia">
+        <item>Crear bandos</item>
+        <item>Crear fiestas</item>
+        <item>Conceder permisos a usuarios</item>
+    </string-array>
+
+    <string-array name="bandos">
+        <item>Ver imagenes de la galeria</item>
+        <item>Subir imagenes a la galeria</item>
+        <item>Ver los terrats de la gente </item>
+        <item>Subir tu terrat de casa</item>
+        <item>Recibir notificaciones de bandos</item>
+        <item>Generar notificaciones de bandos</item>
+        <item>Ver las fiestas del pueblo</item>
+        <item>Ver las imágenes que la gente manda de las fiestas </item>
+    </string-array>
+
+    <string-array name="no_bandos">
+        <item>Crear fiestas</item>
+        <item>Conceder permisos a usuarios</item>
+    </string-array>
+
+    <string-array name="administrador">
+        <item>Ver imagenes de la galeria</item>
+        <item>Subir imagenes a la galeria</item>
+        <item>Ver los terrats de la gente </item>
+        <item>Subir tu terrat de casa</item>
+        <item>Recibir notificaciones de bandos</item>
+        <item>Generar notificaciones de bandos</item>
+        <item>Ver las fiestas del pueblo</item>
+        <item>Crear las fiestas del pueblo</item>
+        <item>Ver las imágenes que la gente manda de las fiestas </item>
+        <item>Conceder permisos a usuarios</item>
+    </string-array>
+
+    <string-array name="no_administrador">
+        <item>NADA</item>
+    </string-array>
+
+
+    <array name="iconos">
+        <item>@mipmap/ic_home_black_24dp</item>
+        <item>@mipmap/ic_find_in_page_black_24dp</item>
+        <item>@mipmap/ic_drawer_content_picture</item>
+        <item>@mipmap/ic_action_bando</item>
+        <item>@mipmap/ic_toys_black_24dp</item>
+        <item>@mipmap/ic_action_ic_terraza</item>
+        <item>@mipmap/ic_face_black_24dp</item>
+        <item>@mipmap/ic_action_party_icon</item>
+        <item>@mipmap/ic_drawer_action_settings</item>
+        <item>@mipmap/ic_help_outline_black_24dp</item>
+    </array>
+
+    <array name="fotosHome">
+        <item>@drawable/home1</item>
+        <item>@drawable/home2</item>
+        <item>@drawable/home3</item>
+        <item>@drawable/home4</item>
+    </array>
+
+    <array name="fotosGaleria">
+        <item>@drawable/home1</item>
+        <item>@drawable/home2</item>
+        <item>@drawable/home3</item>
+        <item>@drawable/home4</item>
+        <item>@drawable/home5</item>
+        <item>@drawable/torre6</item>
+        <item>@drawable/torre7</item>
+        <item>@drawable/torre8</item>
+        <item>@drawable/torre9</item>
+        <item>@drawable/torre10</item>
+        <item>@drawable/torre11</item>
+        <item>@drawable/torre12</item>
+        <item>@drawable/torre13</item>
+        <item>@drawable/torre14</item>
+        <item>@drawable/torre15</item>
+    </array>
+
+    <string-array name="notificaciones">
+        <item>Todas</item>
+        <item>Bandos</item>
+        <item>Imagenes</item>
+        <item>Ninguna</item>
+    </string-array>
+
+    <string-array name="idiomas">
+        <item>Catalán</item>
+        <item>Castellano</item>
+        <item>Inglés</item>
+    </string-array>
+
+
+</resources>

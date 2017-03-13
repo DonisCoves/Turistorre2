@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_bando.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_bando.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_galeria.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_galeria.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_login.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_login.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_eventos.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_eventos.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_terrats.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_terrats.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_dia.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_dia.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_main.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_main.xml"
+    }
+]

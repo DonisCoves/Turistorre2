@@ -1,0 +1,7 @@
+Facebook
+login: turistorre17@gmail.com
+paswd: adminadmin
+
+Gmail
+login: turistorre17@gmail.com
+paswd: adminadmin

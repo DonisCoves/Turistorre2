@@ -1,0 +1,58 @@
+-----GOOGLE
+
+C:\Program Files\Java\jdk1.7.0_79\bin>keytool -exportcert -list -v -alias androi
+ddebugkey  -keystore C:\Users\pccc\.android\debug.keystore
+Introduzca la contrase±a del almacÚn de claves:
+
+*****************  WARNING WARNING WARNING  *****************
+* La integridad de la informaci¾n almacenada en el almacÚn de claves  *
+* NO se ha comprobado.  Para comprobar dicha integridad, *
+* debe proporcionar la contrase±a del almacÚn de claves.                  *
+*****************  WARNING WARNING WARNING  *****************
+
+Nombre de Alias: androiddebugkey
+Fecha de Creaci¾n: 21-ene-2016
+Tipo de Entrada: PrivateKeyEntry
+Longitud de la Cadena de Certificado: 1
+Certificado[1]:
+Propietario: CN=Android Debug, O=Android, C=US
+Emisor: CN=Android Debug, O=Android, C=US
+N·mero de serie: f8e1a00
+Vßlido desde: Thu Jan 21 16:24:31 CET 2016 hasta: Sat Jan 13 16:24:31 CET 2046
+Huellas digitales del Certificado:
+         MD5: 21:A8:BD:40:8A:94:93:76:52:25:4E:F6:22:D2:01:48
+         SHA1: 89:68:E2:1A:A9:5B:7A:39:F0:A7:BD:01:BF:01:98:17:7B:87:49:C0
+         SHA256: 8C:29:7F:2E:F3:DC:01:8C:62:DF:F8:40:2C:90:70:AF:EC:55:6D:09:4F:
+44:D6:00:54:C8:77:1C:B2:EB:1F:2E
+         Nombre del Algoritmo de Firma: SHA256withRSA
+         Versi¾n: 3
+
+Extensiones:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 37 9D C7 90 96 6E 39 B7   B6 88 B1 01 86 09 36 37  7....n9.......67
+0010: 5A 31 D5 F2                                        Z1..
+]
+]
+
+----------FACEBOOK
+
+C:\Program Files\Java\jdk1.7.0_79\bin>keytool -exportcert -alias androiddebugkey
+ -keystore %HOMEPATH%\.android\debug.keystore | C:\openssl\bin\openssl.exe sha1
+-binary | C:\openssl\bin\openssl.exe base64
+Introduzca la contrase±a del almacÚn de claves:
+
+*****************  WARNING WARNING WARNING  *****************
+* La integridad de la informaci¾n almacenada en el almacÚn de claves  *
+* NO se ha comprobado.  Para comprobar dicha integridad, *
+* debe proporcionar la contrase±a del almacÚn de claves.                  *
+*****************  WARNING WARNING WARNING  *****************
+
+qvVgqCQre7cZhomAEZOdpkNEOFY=
+
+me donea error y vaig probar esta:
+iWjiGqlbejnwp70BvwGYF3uHScA=
+y despues esta
+bULE5UCPpOKYhXD/HLXtXyGQwi0=
