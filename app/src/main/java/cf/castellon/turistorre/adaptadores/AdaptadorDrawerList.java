@@ -81,10 +81,10 @@ public class AdaptadorDrawerList extends BaseAdapter {
         TypedArray iconosDrawer;
         DatosDrawerList datosDrawer;
 
-        listaDatosDrawer = new ArrayList<DatosDrawerList>();
+        listaDatosDrawer = new ArrayList<>();
         iconosDrawer=actividad.getResources().obtainTypedArray(R.array.iconos);
         seccionesDrawer=actividad.getResources().getStringArray(R.array.secciones);
-        listaDatosDrawer=new ArrayList<DatosDrawerList>(seccionesDrawer.length);
+        listaDatosDrawer=new ArrayList<>(seccionesDrawer.length);
 
         for (int i=0;i<seccionesDrawer.length;i++) {
             datosDrawer = new DatosDrawerList(seccionesDrawer[i], iconosDrawer.getDrawable(i));

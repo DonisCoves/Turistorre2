@@ -1,44 +1,26 @@
 package cf.castellon.turistorre.fragments;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,7 +28,6 @@ import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.MyFireAdapterEventosRecyclerView;
 import cf.castellon.turistorre.bean.Evento;
 import cf.castellon.turistorre.bean.Imagen;
-import cf.castellon.turistorre.bean.ImagenParcel;
 
 import static cf.castellon.turistorre.utils.Utils.*;
 import static cf.castellon.turistorre.utils.Constantes.*;
@@ -124,10 +105,10 @@ public class Eventos extends Fragment {
                     ref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            ArrayList<ImagenParcel> imagenes=new ArrayList<>();
+                            ArrayList<Imagen> imagenes=new ArrayList<>();
                             for (DataSnapshot eventoDS: dataSnapshot.getChildren()) {
                                 for(DataSnapshot imagenDS: eventoDS.child("imagenes").getChildren()){
-                                    ImagenParcel imagen = imagenDS.getValue(ImagenParcel.class);
+                                    Imagen imagen = imagenDS.getValue(Imagen.class);
                                     imagenes.add(imagen);
                                 }
                             }

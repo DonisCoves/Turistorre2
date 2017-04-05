@@ -1,8 +1,13 @@
 <resources>
 
+
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar" />
+
+    <style name="spring_tones" parent="AppTheme">
+
+
     </style>
 
     <!-- Activity with no Title -->
@@ -22,8 +27,74 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+<style name="dialogos" parent="Theme.AppCompat.Dialog" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<!--FUENTES-->
+    <style name="Fuentes">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#00FF00</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+    <style name="Fuentes.spring_tones">
+        <item name="android:textColor">@color/spring_tones_azul1</item>
+    </style>
+    <style name="Fuentes.paper_succulents">
+        <item name="android:textColor">@color/paper_succulents_gris1</item>
+    </style>
+    <style name="Fuentes.mineral_tones">
+        <item name="android:textColor">@color/mineral_tones_gris1</item>
+    </style>
+    <!--Fondos-->
+    <style name="Fondos" />
+    <style name="Fondos.spring_tones">
+        <item name="android:background">@color/spring_tones_azul2</item>
+    </style>
+    <style name="Fondos.paper_succulents">
+        <item name="android:textColor">@color/paper_succulents_rosa2</item>
+    </style>
+    <style name="Fondos.mineral_tones">
+        <item name="android:textColor">@color/mineral_tones_gris2</item>
+    </style>
+
+    <style name="Texto">
+        <item name="android:padding">@dimen/padding_normal</item>
+        <item name="android:capitalize">sentences</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textSize">@dimen/texto</item>
+    </style>
+
+    <style name="Titulo" parent="Texto">
+        <item name="android:fontFamily">casual</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/titulo_texto</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Imagen">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+    </style>
+
+    <style name="ScrollView">
+    </style>
+
+    <style name="drawer">
+        <item name="android:layout_height">@dimen/drawer_alto</item>
+    </style>
+
+    <style name="TextoDrawer">
+        <item name="android:paddingLeft">@dimen/padding_normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/texto</item>
+    </style>
+
+    <style name="mitadHorizontal">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
 
 </resources>

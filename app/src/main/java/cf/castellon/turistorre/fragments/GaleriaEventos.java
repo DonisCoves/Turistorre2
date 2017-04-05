@@ -3,6 +3,7 @@ package cf.castellon.turistorre.fragments;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -55,6 +56,7 @@ public class GaleriaEventos extends Fragment {
     @Bind(R.id.rvGaleriaEventos) RecyclerView recView;
     private Imagen mImagen;
     private String uidEvento,uidDiaFiesta;
+    private SharedPreferences.Editor editor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -114,7 +116,7 @@ public class GaleriaEventos extends Fragment {
                     if (numPermisos==2)
                         goCamera(this);
                     else
-                        pedirPermiso3(this, new String [] {Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA},new int []{PERMISO_ESCRIBIR_SD,PERMISO_CAMARA} , recView);
+                        pedirPermiso(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, recView);
                     break;
                 case R.id.it_galeriaEventos:
                     buscarFotoMem();
@@ -259,12 +261,16 @@ public class GaleriaEventos extends Fragment {
             case PERMISO_ESCRIBIR_SD :
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.d(TAG, "Permiso  escritura concedido. Permisos vigentes " + ++numPermisos);
+                    pedirPermiso(this, Manifest.permission.CAMERA, PERMISO_CAMARA, recView);
                 }
                 else {
                     Log.i(TAG, "Permiso denegado. Permisos vigentes " + numPermisos);
                 }
                 break;
         }
+		   editor = prefs.edit();
+        editor.putInt("numPermisos", numPermisos);
+        editor.commit();
         if (numPermisos==2) {
             goCamera(this);
         }

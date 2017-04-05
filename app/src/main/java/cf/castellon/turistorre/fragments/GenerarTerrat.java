@@ -3,6 +3,7 @@ package cf.castellon.turistorre.fragments;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -49,6 +50,8 @@ import static cf.castellon.turistorre.utils.Constantes.PERMISO_CAMARA;
 import static cf.castellon.turistorre.utils.Constantes.PERMISO_ESCRIBIR_SD;
 import static cf.castellon.turistorre.utils.Constantes.TAG;
 import static cf.castellon.turistorre.utils.Constantes.mDataBaseBandoRef;
+import static cf.castellon.turistorre.utils.Constantes.mDataBaseKeysRef;
+import static cf.castellon.turistorre.utils.Constantes.mDataBaseRootRef;
 import static cf.castellon.turistorre.utils.Constantes.mDataBaseTerratsRef;
 import static cf.castellon.turistorre.utils.Constantes.mStorageBandoRef;
 import static cf.castellon.turistorre.utils.Constantes.mStorageTerratsRef;
@@ -65,6 +68,7 @@ import static cf.castellon.turistorre.utils.Utils.mFirebaseUser;
 import static cf.castellon.turistorre.utils.Utils.numPermisos;
 import static cf.castellon.turistorre.utils.Utils.obtenerFecha;
 import static cf.castellon.turistorre.utils.Utils.pedirPermiso;
+import static cf.castellon.turistorre.utils.Utils.prefs;
 import static cf.castellon.turistorre.utils.Utils.showProgressDialog;
 
 public class GenerarTerrat extends Fragment {
@@ -72,7 +76,7 @@ public class GenerarTerrat extends Fragment {
     @Bind(R.id.ivGenTerrat) ImageView ivTerrat;
     private StorageReference mStorageRefPre;
     private FragmentTransaction fragmentTransaction;
-
+    private SharedPreferences.Editor editor;
 
     private Activity mActivity;
     private StorageReference mStorageRef;
@@ -106,11 +110,12 @@ public class GenerarTerrat extends Fragment {
                 guardarPanoStorageFire(fileUri);
                 break;
             case (R.id.btnGalTerrat):
-                pedirPermiso(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD,etDireccion);
                 if (numPermisos==2) {
                     Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(intent,CAPTURE_TERRAT_GALLERY_ACTIVITY_REQUEST_CODE);
+                    startActivityForResult(intent, CAPTURE_TERRAT_GALLERY_ACTIVITY_REQUEST_CODE);
                 }
+                else
+                    pedirPermiso(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD,etDireccion);
                 break;
             case (R.id.btnCanTerrat):
                 etDireccion.setText("");
@@ -192,9 +197,9 @@ public class GenerarTerrat extends Fragment {
     private void guardarPanoBBDDFire(final Panoramica pano) {
         DatabaseReference dbRef = mDataBaseTerratsRef.child(pano.getUidImg());
         try {
-            dbRef.setValue(pano).addOnCompleteListener(new OnCompleteListener<Void>() {
+            dbRef.setValue(pano).addOnSuccessListener(getActivity(), new OnSuccessListener<Void>() {
                 @Override
-                public void onComplete(@NonNull Task<Void> task) {
+                public void onSuccess(Void aVoid) {
                     hideProgressDialog();
                     Toast.makeText(getContext(),"Terrat subido con éxito!!",Toast.LENGTH_SHORT).show();
                     Log.d("guardarPanoBBDDFire","Panoramica guardada en BBDD");
@@ -202,8 +207,7 @@ public class GenerarTerrat extends Fragment {
                     fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame, new TerratsFragment()).commit();
                 }
-
-            }).addOnFailureListener(new OnFailureListener() {
+            }).addOnFailureListener(getActivity(), new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Log.d("guardarPanoBBDDFire","Error: "+e.getMessage());
@@ -259,6 +263,9 @@ public class GenerarTerrat extends Fragment {
                 }
                 break;
         }
+		   editor = prefs.edit();
+        editor.putInt("numPermisos", numPermisos);
+        editor.commit();
     }
 
 

@@ -33,15 +33,21 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:padding="10dp"
             android:text="Que puedes hacer"
-            android:padding="10dp"/>
-
-        <TextView
-            android:id="@+id/tvPoder"
+            android:textAllCaps="false"
+            android:typeface="normal" />
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/anonimo"
-            android:padding="10dp"/>
+            android:layout_height="60dp">
+            <TextView
+                android:id="@+id/tvPoder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anonimo"
+                android:padding="10dp"/>
+        </ScrollView>
     </LinearLayout>
 
     <LinearLayout
@@ -55,13 +61,16 @@
             android:layout_height="wrap_content"
             android:text="Que NO puedes hacer"
             android:padding="10dp"/>
-
-        <TextView
-            android:id="@+id/tvNoPoder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/no_anonimo"
-            android:padding="10dp"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:id="@+id/tvNoPoder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_anonimo"
+                android:padding="10dp"/>
+        </ScrollView>
     </LinearLayout>
 
     <LinearLayout

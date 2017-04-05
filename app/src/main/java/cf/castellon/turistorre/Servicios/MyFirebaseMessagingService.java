@@ -1,12 +1,12 @@
 /**
  * Copyright 2016 Google Inc. All Rights Reserved.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,11 +19,16 @@ package cf.castellon.turistorre.Servicios;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+
 import static cf.castellon.turistorre.utils.Constantes.*;
+import static cf.castellon.turistorre.utils.Utils.buscarUsuario;
+import static cf.castellon.turistorre.utils.Utils.usuario;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +39,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Panoramica;
+import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.ui.MainActivity;
 import cf.castellon.turistorre.bean.Bando;
 
@@ -43,6 +49,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private String action;
     private String titulo;
     private String uidBando;
+    private String uidUser,grupo,nombre;
     private Bando bando;
     private DatabaseReference ref;
 
@@ -62,13 +69,35 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     Bando bando = dataSnapshot.getValue(Bando.class);
-                                    showBandoNotification(bando,remoteMessage);
+                                    showBandoNotification(bando, remoteMessage);
                                 }
+
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
                                     Log.w(TAG, "Bando:onCancelled", databaseError.toException());
                                 }
                             });
+                case ACTION_CAMBIO_GRUPO:
+                    uidUser = remoteMessage.getData().get("uidUser");
+                    nombre = remoteMessage.getData().get("nombre");
+                    grupo = remoteMessage.getData().get("grupo");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setMessage("¿Conceder Permiso?")
+                            .setCancelable(false)
+                            .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Usuario user = buscarUsuario(uidUser);
+                                    mDataBaseGruposRef.child(grupo).child(usuario.getUidUser()).setValue(usuario);
+                                    dialog.cancel();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
                 case ACTION_GPO_TERRAT:
                     ref = mDataBaseTerratsRef.child(remoteMessage.getData().get("uidTerrat"));
                     ref.addListenerForSingleValueEvent(
@@ -76,8 +105,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     Panoramica pano = dataSnapshot.getValue(Panoramica.class);
-                                    showTerratNotification(pano,remoteMessage);
+                                    showTerratNotification(pano, remoteMessage);
                                 }
+
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
                                     Log.w(TAG, "Bando:onCancelled", databaseError.toException());
@@ -98,52 +128,52 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void showBandoNotification(Bando bando, RemoteMessage remoteMessage) {
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         i.setAction(ACTION_GPO_BANDO);
-        i.putExtra("uidBando",remoteMessage.getData().get("uidBando"));
+        i.putExtra("uidBando", remoteMessage.getData().get("uidBando"));
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
-        int idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(),"raw",getPackageName());
-        Uri sonido =  Uri.parse("android.resource://"+ getBaseContext().getPackageName() + "/" + idSound);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        int idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(), "raw", getPackageName());
+        Uri sonido = Uri.parse("android.resource://" + getBaseContext().getPackageName() + "/" + idSound);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
                 .setContentTitle(bando.getTitulo())
                 .setContentText(bando.getDescripcion())
                 .setSound(sonido)
-                .setSmallIcon(R.mipmap.ic_action_bando)
+                .setSmallIcon(R.drawable.ic_action_assignment_turned_in)
                 .setContentIntent(pendingIntent);
 
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(0,builder.build());
+        manager.notify(0, builder.build());
     }
 
     private void showTerratNotification(Panoramica pano, RemoteMessage remoteMessage) {
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         i.setAction(ACTION_GPO_TERRAT);
-        i.putExtra("uidTerrat",remoteMessage.getData().get("uidTerrat"));
+        i.putExtra("uidTerrat", remoteMessage.getData().get("uidTerrat"));
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
-        int idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(),"raw",getPackageName());
-        Uri sonido =  Uri.parse("android.resource://"+ getBaseContext().getPackageName() + "/" + idSound);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        int idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(), "raw", getPackageName());
+        Uri sonido = Uri.parse("android.resource://" + getBaseContext().getPackageName() + "/" + idSound);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
                 .setContentTitle("Terrat añadido en:")
                 .setContentText(pano.getTitulo())
                 .setSound(sonido)
-                .setSmallIcon(R.mipmap.ic_action_ic_terraza)
+                .setSmallIcon(R.drawable.ic_action_ic_terraza)
                 .setContentIntent(pendingIntent);
 
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(0,builder.build());
+        manager.notify(0, builder.build());
     }
 
     private void showBasicNotification(String message) {
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
@@ -154,15 +184,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-        manager.notify(0,builder.build());
+        manager.notify(0, builder.build());
 
     }
 
     public void showInboxStyleNotification(String message) {
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this, MainActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification.Builder builder = new Notification.Builder(this)
                 .setContentTitle("Inbox Style notification")

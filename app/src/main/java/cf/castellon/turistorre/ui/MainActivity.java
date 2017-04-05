@@ -1,5 +1,6 @@
 package cf.castellon.turistorre.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +8,7 @@ import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
@@ -33,15 +35,13 @@ import cf.castellon.turistorre.fragments.AcercaFragment;
 import cf.castellon.turistorre.fragments.AjustesFragment;
 import cf.castellon.turistorre.fragments.BandoFragment;
 import cf.castellon.turistorre.fragments.BandoSeleccionadoFragment;
-import cf.castellon.turistorre.fragments.FiestasFragment;
 import cf.castellon.turistorre.fragments.GaleriaFragment;
 import cf.castellon.turistorre.fragments.HomeFragment;
 import cf.castellon.turistorre.fragments.LoginFragment;
-import cf.castellon.turistorre.fragments.RaconsFragment;
+import cf.castellon.turistorre.fragments.Racons;
 import cf.castellon.turistorre.fragments.SplashFragment;
 import cf.castellon.turistorre.fragments.TerratSeleccionadoFragment;
 import cf.castellon.turistorre.fragments.TerratsFragment;
-import cf.castellon.turistorre.fragments.TrobamFragment;
 import cf.castellon.turistorre.bean.Bando;
 
 /**
@@ -137,6 +137,17 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         setContentView(R.layout.activity_main);
 
         switch (getIntent().getAction()) {
+            case ACTION_MAIN:
+                frSeccion = new SplashFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                if (getSupportFragmentManager().findFragmentById(R.id.frSelector) != null) { //tablet
+                    fragmentTransaction.add(R.id.flMain, frSeccion).commit();
+                } else {
+                    fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
+                    prepareDrawer();
+                    mDrawerLayout.setDrawerListener(mDrawerToggle);
+                }
+                break;
             case ACTION_GPO_BANDO:
                 seccion = "Bando";
                 frSeccion = new BandoSeleccionadoFragment();
@@ -157,7 +168,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                                 bund.putString("IMAGEN_URL_STR",bando.getUrl());
                                 frSeccion.setArguments(bund);
                                 fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
-
                             }
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
@@ -165,6 +175,47 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                                 hideProgressDialog();
                             }
                         });
+                break;
+            case ACTION_CAMBIO_GRUPO:
+                // No es necesario comprobar que al usuario que recibe la peticion es el administros ya que eso
+                // nos lo hace FireBase. Si esta suscrito al topic es que será el administrador
+                seccion = "Home";
+                frSeccion = new HomeFragment();
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                prepareDrawer();
+                mDrawerLayout.setDrawerListener(mDrawerToggle);
+                Bundle bundle = getIntent().getExtras();
+                final String uidUser = bundle.getString("uidUser");
+                String nombre = bundle.getString("nombre");
+                final String grupoNuevo = bundle.getString("grupoNuevo");
+                final String grupoViejo = bundle.getString("grupoViejo");
+                final String avatar = bundle.getString("avatar");
+                final Usuario userCliente = new Usuario(nombre,avatar,uidUser,grupoNuevo);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("¿Conceder Permiso?")
+                        .setCancelable(false)
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                mDataBaseGruposRef.child(grupoViejo).child(uidUser).setValue(null);
+                                mDataBaseGruposRef.child(grupoNuevo).child(uidUser).setValue(userCliente);
+                                mDataBaseUsersRef.child(uidUser).setValue(userCliente);
+                                dialog.cancel();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+                if (getSupportFragmentManager().findFragmentById(R.id.frSelector) != null) { //tablet
+                    fragmentTransaction.add(R.id.flMain, frSeccion).commit();
+                } else {
+                    fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
+                    prepareDrawer();
+                    mDrawerLayout.setDrawerListener(mDrawerToggle);
+                }
                 break;
             case ACTION_GPO_TERRAT:
                 seccion = "Terrat";
@@ -195,32 +246,25 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                             }
                         });
                 break;
-            case ACTION_MAIN:
-                seccion = "Home";
-                frSeccion = new HomeFragment();
-                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                if (getSupportFragmentManager().findFragmentById(R.id.frSelector) != null) { //tablet
-                    fragmentTransaction.add(R.id.flMain, frSeccion).commit();
-                } else {
-                    fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
-                    prepareDrawer();
-                    mDrawerLayout.setDrawerListener(mDrawerToggle);
-                }
-
         }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        crearUsuarios();
+        if (racons.isEmpty())
+            crearRacons();
+        if (usuarios.isEmpty())
+            crearUsuarios();
+        if (imagenes.isEmpty())
+            crearImagenes();
     }
 
     private void prepareDrawer() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         //Explicado en 1.-
 
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.mipmap.ic_navigation_drawer, R.string.open, R.string.close) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_navigation_drawer, R.string.open, R.string.close) {
             /*    En estos métodos tendremos que llamar a invalidateOptionsMenu en donde le indicaremos a Android
             *    que queremos cambiar la action Bar. invalidateOptionsMenu llama a onPrepareOptionsMenu  */
             @Override
@@ -252,10 +296,39 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
         adaptadorDrawer = new AdaptadorDrawerList(this);
 
+        /*final FirebaseRemoteConfig mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
+                .setDeveloperModeEnabled(BuildConfig.DEBUG)
+                .build();
+        mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
+        mFirebaseRemoteConfig.setConfigSettings(configSettings);
+
+        final String color_fondo_drawer = mFirebaseRemoteConfig.getString("color_fondo_drawer");
+        final String color_fondo_drawer2 = mFirebaseRemoteConfig.getString("color_fondo_drawer2");
+
+        int id = getResources().getIdentifier(color_fondo_drawer,"color",getPackageName());
+
+        //iconosDrawer.recycle();  //como no se ejecuta el garbaje tenemos que hacerlo nosotros*/
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        //iconosDrawer.recycle();  //como no se ejecuta el garbaje tenemos que hacerlo nosotros
         mDrawerList.setAdapter(adaptadorDrawer);
         mDrawerList.setOnItemClickListener(this);
+//        mDrawerList.setBackgroundColor(getResources().getColor(id));
+//        mFirebaseRemoteConfig.activateFetched();
+        /*mFirebaseRemoteConfig.fetch(0).addOnSuccessListener(this, new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d("Probes","Color Antes: "+color_fondo_drawer);
+                String color_fondo_drawer = mFirebaseRemoteConfig.getString("color_fondo_drawer");
+                int id = getResources().getIdentifier(color_fondo_drawer,"color",getPackageName());
+                mDrawerList.setBackgroundColor(getResources().getColor(id));
+                mFirebaseRemoteConfig.activateFetched();
+                color_fondo_drawer = mFirebaseRemoteConfig.getString("color_fondo_drawer");
+                id = getResources().getIdentifier(color_fondo_drawer,"color",getPackageName());
+                mDrawerList.setBackgroundColor(getResources().getColor(id));
+                Log.d("Probes","Color Despues: "+color_fondo_drawer);
+            }
+        });*/
+//        mFirebaseRemoteConfig.activateFetched();
     }
 
     @Override
@@ -294,16 +367,13 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 seccion = "TurisTorre";
                 break;
             case "Racons":
-                frSeccion = new RaconsFragment();
+                frSeccion = new Racons();
                 break;
             case "Galeria":
                 frSeccion = new GaleriaFragment();
                 break;
             case "Bandos":
                 frSeccion = new BandoFragment();
-                break;
-            case "Trobam":
-                frSeccion = new TrobamFragment();
                 break;
             case "Terrats":
                 frSeccion = new TerratsFragment();

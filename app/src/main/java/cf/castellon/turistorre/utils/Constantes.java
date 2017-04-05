@@ -37,6 +37,14 @@ public final class Constantes {
     public static final int CUENTAS = 2;
     public static final int PERMISO_CAMARA= 3;
     public static final int PERMISO_ESCRIBIR_SD = 4;
+    public static final int CARGAR_USUARIO = 0;
+    public static final int CARGAR_IMAGENES = 1;
+    public static final int CARGAR_TERRATS = 2;
+    public static final int CARGAR_RACONS = 3;
+    public static final int CARGAR_FIESTAS = 4;
+    public static final int CARGAR_HOME = 5;
+    public static final int CARGAR_USUARIOS = 6;
+//    public static final int CARGAR_TODO = 5;
     public static final int PERMISO_SUBIR_IMAGENES = 5; //Es el de camara y el de escribirsd
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     public static final int CAPTURE_IMAGE_GALLERY_ACTIVITY_REQUEST_CODE = 101;
@@ -50,6 +58,8 @@ public final class Constantes {
     public static final StorageReference mStorageBandoRef = mStorageRootRef.child("Bandos");
     public static final StorageReference mStorageTerratsRef = mStorageRootRef.child("Terrats");
     public static final StorageReference mStorageFiestasRef = mStorageRootRef.child("Fiestas");
+    public static final StorageReference mStorageRaconsRef = mStorageRootRef.child("Racons");
+
     //Bases de datos en tiempo real
     public static final DatabaseReference mDataBaseRootRef = FirebaseDatabase.getInstance().getReference();
     public static final DatabaseReference mDataBaseKeysRef = mDataBaseRootRef.child("keys");
@@ -60,6 +70,7 @@ public final class Constantes {
     public static final DatabaseReference mDataBaseFiestasRef = mDataBaseRootRef.child("Fiestas");
     public static final DatabaseReference mDataBaseDiasFiestaRef = mDataBaseRootRef.child("DiasFiestas");
     public static final DatabaseReference mDataBaseGruposRef = mDataBaseRootRef.child("Grupos");
+    public static final DatabaseReference mDataBaseRaconsRef = mDataBaseRootRef.child("Racons");
 
     public static final String TAG = "GaleriaFragment";
     //    MENSAJERÍA EN LA NUBE
@@ -77,21 +88,17 @@ public final class Constantes {
     //NOTIFICACIONES
     public static final String ACTION_GPO_BANDO = "BANDO";
     public static final String ACTION_GPO_TERRAT = "TERRAT";
+    public static final String ACTION_CAMBIO_GRUPO = "CAMBIO_GRUPO";
+
     public static final String ACTION_MAIN = "android.intent.action.MAIN";
 
     public static final Integer [] AVATARES = {
-            R.drawable.avatar1,
-            R.drawable.avatar2,
-            R.drawable.avatar3,
-            R.drawable.avatar4,
-            R.drawable.avatar5
+            R.drawable.ic_action_home,
+            R.drawable.ic_action_find_in_page
     };
     public static final Integer [] PORTADAS = {
-            R.drawable.home1,
-            R.drawable.home2,
-            R.drawable.home3,
-            R.drawable.home4,
-            R.drawable.home5
+            R.drawable.ic_action_home,
+            R.drawable.ic_action_find_in_page
     };
 
     public static enum Tipo_Proveedor{

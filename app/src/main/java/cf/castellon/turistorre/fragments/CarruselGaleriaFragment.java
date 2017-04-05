@@ -33,7 +33,7 @@ public class CarruselGaleriaFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View inflatedView;
 
-        inflatedView = inflater.inflate(R.layout.carrusel_layout,container,false);
+        inflatedView = inflater.inflate(R.layout.home_layout,container,false);
 
         mViewPager = (ViewPager)inflatedView.findViewById(R.id.vpHome);
         adaptador = new FragmentPageCarruselAdapter(fragmentManager);

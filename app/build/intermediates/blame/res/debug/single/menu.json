@@ -8,6 +8,10 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_galeria.xml"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_racons.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_racons.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_login.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\menu\\menu_login.xml"
     },

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etTituloRaco"
+        style="@style/Texto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titulo" />
+
+    <EditText
+        android:id="@+id/etDescRaco"
+        style="@style/Texto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripcion"
+        android:inputType="textMultiLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCamaraRaco"
+            style="@style/mitadHorizontal"
+            android:text="Camara" />
+
+        <Button
+            android:id="@+id/btnMemoriaRaco"
+            style="@style/mitadHorizontal"
+            android:text="Galeria"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnConfRaco"
+            style="@style/mitadHorizontal"
+            android:text="Confirmar" />
+
+        <Button
+            android:id="@+id/btnCancRaco"
+            style="@style/mitadHorizontal"
+            android:text="Cancelar" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivGenerarRaco"
+        style="@style/Imagen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

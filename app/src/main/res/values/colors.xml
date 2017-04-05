@@ -10,5 +10,29 @@
     <color name="blue_grey_900">#263238</color>
     <color name="verde_claro">#99FF66</color>
     <color name="amarillo_claro">#CCFF66</color>
+    <color name="blanco">#ffffff</color>
     <color name="primary_material_light_1">#e81111</color>
+
+    <!--spring tones  - a + intensidad --> <!--AZUL-->
+    <color name="spring_tones_azul1">#E6E3F0</color><!--FUENTES-->
+    <color name="spring_tones_azul2">#C1D0F3</color><!--FONDO-->
+    <color name="spring_tones_azul3">#8CB2E9</color>
+    <color name="spring_tones_azul4">#3D4880</color>
+    <color name="spring_tones_verde">#7D9C47</color><!--FONDO-->
+    <color name="spring_tones_gris">#DEE8BC</color>
+    <!--paper succulents  - a + intensidad --> <!--GRIS-->
+    <color name="paper_succulents_gris1">#FAFAFC</color><!--FUENTES-->
+    <color name="paper_succulents_gris2">#EFEEED</color>
+    <color name="paper_succulents_gris3">#8F9F88</color>
+    <color name="paper_succulents_gris4">#3D4A39</color>
+    <color name="paper_succulents_rosa1">#E2B6AA</color>
+    <color name="paper_succulents_rosa2">#F9E2D6</color> <!--FONDO-->
+    <!--MINERAL TONES  - a + intensidad --> <!--NEGRO--> <!--DA MAS ENFASIS-->
+    <color name="mineral_tones_gris1">#E9E9F1</color><!--FUENTES-->
+    <color name="mineral_tones_gris2">#E5DEDC</color>  <!--FONDO-->
+    <color name="mineral_tones_rosa">#E2C5B8</color>
+    <color name="mineral_tones_negro1">#555554</color>
+    <color name="mineral_tones_negro2">#222525</color>
+    <color name="mineral_tones_negro3">#080C0B</color>
+    <color name="background_material_light">#ea1010</color>
 </resources>

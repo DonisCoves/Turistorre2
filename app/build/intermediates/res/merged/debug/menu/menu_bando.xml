@@ -9,6 +9,6 @@
     <item
         android:id="@+id/it_bando"
         android:title="crear bando"
-        android:icon="@mipmap/ic_action_alarms"
+        android:icon="@drawable/ic_action_settings_remote"
         app:showAsAction="ifRoom" />
 </menu>

@@ -3,6 +3,8 @@ package cf.castellon.turistorre.fragments;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -47,6 +49,7 @@ public class GenerarBandoFragment extends Fragment {
     private Activity mActivity;
     private StorageReference mStorageRef;
     private Bando bando;
+    private SharedPreferences.Editor editor;
 
     @Override
     public void onAttach(Activity activity) {
@@ -79,11 +82,10 @@ public class GenerarBandoFragment extends Fragment {
                 buscarFotoMem();
                 break;
             case (R.id.btnCamara):
-                pedirPermiso(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD,etTitulo);
-                pedirPermiso(mActivity, Manifest.permission.CAMERA, PERMISO_CAMARA, etTitulo);
-                if (numPermisos==2) {
+                if (numPermisos==2)
                     goCamera(this);
-                }
+                else
+                    pedirPermiso(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo);
                 break;
         }
     }
@@ -111,17 +113,15 @@ public class GenerarBandoFragment extends Fragment {
         } else {
             Toast.makeText(getContext(),"Rellena el título y pon una imagen",Toast.LENGTH_SHORT).show();
         }
-
-    }
+  }
 
     private void guardarBandoBBDDFire() {
         try{
             final DatabaseReference dbRef = mDataBaseBandoRef.push();
             dbRef.setValue(bando)
-                    .addOnCompleteListener(mActivity, new OnCompleteListener<Void>() {
+                    .addOnSuccessListener(mActivity, new OnSuccessListener<Void>() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            hideProgressDialog();
+                        public void onSuccess(Void aVoid) {
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame,new BandoFragment()).commit();
                             generarNotificacionBando(bando.getTitulo(),bando.getFecha(),dbRef.getKey());
@@ -167,9 +167,38 @@ public class GenerarBandoFragment extends Fragment {
 
     }
 
-
     private void buscarFotoMem() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent,CAPTURE_IMAGE_GALLERY_ACTIVITY_REQUEST_CODE);
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISO_CAMARA :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d(TAG, "Permiso  camara concedido. Permisos vigentes " + ++numPermisos);
+                }
+                else {
+                    Log.i(TAG, "Permiso denegado. Permisos vigentes " + numPermisos);
+                }
+                break;
+            case PERMISO_ESCRIBIR_SD :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Log.d(TAG, "Permiso  escritura concedido. Permisos vigentes " + ++numPermisos);
+                    pedirPermiso(this, Manifest.permission.CAMERA, PERMISO_CAMARA, etTitulo);
+                }
+                else {
+                    Log.i(TAG, "Permiso denegado. Permisos vigentes " + numPermisos);
+                }
+                break;
+        }
+		   editor = prefs.edit();
+        editor.putInt("numPermisos", numPermisos);
+        editor.commit();
+        if (numPermisos==2) {
+            goCamera(this);
+        }
+    }
+
 }

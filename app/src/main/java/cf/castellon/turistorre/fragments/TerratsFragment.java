@@ -95,7 +95,7 @@ public class TerratsFragment extends Fragment {
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 Panoramica pano = adaptador.getItem(recView.getChildAdapterPosition(v));
+                Panoramica pano = adaptador.getItem(recView.getChildAdapterPosition(v));
                 bund = new Bundle();
                 bund.putString("TITULO", pano.getTitulo());
                 Usuario usuario = buscarUsuario(pano.getUidUser());

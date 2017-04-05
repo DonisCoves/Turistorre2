@@ -1,6 +1,5 @@
 package cf.castellon.turistorre.fragments;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -46,16 +45,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import static cf.castellon.turistorre.utils.Utils.*;
-import com.facebook.login.widget.ProfilePictureView;
+
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserInfo;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
@@ -63,7 +61,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cf.castellon.turistorre.R;
 import static cf.castellon.turistorre.utils.Constantes.*;
-import cf.castellon.turistorre.bean.UsuarioParcel;
+import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.utils.MiAplicacion;
 import cf.castellon.turistorre.bean.Proveedor;
 
@@ -88,7 +86,6 @@ public class LoginFragment extends Fragment implements GoogleApiClient.OnConnect
     private AccessTokenTracker mFacebookAccessTokenTracker;/* Used to track user logging in/out off Facebook */
     @Bind(R.id.btn_desconectar_g) Button signoutG;
     @Bind(R.id.sign_conectar_g) SignInButton mGoogleLoginButton;
-    UsuarioParcel usuario;
 
     @Override
     public void onAttach(Activity activity) {
@@ -122,29 +119,18 @@ public class LoginFragment extends Fragment implements GoogleApiClient.OnConnect
                 .requestIdToken(getString(R.string.server_web_id_str))
                 .requestEmail()
                 .build();
-        mGoogleApiClient = new GoogleApiClient.Builder(getContext())
-                .enableAutoManage(getActivity(), this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
+        if (mGoogleApiClient==null) {
+            mGoogleApiClient = new GoogleApiClient.Builder(getContext())
+                    .enableAutoManage(getActivity(), this)
+                    .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                    .build();
+        }
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 mAuthProgressDialog.hide();
                 mFirebaseUser = firebaseAuth.getCurrentUser();
-                if (mFirebaseUser != null) {
-                    mDataBaseUsersRef.child(mFirebaseUser.getUid()).addListenerForSingleValueEvent(
-                            new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    usuario = dataSnapshot.getValue(UsuarioParcel.class);
-                                }
 
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-                                    Log.e(TAG, "getUser:onCancelled", databaseError.toException());
-                                }
-                            });
-                }
                 if (mFirebaseUser != null && numProvs != mFirebaseUser.getProviderData().size()) {
                     numProvs = mFirebaseUser.getProviderData().size();
                     if (numProvs == 2) {//La primera vez lo guardamos en la bbdd de firebase
@@ -167,16 +153,18 @@ public class LoginFragment extends Fragment implements GoogleApiClient.OnConnect
 
     @Override
     public void onStop() {
-//          if (user!=null && user.isProveedor("google"))
-//              mGoogleApiClient.disconnect();
         super.onStop();
+        if (mFirebaseUser!=null) {
+            mGoogleApiClient.disconnect();
+        }
         if (mAuthListener != null)
             mAuth.removeAuthStateListener(mAuthListener);
+        mAuthProgressDialog.dismiss();
     }
 
     @Override
     public void onStart() {
-        if (mFirebaseUser != null && mFirebaseUser.getProviderId().equalsIgnoreCase("google.com"))
+        if (mFirebaseUser != null) //&& mFirebaseUser.getProviderId().equalsIgnoreCase("google.com"))
             mGoogleApiClient.connect();
         mAuth.addAuthStateListener(mAuthListener);
         super.onStart();
@@ -383,6 +371,7 @@ public class LoginFragment extends Fragment implements GoogleApiClient.OnConnect
             mDataBaseGruposRef.child("Multimedia").child(mFirebaseUser.getUid()).setValue(null);
             mFirebaseUser.delete();
             FirebaseAuth.getInstance().signOut();
+            usuario=null;
             numProvs = 0;
         } else {
             numProvs--;
@@ -534,12 +523,21 @@ public class LoginFragment extends Fragment implements GoogleApiClient.OnConnect
 
     private void crearUsuarioBBDDFire(final String userId, final String nombre, final String avatar, final String grupo) {
         mAuthProgressDialog.show();//No me aparece el dialogo
-        usuario = new UsuarioParcel(nombre, avatar, userId, grupo);
+        editor = prefs.edit();
+        editor.putString("uidUser", userId);
+        editor.commit();
+        if (nombre.equalsIgnoreCase("TurisTorre Turistorre")){
+            usuario = new Usuario(nombre, avatar, userId, "administrador");
+            FirebaseMessaging.getInstance().subscribeToTopic("administrador");
+        }
+        else
+            usuario = new Usuario(nombre, avatar, userId, grupo);
+        anyadirUsuarioLocal(usuario);
         mDataBaseUsersRef.child(userId).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 mAuthProgressDialog.hide();
-                mDataBaseGruposRef.child(grupo).child(userId).setValue(usuario);
+                mDataBaseGruposRef.child(usuario.getGrupo()).child(userId).setValue(usuario);
             }
 
         }).addOnFailureListener(new OnFailureListener() {

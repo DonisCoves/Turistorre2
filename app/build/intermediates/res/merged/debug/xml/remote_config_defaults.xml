@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <defaultsMap>
     <entry>
-        <key>Parametro1</key>
-        <value>Parametro1 de la app</value>
+        <key>portada_valores</key>
+        <value>racons</value>
     </entry>
     <entry>
-        <key>Parametro2</key>
-        <value>1</value>
+        <key>usuario</key>
+        <value></value>
     </entry>
     <entry>
-        <key>Parametro3</key>
-        <value>false</value>
+        <key>color_fondo_drawer</key>
+        <value>verde_claro</value>
     </entry>
 </defaultsMap>

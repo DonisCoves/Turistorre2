@@ -8,16 +8,23 @@ import butterknife.ButterKnife.ViewBinder;
 public class Permisos$$ViewBinder<T extends cf.castellon.turistorre.fragments.Permisos> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131689732, "field 'tvPermiso'");
-    target.tvPermiso = finder.castView(view, 2131689732, "field 'tvPermiso'");
-    view = finder.findRequiredView(source, 2131689733, "field 'tvPoder'");
-    target.tvPoder = finder.castView(view, 2131689733, "field 'tvPoder'");
-    view = finder.findRequiredView(source, 2131689734, "field 'tvNoPoder'");
-    target.tvNoPoder = finder.castView(view, 2131689734, "field 'tvNoPoder'");
-    view = finder.findRequiredView(source, 2131689735, "field 'spiner'");
-    target.spiner = finder.castView(view, 2131689735, "field 'spiner'");
-    view = finder.findRequiredView(source, 2131689736, "field 'btEnviar'");
-    target.btEnviar = finder.castView(view, 2131689736, "field 'btEnviar'");
+    view = finder.findRequiredView(source, 2131689728, "field 'tvPermiso'");
+    target.tvPermiso = finder.castView(view, 2131689728, "field 'tvPermiso'");
+    view = finder.findRequiredView(source, 2131689729, "field 'tvPoder'");
+    target.tvPoder = finder.castView(view, 2131689729, "field 'tvPoder'");
+    view = finder.findRequiredView(source, 2131689730, "field 'tvNoPoder'");
+    target.tvNoPoder = finder.castView(view, 2131689730, "field 'tvNoPoder'");
+    view = finder.findRequiredView(source, 2131689731, "field 'spiner'");
+    target.spiner = finder.castView(view, 2131689731, "field 'spiner'");
+    view = finder.findRequiredView(source, 2131689732, "method 'onClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.onClick(p0);
+        }
+      });
   }
 
   @Override public void unbind(T target) {
@@ -25,6 +32,5 @@ public class Permisos$$ViewBinder<T extends cf.castellon.turistorre.fragments.Pe
     target.tvPoder = null;
     target.tvNoPoder = null;
     target.spiner = null;
-    target.btEnviar = null;
   }
 }

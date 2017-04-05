@@ -15,8 +15,9 @@
         android:name=".utils.MiAplicacion"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:largeHeap="true"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/spring_tones">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -38,12 +39,12 @@
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="BANDO" />
                 <action android:name="TERRAT" />
+                <action android:name="CAMBIO_GRUPO" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.NotificacionesActivity" />
 
         <!-- [START firebase_service] -->
         <service android:name=".Servicios.MyFirebaseMessagingService">
@@ -59,36 +60,13 @@
             </intent-filter>
         </service>
         <!-- [END firebase_iid_service] -->
-        <activity android:name=".pruebas.ActivityChatJava" />
-        <activity android:name=".pruebas.ActivityFCM" />
-        <activity android:name=".pruebas.GruposFireActivity" />
-        <activity android:name=".ui.VRActivity">
 
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-
-        <activity android:name=".pruebas.PanoramaActivity">
-
-
-        </activity>
         <activity android:name=".fragments.SplashActivity" />
-        <activity
-            android:name=".ui.ProbesActivity"
-            android:label="@string/title_activity_probes"
-            android:theme="@style/AppTheme.NoActionBar">
-            <!-- <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
 
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>-->
-        </activity>
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider637714603049615"
+            android:exported="true" />
     </application>
 
 </manifest>

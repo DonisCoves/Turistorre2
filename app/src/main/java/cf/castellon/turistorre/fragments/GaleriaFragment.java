@@ -2,21 +2,30 @@ package cf.castellon.turistorre.fragments;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.ShareActionProvider;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.ActionProvider;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 import static cf.castellon.turistorre.utils.Utils.*;
@@ -38,8 +47,7 @@ import cf.castellon.turistorre.bean.Imagen;
 
 import static cf.castellon.turistorre.utils.Constantes.*;
 
-public class GaleriaFragment extends Fragment {
-    private RecyclerView recView;
+public class GaleriaFragment extends Fragment{
     private Activity mActivity;
     private StorageReference mStorageRefPre;
     private StorageReference mStorageRef;
@@ -47,11 +55,13 @@ public class GaleriaFragment extends Fragment {
     private MyFireAdapterGaleriaRecyclerView adaptador;
     private LinearLayout layout;
     private GridLayoutManager manager;
-    private CarruselGaleriaFragment carruselGaleriaFragment;
+    private CarruselGaleria carruselGaleriaFragment;
     private Bundle bund;
     private FragmentTransaction fragmentTransaction;
-
-
+    private ShareActionProvider mShareActionProvider;
+    Intent shareIntent;
+    @Bind(R.id.rvGaleria) RecyclerView recView;
+    private SharedPreferences.Editor editor;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +87,8 @@ public class GaleriaFragment extends Fragment {
         View view = inflater.inflate(R.layout.galeria_layout,container,false);
 
         ButterKnife.bind(this, view);
+
         setHasOptionsMenu(true);
-        recView = (RecyclerView) view.findViewById(R.id.rvGaleria);
         recView.setHasFixedSize(true);
         recView.setLayoutManager(manager);
         adaptador.setOnClickListener(new View.OnClickListener() {
@@ -86,13 +96,44 @@ public class GaleriaFragment extends Fragment {
             public void onClick(View v) {
                 Imagen imagen = adaptador.getItem(recView.getChildPosition(v));
                 fragmentTransaction = getFragmentManager().beginTransaction();
-                carruselGaleriaFragment = new CarruselGaleriaFragment();
+                carruselGaleriaFragment = new CarruselGaleria();
                 bund = new Bundle();
                 bund.putString("UID_IMG", imagen.getUidImg());
                 carruselGaleriaFragment.setArguments(bund);
                 fragmentTransaction.replace(R.id.content_frame, carruselGaleriaFragment).commit();
             }
         });
+
+        adaptador.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(final View v) {
+                Imagen imagen = adaptador.getItem(recView.getChildPosition(v));
+
+                if (usuario!=null && (imagen.getUidUser().equals(usuario.getUidUser()) || usuario.getGrupo().equalsIgnoreCase("administrador"))) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("¿Estas seguro de eliminar la imagen?")
+                            .setCancelable(false)
+                            .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    DatabaseReference refEliminar = adaptador.getRef(recView.getChildPosition(v));
+                                    refEliminar.removeValue();
+                                    dialog.cancel();
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+               }
+                else
+                    Toast.makeText(getActivity(),"No puedes eliminar una imagen que no es tuya",Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
         recView.setAdapter(adaptador);
         return view;
     }
@@ -100,6 +141,12 @@ public class GaleriaFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_galeria, menu);
+        MenuItem menuItem = menu.findItem(R.id.itSharedGaleria);
+        mShareActionProvider = (ShareActionProvider)MenuItemCompat.getActionProvider(menuItem);
+        shareIntent =new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,"Desde TurisTorre");
+        mShareActionProvider.setShareIntent(shareIntent);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -108,11 +155,14 @@ public class GaleriaFragment extends Fragment {
         if (mFirebaseUser !=null)
             switch (item.getItemId()){
                 case R.id.it_foto:
-                    pedirPermiso(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, recView);
-                    pedirPermiso(mActivity, Manifest.permission.CAMERA, PERMISO_CAMARA, recView);
                     if (numPermisos==2)
                         goCamera(this);
+                    else
+                        pedirPermiso(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, recView);
+                    break;
             }
+        else
+                Toast.makeText(getActivity(),"Registrate para subir fotos",Toast.LENGTH_SHORT).show();
         return super.onOptionsItemSelected(item);
     }
 
@@ -205,18 +255,22 @@ public class GaleriaFragment extends Fragment {
             case PERMISO_ESCRIBIR_SD :
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Log.d(TAG, "Permiso  escritura concedido. Permisos vigentes " + ++numPermisos);
+                    pedirPermiso(this, Manifest.permission.CAMERA, PERMISO_CAMARA, recView);
                 }
                 else {
                     Log.i(TAG, "Permiso denegado. Permisos vigentes " + numPermisos);
                 }
                 break;
         }
+		   editor = prefs.edit();
+        editor.putInt("numPermisos", numPermisos);
+        editor.commit();
         if (numPermisos==2) {
             goCamera(this);
         }
     }
 
-    private void guardarFotoBBDDFire(Imagen imagen) {
+    private void guardarFotoBBDDFire(final Imagen imagen) {
         DatabaseReference dbRef = mDataBaseImgRef.child(imagen.getUidImg());
         try {
             dbRef.setValue(mImagen).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -238,6 +292,5 @@ public class GaleriaFragment extends Fragment {
             Log.e(TAG,e.getMessage());
         }
     }
-
 
 }

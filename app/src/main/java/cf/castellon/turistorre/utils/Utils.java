@@ -1,5 +1,6 @@
 package cf.castellon.turistorre.utils;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -20,13 +21,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
@@ -35,6 +36,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -57,8 +59,8 @@ import cf.castellon.turistorre.bean.DiaFiestaMeta;
 import cf.castellon.turistorre.bean.Fiestas;
 import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Panoramica;
+import cf.castellon.turistorre.bean.Raco;
 import cf.castellon.turistorre.bean.Usuario;
-import cf.castellon.turistorre.bean.UsuarioParcel;
 
 import static cf.castellon.turistorre.utils.Constantes.*;
 
@@ -85,7 +87,11 @@ public final class Utils {
     public static Uri fileUri;
     public static boolean colorCambiado;
     public static String tokenFireBase;
-    public static UsuarioParcel usuario;
+    public static Usuario usuario;
+    //public static Map<String,Map<String,List<String>>> homes=new HashMap<>();
+    public static Map<String, Object> homes = new HashMap<>();
+    public static String portadaRC, usuarioUidRC;
+
 
     /**
      * GALERIAFRAGMENT
@@ -179,7 +185,7 @@ public final class Utils {
      * @param uidUser
      * @return
      */
-    public static Usuario buscarUsuario(String uidUser) {
+   /* public static Usuario buscarUsuario(String uidUser) {
 
         Usuario usuario = null;
         boolean encontrado = false;
@@ -191,14 +197,13 @@ public final class Utils {
         }
         return usuario;
     }
-
-    public static UsuarioParcel buscarUsuarioParcel(String uidUser) {
-
-        UsuarioParcel usuario = null;
+*/
+    public static Usuario buscarUsuario(String uidUser) {
+        Usuario usuario = null;
         boolean encontrado = false;
         int i = 0;
-        while (!encontrado) {
-            usuario = usuariosParcel.get(i++);
+        while (!encontrado && i < usuarios.size()) {
+            usuario = usuarios.get(i++);
             if (usuario.getUidUser().equals(uidUser))
                 encontrado = true;
         }
@@ -223,8 +228,7 @@ public final class Utils {
         mDataBaseUsersRef.child(uidUser).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                usuarios.add(dataSnapshot.getValue(Usuario.class));
-                usuariosParcel.add(dataSnapshot.getValue(UsuarioParcel.class));
+                anyadirUsuarioLocal(dataSnapshot.getValue(Usuario.class));
             }
 
             @Override
@@ -294,15 +298,13 @@ public final class Utils {
         });
     }
 
-    public static void crearUsuarios() {
-        mDataBaseUsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    public static void crearRacons() {
+        mDataBaseRaconsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Usuario usuario = postSnapshot.getValue(Usuario.class);
-                    UsuarioParcel usuarioParcel = postSnapshot.getValue(UsuarioParcel.class);
-                    usuarios.add(usuario);
-                    usuariosParcel.add(usuarioParcel);
+                    Raco raco = postSnapshot.getValue(Raco.class);
+                    racons.add(raco);
                 }
             }
 
@@ -312,12 +314,60 @@ public final class Utils {
         });
     }
 
+    public static void crearUsuarios() {
+        mDataBaseUsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Usuario usuario = postSnapshot.getValue(Usuario.class);
+                    anyadirUsuarioLocal(usuario);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
+    /**
+     * Anyade un usuario a la lista . No admite duplicados
+     *
+     * @param us
+     */
+    public static void anyadirUsuarioLocal(Usuario us) {
+        boolean repetido = false;
+        if (usuarios.isEmpty())
+            usuarios.add(us);
+        else {
+            for (Usuario user : usuarios)
+                if (us.getUidUser().equals(user.getUidUser()))
+                    repetido = true;
+            if (!repetido)
+                usuarios.add(us);
+        }
+    }
+
     @Nullable
     public static Panoramica buscarPanoramica(String uidPanoramica) {
         for (Panoramica pano : panoramicas)
             if (pano.getUidImg().equals(uidPanoramica))
                 return pano;
         return null;
+    }
+
+    /***
+     * Dado un usuario devuelve todas sus imagenes(url's)
+     * @param uidUser
+     * @return
+     */
+    public static List<String> buscarImagenes(String uidUser) {
+        List<String> urls = new ArrayList<>();
+        for (Imagen imagen : imagenes) {
+            if (imagen.getUidUser().equalsIgnoreCase(uidUser))
+                urls.add(imagen.getUriStr());
+        }
+        return urls;
     }
 
     /*public static ArrayList<String> getIdsImagenes(){
@@ -376,7 +426,7 @@ public final class Utils {
     public static int numProvs = 0;
     public static FirebaseAuth mAuth;/* Datos desde el usuario autenticado*/
     public static List<Usuario> usuarios;
-    public static List<UsuarioParcel> usuariosParcel;
+    public static List<Raco> racons;
 
     /**
      * Al reves porque el ultimo proveedor en regisrarse estara al final y para eliminarlo no nos causara problemas el avatar
@@ -385,7 +435,7 @@ public final class Utils {
      * @return
      */
     public static boolean isProvider(String providerId) {
-        for (int i = mFirebaseUser.getProviderData().size()-1; i > 0; i--) {
+        for (int i = mFirebaseUser.getProviderData().size() - 1; i > 0; i--) {
             UserInfo profile = mFirebaseUser.getProviderData().get(i);
             if (profile.getProviderId().equals(providerId))
                 return true;
@@ -548,36 +598,10 @@ public final class Utils {
 
     //A partir de 6.0 hay que pedir los permisos "peligrosos" en tiempo de ejecucion
 
-    /**
-     * @param activity
-     * @param permiso        el que queremos solicitar para su aprobacion
-     * @param permisoRequest . para luego en el callback onRequestPermissionsResult para tratarlo
-     * @param viewSnack      . La vista sobre la que asentaremos la snack
-     */
-    public static void pedirPermiso(final Activity activity, final String permiso, final int permisoRequest, View viewSnack) {
-        // Si no tenemos el permiso:(la primera vez no lo tendremos pq no hemos lanzado la pregunta)
-        if (ContextCompat.checkSelfPermission(activity, permiso) != PackageManager.PERMISSION_GRANTED)
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permiso)) {
-                Log.i("permisos", "El usuario ya denegó el permiso anteriormente");
-                Snackbar.make(viewSnack, "Para registrate necesito la cámara", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("OK", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                ActivityCompat.requestPermissions(activity, new String[]{permiso}, permisoRequest);
-                            }
-                        })
-                        .show();
-            } else
-                ActivityCompat.requestPermissions(activity, new String[]{permiso}, permisoRequest);
-            // Si tenemos el permiso concedido
-        else
-            numPermisos = 2;
-    }
-
-    public static void pedirPermiso2(final Fragment fragment, final String permiso, final int permisoRequest, View viewSnack) {
+    public static void pedirPermiso(final Fragment fragment, final String permiso, final int permisoRequest, View viewSnack) {
         // Si no tenemos el permiso:(la primera vez no lo tendremos pq no hemos lanzado la pregunta)
         if (ContextCompat.checkSelfPermission(fragment.getContext(), permiso) != PackageManager.PERMISSION_GRANTED)
-            if (ActivityCompat.shouldShowRequestPermissionRationale(fragment.getActivity(), permiso)) {
+            if (fragment.shouldShowRequestPermissionRationale(permiso)) {
                 Log.i("permisos", "El usuario ya denegó el permiso anteriormente");
                 Snackbar.make(viewSnack, "Para registrate necesito la cámara", Snackbar.LENGTH_INDEFINITE)
                         .setAction("OK", new View.OnClickListener() {
@@ -590,56 +614,11 @@ public final class Utils {
                         .show();
             } else
                 fragment.requestPermissions(new String[]{permiso}, permisoRequest);
-//                ActivityCompat.requestPermissions(fragment.getActivity(), new String[]{permiso}, permisoRequest);
-        // Si tenemos el permiso concedido
-
-    }
-
-
-    public static void pedirPermiso3(final Fragment fragment, final String[] permisos, final int[] permisosRequest, View viewSnack) {
-        // Si no tenemos el permiso:(la primera vez no lo tendremos pq no hemos lanzado la pregunta)
-        for (int i = 0; i < permisos.length; i++) {
-            if (ContextCompat.checkSelfPermission(fragment.getContext(), permisos[i]) != PackageManager.PERMISSION_GRANTED)
-                if (ActivityCompat.shouldShowRequestPermissionRationale(fragment.getActivity(), permisos[i])) {
-                    Log.i("permisos", "El usuario ya denegó el permiso anteriormente");
-                    Snackbar.make(viewSnack, "Necesito el permiso", Snackbar.LENGTH_INDEFINITE)
-                            .setAction("OK", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-//                                ActivityCompat.requestPermissions(fragment.getActivity(), new String[]{permiso}, permisoRequest);
-                                    int j = 0;
-                                    fragment.requestPermissions(new String[]{permisos[j++]}, permisosRequest[j++]);
-                                }
-                            })
-                            .show();
-                } else
-                    fragment.requestPermissions(new String[]{permisos[i]}, permisosRequest[i]);
-            else {
-                numPermisos++;
-                if (numPermisos == 2)
-                    goCamera(fragment);
-            }
+            // Si tenemos el permiso concedido , no tendremos en de la cámara
+        else if (numPermisos != 2) {
+            pedirPermiso(fragment, Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack);
         }
     }
-
-   /* public static void verifyStoragePermissions(final Activity activity, View viewSnack) {
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-            if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                Log.i("permisos", "El usuario ya denegó el permiso anteriormente");
-                Snackbar.make(viewSnack, "Para registrate necesito poder escribir en la sd", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("OK", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                ActivityCompat.requestPermissions(activity,PERMISSIONS_STORAGE,PERMISO_ESCRIBIR_SD);
-                            }
-                        })
-                        .show();
-            } else
-                ActivityCompat.requestPermissions(activity,PERMISSIONS_STORAGE,PERMISO_ESCRIBIR_SD);
-        //else if (ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-        if (numPermisos==1)  //Si entramos aquí tenemos solo el de escritura y faltará el de la cámara
-            pedirPermiso(activity, Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack);
-    }*/
 
     public static boolean isExternalStorageAvailable() {
         String state = Environment.getExternalStorageState();
@@ -786,6 +765,23 @@ public final class Utils {
                 .build());
     }
 
+    public static void generarNotificacionAdminCambioGrupo(String grupo, Usuario user) {
+        FirebaseMessaging fm;
+        Random random;
+
+        random = new Random();
+        fm = FirebaseMessaging.getInstance();
+        fm.send(new RemoteMessage.Builder(ID_REMITENTE + "@gcm.googleapis.com")
+                .setMessageId(Integer.toString(random.nextInt()))
+                .addData("grupoNuevo", grupo)
+                .addData("grupoViejo", user.getGrupo())
+                .addData("nombre", user.getNombre())
+                .addData("uidUser", user.getUidUser())
+                .addData("avatar", user.getAvatar())
+                .addData("action", ACTION_CAMBIO_GRUPO)
+                .build());
+    }
+
     public static void generarNotificacionTerrat(String direccion, String uidTerrat) {
         FirebaseMessaging fm;
         Random random;
@@ -804,6 +800,7 @@ public final class Utils {
         prefs = context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
         int notificacionesPrefs = prefs.getInt("notificaciones", TODAS);
+        numPermisos = prefs.getInt("numPermisos", 0);
         switch (notificacionesPrefs) {
             case TODAS:
                 FirebaseMessaging.getInstance().subscribeToTopic("Bando");
@@ -826,6 +823,16 @@ public final class Utils {
                 break;
         }
     }
+
+    public static List<String> eliminarGrupoActual(List<String> grupos, String grupoEliminar) {
+        List<String> gpo = new ArrayList<>();
+        for (String grupo : grupos) {
+            if (!grupoEliminar.equalsIgnoreCase(grupo))
+                gpo.add(grupo);
+        }
+        return gpo;
+    }
+
 
 
 }

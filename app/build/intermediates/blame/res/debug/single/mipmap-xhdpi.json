@@ -2,17 +2,5 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_action_contact_mail.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\mipmap-xhdpi\\ic_action_contact_mail.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_stat_action_favorite.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\mipmap-xhdpi\\ic_stat_action_favorite.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_stat_ic_notification.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\mipmap-xhdpi\\ic_stat_ic_notification.png"
     }
 ]

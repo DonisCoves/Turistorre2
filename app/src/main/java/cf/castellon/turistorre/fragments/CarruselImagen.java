@@ -12,16 +12,16 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import cf.castellon.turistorre.R;
-import cf.castellon.turistorre.bean.ImagenParcel;
-import cf.castellon.turistorre.bean.UsuarioParcel;
+import cf.castellon.turistorre.bean.Imagen;
+import cf.castellon.turistorre.bean.Usuario;
 
 /**
  * Created by pccc on 25/03/2016.
  */
 
 public class CarruselImagen extends Fragment {
-   ImagenParcel imagen;
-    UsuarioParcel usuario;
+   Imagen imagen;
+    Usuario usuario;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

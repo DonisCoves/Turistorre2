@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="8">
+
+    <TextView
+        android:id="@+id/tvTituloRacons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        style="@style/Titulo"
+        android:text="La font de la vila"/>
+    <com.google.vr.sdk.widgets.pano.VrPanoramaView
+        android:id="@+id/vrRaco"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        style="@style/Imagen"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/tvDescripcionRacons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Texto"
+            android:text="@string/anonimo" />
+    </ScrollView>
+</LinearLayout>

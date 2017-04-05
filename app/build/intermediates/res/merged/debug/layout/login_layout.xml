@@ -21,19 +21,11 @@
             android:contentDescription="@string/avatar"
             android:paddingTop="10dp"
             android:src="@drawable/escudo" />
-
-        <!--<com.facebook.login.widget.ProfilePictureView-->
-            <!--android:id="@+id/ppvAvatar"-->
-            <!--android:layout_width="96dp"-->
-            <!--android:layout_height="96dp"-->
-            <!--android:visibility="gone"-->
-            <!--android:contentDescription="@string/avatar"-->
-            <!--android:paddingTop="10dp"/>-->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:textStyle=""
             android:gravity="center"
             android:text="@string/login_titulo"
             android:textColor="@android:color/white"

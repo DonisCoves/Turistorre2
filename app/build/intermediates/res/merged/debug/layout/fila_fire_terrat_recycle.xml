@@ -9,7 +9,6 @@
     <ImageView
         android:id="@+id/ivFilaRecycleTerrat"
         android:layout_width="match_parent"
-        android:src="@drawable/pano"
         android:layout_height="125dp"
         android:scaleType="fitXY"
         android:paddingBottom="5dp"

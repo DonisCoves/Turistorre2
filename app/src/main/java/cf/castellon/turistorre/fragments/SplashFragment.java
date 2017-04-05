@@ -44,7 +44,6 @@ public class SplashFragment extends Fragment {
         tiempoInicialWeb = System.currentTimeMillis();
         carga = new CargaAsync(fragment);
         carga.execute();
-
     }
 
     @Nullable

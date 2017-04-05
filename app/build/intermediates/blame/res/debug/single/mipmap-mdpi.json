@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_action_contact_mail.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\mipmap-mdpi\\ic_action_contact_mail.png"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }

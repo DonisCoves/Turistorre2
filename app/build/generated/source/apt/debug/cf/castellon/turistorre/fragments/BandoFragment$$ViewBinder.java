@@ -8,8 +8,8 @@ import butterknife.ButterKnife.ViewBinder;
 public class BandoFragment$$ViewBinder<T extends cf.castellon.turistorre.fragments.BandoFragment> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131689630, "field 'rvBando'");
-    target.rvBando = finder.castView(view, 2131689630, "field 'rvBando'");
+    view = finder.findRequiredView(source, 2131689615, "field 'rvBando'");
+    target.rvBando = finder.castView(view, 2131689615, "field 'rvBando'");
   }
 
   @Override public void unbind(T target) {

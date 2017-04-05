@@ -1,23 +1,31 @@
 [
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre15.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre15.png"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_done_black_36dp.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\ic_done_black_36dp.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_round.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\messenger_button_blue_bg_round.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\d19e944d6445e5c1f9c7471606b44befd9881255\\output\\res\\drawable\\design_snackbar_background.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_login_silver_background.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_button_login_silver_background.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_normal.xml",
@@ -29,11 +37,19 @@
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_text_cursor_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_selector.xml",
@@ -41,7 +57,7 @@
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rippleable.xml",
@@ -53,15 +69,27 @@
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\googleg_color.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\googleg_color.png"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\pano.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\pano.jpg"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_normal.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gplus_salir_original.9.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\gplus_salir_original.9.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_disabled.xml",
@@ -69,19 +97,23 @@
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\avatar1.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\avatar1.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_focused.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_dialog_material_background.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\escudo.png",
@@ -92,48 +124,68 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_edit_text_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_send_background.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_button_send_background.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_btn_check_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_white_bg_round.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\messenger_button_white_bg_round.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_stat_escudo.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\ic_stat_escudo.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\splash.jpg",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\splash.jpg"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\splash_img.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\splash_img.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_navigation_drawer.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\ic_navigation_drawer.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\pano2.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\pano2.jpg"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ic_clear_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_seekbar_track_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\logopeque.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\logopeque.png"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_send_button_icon.xml",
@@ -145,15 +197,7 @@
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_item_background_holo_light.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\avatar2.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\avatar2.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home5.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\home5.png"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_focused.xml",
@@ -168,268 +212,52 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_cancel_background.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_auth_dialog_cancel_background.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_background.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_button_background.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre7.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre7.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\firebase_lockup_400.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\firebase_lockup_400.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light_normal.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\panoramica.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\panoramica.jpg"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_disabled.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\avatar_defect.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\avatar_defect.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ic_search_api_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\notification_icon_background.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home2.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\home2.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen8.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen8.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre14.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre14.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\activitiesinit.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\activitiesinit.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\notification_bg_low.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\notification_tile_bg.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen5.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen5.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre11.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre11.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen2.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen2.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\messenger_button_blue_bg_round.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\messenger_button_blue_bg_round.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_btn_borderless_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\98b6dc5d3024633eb66bc1f0d3dd13eac014e400\\output\\res\\drawable\\design_snackbar_background.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\avatar5.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\avatar5.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre9.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre9.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_vector_test.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ratingbar_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen4.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen4.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre10.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre10.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark_normal.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\esferica_movil.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\esferica_movil.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gplus_salir_original.9.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\gplus_salir_original.9.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen3.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen3.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\avatar4.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\avatar4.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre8.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre8.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_focused.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_btn_radio_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen6.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen6.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_send_background.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_button_send_background.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_stat_action_favorite.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\ic_stat_action_favorite.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home3.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\home3.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ic_clear_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre6.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre6.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre12.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre12.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_cancel_background.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_auth_dialog_cancel_background.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen1.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen1.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\imagen7.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\imagen7.jpg"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\notification_bg.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\torre13.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\torre13.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home1.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\home1.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_stat_ic_notification.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\ic_stat_ic_notification.png"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\andes.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\andes.jpg"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_auth_dialog_background.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_auth_dialog_background.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\pano_movil.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\pano_movil.jpg"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\home4.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\home4.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\proba.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\proba.png"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\esferica.jpg",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\esferica.jpg"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_like_background.xml",
@@ -440,31 +268,35 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_add_white_36dp.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\ic_add_white_36dp.png"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\0d91573b40214481afcf5453c948adfe7f28323a\\output\\res\\drawable\\abc_textfield_search_material.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\com_facebook_button_icon.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable\\com_facebook_button_icon.xml"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable\\common_google_signin_btn_text_light.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\avatar3.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable\\avatar3.png"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_fab_background.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\98b6dc5d3024633eb66bc1f0d3dd13eac014e400\\output\\res\\drawable\\design_fab_background.xml"
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\d19e944d6445e5c1f9c7471606b44befd9881255\\output\\res\\drawable\\design_fab_background.xml"
     }
 ]

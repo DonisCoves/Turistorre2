@@ -18,19 +18,23 @@ import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
 
 public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Imagen,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder>
-        implements View.OnClickListener{
+        implements View.OnClickListener, View.OnLongClickListener{
     private Context context;
     private View.OnClickListener listener;
+    private View.OnLongClickListener listenerLong;
 
     public MyFireAdapterGaleriaRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref,Context context) {
         super(modelClass, modelLayout, viewHolderClass, ref);
         this.context = context;
     }
 
+    
+
     @Override
     public MyFireViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fila_fire_recycle, viewGroup, false);
         itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
         MyFireViewHolder holder = new MyFireViewHolder(itemView);
         return holder;
     }
@@ -39,24 +43,38 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
         this.listener = listener;
     }
 
+
+    public void setOnLongClickListener(View.OnLongClickListener listener) {
+        this.listenerLong = listener;
+    }
+
     @Override
     public void onClick(View view) {
         if(listener != null)
             listener.onClick(view);
     }
 
+    @Override
+    public boolean onLongClick(View view) {
+        if(listenerLong != null)
+            listenerLong.onLongClick(view);
+        return true;
+    }
+
+
     //Casos especiales:
     //a)Si otro usuario añade una foto y este usuario la pincha se tendra que actualizar en su bbdd. Por lo tanto la añadimos
     //b)Si hay un usuario nuevo que ha creado una foto añadimos tambien el usuario
     @Override
     protected void populateViewHolder(final MyFireViewHolder viewHolder, final Imagen modelo, int position) {
-        if (buscarImagen(modelo.getUidImg())==null)/*a)*/
+        /*if (buscarImagen(modelo.getUidImg())==null)*//*a)*//*
             imagenes.add(modelo);
-        if (!existeUsuario(modelo.getUidUser()))/*b)*/
-            anyadirUsuario(modelo.getUidUser());
+        if (!existeUsuario(modelo.getUidUser()))*//*b)*//*
+            anyadirUsuario(modelo.getUidUser());*/
 
         viewHolder.bindDatos(modelo.getUriStrPre(),context);
     }
+
 
     /** Clase ViewHolder interna */
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {

@@ -4,14 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,7 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.GaleriaDiaAdapter;
-import cf.castellon.turistorre.bean.ImagenParcel;
+import cf.castellon.turistorre.bean.Imagen;
 
 /**
  * Created by pccc on 04/03/2017.
@@ -28,7 +25,7 @@ import cf.castellon.turistorre.bean.ImagenParcel;
 public class GaleriaDiaFragment extends Fragment {
     @Bind(R.id.gvGaleriaDia) GridView gridView;
     private GaleriaDiaAdapter adaptador;
-    private ArrayList<ImagenParcel> imagenes; //ArrayList por exigencias del Bundle
+    private ArrayList<Imagen> imagenes; //ArrayList por exigencias del Bundle
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

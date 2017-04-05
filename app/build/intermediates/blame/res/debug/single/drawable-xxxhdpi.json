@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_help.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_help.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_actionbar_find_in_page.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_actionbar_find_in_page.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_image.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_image.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_ic_action_party_icon.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_ic_action_party_icon.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_find_in_page.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_find_in_page.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_assignment_turned_in.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_assignment_turned_in.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_settings_remote.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_settings_remote.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_person.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_person.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_ic_terraza.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_ic_terraza.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_home.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_home.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_settings.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_settings.png"
+    }
+]

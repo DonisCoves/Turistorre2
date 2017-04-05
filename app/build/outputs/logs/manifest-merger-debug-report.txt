@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:2:1-94:12
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:2:1-72:12
 	package
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml
@@ -40,12 +40,12 @@ ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:10:5-12:36
 	android:name
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:11:9-48
 application
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:14:5-92:19
-MERGED from [com.android.support:design:23.4.0] C:\Users\pccc\.android\build-cache\98b6dc5d3024633eb66bc1f0d3dd13eac014e400\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v13:23.4.0] C:\Users\pccc\.android\build-cache\76f75f8d3a3e450f3fcd5546137c24b6e2693737\output\AndroidManifest.xml:22:5-20
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:14:5-70:19
+MERGED from [com.android.support:design:23.4.0] C:\Users\pccc\.android\build-cache\d19e944d6445e5c1f9c7471606b44befd9881255\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v13:23.4.0] C:\Users\pccc\.android\build-cache\dfbef64838beb985a00aeacea66ae9e1b9412b7d\output\AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.android:facebook-android-sdk:4.15.0] C:\Users\pccc\.android\build-cache\2d6fe20436dba6f66046f01b08800177580cd629\output\AndroidManifest.xml:28:5-38:19
-MERGED from [com.android.support:cardview-v7:23.4.0] C:\Users\pccc\.android\build-cache\00746aa5a8e857fbdfe07eb9e1874f4f3606f659\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:customtabs:23.4.0] C:\Users\pccc\.android\build-cache\c9bb8e5559bcee474fdf52afd07de491bb3d08ea\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:23.4.0] C:\Users\pccc\.android\build-cache\3986d1f82c5e658f5245ada3b753f69b40cbf82b\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:customtabs:23.4.0] C:\Users\pccc\.android\build-cache\5356aa81ff8cf1af46f0fc9f1e7de3c5ac4c0482\output\AndroidManifest.xml:22:5-20
 MERGED from [com.google.firebase:firebase-core:10.2.0] C:\Users\pccc\.android\build-cache\623aa0a2961328bdcf77b73614c349bdfce747e5\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\pccc\.android\build-cache\b71096b4847df32e76ea28435f5bee7052123899\output\AndroidManifest.xml:24:5-33:19
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\pccc\.android\build-cache\38e5795ef752d9c481ee93fc876113eb4b8384fc\output\AndroidManifest.xml:24:5-28:19
@@ -54,148 +54,130 @@ MERGED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\pccc\.andro
 MERGED from [com.google.firebase:firebase-config:10.2.0] C:\Users\pccc\.android\build-cache\e001bc1dbffd0c64956b8d5d4a4814711cda5218\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\pccc\.android\build-cache\5ae3b69a30a2aee5ef82f274cbc152112e82c816\output\AndroidManifest.xml:28:5-50:19
 MERGED from [com.firebaseui:firebase-ui-database:1.2.0] C:\Users\pccc\.android\build-cache\42e61693409781ff9e35f637d24aef781329b219\output\AndroidManifest.xml:13:5-17:19
-MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\pccc\.android\build-cache\0d91573b40214481afcf5453c948adfe7f28323a\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\afb506f2ccd6cdb2242e5f661cef6cebb0b8da23\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\09b7e9632aec7c3e276d125d3f56039dc3ecd96a\output\AndroidManifest.xml:23:5-20
+MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\pccc\.android\build-cache\aeea70743fe45afc0ced707c70839add19ef97b8\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\7ffcf512ab5d3dd825252a1bf50615dafad9909f\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\ece5a628dc097f7d79683fb904890aac02b8ba30\output\AndroidManifest.xml:23:5-20
 MERGED from [com.google.firebase:firebase-common:10.2.0] C:\Users\pccc\.android\build-cache\d6caa32e32a8ea26b72970e0a95153115ac149ac\output\AndroidManifest.xml:4:5-7:19
 MERGED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\pccc\.android\build-cache\7575d029274b9ee305cab06ee7c28d99deaeb983\output\AndroidManifest.xml:19:5-25:19
 MERGED from [com.google.android.gms:play-services-panorama:10.2.0] C:\Users\pccc\.android\build-cache\f73cb2732882699e945f5dbfe18c3a6705f72600\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\pccc\.android\build-cache\38770808e3e75c1b31d4b406e587e4bc7b904cf2\output\AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.android.gms:play-services-tasks:10.2.0] C:\Users\pccc\.android\build-cache\81d839e1ec147f6d52f819814791f7adb5950629\output\AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:10.2.0] C:\Users\pccc\.android\build-cache\2b53d7dda6c9da0d438ced476184da2131464b8c\output\AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:25.1.1] C:\Users\pccc\.android\build-cache\dabab2911c89441a162a8dcfd01ea6aacf4d7859\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.1.1] C:\Users\pccc\.android\build-cache\a92e43b4eade17967b542963b64c5f0ee3a06da6\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-media-compat:25.1.1] C:\Users\pccc\.android\build-cache\f83ae9af203d6155b9ab972073069a51ab70053e\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.1.1] C:\Users\pccc\.android\build-cache\60bfc5a2ef12bdc71718af5707c03dab3c6ad291\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.1.1] C:\Users\pccc\.android\build-cache\4d42782fe1176ccd02ab0869aac9b7b3f3798afd\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-compat:25.1.1] C:\Users\pccc\.android\build-cache\32824793e43715dff8d8690301fd2764fdaf0139\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:25.1.1] C:\Users\pccc\.android\build-cache\7dfa253f1598ffae53c7ac2457ef3d33dd769789\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:25.1.1] C:\Users\pccc\.android\build-cache\ed14e395e13b94bc567978331167cf92ee88cdd7\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.1.1] C:\Users\pccc\.android\build-cache\b89b2056eb07eb8afb86201638bbb6aa12e4b1be\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:25.1.1] C:\Users\pccc\.android\build-cache\01f2343c8952b9d6ed84294c0e4f5ce52752d5b2\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:25.1.1] C:\Users\pccc\.android\build-cache\8aca459dd03345cdb47b072a8745068e76aecd1a\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:25.1.1] C:\Users\pccc\.android\build-cache\ae885ec1166254df41f1cb03c59e5d192039268f\output\AndroidManifest.xml:25:5-20
 	android:label
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:18:9-41
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:19:9-41
 	android:allowBackup
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:16:9-35
 	android:icon
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:17:9-43
+	android:largeHeap
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:18:9-33
 	android:theme
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:19:9-40
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:20:9-44
 	android:name
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:15:9-43
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:20:9-22:55
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:21:9-23:55
 	android:value
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:22:13-52
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:23:13-52
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:21:13-58
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:22:13-58
 activity#com.facebook.FacebookActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:24:9-28:75
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:25:9-29:75
 MERGED from [com.facebook.android:facebook-android-sdk:4.15.0] C:\Users\pccc\.android\build-cache\2d6fe20436dba6f66046f01b08800177580cd629\output\AndroidManifest.xml:29:9-32:75
 	android:label
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:27:13-45
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:28:13-45
 	android:configChanges
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:26:13-96
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:27:13-96
 	android:theme
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:28:13-72
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:29:13-72
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:25:13-57
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:26:13-57
 activity#cf.castellon.turistorre.ui.MainActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:29:9-45:20
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:30:9-47:20
 	android:screenOrientation
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:32:13-49
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:33:13-49
 	android:label
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:31:13-45
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:32:13-45
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:30:13-44
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:31:13-44
 meta-data#com.google.android.gms.version
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:33:13-35:73
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:34:13-36:73
 MERGED from [com.google.android.gms:play-services-basement:10.2.0] C:\Users\pccc\.android\build-cache\2b53d7dda6c9da0d438ced476184da2131464b8c\output\AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:35:17-70
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:36:17-70
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:34:17-62
-intent-filter#BANDO+TERRAT+android.intent.action.MAIN+android.intent.category.DEFAULT+android.intent.category.LAUNCHER
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:37:13-44:29
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:35:17-62
+intent-filter#BANDO+CAMBIO_GRUPO+TERRAT+android.intent.action.MAIN+android.intent.category.DEFAULT+android.intent.category.LAUNCHER
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:38:13-46:29
 action#android.intent.action.MAIN
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:38:17-69
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:39:17-69
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:38:25-66
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:39:25-66
 action#BANDO
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:39:17-48
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:40:17-48
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:39:25-45
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:40:25-45
 action#TERRAT
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:40:17-49
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:41:17-49
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:40:25-46
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:41:25-46
+action#CAMBIO_GRUPO
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:42:17-55
+	android:name
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:42:25-52
 category#android.intent.category.DEFAULT
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:42:17-76
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:44:17-76
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:42:27-73
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:44:27-73
 category#android.intent.category.LAUNCHER
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:43:17-77
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:45:17-77
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:43:27-74
-activity#cf.castellon.turistorre.ui.NotificacionesActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:46:9-63
-	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:46:19-60
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:45:27-74
 service#cf.castellon.turistorre.Servicios.MyFirebaseMessagingService
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:49:9-53:19
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:50:9-54:19
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:49:18-70
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:50:18-70
 intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:50:13-52:29
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:51:13-53:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:51:17-78
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:52:17-78
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:51:25-75
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:52:25-75
 service#cf.castellon.turistorre.Servicios.MyFirebaseInstanceIDService
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:56:9-60:19
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:57:9-61:19
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:56:18-71
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:57:18-71
 intent-filter#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:57:13-59:29
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:58:13-60:29
 action#com.google.firebase.INSTANCE_ID_EVENT
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:58:17-80
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:59:17-80
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:58:25-77
-activity#cf.castellon.turistorre.pruebas.ActivityChatJava
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:62:9-62
-	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:62:19-59
-activity#cf.castellon.turistorre.pruebas.ActivityFCM
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:63:9-57
-	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:63:19-54
-activity#cf.castellon.turistorre.pruebas.GruposFireActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:9-64
-	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:19-61
-activity#cf.castellon.turistorre.ui.VRActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:65:9-74:20
-	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:65:19-48
-activity#cf.castellon.turistorre.pruebas.PanoramaActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:76:9-79:20
-	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:76:19-59
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:59:25-77
 activity#cf.castellon.turistorre.fragments.SplashActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:80:9-62
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:9-62
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:80:19-59
-activity#cf.castellon.turistorre.ui.ProbesActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:81:9-91:20
-	android:label
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:83:13-58
-	android:theme
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:84:13-56
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:19-59
+provider#com.facebook.FacebookContentProvider
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:66:9-69:39
+	android:authorities
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:68:13-90
+	android:exported
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:69:13-36
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:82:13-46
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:67:13-64
 uses-sdk
 INJECTED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:design:23.4.0] C:\Users\pccc\.android\build-cache\98b6dc5d3024633eb66bc1f0d3dd13eac014e400\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v13:23.4.0] C:\Users\pccc\.android\build-cache\76f75f8d3a3e450f3fcd5546137c24b6e2693737\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:23.4.0] C:\Users\pccc\.android\build-cache\d19e944d6445e5c1f9c7471606b44befd9881255\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v13:23.4.0] C:\Users\pccc\.android\build-cache\dfbef64838beb985a00aeacea66ae9e1b9412b7d\output\AndroidManifest.xml:20:5-44
 MERGED from [com.facebook.android:facebook-android-sdk:4.15.0] C:\Users\pccc\.android\build-cache\2d6fe20436dba6f66046f01b08800177580cd629\output\AndroidManifest.xml:24:5-26:41
-MERGED from [com.android.support:cardview-v7:23.4.0] C:\Users\pccc\.android\build-cache\00746aa5a8e857fbdfe07eb9e1874f4f3606f659\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:customtabs:23.4.0] C:\Users\pccc\.android\build-cache\c9bb8e5559bcee474fdf52afd07de491bb3d08ea\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:23.4.0] C:\Users\pccc\.android\build-cache\3986d1f82c5e658f5245ada3b753f69b40cbf82b\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:customtabs:23.4.0] C:\Users\pccc\.android\build-cache\5356aa81ff8cf1af46f0fc9f1e7de3c5ac4c0482\output\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-core:10.2.0] C:\Users\pccc\.android\build-cache\623aa0a2961328bdcf77b73614c349bdfce747e5\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\pccc\.android\build-cache\b71096b4847df32e76ea28435f5bee7052123899\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\pccc\.android\build-cache\38e5795ef752d9c481ee93fc876113eb4b8384fc\output\AndroidManifest.xml:17:5-43
@@ -206,10 +188,10 @@ MERGED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\pccc\.andro
 MERGED from [com.google.firebase:firebase-config:10.2.0] C:\Users\pccc\.android\build-cache\e001bc1dbffd0c64956b8d5d4a4814711cda5218\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\pccc\.android\build-cache\5ae3b69a30a2aee5ef82f274cbc152112e82c816\output\AndroidManifest.xml:17:5-43
 MERGED from [com.firebaseui:firebase-ui-database:1.2.0] C:\Users\pccc\.android\build-cache\42e61693409781ff9e35f637d24aef781329b219\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\pccc\.android\build-cache\0d91573b40214481afcf5453c948adfe7f28323a\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\afb506f2ccd6cdb2242e5f661cef6cebb0b8da23\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\09b7e9632aec7c3e276d125d3f56039dc3ecd96a\output\AndroidManifest.xml:21:5-43
-MERGED from [com.android.support:recyclerview-v7:25.1.1] C:\Users\pccc\.android\build-cache\cf117ba7a25caf155b2f05a5ef09785f5c1b1255\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\pccc\.android\build-cache\aeea70743fe45afc0ced707c70839add19ef97b8\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\7ffcf512ab5d3dd825252a1bf50615dafad9909f\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.1.1] C:\Users\pccc\.android\build-cache\ece5a628dc097f7d79683fb904890aac02b8ba30\output\AndroidManifest.xml:21:5-43
+MERGED from [com.android.support:recyclerview-v7:25.1.1] C:\Users\pccc\.android\build-cache\79431e8b92aa0fed145ee0d3fd8c96d996a2ba3d\output\AndroidManifest.xml:20:5-43
 MERGED from [com.google.firebase:firebase-database:10.2.0] C:\Users\pccc\.android\build-cache\5134bdaa9ff2e7bd79b24913c44897bc3ffe3732\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-database-connection:10.2.0] C:\Users\pccc\.android\build-cache\3d7906a6c0ff4bf8077be50d32de1d60106b9cf2\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-common:10.2.0] C:\Users\pccc\.android\build-cache\d6caa32e32a8ea26b72970e0a95153115ac149ac\output\AndroidManifest.xml:3:5-43
@@ -222,14 +204,14 @@ MERGED from [com.google.android.gms:play-services-panorama:10.2.0] C:\Users\pccc
 MERGED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\pccc\.android\build-cache\38770808e3e75c1b31d4b406e587e4bc7b904cf2\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-tasks:10.2.0] C:\Users\pccc\.android\build-cache\81d839e1ec147f6d52f819814791f7adb5950629\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-basement:10.2.0] C:\Users\pccc\.android\build-cache\2b53d7dda6c9da0d438ced476184da2131464b8c\output\AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:support-v4:25.1.1] C:\Users\pccc\.android\build-cache\dabab2911c89441a162a8dcfd01ea6aacf4d7859\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.1.1] C:\Users\pccc\.android\build-cache\a92e43b4eade17967b542963b64c5f0ee3a06da6\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.1.1] C:\Users\pccc\.android\build-cache\f83ae9af203d6155b9ab972073069a51ab70053e\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.1.1] C:\Users\pccc\.android\build-cache\60bfc5a2ef12bdc71718af5707c03dab3c6ad291\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.1.1] C:\Users\pccc\.android\build-cache\4d42782fe1176ccd02ab0869aac9b7b3f3798afd\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.1.1] C:\Users\pccc\.android\build-cache\32824793e43715dff8d8690301fd2764fdaf0139\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-v4:25.1.1] C:\Users\pccc\.android\build-cache\7dfa253f1598ffae53c7ac2457ef3d33dd769789\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.1.1] C:\Users\pccc\.android\build-cache\ed14e395e13b94bc567978331167cf92ee88cdd7\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.1.1] C:\Users\pccc\.android\build-cache\b89b2056eb07eb8afb86201638bbb6aa12e4b1be\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.1.1] C:\Users\pccc\.android\build-cache\01f2343c8952b9d6ed84294c0e4f5ce52752d5b2\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.1.1] C:\Users\pccc\.android\build-cache\8aca459dd03345cdb47b072a8745068e76aecd1a\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.1.1] C:\Users\pccc\.android\build-cache\ae885ec1166254df41f1cb03c59e5d192039268f\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:25.1.1] C:\Users\pccc\.android\build-cache\0d91573b40214481afcf5453c948adfe7f28323a\output\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:25.1.1] C:\Users\pccc\.android\build-cache\aeea70743fe45afc0ced707c70839add19ef97b8\output\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		INJECTED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml
 		INJECTED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml

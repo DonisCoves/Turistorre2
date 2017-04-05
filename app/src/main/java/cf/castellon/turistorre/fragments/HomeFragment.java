@@ -17,11 +17,16 @@ import android.view.animation.Interpolator;
 
 import static cf.castellon.turistorre.utils.Constantes.*;
 import static cf.castellon.turistorre.utils.Utils.*;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.MiPageHomeAdapter;
+import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.utils.FixedSpeedScroller;
 
 
@@ -49,7 +54,7 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         handler = new Handler();
-        fragmentManager=getChildFragmentManager();
+        fragmentManager = getChildFragmentManager();
     }
 
     @Override
@@ -60,18 +65,15 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onPause() {
-
         super.onPause();
         handler.removeCallbacks(runnable);
-        crearImagenes();
-        crearUsuarios();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View inflatedView = inflater.inflate(R.layout.home_layout,container,false);
+        View inflatedView = inflater.inflate(R.layout.home_layout, container, false);
 
-        mViewPager = (ViewPager)inflatedView.findViewById(R.id.vpHome);
+        mViewPager = (ViewPager) inflatedView.findViewById(R.id.vpHome);
         //Para que el scroll automatico no sea tan brusco:
         try {
             Field mScroller;
@@ -88,31 +90,25 @@ public class HomeFragment extends Fragment {
         adaptador = new MiPageHomeAdapter(fragmentManager);
         crearPaginas();
         mViewPager.setAdapter(adaptador);
-        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                page = position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
-
         return inflatedView;
     }
 
     private void crearPaginas() {
-        String[] titulos;
+        List<String> datos;
+        HashMap<String,List<String>> usuarioImagenesMap;
+        Usuario user;
 
-        titulos = getResources().getStringArray(R.array.titulosHome);
-        for (int i = 0; i < titulos.length; i++) {
+        if (portadaRC.equalsIgnoreCase("usuarios")){
+            usuarioImagenesMap = (HashMap<String,List<String>>)homes.get("usuarios");
+            user = buscarUsuario(usuarioUidRC);
+            datos = (ArrayList)usuarioImagenesMap.get(user.getUidUser());
+        }else
+            datos = (ArrayList)homes.get("racons");
+        for (int i = 0; i < datos.size(); i++) { // a la espera de unificacion de imagen
+            Bundle bundle = new Bundle();
             mMiPageFragment = new MiPageFragment();
             adaptador.addFragment(mMiPageFragment);
         }
+
     }
 }

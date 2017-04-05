@@ -55,10 +55,10 @@ public class TerratSeleccionadoFragment extends Fragment implements GoogleApiCli
         packageManager =  getContext().getPackageManager();
         hayGiroscopio = packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE);
         if(!hayGiroscopio) {
-            Toast.makeText(getContext(),"Tu móvil no está preparado para la Realidad Virtual!!",Toast.LENGTH_LONG).show();
-            gacClient= new GoogleApiClient.Builder(getContext(), this, this)
-                    .addApi(Panorama.API)
-                    .build();
+//            Toast.makeText(getContext(),"Tu móvil no está preparado para la Realidad Virtual!!",Toast.LENGTH_LONG).show();
+//            gacClient= new GoogleApiClient.Builder(getContext(), this, this)
+//                    .addApi(Panorama.API)
+//                    .build();
         }
         super.onCreate(savedInstanceState);
     }
@@ -103,20 +103,20 @@ public class TerratSeleccionadoFragment extends Fragment implements GoogleApiCli
 //        Uri uri = Uri.parse("file://" + Environment.getExternalStorageDirectory() + "/DCIM/Camera/panoramica.jpg");
 //        Uri uri = Uri.parse("file:///assets/panoramica.jpg");
         //      Uri uri = Uri.parse("android.resource://cf.castellon.turistorre/drawable/andes");
-        Uri uri = Uri.parse("file:///assets/panoramica.jpg" );
-
-        Panorama.PanoramaApi.loadPanoramaInfo(gacClient, uri).setResultCallback(
-                new ResultCallback<PanoramaApi.PanoramaResult>() {
-                    @Override
-                    public void onResult(PanoramaApi.PanoramaResult result) {
-                        Intent i;
-                        if (result.getStatus().isSuccess() && (i = result.getViewerIntent()) != null) {
-                            startActivity(i);
-                        } else {
-                            // Handle unsuccessful result
-                        }
-                    }
-                });
+//        Uri uri = Uri.parse("file:///assets/panoramica.jpg" );
+//
+//        Panorama.PanoramaApi.loadPanoramaInfo(gacClient, uri).setResultCallback(
+//                new ResultCallback<PanoramaApi.PanoramaResult>() {
+//                    @Override
+//                    public void onResult(PanoramaApi.PanoramaResult result) {
+//                        Intent i;
+//                        if (result.getStatus().isSuccess() && (i = result.getViewerIntent()) != null) {
+//                            startActivity(i);
+//                        } else {
+//                            // Handle unsuccessful result
+//                        }
+//                    }
+//                });
 
     }
 
@@ -133,16 +133,16 @@ public class TerratSeleccionadoFragment extends Fragment implements GoogleApiCli
     @Override
     public void onStart() {
         super.onStart();
-        if(!hayGiroscopio) {
-            gacClient.connect();
-        }
+//        if(!hayGiroscopio) {
+//            gacClient.connect();
+//        }
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        if(!hayGiroscopio) {
-            gacClient.disconnect();
-        }
+//        if(!hayGiroscopio) {
+//            gacClient.disconnect();
+//        }
     }
 }
