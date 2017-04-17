@@ -38,7 +38,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import cf.castellon.turistorre.R;
-import cf.castellon.turistorre.bean.Panoramica;
+import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.ui.MainActivity;
 import cf.castellon.turistorre.bean.Bando;
@@ -99,12 +99,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     AlertDialog alert = builder.create();
                     alert.show();
                 case ACTION_GPO_TERRAT:
-                    ref = mDataBaseTerratsRef.child(remoteMessage.getData().get("uidTerrat"));
+                    ref = mDataBaseTerratRef.child(remoteMessage.getData().get("uidTerrat"));
                     ref.addListenerForSingleValueEvent(
                             new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Panoramica pano = dataSnapshot.getValue(Panoramica.class);
+                                    Imagen pano = dataSnapshot.getValue(Imagen.class);
                                     showTerratNotification(pano, remoteMessage);
                                 }
 
@@ -148,7 +148,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         manager.notify(0, builder.build());
     }
 
-    private void showTerratNotification(Panoramica pano, RemoteMessage remoteMessage) {
+    private void showTerratNotification(Imagen pano, RemoteMessage remoteMessage) {
         Intent i = new Intent(this, MainActivity.class);
         i.setAction(ACTION_GPO_TERRAT);
         i.putExtra("uidTerrat", remoteMessage.getData().get("uidTerrat"));

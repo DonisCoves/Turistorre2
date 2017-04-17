@@ -1,12 +1,21 @@
 package cf.castellon.turistorre.ui;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,40 +25,40 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import java.util.Map;
 
 import static cf.castellon.turistorre.utils.Utils.*;
 import static cf.castellon.turistorre.utils.Constantes.*;
-
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.AdaptadorDrawerList;
 import cf.castellon.turistorre.adaptadores.DatosDrawerList;
-import cf.castellon.turistorre.bean.Panoramica;
+import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
-import cf.castellon.turistorre.fragments.AcercaFragment;
-import cf.castellon.turistorre.fragments.AjustesFragment;
-import cf.castellon.turistorre.fragments.BandoFragment;
-import cf.castellon.turistorre.fragments.BandoSeleccionadoFragment;
-import cf.castellon.turistorre.fragments.GaleriaFragment;
-import cf.castellon.turistorre.fragments.HomeFragment;
-import cf.castellon.turistorre.fragments.LoginFragment;
-import cf.castellon.turistorre.fragments.Racons;
-import cf.castellon.turistorre.fragments.SplashFragment;
-import cf.castellon.turistorre.fragments.TerratSeleccionadoFragment;
-import cf.castellon.turistorre.fragments.TerratsFragment;
+import cf.castellon.turistorre.fragments.ActionBar.GenerarTerrat;
+import cf.castellon.turistorre.fragments.Principal.AcercaFragment;
+import cf.castellon.turistorre.fragments.Principal.AjustesFragment;
+import cf.castellon.turistorre.fragments.Principal.BandoRecyclerView;
+import cf.castellon.turistorre.fragments.Click.BandoSeleccionado;
+import cf.castellon.turistorre.fragments.Principal.FiestasRecylerView;
+import cf.castellon.turistorre.fragments.Principal.GaleriaRecyclerView;
+import cf.castellon.turistorre.fragments.Principal.HomeViewPager;
+import cf.castellon.turistorre.fragments.Principal.Login;
+import cf.castellon.turistorre.fragments.Principal.RaconsViewPager;
+import cf.castellon.turistorre.fragments.Principal.Splash;
+import cf.castellon.turistorre.fragments.Click.TerratSeleccionado;
+import cf.castellon.turistorre.fragments.Principal.TerratsRecyclerView;
 import cf.castellon.turistorre.bean.Bando;
 
-/**
- * Clase donde juntaremos todos los fragments , será como el recipiente
- */
 
-
-public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener/*, SelectorFragment.OnListSeccionListener*/ {
+public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener/*, SelectorFragment.OnListSeccionListener*/
+        ,GenerarTerrat.OnPedirPermisosListener, GaleriaRecyclerView.OnPedirPermisosListener {
     /**
      * Es todo el objeto de la navegacion, que incluye el cajon "mDrawerList" y el frame donde
      * se incluirán los fragmentos(tambien se pueden meter activitys, pero con fragments el cambio es mas "armónico".
@@ -95,7 +104,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
      */
 
     private FragmentTransaction fragmentTransaction;
-
+    Map<String,Object> tipoBean;
+	Uri fileUri;
+    ImageView ivTerrat;
     /**
      * En la creación de la actividad hacemos:
      * 1.-Creamos un acction Bar (ActionBarDrawerToggle) el cual manejará los eventos entre
@@ -138,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
         switch (getIntent().getAction()) {
             case ACTION_MAIN:
-                frSeccion = new SplashFragment();
+                frSeccion = new Splash();
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 if (getSupportFragmentManager().findFragmentById(R.id.frSelector) != null) { //tablet
                     fragmentTransaction.add(R.id.flMain, frSeccion).commit();
@@ -150,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 break;
             case ACTION_GPO_BANDO:
                 seccion = "Bando";
-                frSeccion = new BandoSeleccionadoFragment();
+                frSeccion = new BandoSeleccionado();
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 prepareDrawer();
                 mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -180,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 // No es necesario comprobar que al usuario que recibe la peticion es el administros ya que eso
                 // nos lo hace FireBase. Si esta suscrito al topic es que será el administrador
                 seccion = "Home";
-                frSeccion = new HomeFragment();
+                frSeccion = new HomeViewPager();
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 prepareDrawer();
                 mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -219,18 +230,18 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 break;
             case ACTION_GPO_TERRAT:
                 seccion = "Terrat";
-                frSeccion = new TerratSeleccionadoFragment();
+                frSeccion = new TerratSeleccionado();
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 prepareDrawer();
                 mDrawerLayout.setDrawerListener(mDrawerToggle);
                 //Falta para tablets
                 Bundle bund2 = getIntent().getExtras();
                 String uidTerrat = bund2.getString("uidTerrat");
-                mDataBaseTerratsRef.child(uidTerrat).addListenerForSingleValueEvent(
+                mDataBaseTerratRef.child(uidTerrat).addListenerForSingleValueEvent(
                         new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Panoramica pano  = dataSnapshot.getValue(Panoramica.class);
+                                Imagen pano  = dataSnapshot.getValue(Imagen.class);
                                 Usuario usuario = buscarUsuario(pano.getUidUser());
                                 Bundle bund = new Bundle();
                                 bund.putString("DIRECCION",pano.getTitulo());
@@ -252,12 +263,12 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     protected void onStart() {
         super.onStart();
-        if (racons.isEmpty())
+       /* if (racons.isEmpty())
             crearRacons();
         if (usuarios.isEmpty())
             crearUsuarios();
         if (imagenes.isEmpty())
-            crearImagenes();
+            crearImagenes();*/
     }
 
     private void prepareDrawer() {
@@ -363,27 +374,27 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         seccion = ((TextView) view.findViewById(R.id.tvTitulo)).getText().toString();
         switch (seccion) {
             case "Home":
-                frSeccion = new HomeFragment();
+                frSeccion = new HomeViewPager();
                 seccion = "TurisTorre";
                 break;
             case "Racons":
-                frSeccion = new Racons();
+                frSeccion = new RaconsViewPager();
                 break;
             case "Galeria":
-                frSeccion = new GaleriaFragment();
+                frSeccion = new GaleriaRecyclerView();
                 break;
             case "Bandos":
-                frSeccion = new BandoFragment();
+                frSeccion = new BandoRecyclerView();
                 break;
             case "Terrats":
-                frSeccion = new TerratsFragment();
+                frSeccion = new TerratsRecyclerView();
                 break;
             case "Login":
-                frSeccion = new LoginFragment();
+                frSeccion = new Login();
                 break;
             case "Fiestas":
                 //frSeccion = new FiestasFragment();
-                frSeccion = new SplashFragment();
+                frSeccion = new FiestasRecylerView();
                 break;
             case "Ajustes":
                 frSeccion = new AjustesFragment();
@@ -414,30 +425,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
 
     protected Intent getDefaultShareIntent() {
-        /*Intent shareIntent = new Intent(Intent.ActionSend);
-        shareIntent.SetType("text/plain");
-        shareIntent.PutExtra(Android.Content.Intent.ExtraText,"TestText");
-        shareIntent.PutExtra(Android.Content.Intent.ExtraSubject, "TestSubject");*/
-        /*Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "Some text");  // For debugging
-        shareIntent.setType("text/plain");*/
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, "SUBJECT");
         shareIntent.putExtra(Intent.EXTRA_TEXT,"Extra Text");
         return shareIntent;
-
-       /* Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-       /* Job job = getArguments().getSerializable(JOB);
-        shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, job.title);
-        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, job.toText());*//*
-        return shareIntent;*/
-     /*   Intent myShareIntent = new Intent(Intent.ACTION_SEND);
-        myShareIntent.setType("image*//*");
-        myShareIntent.putExtra(Intent.EXTRA_STREAM, myImageUri);*/
-
     }
 
     @Override
@@ -447,41 +439,101 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         int id = item.getItemId();
         if (mDrawerToggle.onOptionsItemSelected(item))
             return true;
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == RC_GOOGLE_LOGIN) {
-            LoginFragment fragment = (LoginFragment) getSupportFragmentManager().findFragmentByTag(seccion);
-            fragment.onActivityResult(requestCode, resultCode, data);
-        } else
-            super.onActivityResult(requestCode, resultCode, data);
+        String path;
 
+        switch (requestCode) {
+            case CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE:
+                if (resultCode == Activity.RESULT_OK) {
+                    tipoBean.put("fileUri", fileUri);
+                    guardarFotoStorageFire(tipoBean, getBaseContext(), getSupportFragmentManager(),null);
+                }
+                break;
+            case CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE:
+                if (resultCode==Activity.RESULT_OK && data!=null){
+                    path = obtenerPath(data.getData(),getBaseContext());
+                    fileUri = Uri.parse(path);
+                    tipoBean = referenciasFire.get(Tablas.Terrats.name());
+                    tipoBean.put("fileUri",fileUri);
+                    referenciasFire.put(Tablas.Terrats.name(),tipoBean);
+                    bitMapStatic = formatearBitmapfromPath(path);
+                    ivTerrat.setImageBitmap(bitMapStatic);
+                }
+                break;
+            case RC_GOOGLE_LOGIN:
+                Login fragment = (Login) getSupportFragmentManager().findFragmentByTag(seccion);
+                fragment.onActivityResult(requestCode, resultCode, data);
+                break;
+        }
+    }
+    @SuppressLint("NewAPi")
+    public void pedirPermiso(final String permiso, final int permisoRequest, View viewSnack) {
+        // Si no tenemos el permiso:(la primera vez no lo tendremos pq no hemos lanzado la pregunta)
+        if (ContextCompat.checkSelfPermission(getBaseContext(), permiso) != PackageManager.PERMISSION_GRANTED)
+            if (shouldShowRequestPermissionRationale(permiso)) {
+                Log.i("permisos", "El usuario ya denegó el permiso anteriormente");
+                Snackbar.make(viewSnack, "Para registrate necesito la cámara", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("OK", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                requestPermissions(new String[]{permiso}, permisoRequest);
+                            }
+                        })
+                        .show();
+            } else
+                requestPermissions(new String[]{permiso}, permisoRequest);
+            // Si tenemos el permiso concedido , no tendremos en de la cámara
+        else if (numPermisos != 2) {
+            pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack);
+        }
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == CUENTAS) {
-            LoginFragment fragment = (LoginFragment) getSupportFragmentManager().findFragmentByTag(seccion);
-            fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }/*if (requestCode == PERMISO_CAMARA || requestCode == PERMISO_ESCRIBIR_SD ) {
-            FiestasFragment fragment = (FiestasFragment)getSupportFragmentManager().findFragmentByTag(seccion);
-            *//*switch (seccion) {
-                case "Galeria":
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[],@NonNull int[] grantResults) {
+        SharedPreferences.Editor editor;
+
+        switch (requestCode) {
+            case PERMISO_CAMARA :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                    ++numPermisos;
                 break;
-                case "Fiestas":
-                    break;
-                case "Fiestas":
-                    break;*//*
-//            GaleriaFragment fragment = (GaleriaFragment) getSupportFragmentManager().findFragmentByTag(seccion);
-            fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }*/
-        else
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            case PERMISO_ESCRIBIR_SD :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    ++numPermisos;
+                    pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, new View(getBaseContext()));
+                }
+                break;
+        }
+        editor = prefs.edit();
+        editor.putInt("numPermisos", numPermisos);
+        editor.apply();
+        if (numPermisos==2)
+            goCamera(tipoBean);
     }
+
+    @Override
+    public void goCamera(Map<String,Object> tipoBean) {
+		Intent intent;
+		Uri fileUri;
+
+        this.tipoBean = tipoBean;
+        intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        fileUri = getOutputMediaFile(); // create a file to save the image
+		this.fileUri = fileUri;
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+    }
+
+    @Override
+    public void goGaleria(Map<String, Object> tipoBean, ImageView terrat) {
+        this.ivTerrat = terrat;
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE);
+    }
+
 
 }

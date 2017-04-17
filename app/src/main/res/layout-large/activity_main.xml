@@ -6,7 +6,7 @@
     android:orientation="horizontal">
     <fragment
         android:id="@+id/frSelector"
-        class="cf.castellon.turistorre.fragments.SelectorFragment"
+        class="cf.castellon.turistorre.fragments.Principal.SelectorFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

@@ -61,7 +61,7 @@
         </service>
         <!-- [END firebase_iid_service] -->
 
-        <activity android:name=".fragments.SplashActivity" />
+        <activity android:name=".ui.SplashActivity" />
 
         <provider
             android:name="com.facebook.FacebookContentProvider"

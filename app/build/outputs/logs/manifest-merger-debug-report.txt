@@ -159,10 +159,10 @@ action#com.google.firebase.INSTANCE_ID_EVENT
 ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:59:17-80
 	android:name
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:59:25-77
-activity#cf.castellon.turistorre.fragments.SplashActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:9-62
+activity#cf.castellon.turistorre.ui.SplashActivity
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:9-55
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:19-59
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:19-52
 provider#com.facebook.FacebookContentProvider
 ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:66:9-69:39
 	android:authorities
@@ -195,6 +195,7 @@ MERGED from [com.android.support:recyclerview-v7:25.1.1] C:\Users\pccc\.android\
 MERGED from [com.google.firebase:firebase-database:10.2.0] C:\Users\pccc\.android\build-cache\5134bdaa9ff2e7bd79b24913c44897bc3ffe3732\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-database-connection:10.2.0] C:\Users\pccc\.android\build-cache\3d7906a6c0ff4bf8077be50d32de1d60106b9cf2\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-common:10.2.0] C:\Users\pccc\.android\build-cache\d6caa32e32a8ea26b72970e0a95153115ac149ac\output\AndroidManifest.xml:3:5-43
+MERGED from [com.jakewharton:butterknife:8.5.1] C:\Users\pccc\.android\build-cache\fb3af511a15191da6a899c44482b7df45eaff5a5\output\AndroidManifest.xml:5:5-43
 MERGED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\pccc\.android\build-cache\7575d029274b9ee305cab06ee7c28d99deaeb983\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-auth-base:10.2.0] C:\Users\pccc\.android\build-cache\054f8f0ab4183206e8a6ac7e9af93958af2c5802\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.vr:sdk-panowidget:1.10.0] C:\Users\pccc\.android\build-cache\9a2097b0550329aa46d04a64277aa00eb95a953a\output\AndroidManifest.xml:3:5-73

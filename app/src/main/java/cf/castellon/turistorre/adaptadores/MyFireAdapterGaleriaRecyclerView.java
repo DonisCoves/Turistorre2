@@ -1,42 +1,46 @@
 package cf.castellon.turistorre.adaptadores;
 
-import android.content.Context;
 import android.net.Uri;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 
-import static cf.castellon.turistorre.utils.Utils.*;
+import java.util.HashSet;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
+import cf.castellon.turistorre.bean.Usuario;
 
+import static cf.castellon.turistorre.utils.Utils.*;
+import static cf.castellon.turistorre.utils.Constantes.*;
+
+@SuppressWarnings("unchecked")
 public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Imagen,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder>
         implements View.OnClickListener, View.OnLongClickListener{
-    private Context context;
+    private FragmentActivity fragment;
     private View.OnClickListener listener;
     private View.OnLongClickListener listenerLong;
 
-    public MyFireAdapterGaleriaRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref,Context context) {
+    public MyFireAdapterGaleriaRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref,FragmentActivity fragment) {
         super(modelClass, modelLayout, viewHolderClass, ref);
-        this.context = context;
+        this.fragment = fragment;
     }
-
-    
 
     @Override
     public MyFireViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fila_fire_recycle, viewGroup, false);
+
         itemView.setOnClickListener(this);
         itemView.setOnLongClickListener(this);
-        MyFireViewHolder holder = new MyFireViewHolder(itemView);
-        return holder;
+        return (new MyFireViewHolder(itemView));
     }
 
     public void setOnClickListener(View.OnClickListener listener) {
@@ -61,36 +65,40 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
         return true;
     }
 
-
     //Casos especiales:
     //a)Si otro usuario añade una foto y este usuario la pincha se tendra que actualizar en su bbdd. Por lo tanto la añadimos
     //b)Si hay un usuario nuevo que ha creado una foto añadimos tambien el usuario
     @Override
     protected void populateViewHolder(final MyFireViewHolder viewHolder, final Imagen modelo, int position) {
-        /*if (buscarImagen(modelo.getUidImg())==null)*//*a)*//*
-            imagenes.add(modelo);
-        if (!existeUsuario(modelo.getUidUser()))*//*b)*//*
-            anyadirUsuario(modelo.getUidUser());*/
+        HashSet<Imagen> imagenes;
+        HashSet<Usuario> usuarios;
+        Usuario usuario;
 
-        viewHolder.bindDatos(modelo.getUriStrPre(),context);
+        usuario = buscarUsuario(modelo.getUidUser());
+        imagenes = baseDatos.get(Tablas.Imagenes.name());
+        usuarios = baseDatos.get(Tablas.Usuarios.name());
+        imagenes.add(modelo);
+        usuarios.add(usuario);
+        baseDatos.put(Tablas.Imagenes.name(),imagenes);
+        baseDatos.put(Tablas.Usuarios.name(),usuarios);
+        viewHolder.bindDatos(modelo.getUriStrPre(),fragment);
     }
 
 
-    /** Clase ViewHolder interna */
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imageView;
-        public MyFireViewHolder(View itemView) {
+        @BindView(R.id.ivFilaRecycle) ImageView imageView;
+
+        private MyFireViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView)itemView.findViewById(R.id.ivFilaRecycle);
+            ButterKnife.bind(this, itemView);
+
         }
 
-        public void bindDatos(String urlStr, Context context){
+        private void bindDatos(String urlStr, FragmentActivity fragment){
             Uri url = Uri.parse(urlStr);
             Glide
-                    .with(context)
+                    .with(fragment)
                     .load(url)
-//                    .centerCrop()
-//                    .fitCenter()
                     .placeholder(R.drawable.escudo)
                     .crossFade()
                     .into(imageView);

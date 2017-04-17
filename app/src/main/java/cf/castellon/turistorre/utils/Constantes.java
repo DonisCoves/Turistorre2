@@ -8,6 +8,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.HashMap;
+import java.util.Map;
+import static cf.castellon.turistorre.utils.Utils.referenciasFire;
 import cf.castellon.turistorre.R;
 
 
@@ -39,16 +42,17 @@ public final class Constantes {
     public static final int PERMISO_ESCRIBIR_SD = 4;
     public static final int CARGAR_USUARIO = 0;
     public static final int CARGAR_IMAGENES = 1;
-    public static final int CARGAR_TERRATS = 2;
-    public static final int CARGAR_RACONS = 3;
-    public static final int CARGAR_FIESTAS = 4;
-    public static final int CARGAR_HOME = 5;
-    public static final int CARGAR_USUARIOS = 6;
-//    public static final int CARGAR_TODO = 5;
+    public static final int CARGAR_FIESTAS = 2;
+    public static final int CARGAR_HOME = 3;
+    public static final int CARGAR_USUARIOS = 4;
+    public static final int CARGAR_TERRATS = 5;
+    public static final int CARGAR_RACONS = 6;
+    public static final int CARGAR_DIAFIESTA = 7;
+//    public static final int CARGAR_TODO = 7;
     public static final int PERMISO_SUBIR_IMAGENES = 5; //Es el de camara y el de escribirsd
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     public static final int CAPTURE_IMAGE_GALLERY_ACTIVITY_REQUEST_CODE = 101;
-    public static final int CAPTURE_TERRAT_GALLERY_ACTIVITY_REQUEST_CODE = 102;
+    public static final int CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE = 102;
     public static String[] PERMISSIONS_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     /******************************FIREBASE******************************/
@@ -62,17 +66,17 @@ public final class Constantes {
 
     //Bases de datos en tiempo real
     public static final DatabaseReference mDataBaseRootRef = FirebaseDatabase.getInstance().getReference();
-    public static final DatabaseReference mDataBaseKeysRef = mDataBaseRootRef.child("keys");
-    public static final DatabaseReference mDataBaseImgRef = mDataBaseRootRef.child("Imagenes");
-    public static final DatabaseReference mDataBaseTerratsRef = mDataBaseRootRef.child("Terrats");
-    public static final DatabaseReference mDataBaseBandoRef = mDataBaseRootRef.child("Bandos");
-    public static final DatabaseReference mDataBaseUsersRef = mDataBaseRootRef.child("Usuarios");
-    public static final DatabaseReference mDataBaseFiestasRef = mDataBaseRootRef.child("Fiestas");
-    public static final DatabaseReference mDataBaseDiasFiestaRef = mDataBaseRootRef.child("DiasFiestas");
+    public static final DatabaseReference mDataBaseTerratRef = mDataBaseRootRef.child(Tablas.Terrats.name());
+    public static final DatabaseReference mDataBaseRacoRef = mDataBaseRootRef.child(Tablas.Racons.name());
+    public static final DatabaseReference mDataBaseImgRef = mDataBaseRootRef.child(Tablas.Imagenes.name());
+    public static final DatabaseReference mDataBaseUsersRef = mDataBaseRootRef.child(Tablas.Usuarios.name());
+    public static final DatabaseReference mDataBaseFiestasRef = mDataBaseRootRef.child(Tablas.Fiestas.name());
+    public static final DatabaseReference mDataBaseDiasFiestaRef = mDataBaseRootRef.child(Tablas.DiasFiestas.name());
     public static final DatabaseReference mDataBaseGruposRef = mDataBaseRootRef.child("Grupos");
-    public static final DatabaseReference mDataBaseRaconsRef = mDataBaseRootRef.child("Racons");
+    public static final DatabaseReference mDataBaseKeysRef = mDataBaseRootRef.child("keys");
+    public static final DatabaseReference mDataBaseBandoRef = mDataBaseRootRef.child("bandos");
 
-    public static final String TAG = "GaleriaFragment";
+    public static final String TAG = "TurisTorre";
     //    MENSAJERÍA EN LA NUBE
     public static final String SERVER_KEY = "AIzaSyDxLyatD56aKsqjxjd_Gq5T6siaAw-oT6Q";
     public static final String ID_REMITENTE = "351834780446";  //fcmProjectSenderId o projectId o SENDER_ID
@@ -101,7 +105,7 @@ public final class Constantes {
             R.drawable.ic_action_find_in_page
     };
 
-    public static enum Tipo_Proveedor{
+    public enum Tipo_Proveedor{
         NATIVO_REGISTRAR,
         NATIVO_DESCONECTAR,
         NATIVO_INICIAL,
@@ -109,4 +113,10 @@ public final class Constantes {
         DESCONECTAR_GOOGLE,
         CONECTAR_GOOGLE,
     };
+
+    public enum Tablas{
+        Terrats,Racons,Imagenes,Usuarios,Fiestas,DiasFiestas
+    }
+
+
 }

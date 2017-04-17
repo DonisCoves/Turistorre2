@@ -1,7 +1,15 @@
 [
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\galeria_recyclerview_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\galeria_recyclerview_layout.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ui_layer.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\290b474531ee119c0ce66701e53fd9e89675d06d\\output\\res\\layout\\ui_layer.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_pagina_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\home_pagina_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
@@ -56,10 +64,6 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\mipagefragment_carrusel_raco_layout.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fiestas_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fiestas_layout.xml"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\splash_layout.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\splash_layout.xml"
     },
@@ -76,16 +80,16 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fila_eventos_galeria.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fiestaseventosgaleria_recyclerview_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fiestaseventosgaleria_recyclerview_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_pageadapter_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\home_pageadapter_layout.xml"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ui_view_embed.xml",
@@ -104,12 +108,16 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\290b474531ee119c0ce66701e53fd9e89675d06d\\output\\res\\layout\\ui_layer_with_portrait_support.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\selector_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\selector_layout.xml"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\racons_viewpager_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\racons_viewpager_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\selector_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\selector_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
@@ -160,20 +168,12 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\galeria_dia.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\galeria_dia.xml"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fiestas_gridview_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fiestas_gridview_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\carrusel_racons_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\carrusel_racons_layout.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\galeria_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\galeria_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
@@ -240,6 +240,10 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fiestaseventos_recyclerview_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fiestaseventos_recyclerview_layout.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\permisos_layout.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\permisos_layout.xml"
     },
@@ -276,6 +280,14 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\d19e944d6445e5c1f9c7471606b44befd9881255\\output\\res\\layout\\design_layout_tab_text.xml"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fiestas_recyclerview_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fiestas_recyclerview_layout.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\galeria_viewpager_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\galeria_viewpager_layout.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
@@ -286,10 +298,6 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_blue_large.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\layout\\messenger_button_send_blue_large.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\eventos_galeria_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\eventos_galeria_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\com_facebook_tooltip_bubble.xml",
@@ -310,10 +318,6 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\elemento_gridview_galeriadia.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\elemento_gridview_galeriadia.xml"
-    },
-    {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\eventos_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\eventos_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\messenger_button_send_white_large.xml",
@@ -384,10 +388,6 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\d19e944d6445e5c1f9c7471606b44befd9881255\\output\\res\\layout\\design_menu_item_action_area.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\home_layout.xml"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\carrusel_terrats_layout.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\carrusel_terrats_layout.xml"
     },
@@ -396,8 +396,8 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\layout\\messenger_button_send_white_round.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\racons_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\racons_layout.xml"
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_viewpager_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\home_viewpager_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",

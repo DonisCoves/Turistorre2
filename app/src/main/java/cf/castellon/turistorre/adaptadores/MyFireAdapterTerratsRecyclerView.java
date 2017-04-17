@@ -7,22 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
-import cf.castellon.turistorre.bean.Panoramica;
-
+import cf.castellon.turistorre.bean.Imagen;
 import static cf.castellon.turistorre.utils.Utils.*;
 
-public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Panoramica,MyFireAdapterTerratsRecyclerView.MyFireViewHolder>
+public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Imagen,MyFireAdapterTerratsRecyclerView.MyFireViewHolder>
                                               implements View.OnClickListener{
     private Context context;
     private View.OnClickListener listener;
 
-    public MyFireAdapterTerratsRecyclerView(Class<Panoramica> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref, Context context) {
+    public MyFireAdapterTerratsRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref, Context context) {
         super(modelClass, modelLayout, viewHolderClass, ref);
         this.context = context;
     }
@@ -31,8 +31,7 @@ public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Pa
     public MyFireViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fila_fire_terrat_recycle, viewGroup, false);
         itemView.setOnClickListener(this);
-        MyFireViewHolder holder = new MyFireViewHolder(itemView);
-        return holder;
+        return (new MyFireViewHolder(itemView));
     }
 
     public void setOnClickListener(View.OnClickListener listener) {
@@ -46,21 +45,21 @@ public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Pa
     }
 
     @Override
-    protected void populateViewHolder(final MyFireViewHolder viewHolder, final Panoramica modelo, int position) {
-        if (buscarPanoramica(modelo.getUidImg())==null)
+    protected void populateViewHolder(final MyFireViewHolder viewHolder, final Imagen modelo, int position) {
+        /*if (buscarPanoramica(modelo.getUidImg())==null)
             panoramicas.add(modelo);
-        viewHolder.bindDatos(modelo.getUriStrPre(),context);
+        viewHolder.bindDatos(modelo.getUriStrPre(),context);*/
     }
 
-    /** Clase ViewHolder interna */
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imageView;
+        @BindView(R.id.ivFilaRecycleTerrat) ImageView imageView;
+
         public MyFireViewHolder(View itemView) {
             super(itemView);
-            imageView = (ImageView)itemView.findViewById(R.id.ivFilaRecycleTerrat);
+            ButterKnife.bind(this,itemView);
         }
 
-        public void bindDatos(String urlStr, Context context){
+        private void bindDatos(String urlStr, Context context){
             Uri url = Uri.parse(urlStr);
             Glide
                     .with(context)
@@ -69,6 +68,5 @@ public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Pa
                     .crossFade()
                     .into(imageView);
         }
-
     }
 }

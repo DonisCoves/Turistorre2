@@ -1,7 +1,7 @@
-#Sat Apr 01 18:39:25 CEST 2017
+#Thu Apr 13 08:27:28 CEST 2017
 base.0=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_fcc6b772a14be54ee8c4b518d34a497f9f833ce3
-renamed.1=classes2.dex
-renamed.0=classes.dex
+renamed.1=classes.dex
+renamed.0=classes2.dex
 file.1=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_897e787ae916cc820671e2d8123aef730cf401ca\\classes.dex
 base.1=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_897e787ae916cc820671e2d8123aef730cf401ca
 file.0=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_fcc6b772a14be54ee8c4b518d34a497f9f833ce3\\classes.dex

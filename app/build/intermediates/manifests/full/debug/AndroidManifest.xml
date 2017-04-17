@@ -77,7 +77,7 @@
         </service>
         <!-- [END firebase_iid_service] -->
 
-        <activity android:name="cf.castellon.turistorre.fragments.SplashActivity" />
+        <activity android:name="cf.castellon.turistorre.ui.SplashActivity" />
 
         <provider
             android:name="com.facebook.FacebookContentProvider"

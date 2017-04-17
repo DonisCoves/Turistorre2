@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_help.png",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_help.png"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_actionbar_find_in_page.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_actionbar_find_in_page.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_help.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_action_help.png"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_action_image.png",
