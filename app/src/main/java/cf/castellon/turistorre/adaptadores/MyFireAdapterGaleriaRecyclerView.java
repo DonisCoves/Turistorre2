@@ -1,7 +1,6 @@
 package cf.castellon.turistorre.adaptadores;
 
 import android.net.Uri;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,28 +9,20 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
-
-import java.util.HashSet;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
-import cf.castellon.turistorre.bean.Usuario;
-
 import static cf.castellon.turistorre.utils.Utils.*;
-import static cf.castellon.turistorre.utils.Constantes.*;
 
 @SuppressWarnings("unchecked")
 public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Imagen,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder>
         implements View.OnClickListener, View.OnLongClickListener{
-    private FragmentActivity fragment;
     private View.OnClickListener listener;
     private View.OnLongClickListener listenerLong;
 
-    public MyFireAdapterGaleriaRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref,FragmentActivity fragment) {
+    public MyFireAdapterGaleriaRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref) {
         super(modelClass, modelLayout, viewHolderClass, ref);
-        this.fragment = fragment;
     }
 
     @Override
@@ -70,18 +61,8 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
     //b)Si hay un usuario nuevo que ha creado una foto añadimos tambien el usuario
     @Override
     protected void populateViewHolder(final MyFireViewHolder viewHolder, final Imagen modelo, int position) {
-        HashSet<Imagen> imagenes;
-        HashSet<Usuario> usuarios;
-        Usuario usuario;
-
-        usuario = buscarUsuario(modelo.getUidUser());
-        imagenes = baseDatos.get(Tablas.Imagenes.name());
-        usuarios = baseDatos.get(Tablas.Usuarios.name());
-        imagenes.add(modelo);
-        usuarios.add(usuario);
-        baseDatos.put(Tablas.Imagenes.name(),imagenes);
-        baseDatos.put(Tablas.Usuarios.name(),usuarios);
-        viewHolder.bindDatos(modelo.getUriStrPre(),fragment);
+        anyadirImagen(modelo);
+        viewHolder.bindDatos(modelo.getUriStrPre());
     }
 
 
@@ -94,10 +75,10 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
 
         }
 
-        private void bindDatos(String urlStr, FragmentActivity fragment){
+        private void bindDatos(String urlStr){
             Uri url = Uri.parse(urlStr);
             Glide
-                    .with(fragment)
+                    .with(imageView.getContext())
                     .load(url)
                     .placeholder(R.drawable.escudo)
                     .crossFade()

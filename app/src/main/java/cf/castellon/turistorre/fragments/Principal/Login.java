@@ -1,8 +1,7 @@
-package cf.castellon.turistorre.fragments.Principal;
 
+package cf.castellon.turistorre.fragments.Principal;
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.app.ProgressDialog;
@@ -22,7 +21,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
@@ -54,8 +52,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.util.ArrayList;
-import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -64,16 +60,13 @@ import static cf.castellon.turistorre.utils.Constantes.*;
 import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.ActionBar.Permisos;
 import cf.castellon.turistorre.utils.MiAplicacion;
-import cf.castellon.turistorre.bean.Proveedor;
 
-
+@SuppressWarnings({"ThrowableResultOfMethodCallIgnored", "ConstantConditions"})
 public class Login extends Fragment implements GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "LoginFragment";
 
-    private Activity mActivity;
     private ProgressDialog mAuthProgressDialog;
     @BindView(R.id.ivAvatar) ImageView ivAvatar;
-    private List<Proveedor> proveedores;
     SharedPreferences.Editor editor;
     @BindView(R.id.etEmail) EditText email;
     @BindView(R.id.etPassword) EditText password;
@@ -84,25 +77,19 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
     private FirebaseAuth.AuthStateListener mAuthListener;
     @BindView(R.id.sign_conectar_f) LoginButton btnFacebook;
     private CallbackManager mFacebookCallbackManager;
-    private AccessTokenTracker mFacebookAccessTokenTracker;/* Used to track user logging in/out off Facebook */
     @BindView(R.id.btn_desconectar_g) Button signoutG;
     @BindView(R.id.sign_conectar_g) SignInButton mGoogleLoginButton;
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.mActivity = activity;
-    }
+    private Activity mActivity;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        mActivity = getActivity();
         super.onCreate(savedInstanceState);
-        proveedores = new ArrayList<Proveedor>();
         mAuth = FirebaseAuth.getInstance();
         mApplication = (MiAplicacion) mActivity.getApplicationContext();
         //[2.- Facebook Callback, cuando cambie el acceso entramos]
         mFacebookCallbackManager = CallbackManager.Factory.create();
-        mFacebookAccessTokenTracker = new AccessTokenTracker() {
+        new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
                 Log.i(TAG, "Facebook.AccessTokenTracker.OnCurrentAccessTokenChanged");
@@ -136,11 +123,14 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                     numProvs = mFirebaseUser.getProviderData().size();
                     if (numProvs == 2) {//La primera vez lo guardamos en la bbdd de firebase
                         //Si es mediante email y password:
-                        if (mFirebaseUser.getProviderData().get(0).getProviderId().equalsIgnoreCase("password") ||
-                                mFirebaseUser.getProviderData().get(1).getProviderId().equalsIgnoreCase("password"))
-                            crearUsuarioBBDDFire(mFirebaseUser.getUid(), mFirebaseUser.getEmail(),mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+                        if (mFirebaseUser.getPhotoUrl()!=null)
+                            if (mFirebaseUser.getProviderData().get(0).getProviderId().equalsIgnoreCase("password") ||
+                                    mFirebaseUser.getProviderData().get(1).getProviderId().equalsIgnoreCase("password"))
+                                crearUsuarioBBDDFire(mFirebaseUser.getUid(), mFirebaseUser.getEmail(),mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+                            else
+                                crearUsuarioBBDDFire(mFirebaseUser.getUid(), mFirebaseUser.getDisplayName(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
                         else
-                            crearUsuarioBBDDFire(mFirebaseUser.getUid(), mFirebaseUser.getDisplayName(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+                            showError(getActivity(),getClass().getName(),"mFirebaseUser.getPhotoUrl().toString()","El metodo es nulo");
                     }
                     setAuthenticatedUser(mFirebaseUser);
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + mFirebaseUser.getUid());
@@ -175,17 +165,12 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) { //Google
+        if (requestCode != REQUEST_CODE_FACEBOOK ){ //
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             Log.d(TAG, "handleSignInResult:" + result.isSuccess());
             if (result.isSuccess()) {
                 GoogleSignInAccount acct = result.getSignInAccount();
                 firebaseAuthWithGoogle(acct);
-                //mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
-//                updateUI(true);
-            } else {
-                // Signed out, show unauthenticated UI.
-//                updateUI(null);
             }
         } else
             mFacebookCallbackManager.onActivityResult(requestCode, resultCode, data);
@@ -201,9 +186,8 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
-                            if (!task.isSuccessful()) {
-                                showErrorDialog(task.getException().getMessage());
-                            }
+                            if (!task.isSuccessful())
+                                showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
                             mAuthProgressDialog.hide();
                         }
                     });
@@ -214,7 +198,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Log.d(TAG, "linkWithCredential:onComplete:" + task.isSuccessful());
                             if (!task.isSuccessful()) {
-                                showErrorDialog(task.getException().getMessage());
+                                showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
                             }
                             mAuthProgressDialog.hide();
 
@@ -223,12 +207,15 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         }
     }
 
-    /* ************************************
+
+/* ************************************
      *             FACEBOOK               *
      **************************************
      */
+
     private void onFacebookAccessTokenChange(AccessToken token) {
-        if (token != null) {  //Cuando valimos en Facebook, hacemos el registro en Firebase, cuando este en Fire saltamos a AuthResultHandler.onAuthenticated*/
+        if (token != null) {  //Cuando valimos en Facebook, hacemos el registro en Firebase, cuando este en Fire saltamos a AuthResultHandler.onAuthenticated*//*
+
             AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
             mAuthProgressDialog.show();
             if (mFirebaseUser == null) {
@@ -238,7 +225,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
                                 if (!task.isSuccessful())
-                                    showErrorDialog(task.getException().getMessage());
+                                    showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
                                 mAuthProgressDialog.hide();
                             }
                         });
@@ -249,7 +236,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "linkWithCredential:onComplete:" + task.isSuccessful());
                                 if (!task.isSuccessful()) {
-                                    showErrorDialog(task.getException().getMessage());
+                                    showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
                                     LoginManager.getInstance().logOut();
                                 }
                                 mAuthProgressDialog.hide();
@@ -269,15 +256,19 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         view = inflater.inflate(R.layout.login_layout, container, false);
         ButterKnife.bind(this, view);
         // [3.-FACEBOOK LoginButton Permisos]
-        btnFacebook.setReadPermissions("public_profile email");
+        btnFacebook.setReadPermissions("public_profile","email");
         // [END 3.-FACEBOOK LoginButton Permisos]
         // [4.-FACEBOOK LoginButton If using in a fragment]
-        btnFacebook.setFragment(this);
+        //btnFacebook.setFragment(this);
         // [END4.-FACEBOOK LoginButton If using in a fragment]
-            /* *************************************
+
+/* *************************************
          *               GOOGLE                *
-         ***************************************/
-        /* Load the Google login button */
+         ***************************************//*
+
+
+/* Load the Google login button */
+
         mGoogleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -308,9 +299,11 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
             }
     }
 
-    /**
+
+/**
      * Mostramos los errores
      */
+
     private void showErrorDialog(String message) {
         new AlertDialog.Builder(mActivity)
                 .setTitle("Error")
@@ -349,23 +342,27 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
 
     private void logout(final String proveedor) {
         eliminarProveedor(proveedor);
-        if (proveedor.equals("facebook.com")) {
-            LoginManager.getInstance().logOut();
-            updateAvatar();
-        } else if (proveedor.equals("google.com")) {
-            updateUI(Tipo_Proveedor.CONECTAR_GOOGLE);
-            mGoogleApiClient.disconnect();
-        } else if (proveedor.equals("password")) {
-            updateUI(Tipo_Proveedor.NATIVO_INICIAL);
-            /*email.setText("");
-            password.setText("");*/
+        switch (proveedor) {
+            case "facebook.com":
+                LoginManager.getInstance().logOut();
+                updateAvatar();
+                break;
+            case "google.com":
+                updateUI(Tipo_Proveedor.CONECTAR_GOOGLE);
+                mGoogleApiClient.disconnect();
+                break;
+            case "password":
+                updateUI(Tipo_Proveedor.NATIVO_INICIAL);
+                break;
         }
     }
 
-    /***
+
+/***
      * Eliminamos proveedor o desconectamos el usuario si ya no tiene mas proveedores
-     * @param proveedor
+     * @param proveedor el proveedor
      */
+
     private void eliminarProveedor(final String proveedor) {
         if (mAuth.getCurrentUser().getProviderData().size() < 3) {  // Si solo hay 2 (Firebase y otro) no hemos hecho link
             mDataBaseUsersRef.child(mFirebaseUser.getUid()).setValue(null);
@@ -393,7 +390,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         editor = prefs.edit();
         editor.putString("email", email.getText().toString());
         editor.putString("password", password.getText().toString());
-        editor.commit();
+        editor.apply();
         if (mFirebaseUser == null) {
             mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                     .addOnSuccessListener(mActivity, new OnSuccessListener<AuthResult>() {
@@ -497,43 +494,25 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         } else {
             Glide.with(mActivity).load(R.drawable.escudo).into(ivAvatar);
         }
-
-//        Picasso.with(mActivity).setIndicatorsEnabled(true);
-//        Picasso.with(mActivity).load(url).error(R.drawable.error).fit().transform(new RoundedTransformation()).into(imageView);
     }
 
     @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        Log.d(TAG, "onConnectionFailed:" + result);
-        Toast.makeText(mActivity, "Google Play Services error.", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case CUENTAS: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Log.i(TAG, "Permiso concedido");
-//                    getGoogleOAuthTokenAndLogin();
-                } else
-                    Log.i(TAG, "Permiso denegado");
-            }
-        }
-    }
+    public void onConnectionFailed(@NonNull ConnectionResult result) {
+        showError(getContext(),getClass().getName(),result.getClass().getName(),result.getErrorMessage());
+     }
 
     private void crearUsuarioBBDDFire(final String userId, final String nombre, final String avatar, final String grupo) {
         mAuthProgressDialog.show();//No me aparece el dialogo
         editor = prefs.edit();
         editor.putString("uidUser", userId);
-        editor.commit();
+        editor.apply();
         if (nombre.equalsIgnoreCase("TurisTorre Turistorre")){
             usuario = new Usuario(nombre, avatar, userId, "administrador");
             FirebaseMessaging.getInstance().subscribeToTopic("administrador");
         }
         else
             usuario = new Usuario(nombre, avatar, userId, grupo);
-        anyadirUsuarioBBDD(usuario);
+        anyadirUsuario(usuario);
         mDataBaseUsersRef.child(userId).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

@@ -27,6 +27,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.facebook.CallbackManager;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -142,7 +143,6 @@ public final class Utils {
             return titulos;
     }
 
-
     public static Date formatearDia(String tituloDiaFiesta, String key) {
         int dia;
         String mes, anyo, diat;
@@ -193,20 +193,6 @@ public final class Utils {
         return encontrado;
     }
 
-    public static void anyadirUsuario(String uidUser) {
-       /* mDataBaseUsersRef.child(uidUser).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                anyadirUsuarioLocal(dataSnapshot.getValue(Usuario.class));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });*/
-
-    }
-
     public static void showProgressDialog(Context context) {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(context);
@@ -231,11 +217,9 @@ public final class Utils {
         }
     }
 
-
     /**
      * CARRUSELGALERIAFRAGMENT
      */
-
 
     @Nullable
     public static Imagen buscarImagen(String uidImagen) {
@@ -291,25 +275,6 @@ public final class Utils {
             public void onCancelled(DatabaseError databaseError) {
             }
         });*/
-    }
-
-    /**
-     * Anyade un usuario nuevo a la lista . No admite duplicados
-     *
-     * @param us
-     */
-    public static void anyadirUsuarioBBDD(Usuario us) {
-        /*List<Usuario> usuarios = (ArrayList)baseDatos.get(Tablas.Usuarios.name());
-        boolean repetido = false;
-        if (usuarios.isEmpty())
-            usuarios.add(us);
-        else {
-            for (Usuario user : usuarios)
-                if (us.getUidUser().equals(user.getUidUser()))
-                    repetido = true;
-            if (!repetido)
-                usuarios.add(us);
-        }*/
     }
 
     @Nullable
@@ -781,7 +746,6 @@ public final class Utils {
         }
     }
 
-
     public static List<String> eliminarGrupoActual(List<String> grupos, String grupoEliminar) {
         List<String> gpo = new ArrayList<>();
         for (String grupo : grupos) {
@@ -927,13 +891,13 @@ public final class Utils {
     }
 
     public static void guardarFotoBBDDFire(final DatabaseReference rootRef, final Imagen imagen, final FragmentManager fragmentManager, final Context context, Activity activity) {
-                DatabaseReference dbRef;
+        DatabaseReference dbRef;
 
         dbRef = rootRef.child(imagen.getUidImg());
         try {
-            dbRef.setValue(mImagen).addOnCompleteListener(new OnCompleteListener<Void>() {
+            dbRef.setValue(mImagen).addOnSuccessListener(activity, new OnSuccessListener<Void>() {
                 @Override
-                public void onComplete(@NonNull Task<Void> task) {
+                public void onSuccess(Void aVoid) {
                     FragmentTransaction fragmentTransaction;
                     hideProgressDialog();
                     if (rootRef.getKey().equalsIgnoreCase(Tablas.Terrats.name())){
@@ -941,10 +905,10 @@ public final class Utils {
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.content_frame, new TerratsRecyclerView()).commit();
                     }
+                  }
 
-                }
-
-            }).addOnFailureListener(new OnFailureListener() {
+            })
+            .addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
                     showError(context,getClass().getName(), exception.getStackTrace()[0].getMethodName(),exception.toString());
@@ -1009,6 +973,30 @@ public final class Utils {
         referenciasFire.put(Tablas.Imagenes.name(),referenciaImagenes);
         referenciasFire.put(Tablas.Racons.name(),referenciaRacons);
         referenciasFire.put(Tablas.Terrats.name(),referenciaTerrats);
+    }
+
+    /** Anyade una imagen y su usuario a la base de datos local
+     *
+     * @param imagen La imagen a anyadir
+     */
+    public static void anyadirImagen(Imagen imagen){
+        HashSet<Imagen> imagenes;
+        HashSet<Usuario> usuarios;
+        Usuario usuario;
+
+        usuario = buscarUsuario(imagen.getUidUser());
+        imagenes = baseDatos.get(Tablas.Imagenes.name());
+        usuarios = baseDatos.get(Tablas.Usuarios.name());
+        imagenes.add(imagen);
+        usuarios.add(usuario);
+        baseDatos.put(Tablas.Imagenes.name(),imagenes);
+        baseDatos.put(Tablas.Usuarios.name(),usuarios);
+    }
+
+    public static void anyadirUsuario(Usuario usuario){
+        HashSet<Usuario> usuarios;
+        usuarios = baseDatos.get(Tablas.Usuarios.name());
+        usuarios.add(usuario);
     }
 
 

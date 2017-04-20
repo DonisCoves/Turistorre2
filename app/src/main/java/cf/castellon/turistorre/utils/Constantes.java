@@ -77,6 +77,7 @@ public final class Constantes {
     public static final DatabaseReference mDataBaseBandoRef = mDataBaseRootRef.child("bandos");
 
     public static final String TAG = "TurisTorre";
+    public static final int REQUEST_CODE_FACEBOOK = 666;
     //    MENSAJERÍA EN LA NUBE
     public static final String SERVER_KEY = "AIzaSyDxLyatD56aKsqjxjd_Gq5T6siaAw-oT6Q";
     public static final String ID_REMITENTE = "351834780446";  //fcmProjectSenderId o projectId o SENDER_ID

@@ -445,12 +445,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String path;
-
         switch (requestCode) {
             case CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE:
                 if (resultCode == Activity.RESULT_OK) {
                     tipoBean.put("fileUri", fileUri);
-                    guardarFotoStorageFire(tipoBean, getBaseContext(), getSupportFragmentManager(),null);
+                    guardarFotoStorageFire(tipoBean, this, getSupportFragmentManager(),null);
                 }
                 break;
             case CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE:
@@ -464,7 +463,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                     ivTerrat.setImageBitmap(bitMapStatic);
                 }
                 break;
-            case RC_GOOGLE_LOGIN:
+            default: //Acceso Login
                 Login fragment = (Login) getSupportFragmentManager().findFragmentByTag(seccion);
                 fragment.onActivityResult(requestCode, resultCode, data);
                 break;
@@ -512,7 +511,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         editor.putInt("numPermisos", numPermisos);
         editor.apply();
         if (numPermisos==2)
-            goCamera(tipoBean);
+            goCamera(referenciasFire.get(Tablas.Imagenes.name()));
     }
 
     @Override

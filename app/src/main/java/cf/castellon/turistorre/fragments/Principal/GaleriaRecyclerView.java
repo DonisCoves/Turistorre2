@@ -63,10 +63,11 @@ public class GaleriaRecyclerView extends Fragment{
             }
         }
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adaptador = new MyFireAdapterGaleriaRecyclerView(Imagen.class,R.layout.fila_fire_recycle,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder.class,mDataBaseImgRef,getActivity());
+        adaptador = new MyFireAdapterGaleriaRecyclerView(Imagen.class,R.layout.fila_fire_recycle,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder.class,mDataBaseImgRef);
         manager = new GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false);
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
     }

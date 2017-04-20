@@ -36,7 +36,7 @@ public class TerratsRecyclerView extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adaptador = new MyFireAdapterTerratsRecyclerView(Imagen.class, R.layout.fila_fire_terrat_recycle,MyFireAdapterTerratsRecyclerView.MyFireViewHolder.class,mDataBaseTerratRef,getActivity());
+        adaptador = new MyFireAdapterTerratsRecyclerView(Imagen.class, R.layout.fila_fire_terrat_recycle,MyFireAdapterTerratsRecyclerView.MyFireViewHolder.class,mDataBaseTerratRef);
         manager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
     }

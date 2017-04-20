@@ -1,6 +1,5 @@
 package cf.castellon.turistorre.adaptadores;
 
-import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,20 +10,24 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.HashSet;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
+import cf.castellon.turistorre.bean.Usuario;
+import cf.castellon.turistorre.utils.Constantes;
+
 import static cf.castellon.turistorre.utils.Utils.*;
 
+@SuppressWarnings("unchecked")
 public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Imagen,MyFireAdapterTerratsRecyclerView.MyFireViewHolder>
                                               implements View.OnClickListener{
-    private Context context;
     private View.OnClickListener listener;
 
-    public MyFireAdapterTerratsRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref, Context context) {
+    public MyFireAdapterTerratsRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref) {
         super(modelClass, modelLayout, viewHolderClass, ref);
-        this.context = context;
     }
 
     @Override
@@ -46,9 +49,18 @@ public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Im
 
     @Override
     protected void populateViewHolder(final MyFireViewHolder viewHolder, final Imagen modelo, int position) {
-        /*if (buscarPanoramica(modelo.getUidImg())==null)
-            panoramicas.add(modelo);
-        viewHolder.bindDatos(modelo.getUriStrPre(),context);*/
+        HashSet<Imagen> terrats;
+        HashSet<Usuario> usuarios;
+        Usuario usuario;
+
+        usuario = buscarUsuario(modelo.getUidUser());
+        terrats = baseDatos.get(Constantes.Tablas.Terrats.name());
+        usuarios = baseDatos.get(Constantes.Tablas.Usuarios.name());
+        terrats.add(modelo);
+        usuarios.add(usuario);
+        baseDatos.put(Constantes.Tablas.Terrats.name(),terrats);
+        baseDatos.put(Constantes.Tablas.Usuarios.name(),usuarios);
+        viewHolder.bindDatos(modelo.getUriStrPre());
     }
 
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {
@@ -59,10 +71,10 @@ public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Im
             ButterKnife.bind(this,itemView);
         }
 
-        private void bindDatos(String urlStr, Context context){
+        private void bindDatos(String urlStr){
             Uri url = Uri.parse(urlStr);
             Glide
-                    .with(context)
+                    .with(itemView.getContext())
                     .load(url)
                     .placeholder(R.drawable.escudo)
                     .crossFade()
