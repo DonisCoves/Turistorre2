@@ -71,10 +71,11 @@ public final class Constantes {
     public static final DatabaseReference mDataBaseImgRef = mDataBaseRootRef.child(Tablas.Imagenes.name());
     public static final DatabaseReference mDataBaseUsersRef = mDataBaseRootRef.child(Tablas.Usuarios.name());
     public static final DatabaseReference mDataBaseFiestasRef = mDataBaseRootRef.child(Tablas.Fiestas.name());
+    public static final DatabaseReference mDataBaseBandoRef = mDataBaseRootRef.child(Tablas.Bandos.name());
     public static final DatabaseReference mDataBaseDiasFiestaRef = mDataBaseRootRef.child(Tablas.DiasFiestas.name());
     public static final DatabaseReference mDataBaseGruposRef = mDataBaseRootRef.child("Grupos");
     public static final DatabaseReference mDataBaseKeysRef = mDataBaseRootRef.child("keys");
-    public static final DatabaseReference mDataBaseBandoRef = mDataBaseRootRef.child("bandos");
+
 
     public static final String TAG = "TurisTorre";
     public static final int REQUEST_CODE_FACEBOOK = 666;
@@ -116,7 +117,7 @@ public final class Constantes {
     };
 
     public enum Tablas{
-        Terrats,Racons,Imagenes,Usuarios,Fiestas,DiasFiestas
+        Terrats,Racons,Imagenes,Usuarios,Fiestas,DiasFiestas,Bandos
     }
 
 

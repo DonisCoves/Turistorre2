@@ -13,6 +13,7 @@ public class Imagen implements Parcelable{
     public String uriStr;
     public String titulo;
     public String descripcion;
+    public String fecha;
     public static final Parcelable.Creator<Imagen> CREATOR = new Parcelable.Creator<Imagen>() {
         @Override
         public Imagen createFromParcel(Parcel in) {
@@ -43,6 +44,7 @@ public class Imagen implements Parcelable{
         uriStr = in.readString();
         titulo = in.readString();
         descripcion = in.readString();
+        fecha = in.readString();
     }
 
     @Override
@@ -53,6 +55,7 @@ public class Imagen implements Parcelable{
         dest.writeString(uriStr);
         dest.writeString(titulo);
         dest.writeString(descripcion);
+        dest.writeString(fecha);
     }
 
     public String getUidImg() {
@@ -101,6 +104,14 @@ public class Imagen implements Parcelable{
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     @Override

@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="b457c722a41b20202e418bf73aa6d7e166f49353">
+        sha1="9c6197ef3f91c271f74c8d0bf9e27869c5122858">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_fcc6b772a14be54ee8c4b518d34a497f9f833ce3\classes.dex" />
     </item>
     <item
@@ -39,30 +39,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\pccc\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.5.1\bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc\butterknife-annotations-8.5.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc">
-        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-annotations-8.5.1_09843164c2e739af90bef94201d7162891bdff86\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\workspace\Turistorre\app\libs\commons-codec-1.9.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="9ce04e34240f674bc72680f8b843b1457383161a">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-codec-1.9_9bedf6c84d1e1bdecae7434397101d1438bb38a5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\pccc\.android\build-cache\fb3af511a15191da6a899c44482b7df45eaff5a5\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="19f281a785ca0eb5f6799fc7bf7ca199a9ca1e8b">
-        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df8b74c291f03801efe0b1bf5c4ff20f77b97977\classes.dex" />
     </item>
     <item
         is-multidex="true"

@@ -7,18 +7,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseIndexRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
-import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.DiaFiestaMeta;
 import static cf.castellon.turistorre.utils.Utils.*;
 
-/**
- * Created by pccc on 04/02/2017.
- */
+
 
 public class MyFireAdapterDiasFiestaRecyclerView extends FirebaseIndexRecyclerAdapter<DiaFiestaMeta, MyFireAdapterDiasFiestaRecyclerView.MyFireViewHolder>
         implements View.OnClickListener {
@@ -32,8 +30,7 @@ public class MyFireAdapterDiasFiestaRecyclerView extends FirebaseIndexRecyclerAd
     public MyFireViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fila_diasfiesta_layout, viewGroup, false);
         itemView.setOnClickListener(this);
-        MyFireViewHolder holder = new MyFireViewHolder(itemView);
-        return holder;
+        return (new MyFireViewHolder(itemView));
     }
 
     public void setOnClickListener(View.OnClickListener listener) {
@@ -52,18 +49,17 @@ public class MyFireAdapterDiasFiestaRecyclerView extends FirebaseIndexRecyclerAd
     }
 
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {
-        private TextView textoTv;
+        @BindView(R.id.tvTituloDiaFiesta) TextView textoTv;
 
         public MyFireViewHolder(View itemView) {
             super(itemView);
-            textoTv = (TextView) itemView.findViewById(R.id.tvTituloDiaFiesta);
+            ButterKnife.bind(this, itemView);
         }
 
-        public void bindDatos(String titulo) {
+        private void bindDatos(String titulo) {
             textoTv.setText(titulo);
             cambiarColorFondoTV(textoTv);
         }
-
   }
 
 }

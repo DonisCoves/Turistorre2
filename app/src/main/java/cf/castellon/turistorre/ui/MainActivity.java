@@ -32,6 +32,8 @@ import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashSet;
 import java.util.Map;
 
 import static cf.castellon.turistorre.utils.Utils.*;
@@ -41,6 +43,8 @@ import cf.castellon.turistorre.adaptadores.AdaptadorDrawerList;
 import cf.castellon.turistorre.adaptadores.DatosDrawerList;
 import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
+import cf.castellon.turistorre.fragments.ActionBar.GenerarBando;
+import cf.castellon.turistorre.fragments.ActionBar.GenerarRaco;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarTerrat;
 import cf.castellon.turistorre.fragments.Principal.AcercaFragment;
 import cf.castellon.turistorre.fragments.Principal.AjustesFragment;
@@ -54,11 +58,11 @@ import cf.castellon.turistorre.fragments.Principal.RaconsViewPager;
 import cf.castellon.turistorre.fragments.Principal.Splash;
 import cf.castellon.turistorre.fragments.Click.TerratSeleccionado;
 import cf.castellon.turistorre.fragments.Principal.TerratsRecyclerView;
-import cf.castellon.turistorre.bean.Bando;
 
 
 public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener/*, SelectorFragment.OnListSeccionListener*/
-        ,GenerarTerrat.OnPedirPermisosListener, GaleriaRecyclerView.OnPedirPermisosListener {
+        ,GenerarTerrat.OnPedirPermisosListener, GaleriaRecyclerView.OnPedirPermisosListener
+        , GenerarRaco.OnPedirPermisosListener, GenerarBando.OnPedirPermisosListener {
     /**
      * Es todo el objeto de la navegacion, que incluye el cajon "mDrawerList" y el frame donde
      * se incluirán los fragmentos(tambien se pueden meter activitys, pero con fragments el cambio es mas "armónico".
@@ -104,9 +108,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
      */
 
     private FragmentTransaction fragmentTransaction;
-    Map<String,Object> tipoBean;
+    String tipoBean;
 	Uri fileUri;
-    ImageView ivTerrat;
+    ImageView imageView;
     /**
      * En la creación de la actividad hacemos:
      * 1.-Creamos un acction Bar (ActionBarDrawerToggle) el cual manejará los eventos entre
@@ -172,11 +176,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                         new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Bando bando = dataSnapshot.getValue(Bando.class);
+                                Imagen bando = dataSnapshot.getValue(Imagen.class);
                                 Bundle bund = new Bundle();
-                                bund.putString("TITULO",bando.getTitulo());
-                                bund.putString("DESCRIPCION",bando.getDescripcion());
-                                bund.putString("IMAGEN_URL_STR",bando.getUrl());
+                                bund.putParcelable("bando", bando);
                                 frSeccion.setArguments(bund);
                                 fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
                             }
@@ -445,22 +447,40 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String path;
+        Map<String,Object> tipoBeanMap;
+
+        tipoBeanMap = referenciasFire.get(tipoBean);
         switch (requestCode) {
             case CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE:
                 if (resultCode == Activity.RESULT_OK) {
-                    tipoBean.put("fileUri", fileUri);
-                    guardarFotoStorageFire(tipoBean, this, getSupportFragmentManager(),null);
+                    tipoBeanMap.put("fileUri", fileUri);
+                    referenciasFire.put(tipoBean,tipoBeanMap);
+                    switch (tipoBean){
+                        case "Bandos":
+                            imageView.setImageURI(fileUri);
+                            break;
+                        case "Imagenes":
+                            guardarFotoStorageFire(tipoBeanMap, this, getSupportFragmentManager(),null,null);
+                            break;
+                    }
                 }
                 break;
             case CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE:
                 if (resultCode==Activity.RESULT_OK && data!=null){
                     path = obtenerPath(data.getData(),getBaseContext());
                     fileUri = Uri.parse(path);
-                    tipoBean = referenciasFire.get(Tablas.Terrats.name());
-                    tipoBean.put("fileUri",fileUri);
-                    referenciasFire.put(Tablas.Terrats.name(),tipoBean);
+                    tipoBeanMap.put("fileUri",fileUri);
+                    referenciasFire.put(tipoBean,tipoBeanMap);
+                    switch (tipoBean){
+                        case "Terrats":
+                            break;
+                        case "Bandos":
+                            break;
+                        case "Racons":
+                            break;
+                    }
                     bitMapStatic = formatearBitmapfromPath(path);
-                    ivTerrat.setImageBitmap(bitMapStatic);
+                    imageView.setImageBitmap(bitMapStatic);
                 }
                 break;
             default: //Acceso Login
@@ -511,14 +531,15 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         editor.putInt("numPermisos", numPermisos);
         editor.apply();
         if (numPermisos==2)
-            goCamera(referenciasFire.get(Tablas.Imagenes.name()));
+            goCamera(tipoBean,null);
     }
 
     @Override
-    public void goCamera(Map<String,Object> tipoBean) {
+    public void goCamera(String tipoBean, ImageView imageView) {
 		Intent intent;
 		Uri fileUri;
 
+        this.imageView =  imageView;
         this.tipoBean = tipoBean;
         intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         fileUri = getOutputMediaFile(); // create a file to save the image
@@ -528,11 +549,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
 
     @Override
-    public void goGaleria(Map<String, Object> tipoBean, ImageView terrat) {
-        this.ivTerrat = terrat;
+    public void goGaleria(String tipoBean, ImageView imageView) {
+        this.imageView =  imageView;
+        this.tipoBean = tipoBean;
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE);
     }
-
-
 }

@@ -35,9 +35,9 @@ public class TerratSeleccionado extends Fragment  {
         boolean hayGiroscopio;
         PackageManager packageManager;
 
+        super.onCreate(savedInstanceState);
         pano = getArguments().getParcelable("imagen");
         usuario = getArguments().getParcelable("usuario");
-        super.onCreate(savedInstanceState);
         panoOptions = new VrPanoramaView.Options();
         panoOptions.inputType = VrPanoramaView.Options.TYPE_MONO;
         packageManager =  getContext().getPackageManager();

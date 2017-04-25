@@ -1,10 +1,8 @@
 package cf.castellon.turistorre.fragments.Principal;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,21 +12,16 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.MiFireAdapterBandoRecyclerView;
-import cf.castellon.turistorre.bean.Bando;
+import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.fragments.Click.BandoSeleccionado;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarBando;
-
-import static cf.castellon.turistorre.utils.Constantes.mDataBaseBandoRef;
-import static cf.castellon.turistorre.utils.Utils.mFirebaseUser;
-
+import static cf.castellon.turistorre.utils.Constantes.*;
+import static cf.castellon.turistorre.utils.Utils.*;
 
 public class BandoRecyclerView extends Fragment {
     private FragmentTransaction transaccion;
@@ -39,30 +32,11 @@ public class BandoRecyclerView extends Fragment {
     private BandoSeleccionado bandoSeleccionadoFragment;
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-    }
-
-    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-        adaptador = new MiFireAdapterBandoRecyclerView(Bando.class,R.layout.fila_bando_layout,MiFireAdapterBandoRecyclerView.MiFireViewHolder.class,mDataBaseBandoRef,getContext());
+        adaptador = new MiFireAdapterBandoRecyclerView(Imagen.class,R.layout.fila_bando_layout,MiFireAdapterBandoRecyclerView.MiFireViewHolder.class,mDataBaseBandoRef);
         manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-        adaptador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bando bando = adaptador.getItem(rvBando.getChildAdapterPosition(v));
-                bund = new Bundle();
-                bund.putString("TITULO", bando.getTitulo());
-                bund.putString("DESCRIPCION", bando.getDescripcion());
-                bund.putString("IMAGEN_URL_STR", bando.getUrl());
-                bandoSeleccionadoFragment = new BandoSeleccionado();
-                bandoSeleccionadoFragment.setArguments(bund);
-                transaccion = getFragmentManager().beginTransaction();
-                transaccion.replace(R.id.content_frame, bandoSeleccionadoFragment).commit();
-            }
-        });
     }
 
     @Override
@@ -73,6 +47,18 @@ public class BandoRecyclerView extends Fragment {
 
         rvBando.setHasFixedSize(true);
         rvBando.setLayoutManager(manager);
+        adaptador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Imagen bando = adaptador.getItem(rvBando.getChildAdapterPosition(v));
+                transaccion = getFragmentManager().beginTransaction();
+                bandoSeleccionadoFragment = new BandoSeleccionado();
+                bund = new Bundle();
+                bund.putParcelable("bando", bando);
+                bandoSeleccionadoFragment.setArguments(bund);
+                transaccion.replace(R.id.content_frame, bandoSeleccionadoFragment).commit();
+            }
+        });
         rvBando.setAdapter(adaptador);
         return view;
     }
@@ -82,12 +68,11 @@ public class BandoRecyclerView extends Fragment {
         if (mFirebaseUser!=null)
             switch (item.getItemId()){
                 case (R.id.it_bando):
-                    FragmentManager fr;
                     transaccion = getFragmentManager().beginTransaction();
                     transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
             }
         else
-            Toast.makeText(getContext(),"Solo usuarios autorizados",Toast.LENGTH_SHORT).show();
+            showWarning(getActivity(),"Registrate para mostrar tu terrat");
         return super.onOptionsItemSelected(item);
     }
 

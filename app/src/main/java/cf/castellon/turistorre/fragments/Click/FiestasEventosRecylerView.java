@@ -34,9 +34,6 @@ import cf.castellon.turistorre.fragments.Click.Click.FiestasEventosGaleriaRecycl
 import static cf.castellon.turistorre.utils.Utils.*;
 import static cf.castellon.turistorre.utils.Constantes.*;
 
-/**
- * Created by pccc on 28/02/2017.
- */
 
 public class FiestasEventosRecylerView extends Fragment {
     private String uidDiaFiestaMeta;
@@ -63,7 +60,9 @@ public class FiestasEventosRecylerView extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fiestaseventos_recyclerview_layout, container, false);
+        View view;
+
+        view = inflater.inflate(R.layout.fiestaseventos_recyclerview_layout, container, false);
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         recView.setHasFixedSize(true);

@@ -1,23 +1,19 @@
 package cf.castellon.turistorre.fragments.Principal;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import static cf.castellon.turistorre.utils.Utils.*;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.SelectorAdapter;
+import cf.castellon.turistorre.ui.MainActivity;
 
-import static cf.castellon.turistorre.utils.Utils.seccion;
-
+import static cf.castellon.turistorre.utils.Utils.*;
 
 public class SelectorFragment extends ListFragment {
     Activity actividad;
@@ -28,19 +24,21 @@ public class SelectorFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new SelectorAdapter(actividad));
-
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(actividad);
-        this.actividad = activity;
-        try {
-            mCallback=(OnListSeccionListener)activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " ha de implementar OnListSeccionListener");
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof MainActivity) {
+            actividad = (MainActivity) context;
+            try {
+                mCallback=(OnListSeccionListener)actividad;
+            } catch (ClassCastException e) {
+                throw new ClassCastException(actividad.toString() + " debe implementar OnHeadlineSelectedListener");
+            }
         }
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,8 +51,8 @@ public class SelectorFragment extends ListFragment {
         mCallback.onItemSelected(seccion);
     }
 
-    public interface OnListSeccionListener {
-        public void onItemSelected(String seccionStr);
+    private interface OnListSeccionListener {
+        void onItemSelected(String seccionStr);
     }
 
 }

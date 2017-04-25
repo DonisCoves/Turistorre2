@@ -8,12 +8,20 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_find_in_page.png"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_stat_touch_app.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xhdpi\\ic_stat_touch_app.png"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_help.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_help.png"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_ic_terraza.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_ic_terraza.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_drawer_settings_remote.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-xhdpi\\ic_action_drawer_settings_remote.png"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_action_settings.png",

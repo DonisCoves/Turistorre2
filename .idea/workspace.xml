@@ -15,9 +15,6 @@
   <component name="AndroidLayouts">
     <shared>
       <config>
-        <devices>
-          <device id="Nexus 5" />
-        </devices>
         <target>android-22</target>
       </config>
     </shared>
@@ -46,7 +43,8 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Unnamed-0" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="LOGCAT_FORMAT_STRING" value="%4$c/%5$s: %6$s" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6eb5c54-f295-4d42-adee-2e0b61a363fc" name="Default" comment="" />
@@ -86,113 +84,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
-              <folding>
-                <element signature="e#4640#4695#0" expanded="false" />
-                <element signature="method#firebaseAuthWithGoogle#0;class#Login#0" expanded="false" />
-                <element signature="e#12606#12647#0" expanded="false" />
-                <element signature="docComment;method#showErrorDialog#0;class#Login#0" expanded="false" />
-                <element signature="docComment;method#eliminarProveedor#0;class#Login#0" expanded="false" />
-                <marker date="1492691962475" expanded="false" signature="2458:2537" ph="/ThrowableResultOfMethodCallIgnored, ConstantConditions/" />
-                <marker date="1492691962475" expanded="false" signature="4867:4904" ph="&quot;351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.goog...&quot;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#23552#23823#0" expanded="true" />
-                <element signature="e#23822#23823#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GaleriaRecyclerView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="148" column="28" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="29" />
-              <folding>
-                <element signature="class#OnPedirPermisosListener#0;class#GaleriaRecyclerView#0" expanded="false" />
-                <element signature="method#onAttach#0;class#GaleriaRecyclerView#0" expanded="false" />
-                <element signature="method#onCreate#0;class#GaleriaRecyclerView#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#GaleriaRecyclerView#0" expanded="false" />
-                <element signature="method#onCreateOptionsMenu#0;class#GaleriaRecyclerView#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-602">
-              <caret line="788" column="23" selection-start-line="788" selection-start-column="23" selection-end-line="788" selection-end-column="23" />
-              <folding>
-                <element signature="docComment;class#Utils#0" expanded="false" />
-                <element signature="docComment;field#numPermisos#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;field#fiestasMap#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#getUidsFiestas#0;class#Utils#0" expanded="false" />
-                <element signature="method#getUidsFiestas#0;class#Utils#0" expanded="false" />
-                <element signature="method#formatearDia#0;class#Utils#0" expanded="false" />
-                <element signature="method#buscarUsuario#0;class#Utils#0" expanded="false" />
-                <element signature="method#existeUsuario#0;class#Utils#0" expanded="false" />
-                <element signature="method#showProgressDialog#0;class#Utils#0" expanded="false" />
-                <element signature="method#showProgressDialog#1;class#Utils#0" expanded="false" />
-                <element signature="method#hideProgressDialog#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#buscarImagen#0;class#Utils#0" expanded="false" />
-                <element signature="method#buscarImagen#0;class#Utils#0" expanded="false" />
-                <element signature="method#crearImagenes#0;class#Utils#0" expanded="false" />
-                <element signature="method#crearRacons#0;class#Utils#0" expanded="false" />
-                <element signature="method#crearUsuarios#0;class#Utils#0" expanded="false" />
-                <element signature="method#buscarPanoramica#0;class#Utils#0" expanded="false" />
-                <element signature="e#10363#10404#0" expanded="false" />
-                <element signature="e#10522#10532#0" expanded="false" />
-                <element signature="method#buscarImagenes#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;field#mFirebaseUser#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#isProvider#0;class#Utils#0" expanded="false" />
-                <element signature="method#isProvider#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#getUrl#0;class#Utils#0" expanded="false" />
-                <element signature="method#getUrl#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#escalarImagen#0;class#Utils#0" expanded="false" />
-                <element signature="method#escalarImagen#0;class#Utils#0" expanded="false" />
-                <element signature="method#escalarImagen#1;class#Utils#0" expanded="false" />
-                <element signature="method#escalarPanoramica#0;class#Utils#0" expanded="false" />
-                <element signature="method#getOutputMediaFile#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;field#UPDATEVIEW#0;class#Utils#0" expanded="false" />
-                <element signature="method#isExternalStorageAvailable#0;class#Utils#0" expanded="false" />
-                <element signature="method#logSd#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#obtenerFecha#0;class#Utils#0" expanded="false" />
-                <element signature="method#obtenerFecha#0;class#Utils#0" expanded="false" />
-                <element signature="method#cambiarColor#0;class#Utils#0" expanded="false" />
-                <element signature="method#cambiarColorFondoTV#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#activarServer#0;class#Utils#0" expanded="false" />
-                <element signature="method#activarServer#0;class#Utils#0" expanded="false" />
-                <element signature="docComment;method#generarNotificacionBando#0;class#Utils#0" expanded="false" />
-                <element signature="method#generarNotificacionBando#0;class#Utils#0" expanded="false" />
-                <element signature="method#generarNotificacionAdminCambioGrupo#0;class#Utils#0" expanded="false" />
-                <element signature="method#generarNotificacionTerrat#0;class#Utils#0" expanded="false" />
-                <element signature="method#establecerPreferenciasIniciales#0;class#Utils#0" expanded="false" />
-                <element signature="method#eliminarGrupoActual#0;class#Utils#0" expanded="false" />
-                <element signature="method#showError#0;class#Utils#0" expanded="false" />
-                <element signature="method#showWarning#0;class#Utils#0" expanded="false" />
-                <element signature="method#crearPaginasImagenes#0;class#Utils#0" expanded="false" />
-                <element signature="method#guardarFotoBBDDFire#0;class#Utils#0" expanded="false" />
-                <element signature="method#obtenerPath#0;class#Utils#0" expanded="false" />
-                <element signature="method#formatearBitmapfromPath#0;class#Utils#0" expanded="false" />
-                <element signature="method#establecerEstructurasniciales#0;class#Utils#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1951,7 +1848,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4430102244772" />
-        <entry key="C:\workspace\Turistorre" value="4443687384958" />
+        <entry key="C:\workspace\Turistorre" value="4444716229423" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2259,57 +2156,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/BandoSeleccionadoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarBandoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/GaleriaViewPager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/PaginaGaleria.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/PaginaGaleria.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/GaleriaPagina.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/FiestasRecylerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/Eventos.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/eventos_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/EventosRecylerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/EventosRecylerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/GaleriaEventos.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/GaleriaEventosRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/CarruselGaleria.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/CarruselGaleria.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GaleriaDiaFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/SelectorFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/SplashFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/remote_config_defaults.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/Permisos.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/BandoSeleccionado.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/AjustesFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaPagina.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/FragmentPageCarruselAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/RaconsPagina.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Imagen.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaEventosViewPager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaViewPager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/HomeViewPager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterTerratsRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Constantes.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/MiAplicacion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/SelectorFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Bando.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Imagen.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/BandoSeleccionado.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Constantes.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_bando.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/Servicios/MyFirebaseMessagingService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v21/values-v21.xml" />
+        <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-ldltr-v21/values-ldltr-v21.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/arrays.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterDiasFiestaRecyclerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterEventosRecyclerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/DiaFiestaMeta.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/DiaFiesta.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Fiestas.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -2360,114 +2257,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Principal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
+      <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -2485,18 +2277,173 @@
               <option name="myItemId" value="" />
               <option name="myItemType" value="" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="build">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="build">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generated">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="source">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="r/debug">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="build">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generated">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="source">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="r/debug">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="cf/castellon/turistorre">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="build">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generated">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="source">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="build">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="generated">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane">
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
         <subPane />
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Turistorre" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Turistorre" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="device.picker.selection" value="Nexus_5_API_23" />
+    <property name="device.picker.selection" value="0335e04408e7ace9" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
@@ -3017,24 +2964,24 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252315" sideWeight="0.48139158" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.110197365" sideWeight="0.40090773" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43585527" sideWeight="0.6354009" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919094" sideWeight="0.5165165" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6122685" sideWeight="0.6868932" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31414473" sideWeight="0.68683815" order="8" side_tool="true" content_ui="tabs" x="14" y="242" width="1326" height="221" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4868421" sideWeight="0.36459908" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23355263" sideWeight="0.61270803" order="8" side_tool="true" content_ui="tabs" x="14" y="242" width="1326" height="221" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.228471" sideWeight="0.33055976" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32223544" sideWeight="0.3527508" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919094" sideWeight="0.4834835" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52437574" sideWeight="0.57261723" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27987897" sideWeight="0.43843845" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.290469" sideWeight="0.43843845" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.48909658" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24757281" sideWeight="0.46096095" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5109034" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31414473" sideWeight="0.31316188" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2598684" sideWeight="0.2934947" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2645631" sideWeight="0.5615616" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3056,8 +3003,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919094" sideWeight="0.5165165" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3075571" sideWeight="0.59352225" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.196195" sideWeight="0.74130106" order="8" side_tool="true" content_ui="tabs" x="14" y="242" width="1326" height="221" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4868421" sideWeight="0.36459908" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23355263" sideWeight="0.61270803" order="8" side_tool="true" content_ui="tabs" x="14" y="242" width="1326" height="221" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24816984" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -3066,20 +3013,20 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24757281" sideWeight="0.46096095" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5109034" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06828704" sideWeight="0.25869894" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32580262" sideWeight="0.48139158" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30555555" sideWeight="0.4037217" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.2934947" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252315" sideWeight="0.48139158" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4868421" sideWeight="0.6354009" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2693997" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.228471" sideWeight="0.33055976" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.228471" sideWeight="0.33055976" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32223544" sideWeight="0.3527508" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919094" sideWeight="0.4834835" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52437574" sideWeight="0.57261723" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26618123" sideWeight="0.43843845" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685326" sideWeight="0.43843845" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26151314" sideWeight="0.42889562" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.48909658" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3109,18 +3056,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.java</url>
-          <line>118</line>
-          <properties />
-          <option name="timeStamp" value="1813" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.java</url>
-          <line>133</line>
-          <properties />
-          <option name="timeStamp" value="1815" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaPagina.java</url>
           <line>29</line>
           <properties />
@@ -3133,26 +3068,8 @@
           <option name="timeStamp" value="1860" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/RaconsPagina.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="1882" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.java</url>
-          <line>35</line>
-          <properties />
-          <option name="timeStamp" value="1888" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/RaconsPagina.java</url>
-          <line>31</line>
-          <properties />
-          <option name="timeStamp" value="1889" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java</url>
-          <line>17</line>
+          <line>18</line>
           <properties />
           <option name="timeStamp" value="1912" />
         </line-breakpoint>
@@ -3163,12 +3080,6 @@
           <option name="timeStamp" value="1914" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java</url>
-          <line>72</line>
-          <properties />
-          <option name="timeStamp" value="1920" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.java</url>
           <line>55</line>
           <properties />
@@ -3176,27 +3087,21 @@
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java</url>
-          <line>102</line>
+          <line>103</line>
           <properties />
           <option name="timeStamp" value="1980" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>486</line>
+          <line>506</line>
           <properties />
           <option name="timeStamp" value="1999" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>526</line>
+          <line>547</line>
           <properties />
           <option name="timeStamp" value="2013" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="2016" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java</url>
@@ -3205,64 +3110,22 @@
           <option name="timeStamp" value="2018" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>532</line>
-          <properties />
-          <option name="timeStamp" value="2019" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>455</line>
-          <properties />
-          <option name="timeStamp" value="2020" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java</url>
           <line>34</line>
           <properties />
           <option name="timeStamp" value="2021" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>461</line>
-          <properties />
-          <option name="timeStamp" value="2022" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>928</line>
+          <line>976</line>
           <properties />
           <option name="timeStamp" value="2024" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>457</line>
-          <properties />
-          <option name="timeStamp" value="2025" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>947</line>
+          <line>995</line>
           <properties />
           <option name="timeStamp" value="2026" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>814</line>
-          <properties />
-          <option name="timeStamp" value="2030" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>845</line>
-          <properties />
-          <option name="timeStamp" value="2032" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>813</line>
-          <properties />
-          <option name="timeStamp" value="2033" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.java</url>
@@ -3278,7 +3141,7 @@
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.java</url>
-          <line>37</line>
+          <line>38</line>
           <properties />
           <option name="timeStamp" value="2037" />
         </line-breakpoint>
@@ -3290,75 +3153,39 @@
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java</url>
-          <line>100</line>
+          <line>101</line>
           <properties />
           <option name="timeStamp" value="2046" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java</url>
-          <line>179</line>
+          <line>180</line>
           <properties />
           <option name="timeStamp" value="2053" />
         </line-breakpoint>
         <line-breakpoint suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java</url>
-          <line>83</line>
-          <properties />
-          <option name="timeStamp" value="2055" />
-        </line-breakpoint>
-        <line-breakpoint suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java</url>
-          <line>214</line>
+          <line>215</line>
           <properties />
           <option name="timeStamp" value="2056" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>772</line>
+          <line>819</line>
           <properties />
           <option name="timeStamp" value="2062" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>449</line>
-          <properties />
-          <option name="timeStamp" value="2066" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>454</line>
-          <properties />
-          <option name="timeStamp" value="2071" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>913</line>
+          <line>961</line>
           <properties />
           <option name="timeStamp" value="2074" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>902</line>
-          <properties />
-          <option name="timeStamp" value="2075" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java</url>
-          <line>147</line>
+          <line>148</line>
           <properties />
           <option name="timeStamp" value="2077" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>85</line>
-          <properties />
-          <option name="timeStamp" value="2078" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>157</line>
-          <properties />
-          <option name="timeStamp" value="2080" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
@@ -3374,99 +3201,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>216</line>
-          <properties />
-          <option name="timeStamp" value="2083" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>255</line>
-          <properties />
-          <option name="timeStamp" value="2084" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>290</line>
-          <properties />
-          <option name="timeStamp" value="2085" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
           <line>388</line>
           <properties />
           <option name="timeStamp" value="2086" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>366</line>
-          <properties />
-          <option name="timeStamp" value="2087" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
           <line>425</line>
           <properties />
           <option name="timeStamp" value="2088" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>453</line>
-          <properties />
-          <option name="timeStamp" value="2089" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>500</line>
-          <properties />
-          <option name="timeStamp" value="2092" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>504</line>
-          <properties />
-          <option name="timeStamp" value="2094" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="2095" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>118</line>
-          <properties />
-          <option name="timeStamp" value="2097" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>274</line>
-          <properties />
-          <option name="timeStamp" value="2098" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>279</line>
-          <properties />
-          <option name="timeStamp" value="2099" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>317</line>
-          <properties />
-          <option name="timeStamp" value="2100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>146</line>
-          <properties />
-          <option name="timeStamp" value="2110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>447</line>
-          <properties />
-          <option name="timeStamp" value="2111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
@@ -3481,34 +3224,82 @@
           <option name="timeStamp" value="2114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>225</line>
-          <properties />
-          <option name="timeStamp" value="2133" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
-          <line>518</line>
-          <properties />
-          <option name="timeStamp" value="2134" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>474</line>
+          <line>494</line>
           <properties />
           <option name="timeStamp" value="2135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>497</line>
+          <line>517</line>
           <properties />
           <option name="timeStamp" value="2136" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
-          <line>481</line>
+          <line>501</line>
           <properties />
           <option name="timeStamp" value="2138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.java</url>
+          <line>57</line>
+          <properties />
+          <option name="timeStamp" value="2142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="2144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
+          <line>884</line>
+          <properties />
+          <option name="timeStamp" value="2171" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
+          <line>921</line>
+          <properties />
+          <option name="timeStamp" value="2173" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java</url>
+          <line>166</line>
+          <properties />
+          <option name="timeStamp" value="2175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/Servicios/MyFirebaseMessagingService.java</url>
+          <line>93</line>
+          <properties />
+          <option name="timeStamp" value="2178" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/Servicios/MyFirebaseMessagingService.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="2179" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
+          <line>248</line>
+          <properties />
+          <option name="timeStamp" value="2181" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
+          <line>349</line>
+          <properties />
+          <option name="timeStamp" value="2192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java</url>
+          <line>130</line>
+          <properties />
+          <option name="timeStamp" value="2218" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>
@@ -3523,334 +3314,166 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="2139" />
+      <option name="time" value="2223" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="FirebaseAuth.getInstance().getCurrentUser()" language="JAVA" />
         <watch expression="baseDatos.get(&quot;Imagenes&quot;)" language="JAVA" />
         <watch expression="baseDatos.get(&quot;Terrats&quot;)" language="JAVA" />
+        <watch expression="mFirebaseUser.getUid()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.android/build-cache/81d839e1ec147f6d52f819814791f7adb5950629/output/jars/classes.jar!/com/google/android/gms/tasks/OnSuccessListener.class">
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-fragment/25.1.1/support-fragment-25.1.1-sources.jar!/android/support/v4/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        <state relative-caret-position="153">
+          <caret line="694" column="0" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-fragment/25.1.1/support-fragment-25.1.1-sources.jar!/android/support/v4/app/FragmentManager.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-24/android/widget/EditText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32674">
-          <caret line="2009" column="0" selection-start-line="2009" selection-start-column="0" selection-end-line="2009" selection-end-column="0" />
+        <state relative-caret-position="162">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/RaconsPagina.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-24/android/text/SpannableStringBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="e#1800#2071#0" expanded="false" />
-            <element signature="e#2070#2071#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="990" column="0" selection-start-line="990" selection-start-column="0" selection-end-line="990" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-24/java/lang/SuppressWarnings.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Constantes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+        <state relative-caret-position="337">
+          <caret line="73" column="98" selection-start-line="73" selection-start-column="98" selection-end-line="73" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-24/android/content/ContextWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/BandoSeleccionado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_action_assignment_turned_in.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_racons.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_bando.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/SelectorFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Proveedor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Fiestas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/DiaFiestaMeta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/DiaFiesta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Bando.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_stat_touch_app.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/AdaptadorDrawerList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="1122">
+          <caret line="84" column="75" selection-start-line="84" selection-start-column="75" selection-end-line="84" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/DatosDrawerList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/FragmentPageCarruselAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/GaleriaDiaAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MiPageHomeAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterDiasFiestaRecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterEventosRecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterEventosRecyclerView2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaEventoRecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/SelectorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="160" column="12" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="12" />
-          <folding>
-            <marker date="1492153563634" expanded="false" signature="3376:3546" ph="(OnSuccessListener) (taskSnapshot) → {" />
-            <marker date="1492153563634" expanded="false" signature="3811:3838" ph="}" />
-            <marker date="1492153563634" expanded="false" signature="3893:4030" ph="(exception) → {" />
-            <marker date="1492153563634" expanded="false" signature="4296:4323" ph="}" />
-          </folding>
+        <state relative-caret-position="378">
+          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/Permisos.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-24/android/app/Notification.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="86">
+          <caret line="3072" column="51" selection-start-line="3072" selection-start-column="51" selection-end-line="3072" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/Servicios/MyFirebaseMessagingService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="48" column="71" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="159" column="23" selection-start-line="159" selection-start-column="23" selection-end-line="159" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/Servicios/MyFirebaseInstanceIDService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="126" column="28" selection-start-line="126" selection-start-column="28" selection-end-line="126" selection-end-column="28" />
+        <state relative-caret-position="0">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaEventosViewPager.java">
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-fragment/25.1.1/support-fragment-25.1.1-sources.jar!/android/support/v4/app/FragmentManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="66" column="11" selection-start-line="48" selection-start-column="8" selection-end-line="66" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Imagen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="113" column="45" selection-start-line="113" selection-start-column="45" selection-end-line="113" selection-end-column="45" />
+        <state relative-caret-position="275">
+          <caret line="2009" column="0" selection-start-line="2009" selection-start-column="0" selection-end-line="2009" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/HomeViewPager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#843#873#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="339">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="212" column="29" selection-start-line="212" selection-start-column="29" selection-end-line="212" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterTerratsRecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="208">
+          <caret line="134" column="60" selection-start-line="134" selection-start-column="60" selection-end-line="134" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-24/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
-          <folding>
-            <element signature="e#2212#2939#0" expanded="false" />
-            <element signature="e#2938#2939#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="346">
+          <caret line="161" column="11" selection-start-line="161" selection-start-column="11" selection-end-line="161" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarTerrat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaViewPager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/cf/castellon/turistorre/Manifest.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3859,63 +3482,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-ldltr-v21/values-ldltr-v21.xml" />
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v21/values-v21.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/login_layout.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2499">
-          <caret line="147" column="44" selection-start-line="147" selection-start-column="29" selection-end-line="147" selection-end-column="44" />
+        <state relative-caret-position="1530">
+          <caret line="90" column="51" selection-start-line="90" selection-start-column="51" selection-end-line="90" selection-end-column="51" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
         <state />
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-android-sdk/4.15.0/6a2e0a9ede66f972b7aee5b1307a5f662c15a8b8/facebook-android-sdk-4.15.0-sources.jar!/com/facebook/CallbackManager.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-19/android/widget/AdapterView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/MiAplicacion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Constantes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="126">
+          <caret line="903" column="0" selection-start-line="903" selection-start-column="0" selection-end-line="903" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-602">
-          <caret line="788" column="23" selection-start-line="788" selection-start-column="23" selection-end-line="788" selection-end-column="23" />
+        <state relative-caret-position="126">
+          <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="docComment;class#Utils#0" expanded="false" />
             <element signature="docComment;field#numPermisos#0;class#Utils#0" expanded="false" />
-            <element signature="docComment;field#fiestasMap#0;class#Utils#0" expanded="false" />
-            <element signature="docComment;method#getUidsFiestas#0;class#Utils#0" expanded="false" />
-            <element signature="method#getUidsFiestas#0;class#Utils#0" expanded="false" />
-            <element signature="method#formatearDia#0;class#Utils#0" expanded="false" />
+            <element signature="docComment;field#tiempoInicialWeb#0;class#Utils#0" expanded="false" />
+            <element signature="docComment;method#getTitulosFiestas#0;class#Utils#0" expanded="false" />
             <element signature="method#buscarUsuario#0;class#Utils#0" expanded="false" />
             <element signature="method#existeUsuario#0;class#Utils#0" expanded="false" />
-            <element signature="method#showProgressDialog#0;class#Utils#0" expanded="false" />
             <element signature="method#showProgressDialog#1;class#Utils#0" expanded="false" />
             <element signature="method#hideProgressDialog#0;class#Utils#0" expanded="false" />
             <element signature="docComment;method#buscarImagen#0;class#Utils#0" expanded="false" />
@@ -3924,9 +3536,8 @@
             <element signature="method#crearRacons#0;class#Utils#0" expanded="false" />
             <element signature="method#crearUsuarios#0;class#Utils#0" expanded="false" />
             <element signature="method#buscarPanoramica#0;class#Utils#0" expanded="false" />
-            <element signature="e#10363#10404#0" expanded="false" />
-            <element signature="e#10522#10532#0" expanded="false" />
-            <element signature="method#buscarImagenes#0;class#Utils#0" expanded="false" />
+            <element signature="e#12118#12159#0" expanded="false" />
+            <element signature="e#12277#12287#0" expanded="false" />
             <element signature="docComment;field#mFirebaseUser#0;class#Utils#0" expanded="false" />
             <element signature="docComment;method#isProvider#0;class#Utils#0" expanded="false" />
             <element signature="method#isProvider#0;class#Utils#0" expanded="false" />
@@ -3940,68 +3551,177 @@
             <element signature="docComment;field#UPDATEVIEW#0;class#Utils#0" expanded="false" />
             <element signature="method#isExternalStorageAvailable#0;class#Utils#0" expanded="false" />
             <element signature="method#logSd#0;class#Utils#0" expanded="false" />
-            <element signature="docComment;method#obtenerFecha#0;class#Utils#0" expanded="false" />
-            <element signature="method#obtenerFecha#0;class#Utils#0" expanded="false" />
             <element signature="method#cambiarColor#0;class#Utils#0" expanded="false" />
             <element signature="method#cambiarColorFondoTV#0;class#Utils#0" expanded="false" />
             <element signature="docComment;method#activarServer#0;class#Utils#0" expanded="false" />
-            <element signature="method#activarServer#0;class#Utils#0" expanded="false" />
             <element signature="docComment;method#generarNotificacionBando#0;class#Utils#0" expanded="false" />
-            <element signature="method#generarNotificacionBando#0;class#Utils#0" expanded="false" />
             <element signature="method#generarNotificacionAdminCambioGrupo#0;class#Utils#0" expanded="false" />
             <element signature="method#generarNotificacionTerrat#0;class#Utils#0" expanded="false" />
             <element signature="method#establecerPreferenciasIniciales#0;class#Utils#0" expanded="false" />
             <element signature="method#eliminarGrupoActual#0;class#Utils#0" expanded="false" />
-            <element signature="method#showError#0;class#Utils#0" expanded="false" />
             <element signature="method#showWarning#0;class#Utils#0" expanded="false" />
-            <element signature="method#crearPaginasImagenes#0;class#Utils#0" expanded="false" />
-            <element signature="method#guardarFotoBBDDFire#0;class#Utils#0" expanded="false" />
-            <element signature="method#obtenerPath#0;class#Utils#0" expanded="false" />
-            <element signature="method#formatearBitmapfromPath#0;class#Utils#0" expanded="false" />
-            <element signature="method#establecerEstructurasniciales#0;class#Utils#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+        <state relative-caret-position="68">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterDiasFiestaRecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="55" column="45" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterEventosRecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Proveedor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/DiaFiestaMeta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/DiaFiesta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Imagen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="59" column="0" selection-start-line="30" selection-start-column="5" selection-end-line="59" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Fiestas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-13">
+          <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaEventosViewPager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-617">
+          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="129" column="31" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
           <folding>
-            <element signature="e#4640#4695#0" expanded="false" />
-            <element signature="method#firebaseAuthWithGoogle#0;class#Login#0" expanded="false" />
-            <element signature="e#12606#12647#0" expanded="false" />
-            <element signature="docComment;method#showErrorDialog#0;class#Login#0" expanded="false" />
-            <element signature="docComment;method#eliminarProveedor#0;class#Login#0" expanded="false" />
-            <marker date="1492691962475" expanded="false" signature="2458:2537" ph="/ThrowableResultOfMethodCallIgnored, ConstantConditions/" />
-            <marker date="1492691962475" expanded="false" signature="4867:4904" ph="&quot;351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.goog...&quot;" />
+            <element signature="docComment;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#onCreate#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#onActivityResult#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#guardarFotoStorageFire#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#guardarFotoBBDDFire#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#buscarFotoMem#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#FiestasEventosGaleriaRecyclerView#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaViewPager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="148" column="28" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="29" />
+        <state relative-caret-position="-546">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
           <folding>
             <element signature="class#OnPedirPermisosListener#0;class#GaleriaRecyclerView#0" expanded="false" />
             <element signature="method#onAttach#0;class#GaleriaRecyclerView#0" expanded="false" />
             <element signature="method#onCreate#0;class#GaleriaRecyclerView#0" expanded="false" />
             <element signature="method#onCreateView#0;class#GaleriaRecyclerView#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#GaleriaRecyclerView#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="470" column="0" selection-start-line="470" selection-start-column="0" selection-end-line="470" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#23552#23823#0" expanded="true" />
-            <element signature="e#23822#23823#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values-v24/values-v24.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

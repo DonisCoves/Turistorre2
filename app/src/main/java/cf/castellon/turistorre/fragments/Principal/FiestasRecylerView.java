@@ -18,11 +18,7 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,13 +31,12 @@ import static cf.castellon.turistorre.utils.Utils.*;
 import static cf.castellon.turistorre.utils.Constantes.*;
 
 
+@SuppressWarnings("unchecked")
 public class FiestasRecylerView extends Fragment {
     private MyFireAdapterDiasFiestaRecyclerView adaptadorDiasFiestas, adaptadorViejoDiasFiestas;
     private ArrayAdapter<String> adaptadorFiestas;
-    @BindView(R.id.spFiestas)
-    Spinner spFiestas;
-    @BindView(R.id.rvFiestasDias)
-    RecyclerView recView;
+    @BindView(R.id.spFiestas) Spinner spFiestas;
+    @BindView(R.id.rvFiestasDias) RecyclerView recView;
     private String uidFiestaSeleccionada;
     private DatabaseReference mDataBaseDiasFiestaSelRef;
     private Query keysFire;
@@ -51,23 +46,27 @@ public class FiestasRecylerView extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        List<String> uidsFiestas;
+        List<String> titulosFiestas;
 
         super.onCreate(savedInstanceState);
-        uidsFiestas = getUidsFiestas();
+        titulosFiestas = getTitulosFiestas();
 
         //Por defecto mostramos la ultima fecha
-        uidFiestaSeleccionada = getUltimaFiesta();
-        keysFire = mDataBaseKeysRef.child(uidFiestaSeleccionada).orderByValue();
-        adaptadorFiestas = new ArrayAdapter<>(getContext(), R.layout.fila_spinner_fiestas, R.id.tvFiestasSpinner, uidsFiestas);
-        mDataBaseDiasFiestaSelRef = mDataBaseFiestasRef.child(uidFiestaSeleccionada).child("diasFiestas");
-        adaptadorDiasFiestas = new MyFireAdapterDiasFiestaRecyclerView(DiaFiestaMeta.class,
-                R.layout.fila_diasfiesta_layout,
-                MyFireAdapterDiasFiestaRecyclerView.MyFireViewHolder.class,
-                keysFire,
-                mDataBaseDiasFiestaSelRef);
+        if (titulosFiestas!=null) {
+            uidFiestaSeleccionada = getUltimaFiesta();
+            keysFire = mDataBaseKeysRef.child(uidFiestaSeleccionada).orderByValue();
+            adaptadorFiestas = new ArrayAdapter<>(getContext(), R.layout.fila_spinner_fiestas, R.id.tvFiestasSpinner, titulosFiestas);
+            mDataBaseDiasFiestaSelRef = mDataBaseFiestasRef.child(uidFiestaSeleccionada).child("diasFiestas");
+            adaptadorDiasFiestas = new MyFireAdapterDiasFiestaRecyclerView(DiaFiestaMeta.class,
+                    R.layout.fila_diasfiesta_layout,
+                    MyFireAdapterDiasFiestaRecyclerView.MyFireViewHolder.class,
+                    keysFire,
+                    mDataBaseDiasFiestaSelRef);
 
-    }
+        }
+        else
+            showError(getContext(),getClass().getName(),"Oncreate","uidsFiestas es null");
+        }
 
     @Nullable
     @Override
@@ -129,42 +128,6 @@ public class FiestasRecylerView extends Fragment {
             adaptadorDiasFiestas.cleanup();
         }
         super.onDestroyView();
-    }
-
-    /***
-     * Recoger todos los uidsFiesta y para cada elemento del arrayList creado poner un uidDiaFiesta de la Fiesta
-     * Luego tenemos que ver cual es la mas actual
-     *
-     * @return uidFiestaSeleccionada + reciente
-     */
-    private String getUltimaFiesta() {
-        Map<String, DiaFiestaMeta> diasFiestasAux;
-        Map<String, Date> mapFiestaDia = new HashMap<>(); // "uidFiesta:tituloDiaFiestaFormateado"
-        Iterator<String> itFiestas = fiestasMap.keySet().iterator();
-        Iterator<String> itDiasFiestasAux;
-        Iterator<String> itmapFiestaDia;
-        Date fechaMasReciente = new Date();
-        String uidFiestaMasReciente = "";
-        while (itFiestas.hasNext()) {
-            String key = itFiestas.next(); //uidFiesta
-            Fiestas fiesta = fiestasMap.get(key);
-            diasFiestasAux = fiesta.getDiasFiestas();
-            itDiasFiestasAux = diasFiestasAux.keySet().iterator();
-            String keyDia = itDiasFiestasAux.next();
-            DiaFiestaMeta diaFiestaMeta = diasFiestasAux.get(keyDia);
-            mapFiestaDia.put(key, formatearDia(diaFiestaMeta.getTituloDiaFiesta(), key));
-        }
-
-        itmapFiestaDia = mapFiestaDia.keySet().iterator();
-        while (itmapFiestaDia.hasNext()) {
-            String key = itmapFiestaDia.next();
-            Date fechaI = mapFiestaDia.get(key);
-            if (fechaI.after(fechaMasReciente)) {
-                uidFiestaMasReciente = key;
-                fechaMasReciente = fechaI;
-            }
-        }
-        return uidFiestaMasReciente;
     }
 
 }

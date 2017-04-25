@@ -10,13 +10,12 @@ import com.firebase.ui.database.FirebaseIndexRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Evento;
 import static cf.castellon.turistorre.utils.Utils.*;
 
-/**
- * Created by pccc on 28/02/2017.
- */
 public class MyFireAdapterEventosRecyclerView  extends FirebaseIndexRecyclerAdapter<Evento, MyFireAdapterEventosRecyclerView.MyFireViewHolder>
         implements View.OnClickListener {
     private View.OnClickListener listener;
@@ -31,8 +30,7 @@ public class MyFireAdapterEventosRecyclerView  extends FirebaseIndexRecyclerAdap
         cambiarColorFondoTV(itemView);
 
         itemView.setOnClickListener(this);
-        MyFireViewHolder holder = new MyFireViewHolder(itemView);
-        return holder;
+        return (new MyFireViewHolder(itemView));
     }
 
     public void setOnClickListener(View.OnClickListener listener) {
@@ -51,16 +49,16 @@ public class MyFireAdapterEventosRecyclerView  extends FirebaseIndexRecyclerAdap
     }
 
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {
-        private TextView horaTv,tituloTv,descripcionTv;
+        @BindView(R.id.tvTituloEvento) TextView horaTv;
+        @BindView(R.id.tvHora) TextView tituloTv;
+        @BindView(R.id.tvDescripcion) TextView descripcionTv;
 
         public MyFireViewHolder(View itemView) {
             super(itemView);
-            tituloTv = (TextView) itemView.findViewById(R.id.tvTituloEvento);
-            horaTv = (TextView) itemView.findViewById(R.id.tvHora);
-            descripcionTv = (TextView) itemView.findViewById(R.id.tvDescripcion);
+            ButterKnife.bind(this, itemView);
         }
 
-        public void bindDatos(Evento evento) {
+        private void bindDatos(Evento evento) {
             tituloTv.setText(evento.getTitulo());
             horaTv.setText(evento.getHora_inicial());
             descripcionTv.setText(evento.getDescripcion());

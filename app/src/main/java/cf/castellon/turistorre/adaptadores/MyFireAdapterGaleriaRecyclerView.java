@@ -72,7 +72,6 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
         private MyFireViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-
         }
 
         private void bindDatos(String urlStr){

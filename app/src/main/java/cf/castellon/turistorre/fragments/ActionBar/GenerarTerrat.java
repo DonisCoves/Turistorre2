@@ -1,5 +1,6 @@
 package cf.castellon.turistorre.fragments.ActionBar;
 
+import android.Manifest;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -26,8 +27,7 @@ public class GenerarTerrat extends Fragment {
     OnPedirPermisosListener mCallback;
     public interface OnPedirPermisosListener {
         void pedirPermiso(String permiso, int permisoRequest, View viewSnack);
-        void goCamera(Map<String,Object> tipoBean);
-        void goGaleria(Map<String,Object> tipoBean, ImageView terrat);
+        void goGaleria(String tipoBean, ImageView terrat);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class GenerarTerrat extends Fragment {
             try {
                 mCallback = (OnPedirPermisosListener) mActivity;
             } catch (ClassCastException e) {
-                throw new ClassCastException(mActivity.toString() + " debe implementar OnHeadlineSelectedListener");
+                throw new ClassCastException(mActivity.toString() + " debe implementar OnPedirPermisosListener");
             }
         }
     }
@@ -59,37 +59,17 @@ public class GenerarTerrat extends Fragment {
 
     @OnClick({R.id.btnGalTerrat,R.id.btnEnvTerrat,R.id.btnCanTerrat})
     public void onClick(View v){
-        if (mFirebaseUser !=null)
             switch (v.getId()) {
                 case (R.id.btnEnvTerrat):
-                    guardarFotoStorageFire(referenciasFire.get(Tablas.Terrats.name()),getContext(),getFragmentManager(),etDireccion.getText().toString());
+                    guardarFotoStorageFire(referenciasFire.get(Tablas.Terrats.name()),getContext(),getFragmentManager(),etDireccion.getText().toString(),null);
                     break;
                 case (R.id.btnGalTerrat):
                     if (numPermisos==2)
-                        mCallback.goGaleria(referenciasFire.get(Tablas.Terrats.name()),ivTerrat);
+                        mCallback.goGaleria(Tablas.Terrats.name(),ivTerrat);
+                    else
+                        mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, ivTerrat);
                     ivTerrat.setImageBitmap(null);
                     break;
             }
-        else
-            showWarning(getActivity(),"Registrate para subir tu terrat");
     }
-
-    /*@Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[],@NonNull int[] grantResults) {
-        Editor editor;
-
-        switch (requestCode) {
-            case PERMISO_ESCRIBIR_SD :
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                    numPermisos = 2;
-                else
-                    showError(getActivity(),GenerarTerrat.class.getName(),"onRequestPermissionsResult","Permiso denegado. Permisos vigentes " + numPermisos);
-                break;
-        }
-        editor = prefs.edit();
-        editor.putInt("numPermisos", numPermisos);
-        editor.apply();
-    }*/
-
-
 }

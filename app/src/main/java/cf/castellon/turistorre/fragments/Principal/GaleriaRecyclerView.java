@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -44,11 +45,11 @@ public class GaleriaRecyclerView extends Fragment{
     private FragmentTransaction fragmentTransaction;
     Intent shareIntent;
     @BindView(R.id.rvGaleria) RecyclerView recView;
-    public AppCompatActivity mActivity;
+    AppCompatActivity mActivity;
     OnPedirPermisosListener mCallback;
     public interface OnPedirPermisosListener {
         void pedirPermiso(String permiso, int permisoRequest, View viewSnack);
-        void goCamera(Map<String,Object> tipoBean);
+        void goCamera(String tipoBean,ImageView ivImagen);
     }
 
     @Override
@@ -84,7 +85,7 @@ public class GaleriaRecyclerView extends Fragment{
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Imagen imagen = adaptador.getItem(recView.getChildAdapterPosition(v)/*recView.getChildPosition(v)*/);
+                Imagen imagen = adaptador.getItem(recView.getChildAdapterPosition(v));
                 fragmentTransaction = getFragmentManager().beginTransaction();
                 carruselGaleriaFragment = new GaleriaViewPager();
                 bund = new Bundle();
@@ -149,7 +150,7 @@ public class GaleriaRecyclerView extends Fragment{
             switch (item.getItemId()){
                 case R.id.it_foto:
                     if (numPermisos==2)
-                        mCallback.goCamera(referenciasFire.get(Tablas.Imagenes.name()));
+                        mCallback.goCamera(Tablas.Imagenes.name(),null);
                     else
                         mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, recView);
                     break;

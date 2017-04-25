@@ -14,8 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
@@ -26,7 +25,9 @@ import cf.castellon.turistorre.fragments.ActionBar.GenerarRaco;
 
 import static cf.castellon.turistorre.utils.Constantes.*;
 import static cf.castellon.turistorre.utils.Utils.*;
+import static cf.castellon.turistorre.utils.Utils.baseDatos;
 
+@SuppressWarnings("unchecked")
 public class RaconsViewPager extends Fragment {
     private FragmentPageCarruselAdapter adaptador;
     @BindView(R.id.vpRacons) ViewPager viewPager;
@@ -40,26 +41,28 @@ public class RaconsViewPager extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
-        List<Imagen> racons;
+        HashSet racons;
 
         view = inflater.inflate(R.layout.racons_viewpager_layout,container,false);
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         adaptador = new FragmentPageCarruselAdapter(getChildFragmentManager());
-        racons = null;/*(ArrayList)homes.get(ImagenTipo.Racons.name());*/
+        racons = baseDatos.get(Tablas.Racons.name());
         crearPaginasRacons(racons);
         viewPager.setAdapter(adaptador);
         return view;
     }
 
-    private void crearPaginasRacons(List<Imagen> lRacons) {
-        for (int i=lRacons.size()-1;i>=0;i--){
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("raco", lRacons.get(i));
+    private void crearPaginasRacons(HashSet<Imagen> racons) {
+        RaconsPagina pagina;
 
-            RaconsPagina fragmentRaco = new RaconsPagina();
-            fragmentRaco.setArguments(bundle);
-            adaptador.addFragment(fragmentRaco);
+        for (Imagen raco:racons){
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("raco", raco);
+
+            pagina = new RaconsPagina();
+            pagina.setArguments(bundle);
+            adaptador.addFragment(pagina);
         }
     }
 

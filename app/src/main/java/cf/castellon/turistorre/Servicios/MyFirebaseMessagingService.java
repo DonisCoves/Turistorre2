@@ -1,19 +1,3 @@
-/**
- * Copyright 2016 Google Inc. All Rights Reserved.
- * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package cf.castellon.turistorre.Servicios;
 
 import android.app.Notification;
@@ -25,11 +9,9 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
-
 import static cf.castellon.turistorre.utils.Constantes.*;
 import static cf.castellon.turistorre.utils.Utils.buscarUsuario;
 import static cf.castellon.turistorre.utils.Utils.usuario;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,16 +23,12 @@ import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.ui.MainActivity;
-import cf.castellon.turistorre.bean.Bando;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "FCMMessagingService";
     private String action;
-    private String titulo;
-    private String uidBando;
-    private String uidUser,grupo,nombre;
-    private Bando bando;
+    private String uidUser,grupo;
     private DatabaseReference ref;
 
     @Override
@@ -68,7 +46,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Bando bando = dataSnapshot.getValue(Bando.class);
+                                    Imagen bando = dataSnapshot.getValue(Imagen.class);
                                     showBandoNotification(bando, remoteMessage);
                                 }
 
@@ -77,9 +55,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                     Log.w(TAG, "Bando:onCancelled", databaseError.toException());
                                 }
                             });
+                    break;
                 case ACTION_CAMBIO_GRUPO:
                     uidUser = remoteMessage.getData().get("uidUser");
-                    nombre = remoteMessage.getData().get("nombre");
                     grupo = remoteMessage.getData().get("grupo");
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setMessage("¿Conceder Permiso?")
@@ -98,6 +76,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             });
                     AlertDialog alert = builder.create();
                     alert.show();
+                    break;
                 case ACTION_GPO_TERRAT:
                     ref = mDataBaseTerratRef.child(remoteMessage.getData().get("uidTerrat"));
                     ref.addListenerForSingleValueEvent(
@@ -113,6 +92,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                     Log.w(TAG, "Bando:onCancelled", databaseError.toException());
                                 }
                             });
+                    break;
             }
         }
 //        showBasicNotification(titulo);
@@ -127,7 +107,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     }
 
-    private void showBandoNotification(Bando bando, RemoteMessage remoteMessage) {
+    private void showBandoNotification(Imagen bando, RemoteMessage remoteMessage) {
         Intent i = new Intent(this, MainActivity.class);
         i.setAction(ACTION_GPO_BANDO);
         i.putExtra("uidBando", remoteMessage.getData().get("uidBando"));
@@ -139,9 +119,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
                 .setContentTitle(bando.getTitulo())
+                .setColor(16728193)
                 .setContentText(bando.getDescripcion())
                 .setSound(sonido)
-                .setSmallIcon(R.drawable.ic_action_assignment_turned_in)
+                .setSmallIcon(R.drawable.ic_stat_touch_app)
                 .setContentIntent(pendingIntent);
 
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

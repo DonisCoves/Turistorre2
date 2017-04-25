@@ -26,5 +26,9 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\raw\\the_calling.mp3",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\raw\\the_calling.mp3"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\raw\\notificacion_sonido.mp3",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\raw\\notificacion_sonido.mp3"
     }
 ]

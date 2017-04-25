@@ -1,7 +1,3 @@
-Facebook
-login: turistorre17@gmail.com
-paswd: adminadmin
-
-Gmail
+Facebook / Google / Heroku
 login: turistorre17@gmail.com
 paswd: adminadmin

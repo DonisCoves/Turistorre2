@@ -16,6 +16,10 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_ic_action_party_icon.png"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_stat_touch_app.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_stat_touch_app.png"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_find_in_page.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_find_in_page.png"
     },
@@ -34,6 +38,10 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_settings_remote.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_settings_remote.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_drawer_settings_remote.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_drawer_settings_remote.png"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_home.png",

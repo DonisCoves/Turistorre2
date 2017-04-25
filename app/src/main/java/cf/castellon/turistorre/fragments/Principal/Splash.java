@@ -57,6 +57,7 @@ public class Splash extends Fragment {
         return view;
     }
 
+    @SuppressWarnings("ConstantConditions")
     private void cargarDatos(List<Integer> cargas) {
         final HashSet<Imagen> imagenes;
         final HashSet<Imagen> terrats;
@@ -131,7 +132,7 @@ public class Splash extends Fragment {
                                 DiaFiesta diaFiesta = diaFiestaFire.getValue(DiaFiesta.class);
                                 diaFiestasList.add(diaFiesta);
                             }
-                            baseDatos.put(Tablas.Fiestas.name(),diaFiestasList);
+                            baseDatos.put(Tablas.DiasFiestas.name(),diaFiestasList);
                             goToHome();
                         }
                         @Override
