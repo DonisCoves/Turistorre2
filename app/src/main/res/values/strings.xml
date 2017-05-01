@@ -85,17 +85,8 @@
     <string name="idioma">Elige el idioma de la aplicación</string>
     <string name="title_activity_probes">ProbesActivity</string>
     <!--Permisos-->
-    <string name="anonimo">
-        Ver imagenes de la galeria\n
-        Ver los terrats de la gente\n
-        Recibir notificaciones de bandos\n
-        Ver las fiestas del pueblo\n
-        Ver las imágenes que la gente manda de las fiestas
-    </string>
-    <string name="no_anonimo">
-        Subir imagenes a la galeria\n
-        Subir tu terrat \n
-        Subir imagenes de las fiestas\n
+    <string name="anonimo">Ver imagenes de la galeria\nVer los terrats de la gente\nRecibir notificaciones de bandos\nVer las fiestas del pueblo\nVer las imágenes que la gente manda de las fiestas</string>
+    <string name="no_anonimo">Subir imagenes a la galeria\nSubir tu terrat \nSubir imagenes de las fiestas\n
         Crear bandos\n
         Crear fiestas\n
         Conceder permisos a usuarios\n

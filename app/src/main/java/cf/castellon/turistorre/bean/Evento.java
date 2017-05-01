@@ -109,4 +109,7 @@ public class Evento implements Parcelable{
         this.imagenes = imagenes;
     }
 
+    public void addImagen(Imagen imagen){
+        this.imagenes.put(imagen.getUidImg(),imagen);
+    }
 }

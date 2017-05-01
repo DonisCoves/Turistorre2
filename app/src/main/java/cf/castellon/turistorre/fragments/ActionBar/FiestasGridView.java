@@ -17,16 +17,14 @@ import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.GaleriaDiaAdapter;
 import cf.castellon.turistorre.bean.Imagen;
-import cf.castellon.turistorre.fragments.Click.GaleriaViewPager;
+import cf.castellon.turistorre.fragments.ActionBar.Click.FiestasGaleriaViewPager;
 
-/**
- * Created by pccc on 04/03/2017.
- */
 
 public class FiestasGridView extends Fragment {
     @BindView(R.id.gvGaleriaDia) GridView gridView;
     private GaleriaDiaAdapter adaptador;
     private ArrayList<Imagen> imagenes; //ArrayList por exigencias del Bundle
+    FiestasGaleriaViewPager carruselGaleria;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,14 +41,14 @@ public class FiestasGridView extends Fragment {
         gridView.setAdapter(adaptador);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                Imagen imagen = adaptador.getItem(position);
                 Bundle bund =new Bundle();
                 bund.putParcelableArrayList("imagenes",imagenes);
-                bund.putInt("SELECCIONADO",position);
+                bund.putParcelable("imagen",imagen);
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                GaleriaViewPager carruselGaleria = new GaleriaViewPager();
-                carruselGaleria .setArguments(bund);
+                 carruselGaleria = new FiestasGaleriaViewPager();
+                carruselGaleria.setArguments(bund);
                 fragmentTransaction.replace(R.id.content_frame, carruselGaleria).commit();
-
             }
         });
         return view;

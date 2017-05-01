@@ -205,14 +205,14 @@ public final class R {
         public static final int MessengerButton_White = 0x7f0a00e6;
         public static final int MessengerButton_White_Large = 0x7f0a00e7;
         public static final int MessengerButton_White_Small = 0x7f0a00e8;
-        public static final int com_facebook_auth_dialog = 0x7f0a01a0;
-        public static final int com_facebook_button = 0x7f0a01a1;
-        public static final int com_facebook_button_like = 0x7f0a01a2;
-        public static final int com_facebook_button_send = 0x7f0a01a3;
-        public static final int com_facebook_button_share = 0x7f0a01a4;
-        public static final int com_facebook_loginview_default_style = 0x7f0a01a5;
-        public static final int com_facebook_loginview_silver_style = 0x7f0a01a6;
-        public static final int tooltip_bubble_text = 0x7f0a01ab;
+        public static final int com_facebook_auth_dialog = 0x7f0a01a2;
+        public static final int com_facebook_button = 0x7f0a01a3;
+        public static final int com_facebook_button_like = 0x7f0a01a4;
+        public static final int com_facebook_button_send = 0x7f0a01a5;
+        public static final int com_facebook_button_share = 0x7f0a01a6;
+        public static final int com_facebook_loginview_default_style = 0x7f0a01a7;
+        public static final int com_facebook_loginview_silver_style = 0x7f0a01a8;
+        public static final int tooltip_bubble_text = 0x7f0a01ad;
     }
     public static final class styleable {
         public static final int[] CardView = { 0x0101013f, 0x01010140, 0x7f0100a3, 0x7f0100a4, 0x7f0100a5, 0x7f0100a6, 0x7f0100a7, 0x7f0100a8, 0x7f0100a9, 0x7f0100aa, 0x7f0100ab, 0x7f0100ac, 0x7f0100ad };

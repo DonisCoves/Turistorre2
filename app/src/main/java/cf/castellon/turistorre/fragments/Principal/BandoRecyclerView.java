@@ -72,7 +72,7 @@ public class BandoRecyclerView extends Fragment {
                     transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
             }
         else
-            showWarning(getActivity(),"Registrate para mostrar tu terrat");
+            showWarning(getActivity(),"Usuario sin privilegios");
         return super.onOptionsItemSelected(item);
     }
 

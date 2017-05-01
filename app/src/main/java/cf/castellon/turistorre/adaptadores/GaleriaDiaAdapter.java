@@ -8,17 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-
 import com.bumptech.glide.Glide;
-
 import java.util.List;
-
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
 
-/**
- * Created by pccc on 16/03/2016.
- */
 public class GaleriaDiaAdapter extends BaseAdapter {
     Activity actividad;
     LayoutInflater inflater;
@@ -36,8 +30,8 @@ public class GaleriaDiaAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
+    public Imagen getItem(int position) {
+        return imagenes.get(position);
     }
 
     @Override

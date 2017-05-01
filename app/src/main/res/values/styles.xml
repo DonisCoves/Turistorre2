@@ -31,9 +31,8 @@
 
 <!--FUENTES-->
     <style name="Fuentes">
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#00FF00</item>
         <item name="android:typeface">monospace</item>
     </style>
     <style name="Fuentes.spring_tones">
@@ -62,6 +61,16 @@
         <item name="android:capitalize">sentences</item>
         <item name="android:lineSpacingExtra">2sp</item>
         <item name="android:textSize">@dimen/texto</item>
+    </style>
+
+    <style name="TNegritaGrande" parent="Fuentes">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TNegritaMediano" parent="Fuentes">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Titulo" parent="Texto">

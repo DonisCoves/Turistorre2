@@ -76,4 +76,7 @@ public class DiaFiesta implements Parcelable{
         this.eventos = eventos;
     }
 
+    public void addEvento(Evento evento){
+        this.eventos.put(evento.getUidEvento(),evento);
+    }
 }

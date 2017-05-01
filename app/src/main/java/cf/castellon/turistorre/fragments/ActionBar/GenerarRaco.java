@@ -28,7 +28,7 @@ public class GenerarRaco extends Fragment {
     AppCompatActivity mActivity;
 
     public interface OnPedirPermisosListener {
-        void pedirPermiso(String permiso, int permisoRequest, View viewSnack);
+        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla,ImageView imageView);
         void goCamera(String tipoBean, ImageView view);
         void goGaleria(String tipoBean, ImageView view);
     }
@@ -68,13 +68,13 @@ public class GenerarRaco extends Fragment {
                 if (numPermisos==2)
                     mCallback.goGaleria(Tablas.Racons.name(),ivRaco);
                 else
-                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo);
+                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo, Tablas.Racons.name(), ivRaco);
                 break;
             case (R.id.btnCamaraRaco):
                 if (numPermisos==2)
                     mCallback.goCamera(Tablas.Racons.name(),ivRaco);
                 else
-                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo);
+                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo, Tablas.Racons.name(), ivRaco);
                 break;
         }
     }

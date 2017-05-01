@@ -24,7 +24,7 @@ public class MiAplicacion extends Application {
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);        //Persistencia local
         establecerPreferenciasIniciales(getApplicationContext());
         setTheme(R.style.dialogos);
-        establecerEstructurasniciales();
+        establecerEstructurasIniciales();
     }
 
 

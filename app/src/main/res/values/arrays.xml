@@ -88,7 +88,7 @@
         <item>@drawable/ic_action_home</item>
         <item>@drawable/ic_action_find_in_page</item>
         <item>@drawable/ic_action_image</item>
-        <item>@drawable/ic_action_settings_remote</item>
+        <item>@drawable/ic_action_drawer_settings_remote</item>
         <item>@drawable/ic_action_ic_terraza</item>
         <item>@drawable/ic_action_person</item>
         <item>@drawable/ic_action_ic_action_party_icon</item>

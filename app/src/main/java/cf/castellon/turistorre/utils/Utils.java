@@ -68,10 +68,12 @@ import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.FragmentPageCarruselAdapter;
 import cf.castellon.turistorre.bean.DiaFiesta;
 import cf.castellon.turistorre.bean.DiaFiestaMeta;
+import cf.castellon.turistorre.bean.Evento;
 import cf.castellon.turistorre.bean.Fiestas;
 import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarTerrat;
+import cf.castellon.turistorre.fragments.Click.FiestasEventosRecylerView;
 import cf.castellon.turistorre.fragments.Click.GaleriaPagina;
 import cf.castellon.turistorre.fragments.Principal.BandoRecyclerView;
 import cf.castellon.turistorre.fragments.Principal.RaconsViewPager;
@@ -226,6 +228,29 @@ public final class Utils {
         return usuario;
     }
 
+    public static DiaFiesta buscarDiaFiesta(String uidDiaFiesta) {
+        DiaFiesta diaFiesta = null;
+        boolean encontrado = false;
+        HashSet<DiaFiesta> diasFiesta;
+        diasFiesta =  baseDatos.get(Tablas.DiasFiestas.name());
+        Iterator<DiaFiesta> iterator = diasFiesta.iterator();
+        while (!encontrado) {
+            diaFiesta = iterator.next();
+            if (diaFiesta.getUidDiaFiesta().equals(uidDiaFiesta))
+                encontrado = true;
+        }
+        return diaFiesta;
+    }
+
+    public static Evento buscarEvento(DiaFiesta diaFiesta, String uidEvento) {
+        Map<String, Evento> eventos;
+        Evento evento;
+
+        eventos = diaFiesta.getEventos();
+        evento = eventos.get(uidEvento);
+        return evento;
+    }
+
     //Dado un id nos devuelve si existe
     public static boolean existeUsuario(String uidUser) {
         boolean encontrado = false;
@@ -275,6 +300,14 @@ public final class Utils {
                 return img;
         return null;
     }
+
+   /* @Nullable
+    public static DiaFiesta buscarDiaFiesta(String uidDiaFiesta) {
+        for (DiaFiesta diaFiesta : (List<DiaFiesta>)baseDatos.get(Tablas.DiasFiestas.name()))
+            if (diaFiesta.getUidDiaFiesta().equals(uidDiaFiesta))
+                return diaFiesta;
+        return null;
+    }*/
 
     public static void crearImagenes() {
        /* mDataBaseImgRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -409,7 +442,6 @@ public final class Utils {
         return rutaImgUser;
     }*/
 
-
     /**
      * LOGINFRAGMENT
      */
@@ -451,7 +483,6 @@ public final class Utils {
     }
 
     //  **************                  BANDOFRAGMENT **************************
-
 
     /**
      * Dada la ruta de una imagen existente, crea otra en la misma ubicacion cambiando su tamaño (w,h) y lo devuelve un array de bytes para poderlo subir a FireBaseStorage
@@ -587,8 +618,6 @@ public final class Utils {
 
     //A partir de 6.0 hay que pedir los permisos "peligrosos" en tiempo de ejecucion
 
-
-
     public static boolean isExternalStorageAvailable() {
         String state = Environment.getExternalStorageState();
         if (state.equals(Environment.MEDIA_MOUNTED)) {
@@ -648,20 +677,19 @@ public final class Utils {
     public static void cambiarColor(Context context, View view) {
         GradientDrawable gradient = ((GradientDrawable) view.getBackground());
         if (!colorCambiado)
-            gradient.setColor(context.getResources().getColor(R.color.verde_claro));
+            gradient.setColor(context.getResources().getColor(R.color.paper_succulents_rosa1));
         else
-            gradient.setColor(context.getResources().getColor(R.color.amarillo_claro));
+            gradient.setColor(context.getResources().getColor(R.color.paper_succulents_rosa2));
         colorCambiado = !colorCambiado;
     }
 
     public static void cambiarColorFondoTV(View view) {
         if (!colorCambiado)
-            view.setBackgroundColor(view.getResources().getColor(R.color.verde_claro));
+            view.setBackgroundColor(view.getResources().getColor(R.color.spring_tones_verde));
         else
-            view.setBackgroundColor(view.getResources().getColor(R.color.amarillo_claro));
+            view.setBackgroundColor(view.getResources().getColor(R.color.paper_succulents_gris3));
         colorCambiado = !colorCambiado;
     }
-
 
     /**
      * Como el server esta en heroku y tenenemos un dyno free lo tendremos que activar
@@ -817,16 +845,24 @@ public final class Utils {
         Usuario usuario;
         GaleriaPagina pagina;
 
+        bund = new Bundle();
+        bund.putParcelable("imagen",imagenSeleccionada);
+        usuario = buscarUsuario(imagenSeleccionada.getUidUser());
+        bund.putParcelable("usuario",usuario);
+        pagina = new GaleriaPagina();
+        pagina.setArguments(bund);
+        adaptador.addFragment(pagina);
         for (Imagen mImagen:imagenes){
-            if (mImagen.getUidImg().equals(imagenSeleccionada.getUidImg()))
-                mImagen = imagenSeleccionada;
-            bund = new Bundle();
-            bund.putParcelable("imagen",mImagen);
-            usuario = buscarUsuario(mImagen.getUidUser());
-            bund.putParcelable("usuario",usuario);
-            pagina = new GaleriaPagina();
-            pagina.setArguments(bund);
-            adaptador.addFragment(pagina);
+            if (!mImagen.getUidImg().equals(imagenSeleccionada.getUidImg())) {
+                bund = new Bundle();
+                bund.putParcelable("imagen", mImagen);
+                usuario = buscarUsuario(mImagen.getUidUser());
+                bund.putParcelable("usuario", usuario);
+                pagina = new GaleriaPagina();
+                pagina.setArguments(bund);
+
+                adaptador.addFragment(pagina);
+            }
         }
     }
 
@@ -875,7 +911,6 @@ public final class Utils {
                                 imagenStatic.setTitulo(titulo);  // Si es raco o bando su descripcion
                             datosImagenOk =true;
                         }
-                        showWarning(context,"Imagen subida correctamente");
                         hideProgressDialog();
                     }
                 })
@@ -933,9 +968,12 @@ public final class Utils {
             dbRef.setValue(imagen).addOnSuccessListener(activity, new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
+                    String tabla;
                     FragmentTransaction fragmentTransaction;
                     hideProgressDialog();
-                    switch (rootRef.getKey()) {
+                    showWarning(context,"Imagen subida correctamente");
+                    tabla= parsearKeyATabla(rootRef.getKey());
+                    switch (tabla) {
                         case "Terrats":
                             generarNotificacionTerrat(imagen.getTitulo(), imagen.getUidImg());
                             fragmentTransaction = fragmentManager.beginTransaction();
@@ -952,9 +990,12 @@ public final class Utils {
                             fragmentTransaction = fragmentManager.beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, new BandoRecyclerView()).commit();
                             break;
+                        case "DiasFiestas" :
+//                            anyadirImagenDiaFiesta(imagen);
+                            break;
                     }
-                }
 
+                }
             })
                     .addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -967,6 +1008,68 @@ public final class Utils {
         catch (DatabaseException exception) {
             showError(activity,"guardarFotoBBDDFire", exception.getStackTrace()[0].getMethodName(),exception.toString());
         }
+    }
+
+    public static void anyadirImagenDiaFiesta(Imagen imagen) {
+        HashSet<DiaFiesta> diasFiestaHash;
+        DiaFiesta diaFiesta;
+        Evento evento;
+        Map<String,Imagen> imagenes;
+        String uidDiaFiesta, uidEvento;
+
+        uidDiaFiesta = obtenerUidDiaFiesta();
+        uidEvento = obtenerUidEvento();
+        diasFiestaHash = baseDatos.get(Tablas.DiasFiestas.name());
+        diaFiesta = buscarDiaFiesta(uidDiaFiesta);
+        evento = buscarEvento(diaFiesta,uidEvento);
+        //Una vez guardada la imagen guardamos toda su estructura
+        evento.addImagen(imagen);
+        diaFiesta.addEvento(evento);
+        diasFiestaHash.add(diaFiesta);
+        baseDatos.put(Tablas.DiasFiestas.name(),diasFiestaHash);
+    }
+
+    public static void anyadirImagenDiaFiesta(Imagen imagen,String uidDiaFiesta, String uidEvento) {
+        HashSet<DiaFiesta> diasFiestaHash;
+        DiaFiesta diaFiesta;
+        Evento evento;
+        Map<String,Imagen> imagenes;
+
+        diasFiestaHash = baseDatos.get(Tablas.DiasFiestas.name());
+        diaFiesta = buscarDiaFiesta(uidDiaFiesta);
+        evento = buscarEvento(diaFiesta,uidEvento);
+        //Una vez guardada la imagen guardamos toda su estructura
+        evento.addImagen(imagen);
+        diaFiesta.addEvento(evento);
+        diasFiestaHash.add(diaFiesta);
+        baseDatos.put(Tablas.DiasFiestas.name(),diasFiestaHash);
+    }
+
+    private static String obtenerUidDiaFiesta() {
+        String uidDiaFiesta;
+        Map<String,Object> referenciaFire;
+
+        referenciaFire = referenciasFire.get(Tablas.DiasFiestas.name());
+        uidDiaFiesta = (String)referenciaFire.get("uidDiaFiesta");
+        return uidDiaFiesta;
+    }
+
+    private static String obtenerUidEvento() {
+        String uidEvento;
+        Map<String,Object> referenciaFire;
+
+        referenciaFire = referenciasFire.get(Tablas.DiasFiestas.name());
+        uidEvento = (String)referenciaFire.get("uidEvento");
+        return uidEvento;
+    }
+
+    private static String parsearKeyATabla(String key) {
+        String tabla;
+        if (key.equals("Terrats") || key.equals("Racons") || key.equals("Terrats") || key.equals("Bandos"))
+            tabla=key;
+        else
+            tabla = "DiasFiestas";
+        return tabla;
     }
 
     public static String obtenerPath (Uri uri,Context context) {
@@ -1003,17 +1106,30 @@ public final class Utils {
         return rotatedBitmap;
     }
 
-    public static void establecerEstructurasniciales(){
+    public static void establecerEstructurasIniciales(){
         Map<String,Object> referenciaImagenes;
         Map<String,Object> referenciaRacons;
         Map<String,Object> referenciaTerrats;
         Map<String,Object> referenciaBandos;
+        Map<String,Object> referenciaFiestas;
+        Map<String,Object> referenciaDiasFiestas;
 
         referenciasFire= new HashMap<>();
+        referenciaDiasFiestas= new HashMap<>();
         referenciaImagenes= new HashMap<>();
         referenciaRacons = new HashMap<>();
         referenciaTerrats= new HashMap<>();
         referenciaBandos= new HashMap<>();
+        referenciaFiestas= new HashMap<>();
+
+        referenciaDiasFiestas.put("DataBase",mDataBaseDiasFiestaRef);
+        referenciaDiasFiestas.put("Storage",mStorageDiasFiestasRef);
+        referenciaDiasFiestas.put("fileUri",null);
+        referenciaDiasFiestas.put("uidDiaFiesta",null);
+        referenciaDiasFiestas.put("uidEvento",null);
+        referenciaFiestas.put("DataBase",mDataBaseFiestasRef);
+        referenciaFiestas.put("Storage",mStorageFiestasRef);
+        referenciaFiestas.put("fileUri",null);
         referenciaImagenes.put("DataBase",mDataBaseImgRef);
         referenciaImagenes.put("Storage",mStorageImgRef);
         referenciaImagenes.put("fileUri",null);
@@ -1027,6 +1143,8 @@ public final class Utils {
         referenciaBandos.put("Storage",mStorageBandoRef);
         referenciaBandos.put("fileUri",null);
 
+        referenciasFire.put(Tablas.DiasFiestas.name(),referenciaDiasFiestas);
+        referenciasFire.put(Tablas.Fiestas.name(),referenciaFiestas);
         referenciasFire.put(Tablas.Imagenes.name(),referenciaImagenes);
         referenciasFire.put(Tablas.Racons.name(),referenciaRacons);
         referenciasFire.put(Tablas.Terrats.name(),referenciaTerrats);
@@ -1051,6 +1169,22 @@ public final class Utils {
         baseDatos.put(Tablas.Usuarios.name(),usuarios);
     }
 
+   /* *//** Anyade una imagen al dia en cuestion de fiestas y su usuario a la base de datos local
+     *
+     * @param imagen La imagen a anyadir
+     *//*
+    public static void anyadirImagenDiaFiesta(String uidDiaFiesta, Imagen imagen){
+        HashSet<Imagen> diasFiestasHash;
+        DiaFiesta diaFiesta;
+
+        diasFiestasHash = baseDatos.get(Tablas.DiasFiestas.name());
+        buscarDiaFiesta(uidDiaFiesta);
+        imagenes.add(imagen);
+        usuarios.add(usuario);
+        baseDatos.put(Tablas.DiasFiestas.name(),imagenes);
+        baseDatos.put(Tablas.Usuarios.name(),usuarios);
+    }*/
+
 
     /** Anyade una imagen y su usuario a la base de datos local
      *
@@ -1070,12 +1204,73 @@ public final class Utils {
         baseDatos.put(Tablas.Usuarios.name(),usuarios);
     }
 
-
     public static void anyadirUsuario(Usuario usuario){
         HashSet<Usuario> usuarios;
         usuarios = baseDatos.get(Tablas.Usuarios.name());
         usuarios.add(usuario);
     }
+
+    public static Map<String,Object> parsearParametrosRFire(String tabla) {
+        StorageReference storageReference;
+        DatabaseReference databaseReference;
+        Map<String,Object> referenciaFire;
+        String [] params;
+        String tablaOk,uidDiaFiesta,uidEvento;
+
+        referenciaFire = new HashMap<>();
+        establecerEstructurasIniciales(); //Limpiamos valores sobreescritos
+        if (tabla !=null)
+            if (!tabla.equals(Tablas.Bandos.name()) && !tabla.equals(Tablas.Imagenes.name())) {
+                ////Tabla = "DiasFiestas + uidDiaFiesta + uidEvento"
+                params = tabla.split(" ");
+                tablaOk = params[0];
+                uidDiaFiesta = params[1];
+                //uidEvento = "09:00 uidEvento1"
+                uidEvento = params[2] + " " + params[3];
+                referenciaFire = referenciasFire.get(tablaOk);
+                storageReference = (StorageReference) referenciaFire.get("Storage");
+                databaseReference = (DatabaseReference) referenciaFire.get("DataBase");
+                databaseReference = databaseReference.child(uidDiaFiesta).child("eventos").child(uidEvento).child("imagenes");
+                storageReference = storageReference.child(uidDiaFiesta).child(uidEvento);
+                referenciaFire.put("Storage", storageReference);
+                referenciaFire.put("DataBase", databaseReference);
+                referenciasFire.put(tablaOk, referenciaFire);
+            }
+            else
+                referenciaFire = referenciasFire.get(tabla);
+            return referenciaFire;
+    }
+
+    public static String parsearTabla(String tabla) {
+        String [] params;
+        String tablaOk=null;
+        if (tabla!=null)
+            if (!tabla.equals(Tablas.Bandos) && !tabla.equals(Tablas.Imagenes)) {
+                ////Tabla = "DiasFiestas + uidDiaFiesta + uidEvento"
+                params = tabla.split(" ");
+                tablaOk = params[0];
+            }
+            else
+                tablaOk = tabla;
+        return tablaOk;
+    }
+
+    public static void guardarReferenciasDFiestas(String uidEvento, String uidDiaFiesta) {
+        Map<String,Object> referenciaFire;
+
+        establecerEstructurasIniciales();
+        referenciaFire = referenciasFire.get(Tablas.DiasFiestas.name());
+        referenciaFire.put("uidDiaFiesta",uidDiaFiesta);
+        referenciaFire.put("uidEvento",uidEvento);
+        referenciasFire.put(Tablas.DiasFiestas.name(), referenciaFire);
+    }
+
+    public static String parserId(String userId) {
+        userId = userId.replace("@","");
+        userId = userId.replace(".","");
+        return userId;
+    }
+
 
 
 }

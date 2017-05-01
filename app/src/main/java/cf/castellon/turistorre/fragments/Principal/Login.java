@@ -2,6 +2,7 @@
 package cf.castellon.turistorre.fragments.Principal;
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.app.ProgressDialog;
@@ -118,7 +119,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 mAuthProgressDialog.hide();
                 mFirebaseUser = firebaseAuth.getCurrentUser();
-
                 if (mFirebaseUser != null && numProvs != mFirebaseUser.getProviderData().size()) {
                     numProvs = mFirebaseUser.getProviderData().size();
                     if (numProvs == 2) {//La primera vez lo guardamos en la bbdd de firebase
@@ -126,9 +126,9 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                         if (mFirebaseUser.getPhotoUrl()!=null)
                             if (mFirebaseUser.getProviderData().get(0).getProviderId().equalsIgnoreCase("password") ||
                                     mFirebaseUser.getProviderData().get(1).getProviderId().equalsIgnoreCase("password"))
-                                crearUsuarioBBDDFire(mFirebaseUser.getUid(), mFirebaseUser.getEmail(),mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+                                crearUsuarioBBDDFire(mFirebaseUser.getEmail(), mFirebaseUser.getEmail(),mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
                             else
-                                crearUsuarioBBDDFire(mFirebaseUser.getUid(), mFirebaseUser.getDisplayName(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+                                crearUsuarioBBDDFire(mFirebaseUser.getEmail(), mFirebaseUser.getDisplayName(),mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
                         else
                             showError(getActivity(),getClass().getName(),"mFirebaseUser.getPhotoUrl().toString()","El metodo es nulo");
                     }
@@ -256,7 +256,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         view = inflater.inflate(R.layout.login_layout, container, false);
         ButterKnife.bind(this, view);
         // [3.-FACEBOOK LoginButton Permisos]
-        btnFacebook.setReadPermissions("public_profile","email");
+        btnFacebook.setReadPermissions("email");
         // [END 3.-FACEBOOK LoginButton Permisos]
         // [4.-FACEBOOK LoginButton If using in a fragment]
         //btnFacebook.setFragment(this);
@@ -365,7 +365,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
 
     private void eliminarProveedor(final String proveedor) {
         if (mAuth.getCurrentUser().getProviderData().size() < 3) {  // Si solo hay 2 (Firebase y otro) no hemos hecho link
-            mDataBaseUsersRef.child(mFirebaseUser.getUid()).setValue(null);
+            //mDataBaseUsersRef.child(mFirebaseUser.getUid()).setValue(null);
             mDataBaseGruposRef.child("Multimedia").child(mFirebaseUser.getUid()).setValue(null);
             mFirebaseUser.delete();
             FirebaseAuth.getInstance().signOut();
@@ -501,23 +501,24 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         showError(getContext(),getClass().getName(),result.getClass().getName(),result.getErrorMessage());
      }
 
-    private void crearUsuarioBBDDFire(final String userId, final String nombre, final String avatar, final String grupo) {
+    private void crearUsuarioBBDDFire(final String userId, final String nombre,final String email, final String avatar, final String grupo) {
         mAuthProgressDialog.show();//No me aparece el dialogo
         editor = prefs.edit();
         editor.putString("uidUser", userId);
         editor.apply();
+
         if (nombre.equalsIgnoreCase("TurisTorre Turistorre")){
-            usuario = new Usuario(nombre, avatar, userId, "administrador");
+            usuario = new Usuario(nombre, avatar, email,  userId, "administrador");
             FirebaseMessaging.getInstance().subscribeToTopic("administrador");
         }
         else
-            usuario = new Usuario(nombre, avatar, userId, grupo);
+            usuario = new Usuario(nombre, avatar, email, userId, grupo);
         anyadirUsuario(usuario);
-        mDataBaseUsersRef.child(userId).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
+        mDataBaseUsersRef.child(parserId(userId)).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 mAuthProgressDialog.hide();
-                mDataBaseGruposRef.child(usuario.getGrupo()).child(userId).setValue(usuario);
+                mDataBaseGruposRef.child(usuario.getGrupo()).child(parserId(userId)).setValue(usuario);
             }
 
         }).addOnFailureListener(new OnFailureListener() {
@@ -528,6 +529,8 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
             }
         });
     }
+
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

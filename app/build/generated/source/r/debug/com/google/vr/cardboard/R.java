@@ -38,10 +38,10 @@ public final class R {
     }
     public static final class layout {
         public static final int back_button = 0x7f040020;
-        public static final int settings_button = 0x7f040069;
-        public static final int transition_view = 0x7f04006e;
-        public static final int ui_layer = 0x7f04006f;
-        public static final int ui_layer_with_portrait_support = 0x7f040070;
+        public static final int settings_button = 0x7f04006a;
+        public static final int transition_view = 0x7f04006f;
+        public static final int ui_layer = 0x7f040070;
+        public static final int ui_layer_with_portrait_support = 0x7f040071;
     }
     public static final class string {
         public static final int back_button_content_description = 0x7f080013;
@@ -72,7 +72,7 @@ public final class R {
     public static final class style {
         public static final int GvrDialogTheme = 0x7f0a0087;
         public static final int NoSystemUI = 0x7f0a00f0;
-        public static final int UiButton = 0x7f0a014d;
-        public static final int VrActivityTheme = 0x7f0a014e;
+        public static final int UiButton = 0x7f0a014f;
+        public static final int VrActivityTheme = 0x7f0a0150;
     }
 }

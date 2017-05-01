@@ -45,8 +45,8 @@ public class Splash extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.splash_layout, container, false);
         showProgressDialog(getContext(), "Cargando");
-        cargas.add(CARGAR_FIESTAS);
-        cargas.add(CARGAR_DIAFIESTA);
+        //cargas.add(CARGAR_FIESTAS);
+        //cargas.add(CARGAR_DIAFIESTA);
         cargas.add(CARGAR_USUARIO);
         cargas.add(CARGAR_USUARIOS);
         cargas.add(CARGAR_IMAGENES);
@@ -63,15 +63,15 @@ public class Splash extends Fragment {
         final HashSet<Imagen> terrats;
         final HashSet<Imagen> racons;
         final HashSet<Usuario> usuarios;
-        final HashSet<Fiestas> fiestasList;
-        final HashSet<DiaFiesta> diaFiestasList;
+        final HashSet<Fiestas> fiestasHash;
+        final HashSet<DiaFiesta> diaFiestasHash;
 
         imagenes = new HashSet<>();
         terrats = new HashSet<>();
         racons = new HashSet<>();
         usuarios = new HashSet<>();
-        fiestasList = new HashSet<>();
-        diaFiestasList = new HashSet<>();
+        fiestasHash = new HashSet<>();
+        diaFiestasHash = new HashSet<>();
         for (int carga : cargas) {
             switch (carga) {
                 case CARGAR_RACONS:
@@ -108,14 +108,14 @@ public class Splash extends Fragment {
                     });
                     break;
                 case CARGAR_FIESTAS:
-                    mDataBaseFiestasRef.addValueEventListener(new ValueEventListener() {
+                    mDataBaseFiestasRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             for (DataSnapshot fiestasFire : dataSnapshot.getChildren()) {
                                 Fiestas fiestas = fiestasFire.getValue(Fiestas.class);
-                                fiestasList.add(fiestas);
+                                fiestasHash.add(fiestas);
                             }
-                            baseDatos.put(Tablas.Fiestas.name(),fiestasList);
+                            baseDatos.put(Tablas.Fiestas.name(),fiestasHash);
                             goToHome();
                         }
 
@@ -125,14 +125,14 @@ public class Splash extends Fragment {
                     });
                     break;
                 case CARGAR_DIAFIESTA:
-                    mDataBaseDiasFiestaRef.addValueEventListener(new ValueEventListener() {
+                    mDataBaseDiasFiestaRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             for (DataSnapshot diaFiestaFire : dataSnapshot.getChildren()) {
                                 DiaFiesta diaFiesta = diaFiestaFire.getValue(DiaFiesta.class);
-                                diaFiestasList.add(diaFiesta);
+                                diaFiestasHash.add(diaFiesta);
                             }
-                            baseDatos.put(Tablas.DiasFiestas.name(),diaFiestasList);
+                            baseDatos.put(Tablas.DiasFiestas.name(),diaFiestasHash);
                             goToHome();
                         }
                         @Override

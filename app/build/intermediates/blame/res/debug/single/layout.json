@@ -96,6 +96,10 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\940ff9190c0941afd5e26efe64cd863ac8f90d90\\output\\res\\layout\\ui_view_embed.xml"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\permisos_layout2.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\permisos_layout2.xml"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fila_eventos_layout.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fila_eventos_layout.xml"
     },

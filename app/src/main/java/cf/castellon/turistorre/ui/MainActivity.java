@@ -31,7 +31,9 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -46,6 +48,7 @@ import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarBando;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarRaco;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarTerrat;
+import cf.castellon.turistorre.fragments.Click.Click.FiestasEventosGaleriaRecyclerView;
 import cf.castellon.turistorre.fragments.Principal.AcercaFragment;
 import cf.castellon.turistorre.fragments.Principal.AjustesFragment;
 import cf.castellon.turistorre.fragments.Principal.BandoRecyclerView;
@@ -62,7 +65,8 @@ import cf.castellon.turistorre.fragments.Principal.TerratsRecyclerView;
 
 public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener/*, SelectorFragment.OnListSeccionListener*/
         ,GenerarTerrat.OnPedirPermisosListener, GaleriaRecyclerView.OnPedirPermisosListener
-        , GenerarRaco.OnPedirPermisosListener, GenerarBando.OnPedirPermisosListener {
+        , GenerarRaco.OnPedirPermisosListener, GenerarBando.OnPedirPermisosListener
+        , FiestasEventosGaleriaRecyclerView.OnPedirPermisosListener{
     /**
      * Es todo el objeto de la navegacion, que incluye el cajon "mDrawerList" y el frame donde
      * se incluirán los fragmentos(tambien se pueden meter activitys, pero con fragments el cambio es mas "armónico".
@@ -108,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
      */
 
     private FragmentTransaction fragmentTransaction;
-    String tipoBean;
+    String tabla;
 	Uri fileUri;
     ImageView imageView;
     /**
@@ -203,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 final String grupoNuevo = bundle.getString("grupoNuevo");
                 final String grupoViejo = bundle.getString("grupoViejo");
                 final String avatar = bundle.getString("avatar");
-                final Usuario userCliente = new Usuario(nombre,avatar,uidUser,grupoNuevo);
+                final Usuario userCliente = new Usuario(nombre,avatar,nombre, uidUser,grupoNuevo);
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage("¿Conceder Permiso?")
                         .setCancelable(false)
@@ -265,12 +269,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     protected void onStart() {
         super.onStart();
-       /* if (racons.isEmpty())
-            crearRacons();
-        if (usuarios.isEmpty())
-            crearUsuarios();
-        if (imagenes.isEmpty())
-            crearImagenes();*/
     }
 
     private void prepareDrawer() {
@@ -447,20 +445,25 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         String path;
-        Map<String,Object> tipoBeanMap;
+        Map<String,Object> referenciaFire;
+        String tablaOk;
 
-        tipoBeanMap = referenciasFire.get(tipoBean);
+        referenciaFire = parsearParametrosRFire(tabla);
+        tablaOk = parsearTabla(tabla);
         switch (requestCode) {
             case CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE:
                 if (resultCode == Activity.RESULT_OK) {
-                    tipoBeanMap.put("fileUri", fileUri);
-                    referenciasFire.put(tipoBean,tipoBeanMap);
-                    switch (tipoBean){
+                    referenciaFire.put("fileUri", fileUri);
+                    referenciasFire.put(tablaOk,referenciaFire);
+                    switch (tablaOk){
                         case "Bandos":
                             imageView.setImageURI(fileUri);
                             break;
                         case "Imagenes":
-                            guardarFotoStorageFire(tipoBeanMap, this, getSupportFragmentManager(),null,null);
+                            guardarFotoStorageFire(referenciaFire, this, getSupportFragmentManager(),null,null);
+                            break;
+                        case "DiasFiestas":
+                            guardarFotoStorageFire(referenciaFire, this, getSupportFragmentManager(),null,null);
                             break;
                     }
                 }
@@ -469,18 +472,26 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 if (resultCode==Activity.RESULT_OK && data!=null){
                     path = obtenerPath(data.getData(),getBaseContext());
                     fileUri = Uri.parse(path);
-                    tipoBeanMap.put("fileUri",fileUri);
-                    referenciasFire.put(tipoBean,tipoBeanMap);
-                    switch (tipoBean){
+                    referenciaFire.put("fileUri",fileUri);
+                    referenciasFire.put(tablaOk,referenciaFire);
+                    switch (tablaOk){
                         case "Terrats":
+                            bitMapStatic = formatearBitmapfromPath(path);
+                            imageView.setImageBitmap(bitMapStatic);
                             break;
                         case "Bandos":
+                            bitMapStatic = formatearBitmapfromPath(path);
+                            imageView.setImageBitmap(bitMapStatic);
                             break;
                         case "Racons":
+                            bitMapStatic = formatearBitmapfromPath(path);
+                            imageView.setImageBitmap(bitMapStatic);
+                            break;
+                        case "DiasFiestas":
+                            guardarFotoStorageFire(referenciaFire, this, getSupportFragmentManager(),null,null);
+                            //guardarFotoStorageFire(referenciasFire.get(Tablas.Fiestas.name()),getBaseContext(),getSupportFragmentManager(),null,null);
                             break;
                     }
-                    bitMapStatic = formatearBitmapfromPath(path);
-                    imageView.setImageBitmap(bitMapStatic);
                 }
                 break;
             default: //Acceso Login
@@ -489,8 +500,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 break;
         }
     }
+
     @SuppressLint("NewAPi")
-    public void pedirPermiso(final String permiso, final int permisoRequest, View viewSnack) {
+    public void pedirPermiso(final String permiso, final int permisoRequest, View viewSnack, String tabla, ImageView imageView) {
+        this.tabla = tabla;
+        this.imageView = imageView;
         // Si no tenemos el permiso:(la primera vez no lo tendremos pq no hemos lanzado la pregunta)
         if (ContextCompat.checkSelfPermission(getBaseContext(), permiso) != PackageManager.PERMISSION_GRANTED)
             if (shouldShowRequestPermissionRationale(permiso)) {
@@ -507,7 +521,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 requestPermissions(new String[]{permiso}, permisoRequest);
             // Si tenemos el permiso concedido , no tendremos en de la cámara
         else if (numPermisos != 2) {
-            pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack);
+            pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack, tabla, imageView);
         }
     }
 
@@ -523,7 +537,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             case PERMISO_ESCRIBIR_SD :
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     ++numPermisos;
-                    pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, new View(getBaseContext()));
+                    pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, new View(getBaseContext()), tabla, imageView);
                 }
                 break;
         }
@@ -531,28 +545,28 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         editor.putInt("numPermisos", numPermisos);
         editor.apply();
         if (numPermisos==2)
-            goCamera(tipoBean,null);
+            goCamera(tabla,imageView);
     }
 
     @Override
-    public void goCamera(String tipoBean, ImageView imageView) {
-		Intent intent;
-		Uri fileUri;
-
+    public void goGaleria(String tabla, ImageView imageView) {
         this.imageView =  imageView;
-        this.tipoBean = tipoBean;
-        intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        fileUri = getOutputMediaFile(); // create a file to save the image
-		this.fileUri = fileUri;
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-    }
-
-    @Override
-    public void goGaleria(String tipoBean, ImageView imageView) {
-        this.imageView =  imageView;
-        this.tipoBean = tipoBean;
+        this.tabla = tabla;
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, CAPTURE_GALLERY_ACTIVITY_REQUEST_CODE);
+    }
+
+    @Override
+    public void goCamera(String tabla, ImageView imageView) {
+        Intent intent;
+        Uri fileUri;
+
+        this.imageView =  imageView;
+        this.tabla = tabla;
+        intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        fileUri = getOutputMediaFile(); // create a file to save the image
+        this.fileUri = fileUri;
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+        startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 }

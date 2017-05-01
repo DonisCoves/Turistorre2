@@ -1,4 +1,4 @@
-#Tue Apr 25 03:10:33 CEST 2017
+#Wed Apr 26 00:23:28 CEST 2017
 file.51=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_1d8f437927bad22f9c240f9dce901977353ad61e\\classes.dex
 file.50=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_2eeef30b09e643fd53eee629aafacee3c4fecd40\\classes.dex
 file.49=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\classes_235a26ecf52e4f24d1f54f87ad977482831cab6c\\classes.dex

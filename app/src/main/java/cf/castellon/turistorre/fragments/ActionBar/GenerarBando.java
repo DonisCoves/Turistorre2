@@ -28,7 +28,7 @@ public class GenerarBando extends Fragment {
     public AppCompatActivity mActivity;
     OnPedirPermisosListener mCallback;
     public interface OnPedirPermisosListener {
-        void pedirPermiso(String permiso, int permisoRequest, View viewSnack);
+        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView imageView);
         void goCamera(String tipoBean , ImageView bando);
         void goGaleria(String tipoBean, ImageView bando);
     }
@@ -71,13 +71,13 @@ public class GenerarBando extends Fragment {
                 if (numPermisos==2)
                     mCallback.goGaleria(Tablas.Bandos.name(),ivBando);
                 else
-                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo);
+                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo, Tablas.Bandos.name(),ivBando);
                 break;
             case (R.id.btnCamara):
                 if (numPermisos==2)
                     mCallback.goCamera(Tablas.Bandos.name(),ivBando);
                 else
-                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo);
+                    mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, etTitulo, Tablas.Bandos.name(), ivBando);
                 break;
         }
     }

@@ -94,7 +94,7 @@ public class FiestasRecylerView extends Fragment {
                     public void onClick(View v) {
                         DiaFiestaMeta diaFiestaMeta = adaptadorDiasFiestas.getItem(recView.getChildAdapterPosition(v));
                         bund = new Bundle();
-                        bund.putString("UID", diaFiestaMeta.getUidDiaFiesta());
+                        bund.putParcelable("diaFiestaMeta",diaFiestaMeta);
                         eventosFragment = new FiestasEventosRecylerView();
                         eventosFragment.setArguments(bund);
                         transaccion = getFragmentManager().beginTransaction();

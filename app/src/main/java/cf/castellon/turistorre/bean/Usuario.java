@@ -11,6 +11,7 @@ import java.util.Map;
 public class Usuario implements Parcelable{
     public String uidUser;
     public String nombre;
+    public String email;
     public String avatar;
     public String grupo;
     public static final Parcelable.Creator<Usuario> CREATOR = new Parcelable.Creator<Usuario>() {
@@ -34,6 +35,7 @@ public class Usuario implements Parcelable{
     private void readFromParcel(Parcel in) {
         uidUser = in.readString();
         nombre = in.readString();
+        email = in.readString();
         avatar = in.readString();
         grupo = in.readString();
     }
@@ -42,6 +44,7 @@ public class Usuario implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(uidUser);
         dest.writeString(nombre);
+        dest.writeString(email);
         dest.writeString(avatar);
         dest.writeString(grupo);
     }
@@ -51,9 +54,10 @@ public class Usuario implements Parcelable{
         return 0;
     }
 
-    public Usuario(String nombre, String avatar, String uidUser, String grupo) {
+    public Usuario(String nombre, String avatar, String email, String uidUser, String grupo) {
         this.nombre = nombre;
         this.avatar = avatar;
+        this.email = email;
         this.uidUser = uidUser;
         this.grupo = grupo;
     }
@@ -95,8 +99,17 @@ public class Usuario implements Parcelable{
         HashMap<String, Object> result = new HashMap<>();
         result.put("uidUser", uidUser);
         result.put("nombre", nombre);
+        result.put("nombre", email);
         result.put("avatar", avatar);
         result.put("grupo", grupo);
         return result;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

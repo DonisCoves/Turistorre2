@@ -62,6 +62,7 @@ public final class Constantes {
     public static final StorageReference mStorageBandoRef = mStorageRootRef.child("Bandos");
     public static final StorageReference mStorageTerratsRef = mStorageRootRef.child("Terrats");
     public static final StorageReference mStorageFiestasRef = mStorageRootRef.child("Fiestas");
+    public static final StorageReference mStorageDiasFiestasRef = mStorageRootRef.child("DiasFiestas");
     public static final StorageReference mStorageRaconsRef = mStorageRootRef.child("Racons");
 
     //Bases de datos en tiempo real
