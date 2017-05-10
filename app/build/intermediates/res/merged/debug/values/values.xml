@@ -664,6 +664,7 @@
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="auth_code_fmt">Cosigo de autenticacion: %s</string>
     <string name="avatar">avatar</string>
+    <string name="avatar_password"/>
     <string description=" Accessibility description for the back button displayed in the top corner of the VR application to go back to the previous screen. [CHAR LIMIT=50]" name="back_button_content_description">
     back
   </string>

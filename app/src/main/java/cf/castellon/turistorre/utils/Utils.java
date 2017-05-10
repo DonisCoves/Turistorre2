@@ -446,7 +446,6 @@ public final class Utils {
      * LOGINFRAGMENT
      */
     public static FirebaseUser mFirebaseUser;
-    public static int numProvs = 0;
     public static FirebaseAuth mAuth;/* Datos desde el usuario autenticado*/
 
     /**
@@ -478,7 +477,10 @@ public final class Utils {
         String url = "";
         for (UserInfo profile : mFirebaseUser.getProviderData())
             if (profile.getProviderId().equals(providerId))
-                url = profile.getPhotoUrl().toString();
+                if (!providerId.equals("password"))
+                    url = profile.getPhotoUrl().toString();
+                else
+                    url = usuario.getAvatar();
         return url;
     }
 
@@ -899,7 +901,7 @@ public final class Utils {
                        }
                         else{
                             imagenStatic = new Imagen();
-                            imagenStatic.setUidUser(mFirebaseUser.getUid());
+                            imagenStatic.setUidUser(usuario.getUidUser());
                             imagenStatic.setUriStrPre(taskSnapshot.getDownloadUrl().toString());
                             imagenStatic.setUidImg(uri.getLastPathSegment().substring(0,uri.getLastPathSegment().length()-4));
                             imagenStatic.setTitulo("");
@@ -933,7 +935,7 @@ public final class Utils {
                                 datosImagenOk = false;
                         } else {
                             imagenStatic = new Imagen();
-                            imagenStatic.setUidUser(mFirebaseUser.getUid());
+                            imagenStatic.setUidUser(usuario.getUidUser());
                             imagenStatic.setUidImg(uri.getLastPathSegment().substring(0,uri.getLastPathSegment().length()-4));
                             if (taskSnapshot.getDownloadUrl()==null)
                                 showError(context,getClass().getName(),"mStorageRef.onSuccess","taskSnapshot.getDownloadUrl()==null");
@@ -1210,6 +1212,12 @@ public final class Utils {
         usuarios.add(usuario);
     }
 
+    public static void anyadirUsuario(String uidUser){
+        HashSet<Usuario> usuarios;
+        usuarios = baseDatos.get(Tablas.Usuarios.name());
+        usuarios.add(usuario);
+    }
+
     public static Map<String,Object> parsearParametrosRFire(String tabla) {
         StorageReference storageReference;
         DatabaseReference databaseReference;
@@ -1269,6 +1277,24 @@ public final class Utils {
         userId = userId.replace("@","");
         userId = userId.replace(".","");
         return userId;
+    }
+
+    public static void loaders() {
+        final HashSet<Usuario> usuarios;
+        usuarios = new HashSet<>();
+        mDataBaseUsersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Usuario usuario = postSnapshot.getValue(Usuario.class);
+                    usuarios.add(usuario);
+                }
+                baseDatos.put(Tablas.Usuarios.name(),usuarios);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
     }
 
 

@@ -112,4 +112,15 @@ public class Usuario implements Parcelable{
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Usuario user = (Usuario)obj;
+        return uidUser.equals(user.getUidUser());
+    }
 }

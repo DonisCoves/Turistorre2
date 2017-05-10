@@ -76,7 +76,7 @@ public final class Constantes {
     public static final DatabaseReference mDataBaseDiasFiestaRef = mDataBaseRootRef.child(Tablas.DiasFiestas.name());
     public static final DatabaseReference mDataBaseGruposRef = mDataBaseRootRef.child("Grupos");
     public static final DatabaseReference mDataBaseKeysRef = mDataBaseRootRef.child("keys");
-
+    public static final String URL_AVATAR = "https://firebasestorage.googleapis.com/v0/b/project-1031372115432573568.appspot.com/o/user.png?alt=media&token=4b2581dc-889f-41b9-8704-c138bf6dcab6";
 
     public static final String TAG = "TurisTorre";
     public static final int REQUEST_CODE_FACEBOOK = 666;
@@ -115,6 +115,7 @@ public final class Constantes {
         DESCONECTAR_FACEBOOK,
         DESCONECTAR_GOOGLE,
         CONECTAR_GOOGLE,
+        CONECTAR_FACEBOOK
     };
 
     public enum Tablas{

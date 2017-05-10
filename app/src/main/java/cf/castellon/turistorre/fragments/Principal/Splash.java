@@ -45,8 +45,8 @@ public class Splash extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.splash_layout, container, false);
         showProgressDialog(getContext(), "Cargando");
-        //cargas.add(CARGAR_FIESTAS);
-        //cargas.add(CARGAR_DIAFIESTA);
+        cargas.add(CARGAR_FIESTAS);
+        cargas.add(CARGAR_DIAFIESTA);
         cargas.add(CARGAR_USUARIO);
         cargas.add(CARGAR_USUARIOS);
         cargas.add(CARGAR_IMAGENES);

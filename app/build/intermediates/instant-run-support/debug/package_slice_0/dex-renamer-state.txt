@@ -1,4 +1,4 @@
-#Mon May 01 20:47:55 CEST 2017
+#Wed May 10 09:55:11 CEST 2017
 base.0=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_0
 renamed.0=classes.dex
 file.0=C\:\\workspace\\Turistorre\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_0\\classes.dex

@@ -48,6 +48,8 @@
     <!--<string name="server_web_id_str">225604340393-c2a46kvmppc2hami62rlurk0mqqqvq8e.apps.googleusercontent.com</string>-->
     <string name="server_web_id_str">351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.googleusercontent.com</string>
     <!-- Login-->
+
+    <string name="avatar_password"></string>
     <string name="login_titulo">Logueate y diviértete</string>
     <string name="login_ventajas">Sube imágenes \nParticipa en eventos\nTu imagen en portada</string>
     <string name="escudo">escudo</string>

@@ -16,7 +16,7 @@ import java.lang.Override;
 public class Permisos_ViewBinding implements Unbinder {
   private Permisos target;
 
-  private View view2131689731;
+  private View view2131689734;
 
   @UiThread
   public Permisos_ViewBinding(final Permisos target, View source) {
@@ -28,7 +28,7 @@ public class Permisos_ViewBinding implements Unbinder {
     target.tvNoPoder = Utils.findRequiredViewAsType(source, R.id.tvNoPoder, "field 'tvNoPoder'", TextView.class);
     target.spiner = Utils.findRequiredViewAsType(source, R.id.spPermisos, "field 'spiner'", Spinner.class);
     view = Utils.findRequiredView(source, R.id.btEnvPermiso, "method 'onClick'");
-    view2131689731 = view;
+    view2131689734 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class Permisos_ViewBinding implements Unbinder {
     target.tvNoPoder = null;
     target.spiner = null;
 
-    view2131689731.setOnClickListener(null);
-    view2131689731 = null;
+    view2131689734.setOnClickListener(null);
+    view2131689734 = null;
   }
 }

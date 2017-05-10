@@ -1,8 +1,7 @@
 
 package cf.castellon.turistorre.fragments.Principal;
 import android.app.Activity;
-import android.content.SharedPreferences;
-import android.net.Uri;
+import android.content.SharedPreferences.Editor;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.app.ProgressDialog;
@@ -22,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
@@ -38,7 +38,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -52,6 +51,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,12 +69,15 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
 
     private ProgressDialog mAuthProgressDialog;
     @BindView(R.id.ivAvatar) ImageView ivAvatar;
-    SharedPreferences.Editor editor;
+    Editor editor;
     @BindView(R.id.etEmail) EditText email;
     @BindView(R.id.etPassword) EditText password;
     @BindView(R.id.btDesconectar) Button btnNativoDesc;
     @BindView(R.id.ll_login_nativo) LinearLayout layoutLoginNativo;
     @BindView(R.id.ll_registro_nativo) LinearLayout layoutRegistroNativo;
+    @BindView(R.id.rlGoogle) RelativeLayout layoutGoogle;
+    @BindView(R.id.rlFacebook) RelativeLayout layoutFacebook;
+    @BindView(R.id.rlNativo) RelativeLayout layoutNativo;
     String emailStr, passwordStr;
     private FirebaseAuth.AuthStateListener mAuthListener;
     @BindView(R.id.sign_conectar_f) LoginButton btnFacebook;
@@ -117,21 +121,31 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                String email,rand;
+                Editor et;
+                Random random;
+
                 mAuthProgressDialog.hide();
                 mFirebaseUser = firebaseAuth.getCurrentUser();
-                if (mFirebaseUser != null && numProvs != mFirebaseUser.getProviderData().size()) {
-                    numProvs = mFirebaseUser.getProviderData().size();
-                    if (numProvs == 2) {//La primera vez lo guardamos en la bbdd de firebase
-                        //Si es mediante email y password:
-                        if (mFirebaseUser.getPhotoUrl()!=null)
-                            if (mFirebaseUser.getProviderData().get(0).getProviderId().equalsIgnoreCase("password") ||
-                                    mFirebaseUser.getProviderData().get(1).getProviderId().equalsIgnoreCase("password"))
-                                crearUsuarioBBDDFire(mFirebaseUser.getEmail(), mFirebaseUser.getEmail(),mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
-                            else
-                                crearUsuarioBBDDFire(mFirebaseUser.getEmail(), mFirebaseUser.getDisplayName(),mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
-                        else
-                            showError(getActivity(),getClass().getName(),"mFirebaseUser.getPhotoUrl().toString()","El metodo es nulo");
-                    }
+                if (mFirebaseUser != null){
+                    for (UserInfo profile : mFirebaseUser.getProviderData())
+                        if (profile.getProviderId().equals("password") )
+                            crearUsuarioBBDDFire(mFirebaseUser.getEmail(), mFirebaseUser.getEmail(),mFirebaseUser.getEmail(), URL_AVATAR, "multimedia");
+                        else if (profile.getProviderId().equals("facebook.com") || profile.getProviderId().equals("google.com")) {
+                            email = profile.getEmail();
+                            if (email==null){
+                                email = prefs.getString("emailNulo","");
+                                if (email.isEmpty()){
+                                    random = new Random();
+                                    rand = Integer.toString(random.nextInt());
+                                    email = "mail"+rand;
+                                    et = prefs.edit();
+                                    et.putString("emailNulo",email);
+                                    et.apply();
+                                }
+                            }
+                            crearUsuarioBBDDFire(email, mFirebaseUser.getDisplayName(),mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+                        }
                     setAuthenticatedUser(mFirebaseUser);
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + mFirebaseUser.getUid());
                 } else {
@@ -180,7 +194,22 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         mAuthProgressDialog.show();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        if (mFirebaseUser == null) {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
+                        if (!task.isSuccessful())
+                            showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
+                        mAuthProgressDialog.hide();
+                    }
+                });
+    }
+
+    private void onFacebookAccessTokenChange(AccessToken token) {
+        if (token != null) {  //Cuando valimos en Facebook, hacemos el registro en Firebase, cuando este en Fire saltamos a AuthResultHandler.onAuthenticated*//*
+            AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+            mAuthProgressDialog.show();
             mAuth.signInWithCredential(credential)
                     .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -191,84 +220,18 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                             mAuthProgressDialog.hide();
                         }
                     });
-        } else {
-            mAuth.getCurrentUser().linkWithCredential(credential)
-                    .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d(TAG, "linkWithCredential:onComplete:" + task.isSuccessful());
-                            if (!task.isSuccessful()) {
-                                showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
-                            }
-                            mAuthProgressDialog.hide();
-
-                        }
-                    });
-        }
-    }
-
-
-/* ************************************
-     *             FACEBOOK               *
-     **************************************
-     */
-
-    private void onFacebookAccessTokenChange(AccessToken token) {
-        if (token != null) {  //Cuando valimos en Facebook, hacemos el registro en Firebase, cuando este en Fire saltamos a AuthResultHandler.onAuthenticated*//*
-
-            AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
-            mAuthProgressDialog.show();
-            if (mFirebaseUser == null) {
-                mAuth.signInWithCredential(credential)
-                        .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
-                                if (!task.isSuccessful())
-                                    showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
-                                mAuthProgressDialog.hide();
-                            }
-                        });
-            } else {
-                mAuth.getCurrentUser().linkWithCredential(credential)
-                        .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "linkWithCredential:onComplete:" + task.isSuccessful());
-                                if (!task.isSuccessful()) {
-                                    showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
-                                    LoginManager.getInstance().logOut();
-                                }
-                                mAuthProgressDialog.hide();
-                            }
-                        });
-            }
         } else
             logout("facebook.com");
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
-            savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
         setHasOptionsMenu(true);
         view = inflater.inflate(R.layout.login_layout, container, false);
         ButterKnife.bind(this, view);
-        // [3.-FACEBOOK LoginButton Permisos]
         btnFacebook.setReadPermissions("email");
-        // [END 3.-FACEBOOK LoginButton Permisos]
-        // [4.-FACEBOOK LoginButton If using in a fragment]
-        //btnFacebook.setFragment(this);
-        // [END4.-FACEBOOK LoginButton If using in a fragment]
-
-/* *************************************
-         *               GOOGLE                *
-         ***************************************//*
-
-
-/* Load the Google login button */
-
         mGoogleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -298,11 +261,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                     updateUI(Tipo_Proveedor.NATIVO_DESCONECTAR);
             }
     }
-
-
-/**
-     * Mostramos los errores
-     */
 
     private void showErrorDialog(String message) {
         new AlertDialog.Builder(mActivity)
@@ -341,11 +299,14 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
     }
 
     private void logout(final String proveedor) {
-        eliminarProveedor(proveedor);
+        mDataBaseGruposRef.child("Multimedia").child(mFirebaseUser.getUid()).setValue(null);
+        mFirebaseUser.delete();
+        FirebaseAuth.getInstance().signOut();
+        usuario=null;
         switch (proveedor) {
             case "facebook.com":
                 LoginManager.getInstance().logOut();
-                updateAvatar();
+                updateUI(Tipo_Proveedor.CONECTAR_FACEBOOK);
                 break;
             case "google.com":
                 updateUI(Tipo_Proveedor.CONECTAR_GOOGLE);
@@ -357,102 +318,48 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         }
     }
 
-
-/***
-     * Eliminamos proveedor o desconectamos el usuario si ya no tiene mas proveedores
-     * @param proveedor el proveedor
-     */
-
-    private void eliminarProveedor(final String proveedor) {
-        if (mAuth.getCurrentUser().getProviderData().size() < 3) {  // Si solo hay 2 (Firebase y otro) no hemos hecho link
-            //mDataBaseUsersRef.child(mFirebaseUser.getUid()).setValue(null);
-            mDataBaseGruposRef.child("Multimedia").child(mFirebaseUser.getUid()).setValue(null);
-            mFirebaseUser.delete();
-            FirebaseAuth.getInstance().signOut();
-            usuario=null;
-            numProvs = 0;
-        } else {
-            numProvs--;
-            mAuth.getCurrentUser().unlink(proveedor).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    Log.d(TAG, "unlink: " + proveedor);
-                    if (!task.isSuccessful())
-                        showErrorDialog(task.getException().getMessage());
-                    mAuthProgressDialog.hide();
-                }
-            });
-        }
-    }
-
     private void signInRegistrar() {
         mAuthProgressDialog.show();
         editor = prefs.edit();
         editor.putString("email", email.getText().toString());
         editor.putString("password", password.getText().toString());
         editor.apply();
-        if (mFirebaseUser == null) {
-            mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
-                    .addOnSuccessListener(mActivity, new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(AuthResult authResult) {
-                            mAuthProgressDialog.hide();
-                            Log.d(TAG, "createUserWithEmailAndPassword.onComplete");
-                        }
-                    })
-                    .addOnFailureListener(mActivity, new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            mAuthProgressDialog.hide();
-                            showErrorDialog(e.getMessage());
-                        }
-                    });
-        } else {
-            AuthCredential credential = EmailAuthProvider.getCredential(email.getText().toString(), password.getText().toString());
-            mAuth.getCurrentUser().linkWithCredential(credential)
-                    .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d(TAG, "linkWithCredential:onComplete:" + task.isSuccessful());
-                            if (!task.isSuccessful())
-                                showErrorDialog(task.getException().getMessage());
-                            mAuthProgressDialog.hide();
-                        }
-                    });
-        }
+        mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                .addOnSuccessListener(mActivity, new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        mAuthProgressDialog.hide();
+                        Log.d(TAG, "createUserWithEmailAndPassword.onComplete");
+                    }
+                })
+                .addOnFailureListener(mActivity, new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        mAuthProgressDialog.hide();
+                        showErrorDialog(e.getMessage());
+                    }
+                });
     }
 
     private void signInNativo() {
         mAuthProgressDialog.show();
-        if (mFirebaseUser == null) {
-            mAuth.createUserWithEmailAndPassword(emailStr, passwordStr)
-                    .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d(TAG, "createUserWithEmailAndPassword.onComplete");
-                            if (!task.isSuccessful())
-                                showErrorDialog(task.getException().getMessage());
-                            mAuthProgressDialog.hide();
-                        }
-                    });
-        } else {
-            AuthCredential credential = EmailAuthProvider.getCredential(email.getText().toString(), password.getText().toString());
-            mAuth.getCurrentUser().linkWithCredential(credential)
-                    .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d(TAG, "linkWithCredential:onComplete:" + task.isSuccessful());
-                            if (!task.isSuccessful())
-                                showErrorDialog(task.getException().getMessage());
-                            mAuthProgressDialog.hide();
-                        }
-                    });
-        }
+        mAuth.createUserWithEmailAndPassword(emailStr, passwordStr)
+                .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "createUserWithEmailAndPassword.onComplete");
+                        if (!task.isSuccessful())
+                            showErrorDialog(task.getException().getMessage());
+                        mAuthProgressDialog.hide();
+                    }
+                });
     }
 
     private void updateUI(Tipo_Proveedor proveedor) {
         switch (proveedor) {
             case NATIVO_INICIAL:
+                layoutGoogle.setVisibility(View.VISIBLE);
+                layoutFacebook.setVisibility(View.VISIBLE);
                 layoutLoginNativo.setVisibility(View.VISIBLE);
                 layoutRegistroNativo.setVisibility(View.GONE);
                 btnNativoDesc.setVisibility(View.GONE);
@@ -461,21 +368,35 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                 layoutLoginNativo.setVisibility(View.GONE);
                 layoutRegistroNativo.setVisibility(View.VISIBLE);
                 btnNativoDesc.setVisibility(View.GONE);
+                layoutGoogle.setVisibility(View.GONE);
+                layoutFacebook.setVisibility(View.GONE);
                 break;
             case NATIVO_DESCONECTAR:
                 layoutLoginNativo.setVisibility(View.GONE);
                 layoutRegistroNativo.setVisibility(View.GONE);
                 btnNativoDesc.setVisibility(View.VISIBLE);
+                layoutGoogle.setVisibility(View.GONE);
+                layoutFacebook.setVisibility(View.GONE);
                 break;
             case DESCONECTAR_FACEBOOK:  //Ya estamos conectados
+                layoutGoogle.setVisibility(View.GONE);
+                layoutNativo.setVisibility(View.GONE);
                 break;
             case DESCONECTAR_GOOGLE:
                 mGoogleLoginButton.setVisibility(View.GONE);
                 signoutG.setVisibility(View.VISIBLE);
+                layoutFacebook.setVisibility(View.GONE);
+                layoutNativo.setVisibility(View.GONE);
                 break;
             case CONECTAR_GOOGLE:
+                layoutFacebook.setVisibility(View.VISIBLE);
+                layoutNativo.setVisibility(View.VISIBLE);
                 mGoogleLoginButton.setVisibility(View.VISIBLE);
                 signoutG.setVisibility(View.GONE);
+                break;
+            case CONECTAR_FACEBOOK:
+                layoutNativo.setVisibility(View.VISIBLE);
+                layoutGoogle.setVisibility(View.VISIBLE);
                 break;
         }
         updateAvatar();
@@ -483,17 +404,15 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
 
     private void updateAvatar() {
         String url = "";
-        if (mFirebaseUser != null) {
-            if (isProvider("facebook.com"))
-                url = getUrl("facebook.com");
-            else if (isProvider("google.com"))
-                url = getUrl("google.com");
-            else //Nativo
-                Glide.with(mActivity).load(R.drawable.escudo).into(ivAvatar);
+        if (mFirebaseUser != null){
+            for (UserInfo profile : mFirebaseUser.getProviderData())
+                if (profile.getProviderId().equals("password") )
+                    url = usuario.getAvatar();
+                else if (profile.getProviderId().equals("facebook.com") || profile.getProviderId().equals("google.com"))
+                    url = profile.getPhotoUrl().toString();
             Glide.with(mActivity).load(url).into(ivAvatar);
-        } else {
+        } else
             Glide.with(mActivity).load(R.drawable.escudo).into(ivAvatar);
-        }
     }
 
     @Override
@@ -529,8 +448,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
             }
         });
     }
-
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

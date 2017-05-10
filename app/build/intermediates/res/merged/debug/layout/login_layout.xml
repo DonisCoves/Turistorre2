@@ -44,6 +44,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rlNativo"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
@@ -53,10 +54,10 @@
         <LinearLayout
             android:id="@+id/ll_login_nativo"
             android:layout_width="fill_parent"
-            android:visibility="visible"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <Button
                 android:id="@+id/btnCrearCuenta"
@@ -65,80 +66,84 @@
                 android:text="@string/crear"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
 
-          </LinearLayout>
+        </LinearLayout>
 
-        <LinearLayout
+         <LinearLayout
             android:id="@+id/ll_registro_nativo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="email"
-                android:theme="@style/ThemeOverlay.MyDarkButton" />
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="password"
-                android:inputType="textPassword"
-                android:theme="@style/ThemeOverlay.MyDarkButton" />
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="email"
+                    android:theme="@style/ThemeOverlay.MyDarkButton" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="password"
+                    android:inputType="textPassword"
+                    android:theme="@style/ThemeOverlay.MyDarkButton" />
             </LinearLayout>
+
             <Button
                 android:id="@+id/btRegistrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="@string/acceder"
-                android:theme="@style/ThemeOverlay.MyDarkButton"
-                android:layout_gravity="center" />
+                android:theme="@style/ThemeOverlay.MyDarkButton" />
         </LinearLayout>
 
-            <Button
-                android:id="@+id/btDesconectar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Desconectar"
-                android:theme="@style/ThemeOverlay.MyDarkButton"
-                android:visibility="gone" />
+        <Button
+            android:id="@+id/btDesconectar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desconectar"
+            android:theme="@style/ThemeOverlay.MyDarkButton"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rlGoogle"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/blue_grey_900">
+
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_conectar_g"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true" />
 
         <Button
             android:id="@+id/btn_desconectar_g"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:background="@drawable/gplus_salir_original"
             android:text="@string/sign_out"
-            android:theme="@style/ThemeOverlay.MyDarkButton" />
+            android:theme="@style/ThemeOverlay.MyDarkButton"
+            android:visibility="gone" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rlFacebook"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -150,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginBottom="30dp"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="30dp" />
     </RelativeLayout>
 
 
