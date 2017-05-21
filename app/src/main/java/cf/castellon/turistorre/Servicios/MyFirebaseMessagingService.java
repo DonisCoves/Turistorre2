@@ -3,15 +3,12 @@ package cf.castellon.turistorre.Servicios;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import static cf.castellon.turistorre.utils.Constantes.*;
-import static cf.castellon.turistorre.utils.Utils.buscarUsuario;
-import static cf.castellon.turistorre.utils.Utils.usuario;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,113 +16,114 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
-import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.ui.MainActivity;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-
     private static final String TAG = "FCMMessagingService";
     private String action;
-    private String uidUser,grupo;
     private DatabaseReference ref;
+    Map<String,String> datos;
 
     @Override
     public void onMessageReceived(final RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
+        datos=new HashMap<>();
+        datos = remoteMessage.getData();
         // Check if message contains a data payload.
-        if (remoteMessage.getData().size() > 0) {
+        if (!datos.isEmpty()) {
             action = remoteMessage.getNotification().getClickAction();
             switch (action) {
                 case ACTION_GPO_BANDO:
-                    ref = mDataBaseBandoRef.child(remoteMessage.getData().get("uidBando"));
-                    ref.addListenerForSingleValueEvent(
-                            new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Imagen bando = dataSnapshot.getValue(Imagen.class);
-                                    showBandoNotification(bando, remoteMessage);
-                                }
-
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-                                    Log.w(TAG, "Bando:onCancelled", databaseError.toException());
-                                }
-                            });
+                    showBandoNotification(remoteMessage);
                     break;
                 case ACTION_CAMBIO_GRUPO:
-                    uidUser = remoteMessage.getData().get("uidUser");
-                    grupo = remoteMessage.getData().get("grupo");
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage("¿Conceder Permiso?")
-                            .setCancelable(false)
-                            .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    Usuario user = buscarUsuario(uidUser);
-                                    mDataBaseGruposRef.child(grupo).child(usuario.getUidUser()).setValue(usuario);
-                                    dialog.cancel();
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
+                    showCambioGrupoNotification(remoteMessage);
                     break;
                 case ACTION_GPO_TERRAT:
-                    ref = mDataBaseTerratRef.child(remoteMessage.getData().get("uidTerrat"));
-                    ref.addListenerForSingleValueEvent(
+                    ref = mDataBaseImgRef.child(remoteMessage.getData().get("uidTerrat"));
+                    /*ref.addValueEventListener(
                             new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     Imagen pano = dataSnapshot.getValue(Imagen.class);
                                     showTerratNotification(pano, remoteMessage);
                                 }
-
                                 @Override
                                 public void onCancelled(DatabaseError databaseError) {
                                     Log.w(TAG, "Bando:onCancelled", databaseError.toException());
                                 }
-                            });
+                            });*/
                     break;
             }
         }
-//        showBasicNotification(titulo);
-
-        //showInboxStyleNotification(message);
-
-
-        // Check if message contains a notification payload.
-        /*if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
-        }*/
-
     }
 
-    private void showBandoNotification(Imagen bando, RemoteMessage remoteMessage) {
-        Intent i = new Intent(this, MainActivity.class);
-        i.setAction(ACTION_GPO_BANDO);
-        i.putExtra("uidBando", remoteMessage.getData().get("uidBando"));
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        int idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(), "raw", getPackageName());
-        Uri sonido = Uri.parse("android.resource://" + getBaseContext().getPackageName() + "/" + idSound);
+    private void showBandoNotification(RemoteMessage remoteMessage) {
+        Map<String, String> datos;
+        Intent i;
+        PendingIntent pendingIntent;
+        int idSound;
+        Uri sonido;
+        NotificationCompat.Builder builder;
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+        datos = remoteMessage.getData();
+        i = new Intent(this, MainActivity.class);
+        i.setAction(ACTION_GPO_BANDO);
+        i.putExtra("uidBando", datos.get("uidBando"));
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(), "raw", getPackageName());
+        sonido = Uri.parse("android.resource://" + getBaseContext().getPackageName() + "/" + idSound);
+
+        builder = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
-                .setContentTitle(bando.getTitulo())
+                .setContentTitle(getString(R.string.bando))
                 .setColor(16728193)
-                .setContentText(bando.getDescripcion())
+                .setContentText(datos.get("titulo") + " " + datos.get("fecha"))
                 .setSound(sonido)
                 .setSmallIcon(R.drawable.ic_stat_touch_app)
                 .setContentIntent(pendingIntent);
 
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager.notify(0, builder.build());
+    }
+
+    private void showCambioGrupoNotification(RemoteMessage remoteMessage) {
+        Map<String, String> datos ;
+        Intent i;
+        int idSound;
+        PendingIntent pendingIntent;
+        Uri sonido;
+        NotificationCompat.Builder builder;
+        NotificationManager manager;
+
+        datos = remoteMessage.getData();
+        i = new Intent(this, MainActivity.class);
+        i.setAction(ACTION_CAMBIO_GRUPO);
+        i.putExtra("uidUser", datos.get("uidUser"));
+        i.putExtra("nombre", datos.get("nombre"));
+        i.putExtra("grupoNuevo", datos.get("grupoNuevo"));
+        i.putExtra("grupoViejo", datos.get("grupoViejo"));
+        i.putExtra("avatar", datos.get("avatar"));
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(), "raw", getPackageName());
+        sonido = Uri.parse("android.resource://" + getBaseContext().getPackageName() + "/" + idSound);
+        builder = new NotificationCompat.Builder(this)
+                .setAutoCancel(true)
+                .setContentTitle("Solicitud de permisos para: ")
+                .setColor(16728193)
+                .setContentText(datos.get("nombre"))
+                .setSound(sonido)
+                .setSmallIcon(R.drawable.ic_stat_touch_app)
+                .setContentIntent(pendingIntent);
+        manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
     }
 

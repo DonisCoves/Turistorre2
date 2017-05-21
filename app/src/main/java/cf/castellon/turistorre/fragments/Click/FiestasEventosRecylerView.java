@@ -43,7 +43,6 @@ public class FiestasEventosRecylerView extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         diaFiestaMeta = getArguments().getParcelable("diaFiestaMeta");
@@ -102,7 +101,6 @@ public class FiestasEventosRecylerView extends Fragment {
                     ref.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-
                             for (DataSnapshot eventoDS: dataSnapshot.getChildren()) {
                                 for(DataSnapshot imagenDS: eventoDS.child("imagenes").getChildren()){
                                     Imagen imagen = imagenDS.getValue(Imagen.class);
@@ -118,15 +116,11 @@ public class FiestasEventosRecylerView extends Fragment {
                             galeriaDiaFragment.setArguments(bund);
                             fragmentTransaction.replace(R.id.content_frame, galeriaDiaFragment).commit();
                         }
-
                         @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
+                        public void onCancelled(DatabaseError databaseError) {}
                     });
                     break;
             }
         return super.onOptionsItemSelected(item);
     }
-
 }

@@ -35,11 +35,9 @@ public class BandoSeleccionado extends Fragment {
 
         view = inflater.inflate(R.layout.bando_seleccionado_layout,container,false);
         ButterKnife.bind(this, view);
-
         tvTitulo.setText(bando.getTitulo());
         tvDescripcion.setText(bando.getDescripcion());
         urlImg = Uri.parse(bando.getUriStr());
-
         Glide
                 .with(getContext())
                 .load(urlImg)

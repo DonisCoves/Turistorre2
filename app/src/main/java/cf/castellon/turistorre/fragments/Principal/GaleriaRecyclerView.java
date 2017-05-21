@@ -99,16 +99,16 @@ public class GaleriaRecyclerView extends Fragment{
 
                 if (usuario!=null && (imagen.getUidUser().equals(usuario.getUidUser()) || usuario.getGrupo().equalsIgnoreCase("administrador"))) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("¿Estas seguro de eliminar la imagen?")
+                    builder.setMessage(R.string.deleteImg)
                             .setCancelable(false)
-                            .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     DatabaseReference refEliminar = adaptador.getRef(recView.getChildAdapterPosition(v));
                                     refEliminar.removeValue();
                                     dialog.cancel();
                                 }
                             })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
                                 }
@@ -117,7 +117,7 @@ public class GaleriaRecyclerView extends Fragment{
                     alert.show();
                }
                 else
-                    showWarning(getActivity(),"No puedes eliminar una imagen que no es tuya");
+                    showWarning(getActivity(),R.string.deleteImgErr);
                 return true;
             }
         });
@@ -153,7 +153,7 @@ public class GaleriaRecyclerView extends Fragment{
                     break;
             }
         else
-            showWarning(getActivity(),"Registrate para subir fotos");
+            showWarning(getActivity(),R.string.registrate);
         return super.onOptionsItemSelected(item);
     }
 

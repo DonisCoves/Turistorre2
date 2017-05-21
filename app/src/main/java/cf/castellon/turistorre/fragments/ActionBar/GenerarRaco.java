@@ -88,7 +88,6 @@ public class GenerarRaco extends Fragment {
         if (!etTitulo.getText().toString().isEmpty() && !etDescripcion.getText().toString().isEmpty() && fileUri!=null)
             guardarFotoStorageFire(tipoRaco,getContext(),getFragmentManager(),etTitulo.getText().toString(),etDescripcion.getText().toString());
          else
-            showWarning(getContext(),"Rellena el título y la descripcion y pon una imagen");
+            showWarning(getContext(),R.string.rellena);
         }
-
 }

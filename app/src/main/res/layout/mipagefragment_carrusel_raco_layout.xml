@@ -7,19 +7,19 @@
 
     <TextView
         android:id="@+id/tvTituloRacons"
+        style="@style/Titulo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1"
-        style="@style/Titulo"
-        android:text="La font de la vila"/>
-    <com.google.vr.sdk.widgets.pano.VrPanoramaView
-        android:id="@+id/vrRaco"
+        android:text="La font de la vila" />
+
+    <ImageView
+        android:id="@+id/ivRaco"
+        style="@style/Imagen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
-        style="@style/Imagen"
-        />
+        android:layout_weight="5" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,9 +28,9 @@
 
         <TextView
             android:id="@+id/tvDescripcionRacons"
+            style="@style/Texto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Texto"
             android:text="@string/anonimo" />
     </ScrollView>
 </LinearLayout>

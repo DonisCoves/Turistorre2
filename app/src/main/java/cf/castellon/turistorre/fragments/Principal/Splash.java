@@ -44,14 +44,14 @@ public class Splash extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.splash_layout, container, false);
-        showProgressDialog(getContext(), "Cargando");
+        showProgressDialog(getContext(), getString(R.string.cargando));
+        cargas.add(CARGAR_RACONS);
+        cargas.add(CARGAR_IMAGENES);
         cargas.add(CARGAR_FIESTAS);
         cargas.add(CARGAR_DIAFIESTA);
-        cargas.add(CARGAR_USUARIO);
+        //cargas.add(CARGAR_USUARIO);
         cargas.add(CARGAR_USUARIOS);
-        cargas.add(CARGAR_IMAGENES);
         cargas.add(CARGAR_TERRATS);
-        cargas.add(CARGAR_RACONS);
         cargas.add(CARGAR_HOME);
         cargarDatos(cargas);
         return view;

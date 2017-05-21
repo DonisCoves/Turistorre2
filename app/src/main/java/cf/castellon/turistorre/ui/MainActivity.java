@@ -5,7 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,11 +31,8 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
 
-import java.util.HashSet;
 import java.util.Map;
 
 import static cf.castellon.turistorre.utils.Utils.*;
@@ -49,8 +46,8 @@ import cf.castellon.turistorre.fragments.ActionBar.GenerarBando;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarRaco;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarTerrat;
 import cf.castellon.turistorre.fragments.Click.Click.FiestasEventosGaleriaRecyclerView;
-import cf.castellon.turistorre.fragments.Principal.AcercaFragment;
-import cf.castellon.turistorre.fragments.Principal.AjustesFragment;
+import cf.castellon.turistorre.fragments.Principal.Acerca;
+import cf.castellon.turistorre.fragments.Principal.Ajustes;
 import cf.castellon.turistorre.fragments.Principal.BandoRecyclerView;
 import cf.castellon.turistorre.fragments.Click.BandoSeleccionado;
 import cf.castellon.turistorre.fragments.Principal.FiestasRecylerView;
@@ -180,11 +177,13 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                         new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
-                                Imagen bando = dataSnapshot.getValue(Imagen.class);
-                                Bundle bund = new Bundle();
-                                bund.putParcelable("bando", bando);
-                                frSeccion.setArguments(bund);
-                                fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
+                                if (dataSnapshot.getValue()!=null) {
+                                    Imagen bando = dataSnapshot.getValue(Imagen.class);
+                                    Bundle bund = new Bundle();
+                                    bund.putParcelable("bando", bando);
+                                    frSeccion.setArguments(bund);
+                                    fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
+                                }
                             }
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
@@ -209,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 final String avatar = bundle.getString("avatar");
                 final Usuario userCliente = new Usuario(nombre,avatar,nombre, uidUser,grupoNuevo);
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("¿Conceder Permiso?")
+                builder.setMessage("¿Conceder Permiso "+grupoNuevo+" ?")
                         .setCancelable(false)
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -250,9 +249,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                                 Imagen pano  = dataSnapshot.getValue(Imagen.class);
                                 Usuario usuario = buscarUsuario(pano.getUidUser());
                                 Bundle bund = new Bundle();
-                                bund.putString("DIRECCION",pano.getTitulo());
-                                bund.putString("AVATAR",usuario.getAvatar());
-                                bund.putString("PANO_URL_STR",pano.getUriStr());
+                                bund.putParcelable("imagen",pano);
+                                bund.putParcelable("usuario",usuario);
                                 frSeccion.setArguments(bund);
                                 fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
                             }
@@ -397,10 +395,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 frSeccion = new FiestasRecylerView();
                 break;
             case "Ajustes":
-                frSeccion = new AjustesFragment();
+                frSeccion = new Ajustes();
                 break;
             case "Acerca_de":
-                frSeccion = new AcercaFragment();
+                frSeccion = new Acerca();
                 break;
         }
         mDrawerList.setItemChecked(position, true);
@@ -413,7 +411,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         return true;
     }
 
@@ -508,9 +505,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         // Si no tenemos el permiso:(la primera vez no lo tendremos pq no hemos lanzado la pregunta)
         if (ContextCompat.checkSelfPermission(getBaseContext(), permiso) != PackageManager.PERMISSION_GRANTED)
             if (shouldShowRequestPermissionRationale(permiso)) {
-                Log.i("permisos", "El usuario ya denegó el permiso anteriormente");
-                Snackbar.make(viewSnack, "Para registrate necesito la cámara", Snackbar.LENGTH_INDEFINITE)
-                        .setAction("OK", new View.OnClickListener() {
+                Snackbar.make(viewSnack, R.string.camaraReg, Snackbar.LENGTH_INDEFINITE)
+                        .setAction(android.R.string.ok, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 requestPermissions(new String[]{permiso}, permisoRequest);
@@ -520,14 +516,17 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             } else
                 requestPermissions(new String[]{permiso}, permisoRequest);
             // Si tenemos el permiso concedido , no tendremos en de la cámara
-        else if (numPermisos != 2) {
-            pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack, tabla, imageView);
-        }
+        else if (numPermisos != 2)
+            if (imageView!=null)
+                pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, viewSnack, tabla, imageView);
+            else
+                pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack, tabla, imageView);
+
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[],@NonNull int[] grantResults) {
-        SharedPreferences.Editor editor;
+        Editor editor;
 
         switch (requestCode) {
             case PERMISO_CAMARA :
@@ -545,7 +544,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         editor.putInt("numPermisos", numPermisos);
         editor.apply();
         if (numPermisos==2)
-            goCamera(tabla,imageView);
+            if (imageView!=null)
+                goGaleria(tabla,imageView);
+            else
+                goCamera(tabla,imageView);
     }
 
     @Override
@@ -568,5 +570,15 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         this.fileUri = fileUri;
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
         startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
     }
 }

@@ -14,9 +14,9 @@ import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
 
 public class GaleriaDiaAdapter extends BaseAdapter {
-    Activity actividad;
-    LayoutInflater inflater;
-    List<Imagen> imagenes;
+   private Activity actividad;
+    private LayoutInflater inflater;
+    private List<Imagen> imagenes;
 
     public GaleriaDiaAdapter(Activity activity, List<Imagen> imagenes) {
         this.actividad = activity;
@@ -51,13 +51,10 @@ public class GaleriaDiaAdapter extends BaseAdapter {
         }
 
         imageView = (ImageView)inflatedView.findViewById(R.id.ivElementoGridView);
-        //imageView.setTag(urlsList.get(position));
         url = Uri.parse(imagenes.get(position).getUriStrPre());
         Glide
                 .with(actividad)
                 .load(url)
-//                    .centerCrop()
-//                    .fitCenter()
                 .placeholder(R.drawable.escudo)
                 .crossFade()
                 .into(imageView);

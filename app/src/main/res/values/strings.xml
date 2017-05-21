@@ -1,8 +1,38 @@
 <resources>
+    <!-- ****************************   GENERAL   **********************************************  -->
     <string name="app_name">TurisTorre</string>
     <string name="action_settings">Settings</string>
+    <string name="notRegister">Usuario no registrado</string>
+    <string name="notPermision">Usuario sin permisos</string>
+    <string name="deleteImg">¿Estas seguro de eliminar la imagen?</string>
+    <string name="deleteImgErr">No puedes eliminar una imagen que no es tuya</string>
+    <string name="cargando">Cargando...</string>
+    <string name="dataUpload">Subiendo datos a Servidor...</string>
+    <string name="antenticando">Autenticando con ServerTorrer...</string>
+    <string name="registrate">Registrate para subir fotos</string>
+    <string name="noVirtual">Tu móvil no está preparado para la Realidad Virtual!!</string>
+    <string name="textoLargo">Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo </string>
+    <string name="textoTitulo">Esto es el titulo</string>
+
+    <!-- ****************************   Utils   **********************************************  -->
+    <string name="imgUploadOk">Imagen subida correctamente</string>
+    <string name="bando">Se done a saber</string>
+    <!-- ****************************   MainActivity   **********************************************  -->
     <string name="open">Abierto</string>
     <string name="close">Cerrado</string>
+    <string name="camaraReg">Para registrate necesito la cámara</string>
+    <!-- ****************************   Login   **********************************************  -->
+    <string name="server_web_id_str">351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.googleusercontent.com</string>
+    <!-- ****************************   FiestasReculerView   **********************************************  -->
+    <string name="sin_fiestas">uidsFiestas es null</string>
+    <!-- ****************************   GenerarRaco   **********************************************  -->
+    <string name="rellena">Rellena el título, la descripcion y pon una imagen</string>
+    <!-- ****************************   Ajustes   **********************************************  -->
+    <string name="notificaciones">Que avisos quieres activar</string>
+    <string name="idioma">Idioma</string>
+    <string name="idiomaSelect">Elige el idioma de la aplicación</string>
+
+
     <string name="title_text">Google Sign-In\nQuickstart</string>
 
     <!-- Sign-in status messages -->
@@ -45,11 +75,8 @@
     <!-- TODO(user): replace with your real server client ID -->
     <!-- Server Client ID.  This should be a valid Web OAuth 2.0 Client ID obtained
          from https://console.developers.google.com/ -->
-    <!--<string name="server_web_id_str">225604340393-c2a46kvmppc2hami62rlurk0mqqqvq8e.apps.googleusercontent.com</string>-->
-    <string name="server_web_id_str">351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.googleusercontent.com</string>
     <!-- Login-->
 
-    <string name="avatar_password"></string>
     <string name="login_titulo">Logueate y diviértete</string>
     <string name="login_ventajas">Sube imágenes \nParticipa en eventos\nTu imagen en portada</string>
     <string name="escudo">escudo</string>
@@ -83,12 +110,19 @@
     <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
 
-    <string name="notificaciones">Que avisos quieres activar</string>
-    <string name="idioma">Elige el idioma de la aplicación</string>
     <string name="title_activity_probes">ProbesActivity</string>
     <!--Permisos-->
-    <string name="anonimo">Ver imagenes de la galeria\nVer los terrats de la gente\nRecibir notificaciones de bandos\nVer las fiestas del pueblo\nVer las imágenes que la gente manda de las fiestas</string>
-    <string name="no_anonimo">Subir imagenes a la galeria\nSubir tu terrat \nSubir imagenes de las fiestas\n
+    <string name="anonimo">
+        Ver imagenes de la galeria\n
+        Ver los terrats de la gente\n
+        Recibir notificaciones de bandos\n
+        Ver las fiestas del pueblo\n
+        Ver las imágenes que la gente manda de las fiestas
+    </string>
+    <string name="no_anonimo">
+        Subir imagenes a la galeria\n
+        Subir tu terrat \n
+        Subir imagenes de las fiestas\n
         Crear bandos\n
         Crear fiestas\n
         Conceder permisos a usuarios\n

@@ -17,7 +17,6 @@ import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
 
-
 public class GaleriaPagina extends Fragment {
     Imagen imagen;
     Usuario usuario;

@@ -43,7 +43,7 @@ public class TerratSeleccionado extends Fragment  {
         packageManager =  getContext().getPackageManager();
         hayGiroscopio = packageManager.hasSystemFeature(PackageManager.FEATURE_SENSOR_GYROSCOPE);
         if(!hayGiroscopio)
-            showWarning(getActivity(),"Tu móvil no está preparado para la Realidad Virtual!!");
+            showWarning(getActivity(),R.string.noVirtual);
         super.onCreate(savedInstanceState);
     }
 

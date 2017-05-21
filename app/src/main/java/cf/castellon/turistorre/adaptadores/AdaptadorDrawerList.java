@@ -75,9 +75,9 @@ public class AdaptadorDrawerList extends BaseAdapter {
         //Explicado en 5.-
         //Preparamos los datos para el adapter para la drawer list
 
-        /** los titulos de las secciones de navegacion(drawer). */
+        // los titulos de las secciones de navegacion(drawer).
         String[] seccionesDrawer;
-        /** los iconos de las secciones de navegacion(drawer). */
+        // los iconos de las secciones de navegacion(drawer).
         TypedArray iconosDrawer;
         DatosDrawerList datosDrawer;
 

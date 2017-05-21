@@ -7,16 +7,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by pccc on 25/03/2016.
- */
 
 public class MiPageHomeAdapter extends FragmentPagerAdapter {
-    List<Fragment> fragmentos;
+    private List<Fragment> fragmentos;
 
     public MiPageHomeAdapter(FragmentManager fm) {
         super(fm);
-        this.fragmentos = new ArrayList<Fragment>();
+        this.fragmentos = new ArrayList<>();
     }
 
     @Override
@@ -32,7 +29,6 @@ public class MiPageHomeAdapter extends FragmentPagerAdapter {
     /***
      * Añadimos fragmentos a la lista de fragmentos
      *
-     * @param fragment
      */
 
     public void addFragment(Fragment fragment) {

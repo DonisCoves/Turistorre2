@@ -4,7 +4,6 @@ import android.app.Application;
 import com.facebook.FacebookSdk;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
-import java.util.ArrayList;
 import cf.castellon.turistorre.R;
 
 import static cf.castellon.turistorre.utils.Constantes.REQUEST_CODE_FACEBOOK;

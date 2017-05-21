@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.HashSet;
@@ -81,9 +80,10 @@ public class RaconsViewPager extends Fragment {
                 case R.id.it_gen_raco:
                     fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame,new GenerarRaco()).commit();
+                    break;
             }
         else
-            Toast.makeText(getContext(),"Usuario sin permisos",Toast.LENGTH_SHORT).show();
+            showWarning(getContext(),R.string.notPermision);
         return super.onOptionsItemSelected(item);
     }
 }

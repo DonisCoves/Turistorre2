@@ -53,6 +53,4 @@ public class FiestasGridView extends Fragment {
         });
         return view;
     }
-
-
 }

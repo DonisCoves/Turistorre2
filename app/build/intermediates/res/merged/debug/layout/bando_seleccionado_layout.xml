@@ -7,38 +7,35 @@
     android:weightSum="10">
 
     <TextView
+        style="@style/TNegritaGrande"
+        android:text="@string/textoTitulo"
         android:id="@+id/tvTitSelecBando"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:text="ITULO ITULO ITULO "
-        android:textSize="18sp"
-        android:textStyle="normal|bold"
-        android:typeface="normal" />
+        android:gravity="center" />
 
 
     <ImageView
         android:id="@+id/ivSelecBando"
-        android:layout_width="wrap_content"
+        style="@style/Imagen_bounds"
         android:layout_height="0dp"
-        android:layout_weight="7"
-
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/proba" />
+        android:src="@drawable/img_8"
+        android:layout_weight="7" />
 
     <ScrollView
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:padding="5dp"
+        android:paddingTop="15dp"
         android:layout_width="match_parent">
 
         <TextView
+            style="@style/TNegritaMediano"
+            android:text="@string/textoLargo"
             android:id="@+id/tvDescSelecBando"
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion DescripcionDescripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion DescripcionDescripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion DescripcionDescripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion DescripcionDescripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion Descripcion " />
+            android:layout_height="wrap_content" />
     </ScrollView>
 
 </LinearLayout>

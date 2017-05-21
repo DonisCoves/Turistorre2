@@ -81,8 +81,22 @@
     </style>
 
     <style name="Imagen">
-        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
         <item name="android:padding">@dimen/padding_normal</item>
+    </style>
+
+    <style name="Imagen_centrada" parent="Imagen">
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="Imagen_rellenada" parent="Imagen">
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="Imagen_bounds" parent="Imagen">
+        <item name="android:adjustViewBounds">true</item>
     </style>
 
     <style name="ScrollView">

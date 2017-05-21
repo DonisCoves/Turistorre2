@@ -4,11 +4,11 @@ package cf.castellon.turistorre.fragments.Click;
 import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import cf.castellon.turistorre.R;
-import com.google.vr.sdk.widgets.pano.VrPanoramaView;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 
@@ -21,7 +21,7 @@ public class RaconsPagina_ViewBinding implements Unbinder {
 
     target.tvTitulo = Utils.findRequiredViewAsType(source, R.id.tvTituloRacons, "field 'tvTitulo'", TextView.class);
     target.tvDescripcion = Utils.findRequiredViewAsType(source, R.id.tvDescripcionRacons, "field 'tvDescripcion'", TextView.class);
-    target.vrPano = Utils.findRequiredViewAsType(source, R.id.vrRaco, "field 'vrPano'", VrPanoramaView.class);
+    target.ivPano = Utils.findRequiredViewAsType(source, R.id.ivRaco, "field 'ivPano'", ImageView.class);
   }
 
   @Override
@@ -33,6 +33,6 @@ public class RaconsPagina_ViewBinding implements Unbinder {
 
     target.tvTitulo = null;
     target.tvDescripcion = null;
-    target.vrPano = null;
+    target.ivPano = null;
   }
 }

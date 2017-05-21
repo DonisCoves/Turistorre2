@@ -1,8 +1,6 @@
 package cf.castellon.turistorre.fragments.ActionBar;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,31 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cf.castellon.turistorre.R;
-
-import static cf.castellon.turistorre.utils.Constantes.CAPTURE_IMAGE_GALLERY_ACTIVITY_REQUEST_CODE;
 import static cf.castellon.turistorre.utils.Utils.eliminarGrupoActual;
 import static cf.castellon.turistorre.utils.Utils.generarNotificacionAdminCambioGrupo;
-import static cf.castellon.turistorre.utils.Utils.generarNotificacionBando;
 import static cf.castellon.turistorre.utils.Utils.usuario;
-
-/**
- * Created by pccc on 13/03/2017.
- */
-
-
 
 public class Permisos extends Fragment {
     private String grupoActual;
@@ -42,10 +27,10 @@ public class Permisos extends Fragment {
     @BindView(R.id.tvPoder) TextView tvPoder;
     @BindView(R.id.tvNoPoder) TextView tvNoPoder;
     @BindView(R.id.spPermisos) Spinner spiner;
-    private List<String> grupos;
+    List<String> grupos;
     private ArrayAdapter<String> adaptador;
     private String gpoSolicitado;
-
+    int posGpo;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,6 +56,7 @@ public class Permisos extends Fragment {
                 LinearLayout layout = (LinearLayout) view;
                 TextView textoTv = (TextView) layout.findViewById(R.id.tvPermisosSpinner);
                 gpoSolicitado = textoTv.getText().toString();
+                posGpo = position;
             }
 
             @Override
@@ -81,8 +67,8 @@ public class Permisos extends Fragment {
     }
 
     @OnClick(R.id.btEnvPermiso)
-    public void onClick(View v){
-        generarNotificacionAdminCambioGrupo(gpoSolicitado,usuario);
+    public void onClick(){
+        if (posGpo!=0)
+            generarNotificacionAdminCambioGrupo(gpoSolicitado,usuario);
     }
-
 }

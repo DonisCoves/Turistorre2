@@ -1,5 +1,6 @@
 package cf.castellon.turistorre.fragments.Principal;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
@@ -42,9 +47,10 @@ public class BandoRecyclerView extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        View view = inflater.inflate(R.layout.bando_layout,container,false);
-        ButterKnife.bind(this,view);
+        View view;
 
+        view = inflater.inflate(R.layout.bando_layout,container,false);
+        ButterKnife.bind(this,view);
         rvBando.setHasFixedSize(true);
         rvBando.setLayoutManager(manager);
         adaptador.setOnClickListener(new View.OnClickListener() {
@@ -65,14 +71,37 @@ public class BandoRecyclerView extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mFirebaseUser!=null)
+        userBandos = prefs.getBoolean("userBandos",false);
+        final String uidUser = prefs.getString("uidUser","");
+        //Si usuario autenticado y no tiene permisos consultamos sus permisos
+        if (mFirebaseUser!=null && !userBandos)
+            mDataBaseGruposRef.child("bandos").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        if (postSnapshot.getKey().equals(uidUser)) {
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putBoolean("userBandos", true);
+                            editor.apply();
+                            transaccion = getFragmentManager().beginTransaction();
+                            transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
+
+        if (mFirebaseUser!=null && userBandos)
             switch (item.getItemId()){
                 case (R.id.it_bando):
                     transaccion = getFragmentManager().beginTransaction();
                     transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
             }
         else
-            showWarning(getActivity(),"Usuario sin privilegios");
+            showWarning(getActivity(),R.string.notPermision);
         return super.onOptionsItemSelected(item);
     }
 

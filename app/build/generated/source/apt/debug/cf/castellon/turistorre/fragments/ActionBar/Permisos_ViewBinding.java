@@ -32,7 +32,7 @@ public class Permisos_ViewBinding implements Unbinder {
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
-        target.onClick(p0);
+        target.onClick();
       }
     });
   }

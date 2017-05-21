@@ -40,7 +40,7 @@
 
     </array>
     <string-array name="grupos">
-        <item/>
+        <item>Permisos disponibles:</item>
         <item>bandos</item>
         <item>administrador</item>
     </string-array>
@@ -659,15 +659,24 @@
         Ver las imágenes que la gente manda de las fiestas \n
         Conceder permisos a usuarios\n
     </string>
-    <string name="anonimo">Ver imagenes de la galeria\nVer los terrats de la gente\nRecibir notificaciones de bandos\nVer las fiestas del pueblo\nVer las imágenes que la gente manda de las fiestas</string>
+    <string name="anonimo">
+        Ver imagenes de la galeria\n
+        Subir imagenes a la galeria\n
+        Ver los terrats de la gente \n
+        Subir tu terrat de casa\n
+        Recibir notificaciones de bandos\n
+        Ver las fiestas del pueblo\n
+        Ver las imágenes que la gente manda de las fiestas \n
+    </string>
+    <string name="antenticando">Autenticando con ServerTorrer...</string>
     <string name="app_name">TurisTorre</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="auth_code_fmt">Cosigo de autenticacion: %s</string>
     <string name="avatar">avatar</string>
-    <string name="avatar_password"/>
     <string description=" Accessibility description for the back button displayed in the top corner of the VR application to go back to the previous screen. [CHAR LIMIT=50]" name="back_button_content_description">
     back
   </string>
+    <string name="bando">Se done a saber</string>
     <string name="bandos">
         Ver imagenes de la galeria\n
         Subir imagenes a la galeria\n
@@ -679,9 +688,11 @@
         Ver las imágenes de las fiestas \n
     </string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="camaraReg">Para registrate necesito la cámara</string>
     <string description=" Short text shown in a button in the dialog box that shows up to help users configure their Cardboard experience. By clicking on this button, the user will cancel the setup flow and return to their previous activity. [CHAR LIMIT=20]" name="cancel_button">
       Cancel
     </string>
+    <string name="cargando">Cargando...</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="close">Cerrado</string>
     <string name="com_facebook_device_auth_instructions">Visit &lt;b>facebook.com/device&lt;/b> on your smartphone or computer and enter this code</string>
@@ -720,7 +731,10 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="contacts_permission_rationale">Se necesita acceso a los contactos con el fin de recuperar su dirección de correo electrónico.</string>
     <string name="crear">Iniciar sesion con Firebase</string>
+    <string name="dataUpload">Subiendo datos a Servidor...</string>
     <string name="default_web_client_id" translatable="false">351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.googleusercontent.com</string>
+    <string name="deleteImg">¿Estas seguro de eliminar la imagen?</string>
+    <string name="deleteImgErr">No puedes eliminar una imagen que no es tuya</string>
     <string name="desc_auth_code_activity">Demonstrate retrieving an auth code for authorizing your server.</string>
     <string name="desc_google_icon">Logo de Google</string>
     <string name="desc_id_token_activity">Retrieving an ID Token for the user.</string>
@@ -791,7 +805,9 @@
     <string description="Google VR component name used for enabling VR mode" name="gvr_vr_mode_component" translatable="false">com.google.vr.vrcore/com.google.vr.vrcore.common.VrCoreListenerService</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="id_token_fmt">ID Token: %s</string>
-    <string name="idioma">Elige el idioma de la aplicación</string>
+    <string name="idioma">Idioma</string>
+    <string name="idiomaSelect">Elige el idioma de la aplicación</string>
+    <string name="imgUploadOk">Imagen subida correctamente</string>
     <string name="loading">Cargando…</string>
     <string name="log_token">Log Token</string>
     <string name="login_titulo">Logueate y diviértete</string>
@@ -800,17 +816,18 @@
     <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
     <string name="multimedia">
-        Ver imagenes de la galeria\n
-        Subir imagenes a la galeria\n
-        Ver los terrats de la gente \n
-        Subir tu terrat de casa\n
-        Recibir notificaciones de bandos\n
-        Ver las fiestas del pueblo\n
-        Ver las imágenes que la gente manda de las fiestas \n
+        <ol>
+            <li>Ver imagenes de la galeria</li>
+            <li>Ver los terrats de la gente</li>
+            <li>Recibir notificaciones de bandos</li>
+            <li>Ver las fiestas del pueblo</li>
+            <li>Ver las imágenes que la gente manda de las fiestas</li>
+        </ol>
     </string>
     <string name="name_auth_code_activity">ServerAuthCodeActivity</string>
     <string name="name_id_token_activity">IdTokenActivity</string>
     <string name="name_sign_in_activity">SignInActivity</string>
+    <string name="noVirtual">Tu móvil no está preparado para la Realidad Virtual!!</string>
     <string name="no_administrador">
         NADA\n
     </string>
@@ -831,6 +848,8 @@
         Crear fiestas\n
         Conceder permisos a usuarios\n
     </string>
+    <string name="notPermision">Usuario sin permisos</string>
+    <string name="notRegister">Usuario no registrado</string>
     <string name="notificaciones">Que avisos quieres activar</string>
     <string name="open">Abierto</string>
     <string name="permiso_administrador">Administrar aplicación</string>
@@ -845,6 +864,8 @@
     <string name="quickstart_message">Click the SUBSCRIBE TO NEWS button below to subscribe to the
         news topic. Messages sent to the news topic will be received. The LOG TOKEN button logs the
         InstanceID token to logcat.</string>
+    <string name="registrate">Registrate para subir fotos</string>
+    <string name="rellena">Rellena el título, la descripcion y pon una imagen</string>
     <string name="search_menu_title">Search</string>
     <string name="server_web_id_str">351834780446-aq8f9hf28ckdbf00dgnkde14mnn7ljo9.apps.googleusercontent.com</string>
     <string description=" Accessibility description for the settings button displayed at the bottom of a VR application. [CHAR LIMIT=50]" name="settings_button_content_description">
@@ -859,6 +880,7 @@
     <string name="signed_in_fmt">Sesion abierta con nombre: %s</string>
     <string name="signed_out">Cerrar sesion</string>
     <string name="signing_in">Abriendo sesion…</string>
+    <string name="sin_fiestas">uidsFiestas es null</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="subscribe_to_news">Subscribe To News</string>
     <string description=" Text which when pressed, takes the user to the view that allows them to switch their Cardboard compatible viewer. [CHAR LIMIT=10]" name="switch_viewer_action">
@@ -867,6 +889,8 @@
     <string description=" Prompt asking if the user wants to switch their Cardboard compatible viewer. [CHAR LIMIT=30]" name="switch_viewer_prompt">
       Using a different viewer?
     </string>
+    <string name="textoLargo">Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo </string>
+    <string name="textoTitulo">Esto es el titulo</string>
     <string name="title_activity_ejem_fire_base">EjemFireBaseActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
@@ -1955,8 +1979,19 @@
 <item name="android:windowBackground">@android:color/transparent</item>
 </style>
     <style name="Imagen">
-        <item name="android:scaleType">fitXY</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
         <item name="android:padding">@dimen/padding_normal</item>
+    </style>
+    <style name="Imagen_bounds" parent="Imagen">
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+    <style name="Imagen_centrada" parent="Imagen">
+        <item name="android:scaleType">centerInside</item>
+    </style>
+    <style name="Imagen_rellenada" parent="Imagen">
+        <item name="android:scaleType">fitCenter</item>
     </style>
     <style name="MessengerButton">
     <item name="android:clickable">true</item>

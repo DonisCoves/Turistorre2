@@ -32,16 +32,18 @@
 
         <TextView
             style="@style/TNegritaMediano"
-            android:text="Que puedes hacer"/>
+            android:paddingBottom="10dp"
+            android:text="Que puedes hacer" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                style="@style/Fuentes"
-                android:paddingTop="20dp"
                 android:id="@+id/tvPoder"
+                style="@style/Fuentes"
+                android:textColor="@color/spring_tones_verde"
+                android:paddingTop="20dp"
                 android:text="@string/anonimo" />
         </ScrollView>
     </LinearLayout>
@@ -54,6 +56,7 @@
 
         <TextView
             style="@style/TNegritaMediano"
+            android:layout_marginTop="10dp"
             android:text="Que NO puedes hacer" />
 
         <ScrollView
@@ -62,7 +65,8 @@
 
             <TextView
                 style="@style/Fuentes"
-                android:paddingTop="20dp"
+                android:textColor="@color/background_material_light"
+                android:paddingTop="10dp"
                 android:id="@+id/tvNoPoder"
                 android:text="@string/no_anonimo" />
         </ScrollView>

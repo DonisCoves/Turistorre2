@@ -39,7 +39,6 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
     OnPedirPermisosListener mCallback;
     AppCompatActivity mActivity;
 
-
     public interface OnPedirPermisosListener {
         void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView imageView);
         void goCamera(String tipoBean,ImageView ivImagen);

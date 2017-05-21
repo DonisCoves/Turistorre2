@@ -5,7 +5,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
     android:id="@+id/it_gen_raco"
-    android:icon="@drawable/ic_actionbar_find_in_page"
+    android:icon="@android:drawable/ic_menu_gallery"
     android:title="galeria"
     app:showAsAction="ifRoom" />
 </menu>

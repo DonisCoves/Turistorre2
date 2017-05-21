@@ -4,6 +4,10 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-mdpi\\ic_action_settings_remote.png"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_stat_assignment_ind.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-mdpi\\ic_stat_assignment_ind.png"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_action_ic_action_party_icon.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-mdpi\\ic_action_ic_action_party_icon.png"
     },

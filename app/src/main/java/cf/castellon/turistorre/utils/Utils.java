@@ -18,7 +18,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -27,12 +26,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.facebook.CallbackManager;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
@@ -61,7 +57,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
 import java.util.StringTokenizer;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
@@ -73,7 +68,6 @@ import cf.castellon.turistorre.bean.Fiestas;
 import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarTerrat;
-import cf.castellon.turistorre.fragments.Click.FiestasEventosRecylerView;
 import cf.castellon.turistorre.fragments.Click.GaleriaPagina;
 import cf.castellon.turistorre.fragments.Principal.BandoRecyclerView;
 import cf.castellon.turistorre.fragments.Principal.RaconsViewPager;
@@ -111,6 +105,8 @@ public final class Utils {
     public static Map<String,Map<String,Object>> referenciasFire;
     public static Bitmap bitMapStatic;
     public static Imagen imagenStatic;
+    public static boolean userBandos;
+    public static boolean segundaVez;  //En el ondatachange recogo valores la 2º vez...no se porque a la primera no
 
 
 
@@ -266,22 +262,55 @@ public final class Utils {
     }
 
     public static void showProgressDialog(Context context) {
-        if (mProgressDialog == null) {
+        if (mProgressDialog != null)
+            if (!mProgressDialog.isShowing()) {// aqui entramos sino hay actividad
+                mProgressDialog = new ProgressDialog(context);
+                mProgressDialog.setMessage(context.getString(R.string.cargando));
+                mProgressDialog.setIndeterminate(true);
+                mProgressDialog.show();
+            } else {
+                try {
+                    mProgressDialog.show();
+                } catch (Exception e) {
+                    Log.e("er", e.getMessage());
+                }
+            }
+        else { //null
             mProgressDialog = new ProgressDialog(context);
-            mProgressDialog.setMessage("Cargando...");
+            mProgressDialog.setMessage(context.getString(R.string.cargando));
             mProgressDialog.setIndeterminate(true);
         }
-        mProgressDialog.show();
     }
 
     public static void showProgressDialog(Context context, String mensaje) {
+        if (mProgressDialog != null)
+            if (!mProgressDialog.isShowing()) {// aqui entramos sino hay actividad
+                mProgressDialog = new ProgressDialog(context);
+                mProgressDialog.setMessage(mensaje + " ...");
+                mProgressDialog.setIndeterminate(true);
+                mProgressDialog.show();
+            } else {
+                try {
+                    mProgressDialog.show();
+                } catch (Exception e) {
+                    Log.e("er", e.getMessage());
+                }
+            }
+        else { //null
+            mProgressDialog = new ProgressDialog(context);
+            mProgressDialog.setMessage(context.getString(R.string.cargando));
+            mProgressDialog.setIndeterminate(true);
+        }
+    }
+
+    /*public static void showProgressDialog(Context context, String mensaje) {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(context);
             mProgressDialog.setMessage(mensaje + " ...");
             mProgressDialog.setIndeterminate(true);
         }
         mProgressDialog.show();
-    }
+    }*/
 
     public static void hideProgressDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
@@ -749,7 +778,7 @@ public final class Utils {
 //        requestQueue.add(mStringRequest);
 
 //    }
-    public static void generarNotificacionBando(String titulo, String fecha, String refBando) {
+    public static void generarNotificacionBando(Context context, Imagen bando, String refBando) {
         FirebaseMessaging fm;
         Random random;
 
@@ -757,8 +786,9 @@ public final class Utils {
         fm = FirebaseMessaging.getInstance();
         fm.send(new RemoteMessage.Builder(ID_REMITENTE + "@gcm.googleapis.com")
                 .setMessageId(Integer.toString(random.nextInt()))
-                .addData("titulo", titulo)
-                .addData("fecha", fecha)
+                .addData("cabecera", context.getString(R.string.bando))
+                .addData("titulo", bando.getTitulo())
+                .addData("fecha", bando.getFecha())
                 .addData("uidBando", refBando)
                 .addData("action", ACTION_GPO_BANDO)
                 .build());
@@ -821,14 +851,18 @@ public final class Utils {
                 FirebaseMessaging.getInstance().unsubscribeFromTopic("Imagenes");
                 break;
         }
+        activarServer(context);
     }
 
     public static List<String> eliminarGrupoActual(List<String> grupos, String grupoEliminar) {
         List<String> gpo = new ArrayList<>();
-        for (String grupo : grupos) {
-            if (!grupoEliminar.equalsIgnoreCase(grupo))
-                gpo.add(grupo);
-        }
+        if (!grupoEliminar.equals("administrador"))
+            for (String grupo : grupos) {
+                if (!grupoEliminar.equalsIgnoreCase(grupo))
+                    gpo.add(grupo);
+            }
+        else
+            gpo.add("Todos los permisos concedidos");
         return gpo;
     }
 
@@ -837,9 +871,9 @@ public final class Utils {
         Log.e(TAG,"Clase: "+clase+"\nMétodo: "+metodo+"\nMotivo: "+descripcion);
     }
 
-    public static void showWarning(Context context, String descripcion) {
+    public static void showWarning(Context context, int descripcion) {
         Toast.makeText(context,descripcion,Toast.LENGTH_LONG).show();
-        Log.w(TAG,descripcion);
+        Log.w(TAG,context.getString(descripcion));
     }
 
     public static void crearPaginasImagenes(Imagen imagenSeleccionada, HashSet<Imagen> imagenes, FragmentPageCarruselAdapter adaptador) {
@@ -876,7 +910,9 @@ public final class Utils {
         final DatabaseReference rootDataBase;
         final Uri uri;
         final Activity activity;
+        final String uidUser;
 
+        uidUser = prefs.getString("uidUser","");
 
         activity = (Activity)context;
         rootStorage = (StorageReference) tipoBean.get("Storage");
@@ -888,7 +924,7 @@ public final class Utils {
         pathPre = pathPre.substring(0,pathPre.length()-5);
         pathPre = pathPre.concat("_PRE.jpg");
         mStorageRefPre = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+mFirebaseUser.getUid()).child(pathPre);
-        showProgressDialog(context);
+        showProgressDialog(context,context.getString(R.string.dataUpload));
         Log.d(TAG, "uploadFromUri:dst:" + mStorageRef.getPath());
         mStorageRefPre.putBytes(escalarImagen(uri,1/8f)) //Pre
                 .addOnSuccessListener(activity, new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -901,7 +937,7 @@ public final class Utils {
                        }
                         else{
                             imagenStatic = new Imagen();
-                            imagenStatic.setUidUser(usuario.getUidUser());
+                            imagenStatic.setUidUser(uidUser);
                             imagenStatic.setUriStrPre(taskSnapshot.getDownloadUrl().toString());
                             imagenStatic.setUidImg(uri.getLastPathSegment().substring(0,uri.getLastPathSegment().length()-4));
                             imagenStatic.setTitulo("");
@@ -910,7 +946,7 @@ public final class Utils {
                             if (titulo!=null)
                                 imagenStatic.setTitulo(titulo);  // Si es terrat,raco o bando el nombre del terrat / raco
                             if (descripcion!=null)
-                                imagenStatic.setTitulo(titulo);  // Si es raco o bando su descripcion
+                                imagenStatic.setDescripcion(descripcion);  // Si es raco o bando su descripcion
                             datosImagenOk =true;
                         }
                         hideProgressDialog();
@@ -935,7 +971,7 @@ public final class Utils {
                                 datosImagenOk = false;
                         } else {
                             imagenStatic = new Imagen();
-                            imagenStatic.setUidUser(usuario.getUidUser());
+                            imagenStatic.setUidUser(uidUser);
                             imagenStatic.setUidImg(uri.getLastPathSegment().substring(0,uri.getLastPathSegment().length()-4));
                             if (taskSnapshot.getDownloadUrl()==null)
                                 showError(context,getClass().getName(),"mStorageRef.onSuccess","taskSnapshot.getDownloadUrl()==null");
@@ -973,7 +1009,7 @@ public final class Utils {
                     String tabla;
                     FragmentTransaction fragmentTransaction;
                     hideProgressDialog();
-                    showWarning(context,"Imagen subida correctamente");
+                    showWarning(context,R.string.imgUploadOk);
                     tabla= parsearKeyATabla(rootRef.getKey());
                     switch (tabla) {
                         case "Terrats":
@@ -988,7 +1024,7 @@ public final class Utils {
                             fragmentTransaction.replace(R.id.content_frame, new RaconsViewPager()).commit();
                             break;
                         case "Bandos":
-                            generarNotificacionBando(imagen.getTitulo(),imagen.getFecha(),dbRef.getKey());
+                            generarNotificacionBando(context, imagen,dbRef.getKey());
                             fragmentTransaction = fragmentManager.beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, new BandoRecyclerView()).commit();
                             break;
@@ -1151,6 +1187,7 @@ public final class Utils {
         referenciasFire.put(Tablas.Racons.name(),referenciaRacons);
         referenciasFire.put(Tablas.Terrats.name(),referenciaTerrats);
         referenciasFire.put(Tablas.Bandos.name(),referenciaBandos);
+
     }
 
     /** Anyade una imagen y su usuario a la base de datos local
@@ -1228,7 +1265,7 @@ public final class Utils {
         referenciaFire = new HashMap<>();
         establecerEstructurasIniciales(); //Limpiamos valores sobreescritos
         if (tabla !=null)
-            if (!tabla.equals(Tablas.Bandos.name()) && !tabla.equals(Tablas.Imagenes.name())) {
+            if (!tabla.equals(Tablas.Bandos.name()) && !tabla.equals(Tablas.Imagenes.name()) && !tabla.equals(Tablas.Terrats.name())) {
                 ////Tabla = "DiasFiestas + uidDiaFiesta + uidEvento"
                 params = tabla.split(" ");
                 tablaOk = params[0];
@@ -1296,7 +1333,4 @@ public final class Utils {
             }
         });
     }
-
-
-
 }

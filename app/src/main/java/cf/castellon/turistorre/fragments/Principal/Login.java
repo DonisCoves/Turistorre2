@@ -1,6 +1,7 @@
 
 package cf.castellon.turistorre.fragments.Principal;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -97,13 +98,12 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                Log.i(TAG, "Facebook.AccessTokenTracker.OnCurrentAccessTokenChanged");
                 onFacebookAccessTokenChange(currentAccessToken);
             }  //ARRIBA: Cuando detectamos que nos hemos conectado recogemos ese evento y se lo pasamos a Firebase para que gestione el registro
         };
         mAuthProgressDialog = new ProgressDialog(mActivity);
-        mAuthProgressDialog.setTitle("Cargando");
-        mAuthProgressDialog.setMessage("Autenticando con ServerTorres...");
+        mAuthProgressDialog.setTitle(R.string.cargando);
+        mAuthProgressDialog.setMessage(getString(R.string.antenticando));
         mAuthProgressDialog.setCancelable(false);
         mAuthProgressDialog.show();
         //  Setup the Google API object to allow Google+ logins
@@ -147,9 +147,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                             crearUsuarioBBDDFire(email, mFirebaseUser.getDisplayName(),mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
                         }
                     setAuthenticatedUser(mFirebaseUser);
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + mFirebaseUser.getUid());
                 } else {
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
                     updateUI(Tipo_Proveedor.NATIVO_INICIAL);
                 }
             }
@@ -181,7 +179,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode != REQUEST_CODE_FACEBOOK ){ //
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            Log.d(TAG, "handleSignInResult:" + result.isSuccess());
             if (result.isSuccess()) {
                 GoogleSignInAccount acct = result.getSignInAccount();
                 firebaseAuthWithGoogle(acct);
@@ -191,14 +188,12 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         mAuthProgressDialog.show();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful())
                             showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
                         mAuthProgressDialog.hide();
@@ -214,7 +209,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                     .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
                             if (!task.isSuccessful())
                                 showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
                             mAuthProgressDialog.hide();
@@ -235,7 +229,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         mGoogleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Intentando conectar con Google API");
                 Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
                 startActivityForResult(signInIntent, RC_SIGN_IN);
             }
@@ -329,7 +322,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         mAuthProgressDialog.hide();
-                        Log.d(TAG, "createUserWithEmailAndPassword.onComplete");
                     }
                 })
                 .addOnFailureListener(mActivity, new OnFailureListener() {
@@ -347,7 +339,6 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                 .addOnCompleteListener(mActivity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "createUserWithEmailAndPassword.onComplete");
                         if (!task.isSuccessful())
                             showErrorDialog(task.getException().getMessage());
                         mAuthProgressDialog.hide();
@@ -429,6 +420,9 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         if (nombre.equalsIgnoreCase("TurisTorre Turistorre")){
             usuario = new Usuario(nombre, avatar, email,  userId, "administrador");
             FirebaseMessaging.getInstance().subscribeToTopic("administrador");
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("userBandos", true);
+            editor.apply();
         }
         else
             usuario = new Usuario(nombre, avatar, email, userId, grupo);

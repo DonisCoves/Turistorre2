@@ -50,5 +50,9 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_assignment_turned_in.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_assignment_turned_in.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_stat_assignment_ind.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_stat_assignment_ind.png"
     }
 ]

@@ -40,6 +40,4 @@ public class GaleriaViewPager extends Fragment{
         mViewPager.setAdapter(adaptador);
         return inflatedView;
     }
-
-
 }

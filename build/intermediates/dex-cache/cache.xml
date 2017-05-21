@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="283d427644efd1bb1c73a6d9afd4d4a675d9897d">
+        sha1="66c8e3a5bfeffb3b7dc79b1cc71433404d1e575f">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_fcc6b772a14be54ee8c4b518d34a497f9f833ce3\classes.dex" />
     </item>
     <item
@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_897e787ae916cc820671e2d8123aef730cf401ca\classes.dex" />
     </item>
     <item

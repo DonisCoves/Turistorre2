@@ -88,9 +88,6 @@ public class HomeViewPager extends Fragment {
 
     private void crearPaginas() {
         HashSet<Imagen> imagenes;
-//        HashSet<Fiestas> fiestasList;
-//        HashSet<DiaFiesta> diaFiestaList;
-
         Usuario user;
 
         imagenes = new HashSet<>();

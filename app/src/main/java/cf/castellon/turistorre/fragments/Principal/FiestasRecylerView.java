@@ -62,19 +62,18 @@ public class FiestasRecylerView extends Fragment {
                     MyFireAdapterDiasFiestaRecyclerView.MyFireViewHolder.class,
                     keysFire,
                     mDataBaseDiasFiestaSelRef);
-
         }
         else
-            showError(getContext(),getClass().getName(),"Oncreate","uidsFiestas es null");
+            showError(getContext(),getClass().getName(),"Oncreate",getString(R.string.sin_fiestas));
         }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LinearLayoutManager manager;
+        View view ;
 
-        View view = inflater.inflate(R.layout.fiestas_recyclerview_layout, container, false);
-
+        view = inflater.inflate(R.layout.fiestas_recyclerview_layout, container, false);
         ButterKnife.bind(this, view);
         spFiestas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -103,18 +102,14 @@ public class FiestasRecylerView extends Fragment {
                 });
                 adaptadorViejoDiasFiestas = (MyFireAdapterDiasFiestaRecyclerView) recView.getAdapter();
                 recView.setAdapter(adaptadorDiasFiestas);
-
                 if (adaptadorViejoDiasFiestas != null)
                     adaptadorViejoDiasFiestas.cleanup();
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
         spFiestas.setAdapter(adaptadorFiestas);
         setHasOptionsMenu(true);
-
         recView.setHasFixedSize(true);
         manager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recView.setLayoutManager(manager);
@@ -129,5 +124,4 @@ public class FiestasRecylerView extends Fragment {
         }
         super.onDestroyView();
     }
-
 }

@@ -83,7 +83,7 @@ public class TerratsRecyclerView extends Fragment {
                     fragmentTransaction.replace(R.id.content_frame,new GenerarTerrat()).commit();
             }
         else
-            showWarning(getActivity(),"Usuario no registrado");
+            showWarning(getActivity(),R.string.notRegister);
         return super.onOptionsItemSelected(item);
     }
 }
