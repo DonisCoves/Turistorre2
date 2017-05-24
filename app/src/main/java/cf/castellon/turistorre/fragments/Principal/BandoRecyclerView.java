@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.MiFireAdapterBandoRecyclerView;
 import cf.castellon.turistorre.bean.Imagen;
+import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.Click.BandoSeleccionado;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarBando;
 import static cf.castellon.turistorre.utils.Constantes.*;
@@ -71,37 +72,15 @@ public class BandoRecyclerView extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        userBandos = prefs.getBoolean("userBandos",false);
+        Usuario usuario;
         final String uidUser = prefs.getString("uidUser","");
-        //Si usuario autenticado y no tiene permisos consultamos sus permisos
-        if (mFirebaseUser!=null && !userBandos)
-            mDataBaseGruposRef.child("bandos").addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                        if (postSnapshot.getKey().equals(uidUser)) {
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putBoolean("userBandos", true);
-                            editor.apply();
-                            transaccion = getFragmentManager().beginTransaction();
-                            transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
-                        }
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                }
-            });
-
-        if (mFirebaseUser!=null && userBandos)
-            switch (item.getItemId()){
-                case (R.id.it_bando):
-                    transaccion = getFragmentManager().beginTransaction();
-                    transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
+        if (mFirebaseUser!=null) {
+            usuario = buscarUsuario(uidUser);
+            if (usuario.getGrupo().equals("bandos") || usuario.getGrupo().equals("administrador")){
+                transaccion = getFragmentManager().beginTransaction();
+                transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
             }
-        else
-            showWarning(getActivity(),R.string.notPermision);
+        }
         return super.onOptionsItemSelected(item);
     }
 

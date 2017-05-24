@@ -40,7 +40,7 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
     AppCompatActivity mActivity;
 
     public interface OnPedirPermisosListener {
-        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView imageView);
+        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView imageView, boolean camara);
         void goCamera(String tipoBean,ImageView ivImagen);
         void goGaleria(String tipoBean, ImageView terrat);
     }
@@ -119,13 +119,13 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
                     if (numPermisos==2)
                         mCallback.goCamera(arreglo,null);
                     else
-                        mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, recView, arreglo, null);
+                        mCallback.pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, recView, arreglo, null, true);
                     break;
                 case R.id.it_galeriaEventos:
                     if (numPermisos==2)
                         mCallback.goGaleria(arreglo,null);
                     else
-                        mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, null,arreglo, null);
+                        mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, null,arreglo, null, false);
                     break;
             }
         else

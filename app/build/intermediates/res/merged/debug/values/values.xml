@@ -59,6 +59,7 @@
         <item>Catalán</item>
         <item>Castellano</item>
         <item>Inglés</item>
+        <item>Poble</item>
     </string-array>
     <string-array name="multimedia">
         <item>Ver imagenes de la galeria</item>
@@ -90,10 +91,11 @@
         <item>Conceder permisos a usuarios</item>
     </string-array>
     <string-array name="notificaciones">
+        <item>Ninguna</item>
         <item>Todas</item>
         <item>Bandos</item>
+        <item>Terrats</item>
         <item>Imagenes</item>
-        <item>Ninguna</item>
     </string-array>
     <string-array name="secciones">
         <item>Home</item>
@@ -661,12 +663,10 @@
     </string>
     <string name="anonimo">
         Ver imagenes de la galeria\n
-        Subir imagenes a la galeria\n
-        Ver los terrats de la gente \n
-        Subir tu terrat de casa\n
+        Ver los terrats de la gente\n
         Recibir notificaciones de bandos\n
         Ver las fiestas del pueblo\n
-        Ver las imágenes que la gente manda de las fiestas \n
+        Ver las imágenes que la gente manda de las fiestas
     </string>
     <string name="antenticando">Autenticando con ServerTorrer...</string>
     <string name="app_name">TurisTorre</string>
@@ -816,13 +816,13 @@
     <string name="msg_subscribed">Subscribed to news topic</string>
     <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
     <string name="multimedia">
-        <ol>
-            <li>Ver imagenes de la galeria</li>
-            <li>Ver los terrats de la gente</li>
-            <li>Recibir notificaciones de bandos</li>
-            <li>Ver las fiestas del pueblo</li>
-            <li>Ver las imágenes que la gente manda de las fiestas</li>
-        </ol>
+        Ver imagenes de la galeria\n
+        Subir imagenes a la galeria\n
+        Ver los terrats de la gente \n
+        Subir tu terrat de casa\n
+        Recibir notificaciones de bandos\n
+        Ver las fiestas del pueblo\n
+        Ver las imágenes que la gente manda de las fiestas \n
     </string>
     <string name="name_auth_code_activity">ServerAuthCodeActivity</string>
     <string name="name_id_token_activity">IdTokenActivity</string>
@@ -831,7 +831,10 @@
     <string name="no_administrador">
         NADA\n
     </string>
-    <string name="no_anonimo">Subir imagenes a la galeria\nSubir tu terrat \nSubir imagenes de las fiestas\n
+    <string name="no_anonimo">
+        Subir imagenes a la galeria\n
+        Subir tu terrat \n
+        Subir imagenes de las fiestas\n
         Crear bandos\n
         Crear fiestas\n
         Conceder permisos a usuarios\n

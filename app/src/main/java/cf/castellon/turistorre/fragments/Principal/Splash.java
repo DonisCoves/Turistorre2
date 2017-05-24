@@ -45,13 +45,9 @@ public class Splash extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.splash_layout, container, false);
         showProgressDialog(getContext(), getString(R.string.cargando));
-        cargas.add(CARGAR_RACONS);
         cargas.add(CARGAR_IMAGENES);
         cargas.add(CARGAR_FIESTAS);
         cargas.add(CARGAR_DIAFIESTA);
-        //cargas.add(CARGAR_USUARIO);
-        cargas.add(CARGAR_USUARIOS);
-        cargas.add(CARGAR_TERRATS);
         cargas.add(CARGAR_HOME);
         cargarDatos(cargas);
         return view;
@@ -74,23 +70,6 @@ public class Splash extends Fragment {
         diaFiestasHash = new HashSet<>();
         for (int carga : cargas) {
             switch (carga) {
-                case CARGAR_RACONS:
-                    mDataBaseRacoRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                Imagen raco = postSnapshot.getValue(Imagen.class);
-                                racons.add(raco);
-                            }
-                            baseDatos.put(Tablas.Racons.name(),racons);
-                            goToHome();
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
-                    break;
                 case CARGAR_IMAGENES:
                     mDataBaseImgRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -140,53 +119,7 @@ public class Splash extends Fragment {
                         }
                     });
                     break;
-                case CARGAR_USUARIO:  //Igual no fa falta
-                    String uid = prefs.getString("uidUser", "");
-                    if (!uid.isEmpty())
-                        mDataBaseUsersRef.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                usuario = dataSnapshot.getValue(Usuario.class);
-                                goToHome();
-                            }
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                            }
-                        });
-                    break;
-                case CARGAR_USUARIOS:
-                    mDataBaseUsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                Usuario usuario = postSnapshot.getValue(Usuario.class);
-                                usuarios.add(usuario);
-                            }
-                            baseDatos.put(Tablas.Usuarios.name(),usuarios);
-                            goToHome();
-                        }
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
-                    break;
-                case CARGAR_TERRATS:
-                    mDataBaseTerratRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                Imagen panoramica = postSnapshot.getValue(Imagen.class);
-                                terrats.add(panoramica);
-                            }
-                            baseDatos.put(Tablas.Terrats.name(),terrats);
-                            goToHome();
-                        }
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
-                    break;
-                case CARGAR_HOME:
+               case CARGAR_HOME:
                     mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
                     mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
                     mFirebaseRemoteConfig.fetch().addOnSuccessListener(getActivity(), new OnSuccessListener<Void>() {
@@ -214,6 +147,7 @@ public class Splash extends Fragment {
         hideProgressDialog();
         if (numCarga == numMaxCargas) {
             transaccion.replace(R.id.content_frame, fragment).commit();
+
         }
     }
 }

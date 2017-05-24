@@ -105,8 +105,6 @@ public final class Utils {
     public static Map<String,Map<String,Object>> referenciasFire;
     public static Bitmap bitMapStatic;
     public static Imagen imagenStatic;
-    public static boolean userBandos;
-    public static boolean segundaVez;  //En el ondatachange recogo valores la 2º vez...no se porque a la primera no
 
 
 
@@ -224,6 +222,21 @@ public final class Utils {
         return usuario;
     }
 
+    public static Imagen buscarTerrat(String uidTerrat) {
+        Imagen terrat = null;
+        boolean encontrado = false;
+        HashSet<Imagen> terrats;
+
+        terrats =  baseDatos.get(Tablas.Terrats.name());
+        Iterator<Imagen> iterator = terrats.iterator();
+        while (!encontrado) {
+            terrat = iterator.next();
+            if (terrat.getUidImg().equals(uidTerrat))
+                encontrado = true;
+        }
+        return terrat;
+    }
+
     public static DiaFiesta buscarDiaFiesta(String uidDiaFiesta) {
         DiaFiesta diaFiesta = null;
         boolean encontrado = false;
@@ -283,23 +296,19 @@ public final class Utils {
     }
 
     public static void showProgressDialog(Context context, String mensaje) {
-        if (mProgressDialog != null)
+        if (mProgressDialog != null){
             if (!mProgressDialog.isShowing()) {// aqui entramos sino hay actividad
                 mProgressDialog = new ProgressDialog(context);
                 mProgressDialog.setMessage(mensaje + " ...");
                 mProgressDialog.setIndeterminate(true);
-                mProgressDialog.show();
-            } else {
-                try {
-                    mProgressDialog.show();
-                } catch (Exception e) {
-                    Log.e("er", e.getMessage());
-                }
             }
+            mProgressDialog.show();
+        }
         else { //null
             mProgressDialog = new ProgressDialog(context);
             mProgressDialog.setMessage(context.getString(R.string.cargando));
             mProgressDialog.setIndeterminate(true);
+            mProgressDialog.show();
         }
     }
 
@@ -983,7 +992,7 @@ public final class Utils {
                                 if (titulo!=null)
                                     imagenStatic.setTitulo(titulo);  // Si es terrat,raco o bando el nombre del terrat / raco
                                 if (descripcion!=null)
-                                    imagenStatic.setTitulo(titulo);  // Si es raco o bando su descripcion
+                                    imagenStatic.setDescripcion(descripcion);  // Si es raco o bando su descripcion
                                 datosImagenOk = true;
                             }
                         }
@@ -1019,7 +1028,6 @@ public final class Utils {
                             break;
                         case "Racons":
                             anyadirRaco(imagen);
-                            generarNotificacionTerrat(imagen.getTitulo(), imagen.getUidImg());
                             fragmentTransaction = fragmentManager.beginTransaction();
                             fragmentTransaction.replace(R.id.content_frame, new RaconsViewPager()).commit();
                             break;
@@ -1190,22 +1198,24 @@ public final class Utils {
 
     }
 
-    /** Anyade una imagen y su usuario a la base de datos local
+    /** Anyade una imagen a la base de datos local
      *
      * @param imagen La imagen a anyadir
      */
     public static void anyadirImagen(Imagen imagen){
         HashSet<Imagen> imagenes;
-        HashSet<Usuario> usuarios;
-        Usuario usuario;
 
-        usuario = buscarUsuario(imagen.getUidUser());
         imagenes = baseDatos.get(Tablas.Imagenes.name());
-        usuarios = baseDatos.get(Tablas.Usuarios.name());
         imagenes.add(imagen);
-        usuarios.add(usuario);
         baseDatos.put(Tablas.Imagenes.name(),imagenes);
-        baseDatos.put(Tablas.Usuarios.name(),usuarios);
+    }
+
+    public static void anyadirBando(Imagen imagen){
+        HashSet<Imagen> bandos;
+
+        bandos = baseDatos.get(Tablas.Bandos.name());
+        bandos.add(imagen);
+        baseDatos.put(Tablas.Bandos.name(),bandos);
     }
 
    /* *//** Anyade una imagen al dia en cuestion de fiestas y su usuario a la base de datos local
@@ -1265,7 +1275,7 @@ public final class Utils {
         referenciaFire = new HashMap<>();
         establecerEstructurasIniciales(); //Limpiamos valores sobreescritos
         if (tabla !=null)
-            if (!tabla.equals(Tablas.Bandos.name()) && !tabla.equals(Tablas.Imagenes.name()) && !tabla.equals(Tablas.Terrats.name())) {
+            if (!tabla.equals(Tablas.Bandos.name()) && !tabla.equals(Tablas.Imagenes.name()) && !tabla.equals(Tablas.Terrats.name())  && !tabla.equals(Tablas.Racons.name())) {
                 ////Tabla = "DiasFiestas + uidDiaFiesta + uidEvento"
                 params = tabla.split(" ");
                 tablaOk = params[0];
@@ -1318,15 +1328,51 @@ public final class Utils {
 
     public static void loaders() {
         final HashSet<Usuario> usuarios;
+        final HashSet<Imagen> terrats;
+        final HashSet<Imagen> racons;
+
         usuarios = new HashSet<>();
+        terrats = new HashSet<>();
+        racons = new HashSet<>();
         mDataBaseUsersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Usuario usuario = postSnapshot.getValue(Usuario.class);
                     usuarios.add(usuario);
+                    Log.e("USUARIO AÑADIDO",usuario.nombre);
                 }
                 baseDatos.put(Tablas.Usuarios.name(),usuarios);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        mDataBaseTerratRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Imagen terrat = postSnapshot.getValue(Imagen.class);
+                    terrats.add(terrat);
+                    Log.e("TERRAT AÑADIDO",terrat.titulo);
+                }
+                baseDatos.put(Tablas.Terrats.name(),terrats);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        mDataBaseRacoRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Imagen raco = postSnapshot.getValue(Imagen.class);
+                    racons.add(raco);
+                    Log.e("RACO AÑADIDO",raco.titulo);
+                }
+                baseDatos.put(Tablas.Racons.name(),racons);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

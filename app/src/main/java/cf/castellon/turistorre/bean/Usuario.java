@@ -120,7 +120,13 @@ public class Usuario implements Parcelable{
 
     @Override
     public boolean equals(Object obj) {
-        Usuario user = (Usuario)obj;
-        return uidUser.equals(user.getUidUser());
+        Usuario user;
+        boolean iguales;
+
+        user = (Usuario)obj;
+        iguales = uidUser.equals(user.getUidUser());
+        if (iguales && !user.getGrupo().equals(grupo))  //Actalizamos cambios de grupos
+            user.setGrupo(grupo);
+        return iguales;
     }
 }

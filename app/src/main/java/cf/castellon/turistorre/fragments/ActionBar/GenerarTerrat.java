@@ -26,7 +26,7 @@ public class GenerarTerrat extends Fragment {
     public AppCompatActivity mActivity;
     OnPedirPermisosListener mCallback;
     public interface OnPedirPermisosListener {
-        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView imageView);
+        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView imageView, boolean camara);
         void goGaleria(String tipoBean, ImageView terrat);
     }
 
@@ -67,7 +67,7 @@ public class GenerarTerrat extends Fragment {
                     if (numPermisos==2)
                         mCallback.goGaleria(Tablas.Terrats.name(),ivTerrat);
                     else
-                        mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, ivTerrat, Tablas.Terrats.name(), ivTerrat);
+                        mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, ivTerrat, Tablas.Terrats.name(), ivTerrat, false);
                     ivTerrat.setImageBitmap(null);
                     break;
             }

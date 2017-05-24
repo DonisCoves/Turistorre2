@@ -3,6 +3,7 @@ package cf.castellon.turistorre.fragments.Click;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,22 +33,6 @@ public class RaconsPagina extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         inflatedView = inflater.inflate(R.layout.mipagefragment_carrusel_raco_layout, container, false);
         ButterKnife.bind(this,inflatedView);
-        inflatedView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction;
-                Bundle bund;
-                RacoSeleccionado racoSeleccionado;
-
-                bund = new Bundle();
-                bund.putParcelable("imagen",raco);
-                racoSeleccionado = new RacoSeleccionado();
-                racoSeleccionado.setArguments(bund);
-                fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame,racoSeleccionado).commit();
-            }
-        });
-
         tvTitulo.setText(raco.getTitulo());
         tvDescripcion.setText(raco.getDescripcion());
         Uri urlImg = Uri.parse(raco.getUriStr());

@@ -45,7 +45,7 @@ public class GaleriaRecyclerView extends Fragment{
     AppCompatActivity mActivity;
     OnPedirPermisosListener mCallback;
     public interface OnPedirPermisosListener {
-        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView ivImagen);
+        void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView ivImagen, boolean camara);
         void goCamera(String tipoBean,ImageView ivImagen);
     }
 
@@ -149,7 +149,7 @@ public class GaleriaRecyclerView extends Fragment{
                     if (numPermisos==2)
                         mCallback.goCamera(Tablas.Imagenes.name(),null);
                     else
-                        mCallback.pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, recView, Tablas.Imagenes.name(), null);
+                        mCallback.pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, recView, Tablas.Imagenes.name(), null, true);
                     break;
             }
         else

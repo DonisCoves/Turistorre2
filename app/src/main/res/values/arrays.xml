@@ -109,16 +109,18 @@
     </array>
 
     <string-array name="notificaciones">
+        <item>Ninguna</item>
         <item>Todas</item>
         <item>Bandos</item>
+        <item>Terrats</item>
         <item>Imagenes</item>
-        <item>Ninguna</item>
     </string-array>
 
     <string-array name="idiomas">
         <item>Catalán</item>
         <item>Castellano</item>
         <item>Inglés</item>
+        <item>Poble</item>
     </string-array>
 
     <string-array name="grupos">

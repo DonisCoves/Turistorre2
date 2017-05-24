@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import static cf.castellon.turistorre.utils.Constantes.*;
+import static cf.castellon.turistorre.utils.Utils.buscarTerrat;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,19 +47,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     showCambioGrupoNotification(remoteMessage);
                     break;
                 case ACTION_GPO_TERRAT:
+                    showTerratNotification(remoteMessage);
                     ref = mDataBaseImgRef.child(remoteMessage.getData().get("uidTerrat"));
-                    /*ref.addValueEventListener(
-                            new ValueEventListener() {
-                                @Override
-                                public void onDataChange(DataSnapshot dataSnapshot) {
-                                    Imagen pano = dataSnapshot.getValue(Imagen.class);
-                                    showTerratNotification(pano, remoteMessage);
-                                }
-                                @Override
-                                public void onCancelled(DatabaseError databaseError) {
-                                    Log.w(TAG, "Bando:onCancelled", databaseError.toException());
-                                }
-                            });*/
                     break;
             }
         }
@@ -127,24 +117,35 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         manager.notify(0, builder.build());
     }
 
-    private void showTerratNotification(Imagen pano, RemoteMessage remoteMessage) {
-        Intent i = new Intent(this, MainActivity.class);
-        i.setAction(ACTION_GPO_TERRAT);
-        i.putExtra("uidTerrat", remoteMessage.getData().get("uidTerrat"));
-        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        int idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(), "raw", getPackageName());
-        Uri sonido = Uri.parse("android.resource://" + getBaseContext().getPackageName() + "/" + idSound);
+    private void showTerratNotification(RemoteMessage remoteMessage) {
+        Map<String, String> datos ;
+        Intent i ;
+        PendingIntent pendingIntent;
+        int idSound;
+        Uri sonido;
+        NotificationCompat.Builder builder;
+        NotificationManager manager;
+        Imagen pano;
+        String uidTerrat;
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+        datos = remoteMessage.getData();
+        i= new Intent(this, MainActivity.class);
+        i.setAction(ACTION_GPO_TERRAT);
+        uidTerrat = datos.get("uidTerrat");
+        i.putExtra("uidTerrat", uidTerrat);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        pano  = buscarTerrat(uidTerrat);
+        pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
+        idSound = getResources().getIdentifier(remoteMessage.getNotification().getSound(), "raw", getPackageName());
+        sonido = Uri.parse("android.resource://" + getBaseContext().getPackageName() + "/" + idSound);
+        builder = new NotificationCompat.Builder(this)
                 .setAutoCancel(true)
                 .setContentTitle("Terrat añadido en:")
                 .setContentText(pano.getTitulo())
                 .setSound(sonido)
-                .setSmallIcon(R.drawable.ic_action_ic_terraza)
+                .setSmallIcon(R.drawable.ic_action_terrat)
                 .setContentIntent(pendingIntent);
-
-        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
     }
 

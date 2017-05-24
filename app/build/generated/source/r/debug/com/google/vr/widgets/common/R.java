@@ -11,10 +11,10 @@ public final class R {
         public static final int button_padding = 0x7f09005b;
     }
     public static final class drawable {
-        public static final int quantum_ic_cardboard_white_24 = 0x7f0200ac;
-        public static final int quantum_ic_close_white_24 = 0x7f0200ad;
-        public static final int quantum_ic_fullscreen_white_24 = 0x7f0200ae;
-        public static final int quantum_ic_info_white_24 = 0x7f0200af;
+        public static final int quantum_ic_cardboard_white_24 = 0x7f0200ad;
+        public static final int quantum_ic_close_white_24 = 0x7f0200ae;
+        public static final int quantum_ic_fullscreen_white_24 = 0x7f0200af;
+        public static final int quantum_ic_info_white_24 = 0x7f0200b0;
     }
     public static final class id {
         public static final int control_layout = 0x7f0f011d;

@@ -44,6 +44,10 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_drawer_settings_remote.png"
     },
     {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_terrat.png",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_terrat.png"
+    },
+    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_action_home.png",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\ic_action_home.png"
     },

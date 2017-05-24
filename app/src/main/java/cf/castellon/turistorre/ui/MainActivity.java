@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     String tabla;
 	Uri fileUri;
     ImageView imageView;
+    boolean camara;  // para distinguir en los permisos si hacemos foto o galeria
     /**
      * En la creación de la actividad hacemos:
      * 1.-Creamos un acction Bar (ActionBarDrawerToggle) el cual manejará los eventos entre
@@ -242,25 +243,13 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 //Falta para tablets
                 Bundle bund2 = getIntent().getExtras();
                 String uidTerrat = bund2.getString("uidTerrat");
-                mDataBaseTerratRef.child(uidTerrat).addListenerForSingleValueEvent(
-                        new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                Imagen pano  = dataSnapshot.getValue(Imagen.class);
-                                Usuario usuario = buscarUsuario(pano.getUidUser());
-                                Bundle bund = new Bundle();
-                                bund.putParcelable("imagen",pano);
-                                bund.putParcelable("usuario",usuario);
-                                frSeccion.setArguments(bund);
-                                fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
-                            }
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                                Log.e(TAG, "notificacionBando:onFailure: "+ databaseError.getMessage());
-                                hideProgressDialog();
-                            }
-                        });
-                break;
+                Imagen pano  = buscarTerrat(uidTerrat);
+                Usuario usuario = buscarUsuario(pano.getUidUser());
+                Bundle bund3 = new Bundle();
+                bund3.putParcelable("imagen",pano);
+                bund3.putParcelable("usuario",usuario);
+                frSeccion.setArguments(bund3);
+                fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
         }
     }
 
@@ -456,6 +445,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                         case "Bandos":
                             imageView.setImageURI(fileUri);
                             break;
+                        case "Racons":
+                            imageView.setImageURI(fileUri);
+                            break;
                         case "Imagenes":
                             guardarFotoStorageFire(referenciaFire, this, getSupportFragmentManager(),null,null);
                             break;
@@ -499,9 +491,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
 
     @SuppressLint("NewAPi")
-    public void pedirPermiso(final String permiso, final int permisoRequest, View viewSnack, String tabla, ImageView imageView) {
+    public void pedirPermiso(final String permiso, final int permisoRequest, View viewSnack, String tabla, ImageView imageView, boolean camara) {
         this.tabla = tabla;
         this.imageView = imageView;
+        this.camara = camara;
         // Si no tenemos el permiso:(la primera vez no lo tendremos pq no hemos lanzado la pregunta)
         if (ContextCompat.checkSelfPermission(getBaseContext(), permiso) != PackageManager.PERMISSION_GRANTED)
             if (shouldShowRequestPermissionRationale(permiso)) {
@@ -517,10 +510,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 requestPermissions(new String[]{permiso}, permisoRequest);
             // Si tenemos el permiso concedido , no tendremos en de la cámara
         else if (numPermisos != 2)
-            if (imageView!=null)
-                pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, viewSnack, tabla, imageView);
+            if (this.camara)
+                pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, viewSnack, tabla, imageView, this.camara);
             else
-                pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack, tabla, imageView);
+                pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack, tabla, imageView, this.camara);
 
     }
 
@@ -530,13 +523,15 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
 
         switch (requestCode) {
             case PERMISO_CAMARA :
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     ++numPermisos;
+                    pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, new View(getBaseContext()), tabla, imageView, camara);
+                }
                 break;
             case PERMISO_ESCRIBIR_SD :
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     ++numPermisos;
-                    pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, new View(getBaseContext()), tabla, imageView);
+                    pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, new View(getBaseContext()), tabla, imageView, camara);
                 }
                 break;
         }
@@ -544,10 +539,10 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         editor.putInt("numPermisos", numPermisos);
         editor.apply();
         if (numPermisos==2)
-            if (imageView!=null)
-                goGaleria(tabla,imageView);
-            else
+            if (camara)
                 goCamera(tabla,imageView);
+            else
+                goGaleria(tabla,imageView);
     }
 
     @Override

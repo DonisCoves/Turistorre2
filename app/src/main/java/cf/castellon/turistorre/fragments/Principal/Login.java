@@ -412,26 +412,28 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
      }
 
     private void crearUsuarioBBDDFire(final String userId, final String nombre,final String email, final String avatar, final String grupo) {
+        final String uidUser;
+
+        uidUser = parserId(userId);
         mAuthProgressDialog.show();//No me aparece el dialogo
         editor = prefs.edit();
-        editor.putString("uidUser", userId);
+        editor.putString("uidUser", uidUser);
         editor.apply();
 
         if (nombre.equalsIgnoreCase("TurisTorre Turistorre")){
-            usuario = new Usuario(nombre, avatar, email,  userId, "administrador");
+            usuario = new Usuario(nombre, avatar, email,  uidUser, "administrador");
             FirebaseMessaging.getInstance().subscribeToTopic("administrador");
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean("userBandos", true);
             editor.apply();
         }
         else
-            usuario = new Usuario(nombre, avatar, email, userId, grupo);
-        anyadirUsuario(usuario);
-        mDataBaseUsersRef.child(parserId(userId)).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
+            usuario = new Usuario(nombre, avatar, email, uidUser, grupo);
+        mDataBaseUsersRef.child(uidUser).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 mAuthProgressDialog.hide();
-                mDataBaseGruposRef.child(usuario.getGrupo()).child(parserId(userId)).setValue(usuario);
+                mDataBaseGruposRef.child(usuario.getGrupo()).child(uidUser).setValue(usuario);
             }
 
         }).addOnFailureListener(new OnFailureListener() {
