@@ -387,12 +387,11 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

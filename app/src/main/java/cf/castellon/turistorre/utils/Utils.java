@@ -509,8 +509,8 @@ public final class Utils {
         Log.e(TAG,"Clase: "+clase+"\nMétodo: "+metodo+"\nMotivo: "+descripcion);
     }
 
-    public static void showToast(Context context, String descripcion) {
-        Toast.makeText(context,context.getString(R.string.adminUpload) + " " + descripcion,Toast.LENGTH_LONG).show();
+    public static void showToast(Context context, int descripcion) {
+        Toast.makeText(context,context.getString(R.string.atencion) + " " + context.getString(descripcion),Toast.LENGTH_LONG).show();
     }
 
     public static void showWarning(Context context, int descripcion) {
@@ -641,50 +641,47 @@ public final class Utils {
         final DatabaseReference dbRef;
 
         dbRef = rootRef.child(imagen.getUidImg());
-        try {
-            dbRef.setValue(imagen).addOnSuccessListener(activity, new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    String tabla;
-                    FragmentTransaction fragmentTransaction;
-                    hideProgressDialog();
-                    showWarning(context,R.string.imgUploadOk);
-                    tabla= parsearKeyATabla(rootRef.getKey());
-                    switch (tabla) {
-                        case "Terrats":
-                            generarNotificacionTerrat(imagen.getTitulo(), imagen.getUidImg());
-                            fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, new TerratsRecyclerView()).commit();
-                            break;
-                        case "Racons":
-                            anyadirRaco(imagen);
-                            fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, new RaconsViewPager()).commit();
-                            break;
-                        case "Bandos":
-                            generarNotificacionBando(context, imagen,dbRef.getKey());
-                            fragmentTransaction = fragmentManager.beginTransaction();
-                            fragmentTransaction.replace(R.id.content_frame, new BandoRecyclerView()).commit();
-                            break;
-                        case "DiasFiestas" :
+        dbRef.setValue(imagen).addOnSuccessListener(activity, new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                String tabla;
+                FragmentTransaction fragmentTransaction;
+                hideProgressDialog();
+                showToast(context,R.string.imgUploadOk);
+                tabla= parsearKeyATabla(rootRef.getKey());
+                switch (tabla) {
+                    case "Terrats":
+                        generarNotificacionTerrat(imagen.getTitulo(), imagen.getUidImg());
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, new TerratsRecyclerView()).commit();
+                        break;
+                    case "Racons":
+                        anyadirRaco(imagen);
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, new RaconsViewPager()).commit();
+                        break;
+                    case "Bandos":
+                        generarNotificacionBando(context, imagen,dbRef.getKey());
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, new BandoRecyclerView()).commit();
+                        break;
+                    case "DiasFiestas" :
 //                            anyadirImagenDiaFiesta(imagen);
-                            break;
+                        break;
+                }
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        FragmentTransaction fragmentTransaction;
+                        if (exception.getMessage().equals("Firebase Database error: Permission denied"))
+                            showToast(context, R.string.adminUpload);
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.content_frame, new RaconsViewPager()).commit();
+                        hideProgressDialog();
                     }
-
-                }
-            })
-                    .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    if (exception.getMessage().equals("Firebase Database error: Permission denied"))
-                        showToast(context, context.getString(R.string.adminUpload));
-                    hideProgressDialog();
-                }
-            });
-        }
-        catch (DatabaseException exception) {
-            showError(activity,"guardarFotoBBDDFire", exception.getStackTrace()[0].getMethodName(),exception.toString());
-        }
+                });
     }
 
     public static void anyadirImagenDiaFiesta(Imagen imagen,String uidDiaFiesta, String uidEvento) {
@@ -804,14 +801,6 @@ public final class Utils {
         baseDatos.put(Tablas.Imagenes.name(),imagenes);
     }
 
-    public static void anyadirBando(Imagen imagen){
-        HashSet<Imagen> bandos;
-
-        bandos = baseDatos.get(Tablas.Bandos.name());
-        bandos.add(imagen);
-        baseDatos.put(Tablas.Bandos.name(),bandos);
-    }
-
     /** Anyade una imagen y su usuario a la base de datos local
      *
      * @param imagen La imagen a anyadir
@@ -828,18 +817,6 @@ public final class Utils {
         usuarios.add(usuario);
         baseDatos.put(Tablas.Racons.name(),imagenes);
         baseDatos.put(Tablas.Usuarios.name(),usuarios);
-    }
-
-    public static void anyadirUsuario(Usuario usuario){
-        HashSet<Usuario> usuarios;
-        usuarios = baseDatos.get(Tablas.Usuarios.name());
-        usuarios.add(usuario);
-    }
-
-    public static void anyadirUsuario(String uidUser){
-        HashSet<Usuario> usuarios;
-        usuarios = baseDatos.get(Tablas.Usuarios.name());
-        usuarios.add(usuario);
     }
 
     public static Map<String,Object> parsearParametrosRFire(String tabla) {

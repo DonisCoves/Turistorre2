@@ -91,6 +91,6 @@ public class GenerarBando extends Fragment {
         if (!etTitulo.getText().toString().isEmpty() && !etDescripcion.getText().toString().isEmpty() && fileUri!=null)
             guardarFotoStorageFire(tipoBando,getContext(),getFragmentManager(),etTitulo.getText().toString(),etDescripcion.getText().toString());
          else
-            showWarning(getContext(),R.string.rellena);
+            showToast(getContext(),R.string.rellena);
     }
 }

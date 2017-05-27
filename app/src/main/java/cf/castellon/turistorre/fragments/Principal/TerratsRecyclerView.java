@@ -39,7 +39,7 @@ public class TerratsRecyclerView extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adaptador = new MyFireAdapterTerratsRecyclerView(Imagen.class, R.layout.fila_fire_terrat_recycle, MyFireAdapterTerratsRecyclerView.MyFireViewHolder.class, mDataBaseTerratRef);
-        manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     }
 
@@ -51,6 +51,7 @@ public class TerratsRecyclerView extends Fragment {
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         recView.setHasFixedSize(true);
+        manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recView.setLayoutManager(manager);
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +65,7 @@ public class TerratsRecyclerView extends Fragment {
                 terratSeleccionadoFragment.setArguments(bund);
                 fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, terratSeleccionadoFragment).commit();
+                fragmentTransaction.addToBackStack(null);
             }
         });
         recView.setAdapter(adaptador);

@@ -13,7 +13,7 @@
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/spring_tones_azul2"
+        android:background="@drawable/drawer_degrad"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp" />
