@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\googleg_standard_color_18.png",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\img_8.jpg",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\drawable-hdpi\\img_8.jpg"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\googleg_standard_color_18.png",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\messenger_bubble_large_blue.png",

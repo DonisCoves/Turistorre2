@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -21,7 +20,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -42,7 +40,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.ParseException;
@@ -58,7 +55,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 import java.util.StringTokenizer;
-import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.FragmentPageCarruselAdapter;
 import cf.castellon.turistorre.bean.DiaFiesta;
@@ -72,7 +68,6 @@ import cf.castellon.turistorre.fragments.Click.GaleriaPagina;
 import cf.castellon.turistorre.fragments.Principal.BandoRecyclerView;
 import cf.castellon.turistorre.fragments.Principal.RaconsViewPager;
 import cf.castellon.turistorre.fragments.Principal.TerratsRecyclerView;
-
 import static cf.castellon.turistorre.utils.Constantes.*;
 
 /**
@@ -86,9 +81,6 @@ public final class Utils {
 
     /* Track whether the sign-in button has been clicked so that we know to resolve all issues preventing sign-in
      * without waiting. */
-    public static boolean mGoogleLoginClicked;
-    /* A flag indicating that a PendingIntent is in progress and prevents us from starting further intents. */
-    public static boolean mGoogleIntentInProgress;
     /* Client used to interact with Google APIs. */
     public static GoogleApiClient mGoogleApiClient;
     //Lista para actualizar los logins(enabled,disabled)
@@ -98,7 +90,6 @@ public final class Utils {
     public static boolean colorCambiado;
     public static String tokenFireBase;
     public static Usuario usuario;
-    //public static Map<String,Map<String,List<String>>> homes=new HashMap<>();
     public static Map<String, HashSet> baseDatos = new HashMap<>();
     public static String portadaRC, usuarioUidRC;
     public static FirebaseRemoteConfig mFirebaseRemoteConfig;
@@ -113,7 +104,6 @@ public final class Utils {
      */
     //Variable que utilizaremos para seguir con la app si tenemos todos los permisos
     public static int numPermisos;
-    private static String rutaImgUser;
 
     /********************************************
      * FIESTAS
@@ -260,41 +250,6 @@ public final class Utils {
         return evento;
     }
 
-    //Dado un id nos devuelve si existe
-    public static boolean existeUsuario(String uidUser) {
-        boolean encontrado = false;
-        /*Usuario usuario = null;
-        int i = 0;
-
-        while (!encontrado) {
-            usuario = usuarios.get(i++);
-            if (usuario.getUidUser().equals(uidUser))
-                encontrado = true;
-        }*/
-        return encontrado;
-    }
-
-    public static void showProgressDialog(Context context) {
-        if (mProgressDialog != null)
-            if (!mProgressDialog.isShowing()) {// aqui entramos sino hay actividad
-                mProgressDialog = new ProgressDialog(context);
-                mProgressDialog.setMessage(context.getString(R.string.cargando));
-                mProgressDialog.setIndeterminate(true);
-                mProgressDialog.show();
-            } else {
-                try {
-                    mProgressDialog.show();
-                } catch (Exception e) {
-                    Log.e("er", e.getMessage());
-                }
-            }
-        else { //null
-            mProgressDialog = new ProgressDialog(context);
-            mProgressDialog.setMessage(context.getString(R.string.cargando));
-            mProgressDialog.setIndeterminate(true);
-        }
-    }
-
     public static void showProgressDialog(Context context, String mensaje) {
         if (mProgressDialog != null){
             if (!mProgressDialog.isShowing()) {// aqui entramos sino hay actividad
@@ -312,110 +267,11 @@ public final class Utils {
         }
     }
 
-    /*public static void showProgressDialog(Context context, String mensaje) {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(context);
-            mProgressDialog.setMessage(mensaje + " ...");
-            mProgressDialog.setIndeterminate(true);
-        }
-        mProgressDialog.show();
-    }*/
-
     public static void hideProgressDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
     }
-
-    /**
-     * CARRUSELGALERIAFRAGMENT
-     */
-
-    @Nullable
-    public static Imagen buscarImagen(String uidImagen) {
-        for (Imagen img : (List<Imagen>)baseDatos.get(Tablas.Imagenes.name()))
-            if (img.getUidImg().equals(uidImagen))
-                return img;
-        return null;
-    }
-
-   /* @Nullable
-    public static DiaFiesta buscarDiaFiesta(String uidDiaFiesta) {
-        for (DiaFiesta diaFiesta : (List<DiaFiesta>)baseDatos.get(Tablas.DiasFiestas.name()))
-            if (diaFiesta.getUidDiaFiesta().equals(uidDiaFiesta))
-                return diaFiesta;
-        return null;
-    }*/
-
-    public static void crearImagenes() {
-       /* mDataBaseImgRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Imagen imagen = postSnapshot.getValue(Imagen.class);
-                    imagenes.add(imagen);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });*/
-    }
-
-    public static void crearRacons() {
-       /* mDataBaseImgRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Imagen raco = postSnapshot.getValue(Imagen.class);
-                    racons.add(raco);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });*/
-    }
-
-    public static void crearUsuarios() {
-       /* mDataBaseUsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Usuario usuario = postSnapshot.getValue(Usuario.class);
-                    anyadirUsuarioLocal(usuario);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });*/
-    }
-
-    @Nullable
-    public static Imagen buscarPanoramica(String uidPanoramica) {
-//        for (Imagen pano : panoramicas)
-//            if (pano.getUidImg().equals(uidPanoramica))
-//                return pano;
-        return null;
-    }
-
-//    /***
-//     * Dado un usuario devuelve todas sus imagenes(url's)
-//     * @param uidUser
-//     * @return
-//     */
-//    public static List<String> buscarImagenes(String uidUser) {
-//        List<String> urls = new ArrayList<>();
-//        for (Imagen imagen : imagenes) {
-//            if (imagen.getUidUser().equalsIgnoreCase(uidUser))
-//                urls.add(imagen.getUriStr());
-//        }
-//        return urls;
-//    }
 
     public static HashSet<Imagen> buscarImagenes(String uidUser) {
         HashSet<Imagen> imagenes;
@@ -431,54 +287,6 @@ public final class Utils {
         }
         return imagenesUser;
     }
-
-    /*public static ArrayList<String> getIdsImagenes(){
-
-
-        mDataBaseImgRef.addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        HashMap map = (HashMap)dataSnapshot.getValue();
-                        List ids = new ArrayList (map.keySet());
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.w(TAG, "getUser:onCancelled", databaseError.toException());
-                        // ...
-                    }
-                });
-    }
-*/
-
-    /**
-     * Listado con todos los datos de las imagenes guardadas
-     */
-
-
-    /**
-     * Dado un id de usuario devuelve la ruta(referencia) donde tiene almacenadas las imagenes
-     * @param id
-     * @return
-     */
-    /*public static String getPathUserStorage(final String id){
-        rootRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Usuario user = dataSnapshot.getValue(Usuario.class);
-                rutaImgUser = user.nombre + " - " + id;
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.w("sfsdf", "loadPost:onCancelled", databaseError.toException());
-            }
-        });
-
-
-        return rutaImgUser;
-    }*/
 
     /**
      * LOGINFRAGMENT
@@ -500,69 +308,8 @@ public final class Utils {
         }
         return false;
     }
-        /*for (UserInfo profile : mFirebaseUser.getProviderData())
-            if (profile.getProviderId().equals(providerId))
-                return true;
-        return false;
-    }*/
-
-    /**
-     * @param providerId
-     * @return
-     */
-
-    public static String getUrl(String providerId) {
-        String url = "";
-        for (UserInfo profile : mFirebaseUser.getProviderData())
-            if (profile.getProviderId().equals(providerId))
-                if (!providerId.equals("password"))
-                    url = profile.getPhotoUrl().toString();
-                else
-                    url = usuario.getAvatar();
-        return url;
-    }
 
     //  **************                  BANDOFRAGMENT **************************
-
-    /**
-     * Dada la ruta de una imagen existente, crea otra en la misma ubicacion cambiando su tamaño (w,h) y lo devuelve un array de bytes para poderlo subir a FireBaseStorage
-     *
-     * @param pathUri
-     * @param w
-     * @param h
-     * @return
-     */
-
-    public static byte[] escalarImagen(Uri pathUri, int w, int h) {
-        byte[] data;
-//        1.- Crear un bitmap desde una uri existente
-        Bitmap bitmap = BitmapFactory.decodeFile(pathUri.getPath());
-//        2.-Escalar bitmap
-        int width = bitmap.getWidth(); //2340
-        int height = bitmap.getHeight(); //4160
-        int newWidth = w;
-        int newHeight = h;
-        // calculamos el escalado de la imagen destino
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        // para poder manipular la imagen  debemos crear una matriz
-        Matrix matrix = new Matrix();
-        matrix.postScale(1 / 4f, 1 / 4f);
-        // volvemos a crear la imagen con los nuevos valores
-        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-//        3.- Bitmap a byte []
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        try {
-            data = baos.toByteArray();
-            baos.flush();
-            baos.close();
-        } catch (Exception e) {
-            data = null;
-            e.printStackTrace();
-        }
-        return data;
-    }
 
     public static byte[] escalarImagen(Uri pathUri, float escalado) {
         byte[] data;
@@ -598,39 +345,6 @@ public final class Utils {
         return data;
     }
 
-    public static byte[] escalarPanoramica(Uri pathUri) {
-        byte[] data;
-        Bitmap bitmap = null;
-        try {
-            bitmap = BitmapFactory.decodeFile(pathUri.getPath());
-
-        } catch (OutOfMemoryError er) { //Si la imagen es muy grande
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 2;
-            bitmap = BitmapFactory.decodeFile(pathUri.getPath(), options);
-        } catch (Exception e) {
-            Log.e("sds", e.getMessage());
-        }
-        int width = bitmap.getWidth(); //2340
-        int height = bitmap.getHeight(); //4160
-        Matrix matrix = new Matrix();
-        if (height > width)
-            matrix.postRotate(90);
-
-        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        try {
-            data = baos.toByteArray();
-            baos.flush();
-            baos.close();
-        } catch (Exception e) {
-            data = null;
-            e.printStackTrace();
-        }
-        return data;
-    }
-
     public static Uri getOutputMediaFile() {
         File mediaFile;
         File mediaStorageDir;
@@ -641,51 +355,6 @@ public final class Utils {
         timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
         return Uri.fromFile(mediaFile);
-    }
-
-    /**
-     * Le pasamos un conjunto de vistas y una lista de booleans y establece la visibilidad en funcion de la lista
-     */
-    public static final ButterKnife.Setter<View, List<Boolean>> UPDATEVIEW = new ButterKnife.Setter<View, List<Boolean>>() {
-        @Override
-        public void set(View view, List<Boolean> value, int index) {
-            if (value.get(index))
-                view.setVisibility(View.VISIBLE);
-            else
-                view.setVisibility(View.GONE);
-        }
-    };
-
-    //A partir de 6.0 hay que pedir los permisos "peligrosos" en tiempo de ejecucion
-
-    public static boolean isExternalStorageAvailable() {
-        String state = Environment.getExternalStorageState();
-        if (state.equals(Environment.MEDIA_MOUNTED)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private static void logSd(File mediaStorageDir, Activity m) {
-        Log.d("MainActivity", ">> Let's debug why this directory isn't being created: ");
-        Log.d("MainActivity", "Is it working?: " + mediaStorageDir.mkdirs());
-        Log.d("MainActivity", "Is it available?: " + isExternalStorageAvailable());
-        Log.d("MainActivity", "Does it exist?: " + mediaStorageDir.exists());
-        Log.d("MainActivity", "What is the full URI?: " + mediaStorageDir.toURI());
-        Log.d("MainActivity", "--");
-        Log.d("MainActivity", "Can we write to this file?: " + mediaStorageDir.canWrite());
-        if (!mediaStorageDir.canWrite()) {
-            Log.d("MainActivity", ">> We can't write! Do we have WRITE_EXTERNAL_STORAGE permission?");
-            if (m.getBaseContext().checkCallingOrSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == PackageManager.PERMISSION_DENIED) {
-                Log.d("MainActivity", ">> We don't have permission to write - please add it.");
-            } else {
-                Log.d("MainActivity", "We do have permission - the problem lies elsewhere.");
-            }
-        }
-        Log.d("MainActivity", "Are we even allowed to read this file?: " + mediaStorageDir.canRead());
-        Log.d("MainActivity", "--");
-        Log.d("MainActivity", ">> End of debugging.");
     }
 
     /**
@@ -747,46 +416,6 @@ public final class Utils {
         requestQueue.add(mStringRequest);
     }
 
-    /***
-     * Envia una notificacion de que se ha creado un bando
-     *
-     * @param
-     */
-   /* public static void activarNotificacionBando(final String titulo, final String fecha, final String refBando, final Context context){
-        RequestQueue requestQueue;
-        StringRequest mStringRequest;
-
-        requestQueue= Volley.newRequestQueue(context);
-        mStringRequest  = new StringRequest(Request.Method.GET, HEROKU_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {  // No esta dormido
-                        generarNotificacionBando(titulo,fecha,refBando);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {  // Esta dormido, lo activamos y volvemos a lanzar
-                activarNotificacionBando(titulo, fecha,refBando,context);
-            }
-        });*/
-
-        /*requestQueue= Volley.newRequestQueue(context);
-        mStringRequest  = new StringRequest(Request.Method.GET, HEROKU_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {  // No esta dormido
-                        generarNotificacionBando(titulo,fecha,refBando);
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {  // Esta dormido
-                generarNotificacionBando(titulo,fecha,refBando);
-            }
-        });*/
-
-//        requestQueue.add(mStringRequest);
-
-//    }
     public static void generarNotificacionBando(Context context, Imagen bando, String refBando) {
         FirebaseMessaging fm;
         Random random;
@@ -880,6 +509,10 @@ public final class Utils {
         Log.e(TAG,"Clase: "+clase+"\nMétodo: "+metodo+"\nMotivo: "+descripcion);
     }
 
+    public static void showToast(Context context, String descripcion) {
+        Toast.makeText(context,context.getString(R.string.adminUpload) + " " + descripcion,Toast.LENGTH_LONG).show();
+    }
+
     public static void showWarning(Context context, int descripcion) {
         Toast.makeText(context,descripcion,Toast.LENGTH_LONG).show();
         Log.w(TAG,context.getString(descripcion));
@@ -934,7 +567,6 @@ public final class Utils {
         pathPre = pathPre.concat("_PRE.jpg");
         mStorageRefPre = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+uidUser).child(pathPre);
         showProgressDialog(context,context.getString(R.string.dataUpload));
-        Log.d(TAG, "uploadFromUri:dst:" + mStorageRef.getPath());
         mStorageRefPre.putBytes(escalarImagen(uri,1/8f)) //Pre
                 .addOnSuccessListener(activity, new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -971,7 +603,6 @@ public final class Utils {
                 .addOnSuccessListener(activity, new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.d(TAG, "uploadFromUri:onSuccess");
                         hideProgressDialog();
                         if (datosImagenOk) {
                                 imagenStatic.setUriStr(taskSnapshot.getDownloadUrl().toString());
@@ -1045,7 +676,8 @@ public final class Utils {
                     .addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
-                    showError(context,getClass().getName(), exception.getStackTrace()[0].getMethodName(),exception.toString());
+                    if (exception.getMessage().equals("Firebase Database error: Permission denied"))
+                        showToast(context, context.getString(R.string.adminUpload));
                     hideProgressDialog();
                 }
             });
@@ -1053,25 +685,6 @@ public final class Utils {
         catch (DatabaseException exception) {
             showError(activity,"guardarFotoBBDDFire", exception.getStackTrace()[0].getMethodName(),exception.toString());
         }
-    }
-
-    public static void anyadirImagenDiaFiesta(Imagen imagen) {
-        HashSet<DiaFiesta> diasFiestaHash;
-        DiaFiesta diaFiesta;
-        Evento evento;
-        Map<String,Imagen> imagenes;
-        String uidDiaFiesta, uidEvento;
-
-        uidDiaFiesta = obtenerUidDiaFiesta();
-        uidEvento = obtenerUidEvento();
-        diasFiestaHash = baseDatos.get(Tablas.DiasFiestas.name());
-        diaFiesta = buscarDiaFiesta(uidDiaFiesta);
-        evento = buscarEvento(diaFiesta,uidEvento);
-        //Una vez guardada la imagen guardamos toda su estructura
-        evento.addImagen(imagen);
-        diaFiesta.addEvento(evento);
-        diasFiestaHash.add(diaFiesta);
-        baseDatos.put(Tablas.DiasFiestas.name(),diasFiestaHash);
     }
 
     public static void anyadirImagenDiaFiesta(Imagen imagen,String uidDiaFiesta, String uidEvento) {
@@ -1088,24 +701,6 @@ public final class Utils {
         diaFiesta.addEvento(evento);
         diasFiestaHash.add(diaFiesta);
         baseDatos.put(Tablas.DiasFiestas.name(),diasFiestaHash);
-    }
-
-    private static String obtenerUidDiaFiesta() {
-        String uidDiaFiesta;
-        Map<String,Object> referenciaFire;
-
-        referenciaFire = referenciasFire.get(Tablas.DiasFiestas.name());
-        uidDiaFiesta = (String)referenciaFire.get("uidDiaFiesta");
-        return uidDiaFiesta;
-    }
-
-    private static String obtenerUidEvento() {
-        String uidEvento;
-        Map<String,Object> referenciaFire;
-
-        referenciaFire = referenciasFire.get(Tablas.DiasFiestas.name());
-        uidEvento = (String)referenciaFire.get("uidEvento");
-        return uidEvento;
     }
 
     private static String parsearKeyATabla(String key) {
@@ -1217,23 +812,6 @@ public final class Utils {
         baseDatos.put(Tablas.Bandos.name(),bandos);
     }
 
-   /* *//** Anyade una imagen al dia en cuestion de fiestas y su usuario a la base de datos local
-     *
-     * @param imagen La imagen a anyadir
-     *//*
-    public static void anyadirImagenDiaFiesta(String uidDiaFiesta, Imagen imagen){
-        HashSet<Imagen> diasFiestasHash;
-        DiaFiesta diaFiesta;
-
-        diasFiestasHash = baseDatos.get(Tablas.DiasFiestas.name());
-        buscarDiaFiesta(uidDiaFiesta);
-        imagenes.add(imagen);
-        usuarios.add(usuario);
-        baseDatos.put(Tablas.DiasFiestas.name(),imagenes);
-        baseDatos.put(Tablas.Usuarios.name(),usuarios);
-    }*/
-
-
     /** Anyade una imagen y su usuario a la base de datos local
      *
      * @param imagen La imagen a anyadir
@@ -1309,16 +887,6 @@ public final class Utils {
         return tablaOk;
     }
 
-    public static void guardarReferenciasDFiestas(String uidEvento, String uidDiaFiesta) {
-        Map<String,Object> referenciaFire;
-
-        establecerEstructurasIniciales();
-        referenciaFire = referenciasFire.get(Tablas.DiasFiestas.name());
-        referenciaFire.put("uidDiaFiesta",uidDiaFiesta);
-        referenciaFire.put("uidEvento",uidEvento);
-        referenciasFire.put(Tablas.DiasFiestas.name(), referenciaFire);
-    }
-
     public static String parserId(String userId) {
         userId = userId.replace("@","");
         userId = userId.replace(".","");
@@ -1339,7 +907,6 @@ public final class Utils {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Usuario usuario = postSnapshot.getValue(Usuario.class);
                     usuarios.add(usuario);
-                    Log.e("USUARIO AÑADIDO",usuario.nombre);
                 }
                 baseDatos.put(Tablas.Usuarios.name(),usuarios);
             }
@@ -1354,7 +921,6 @@ public final class Utils {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Imagen terrat = postSnapshot.getValue(Imagen.class);
                     terrats.add(terrat);
-                    Log.e("TERRAT AÑADIDO",terrat.titulo);
                 }
                 baseDatos.put(Tablas.Terrats.name(),terrats);
             }
@@ -1369,7 +935,6 @@ public final class Utils {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Imagen raco = postSnapshot.getValue(Imagen.class);
                     racons.add(raco);
-                    Log.e("RACO AÑADIDO",raco.titulo);
                 }
                 baseDatos.put(Tablas.Racons.name(),racons);
             }

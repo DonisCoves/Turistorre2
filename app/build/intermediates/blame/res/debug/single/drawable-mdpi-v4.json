@@ -8,12 +8,12 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\googleg_standard_color_18.png",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\messenger_bubble_large_white.png",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\drawable-mdpi-v4\\messenger_bubble_large_white.png"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\googleg_standard_color_18.png",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\38770808e3e75c1b31d4b406e587e4bc7b904cf2\\output\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",

@@ -13,6 +13,8 @@
     <string name="noVirtual">Tu móvil no está preparado para la Realidad Virtual!!</string>
     <string name="textoLargo">Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo Esto es un texto largo </string>
     <string name="textoTitulo">Esto es el titulo</string>
+    <string name="atencion">Atencion</string>
+    <string name="adminUpload">Solo el administrador puede subir racons</string>
 
     <!-- ****************************   Utils   **********************************************  -->
     <string name="imgUploadOk">Imagen subida correctamente</string>

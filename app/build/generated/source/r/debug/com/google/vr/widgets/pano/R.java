@@ -71,7 +71,7 @@ public final class R {
         public static final int dialog_vr_core_not_installed = 0x7f080042;
         public static final int go_to_playstore_button = 0x7f080043;
         public static final int go_to_vr_listeners_settings_button = 0x7f080044;
-        public static final int gvr_vr_mode_component = 0x7f080084;
+        public static final int gvr_vr_mode_component = 0x7f080086;
         public static final int no_browser_text = 0x7f080046;
         public static final int place_your_phone_into_cardboard = 0x7f080047;
         public static final int place_your_viewer_into_viewer_format = 0x7f080048;
