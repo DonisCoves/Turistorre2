@@ -21,13 +21,13 @@ import java.lang.Override;
 public class Login_ViewBinding implements Unbinder {
   private Login target;
 
-  private View view2131689693;
+  private View view2131689697;
 
-  private View view2131689696;
-
-  private View view2131689688;
+  private View view2131689700;
 
   private View view2131689692;
+
+  private View view2131689696;
 
   @UiThread
   public Login_ViewBinding(final Login target, View source) {
@@ -39,7 +39,7 @@ public class Login_ViewBinding implements Unbinder {
     target.password = Utils.findRequiredViewAsType(source, R.id.etPassword, "field 'password'", EditText.class);
     view = Utils.findRequiredView(source, R.id.btDesconectar, "field 'btnNativoDesc' and method 'onClick'");
     target.btnNativoDesc = Utils.castView(view, R.id.btDesconectar, "field 'btnNativoDesc'", Button.class);
-    view2131689693 = view;
+    view2131689697 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -54,7 +54,7 @@ public class Login_ViewBinding implements Unbinder {
     target.btnFacebook = Utils.findRequiredViewAsType(source, R.id.sign_conectar_f, "field 'btnFacebook'", LoginButton.class);
     view = Utils.findRequiredView(source, R.id.btn_desconectar_g, "field 'signoutG' and method 'onClick'");
     target.signoutG = Utils.castView(view, R.id.btn_desconectar_g, "field 'signoutG'", Button.class);
-    view2131689696 = view;
+    view2131689700 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -63,7 +63,7 @@ public class Login_ViewBinding implements Unbinder {
     });
     target.mGoogleLoginButton = Utils.findRequiredViewAsType(source, R.id.sign_conectar_g, "field 'mGoogleLoginButton'", SignInButton.class);
     view = Utils.findRequiredView(source, R.id.btnCrearCuenta, "method 'onClick'");
-    view2131689688 = view;
+    view2131689692 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -71,7 +71,7 @@ public class Login_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.btRegistrar, "method 'onClick'");
-    view2131689692 = view;
+    view2131689696 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -100,13 +100,13 @@ public class Login_ViewBinding implements Unbinder {
     target.signoutG = null;
     target.mGoogleLoginButton = null;
 
-    view2131689693.setOnClickListener(null);
-    view2131689693 = null;
-    view2131689696.setOnClickListener(null);
-    view2131689696 = null;
-    view2131689688.setOnClickListener(null);
-    view2131689688 = null;
+    view2131689697.setOnClickListener(null);
+    view2131689697 = null;
+    view2131689700.setOnClickListener(null);
+    view2131689700 = null;
     view2131689692.setOnClickListener(null);
     view2131689692 = null;
+    view2131689696.setOnClickListener(null);
+    view2131689696 = null;
   }
 }

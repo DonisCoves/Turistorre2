@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:2:1-72:12
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:2:1-70:12
 	package
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:3:5-38
 		INJECTED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml
@@ -40,7 +40,7 @@ ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:10:5-12:36
 	android:name
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:11:9-48
 application
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:14:5-70:19
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:14:5-68:19
 MERGED from [com.android.support:design:23.4.0] C:\Users\pccc\.android\build-cache\d19e944d6445e5c1f9c7471606b44befd9881255\output\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v13:23.4.0] C:\Users\pccc\.android\build-cache\dfbef64838beb985a00aeacea66ae9e1b9412b7d\output\AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.android:facebook-android-sdk:4.15.0] C:\Users\pccc\.android\build-cache\2d6fe20436dba6f66046f01b08800177580cd629\output\AndroidManifest.xml:28:5-38:19
@@ -159,20 +159,17 @@ action#com.google.firebase.INSTANCE_ID_EVENT
 ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:59:17-80
 	android:name
 		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:59:25-77
-activity#cf.castellon.turistorre.ui.SplashActivity
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:9-55
-	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:19-52
 provider#com.facebook.FacebookContentProvider
-ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:66:9-69:39
+ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:64:9-67:39
 	android:authorities
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:68:13-90
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:66:13-90
 	android:exported
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:69:13-36
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:67:13-36
 	android:name
-		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:67:13-64
+		ADDED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml:65:13-64
 uses-sdk
 INJECTED from C:\workspace\Turistorre\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:multidex:1.0.1] C:\Users\pccc\.android\build-cache\5878c1c2c2a64c0f3649cff2832588378586168c\output\AndroidManifest.xml:18:5-42
 MERGED from [com.android.support:design:23.4.0] C:\Users\pccc\.android\build-cache\d19e944d6445e5c1f9c7471606b44befd9881255\output\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v13:23.4.0] C:\Users\pccc\.android\build-cache\dfbef64838beb985a00aeacea66ae9e1b9412b7d\output\AndroidManifest.xml:20:5-44
 MERGED from [com.facebook.android:facebook-android-sdk:4.15.0] C:\Users\pccc\.android\build-cache\2d6fe20436dba6f66046f01b08800177580cd629\output\AndroidManifest.xml:24:5-26:41

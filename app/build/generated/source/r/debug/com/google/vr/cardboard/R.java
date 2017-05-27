@@ -9,7 +9,7 @@ package com.google.vr.cardboard;
 public final class R {
     public static final class color {
         public static final int alignment_marker_color = 0x7f0d0007;
-        public static final int white_transparent = 0x7f0d0082;
+        public static final int white_transparent = 0x7f0d0083;
     }
     public static final class dimen {
         public static final int alignment_marker_height = 0x7f090059;
@@ -17,24 +17,24 @@ public final class R {
         public static final int transition_bottom_bar_height = 0x7f09001a;
     }
     public static final class drawable {
-        public static final int quantum_ic_close_white_24 = 0x7f0200ae;
-        public static final int quantum_ic_settings_white_24 = 0x7f0200b1;
-        public static final int rippleable = 0x7f0200b2;
-        public static final int transition = 0x7f0200b4;
+        public static final int quantum_ic_close_white_24 = 0x7f0200b3;
+        public static final int quantum_ic_settings_white_24 = 0x7f0200b6;
+        public static final int rippleable = 0x7f0200b7;
+        public static final int transition = 0x7f0200b9;
     }
     public static final class id {
-        public static final int back_button = 0x7f0f0110;
-        public static final int divider = 0x7f0f0116;
-        public static final int transition_bottom_frame = 0x7f0f0114;
-        public static final int transition_frame = 0x7f0f010f;
-        public static final int transition_icon = 0x7f0f0112;
-        public static final int transition_question_text = 0x7f0f0115;
-        public static final int transition_switch_action = 0x7f0f0117;
-        public static final int transition_text = 0x7f0f0113;
-        public static final int transition_top_frame = 0x7f0f0111;
-        public static final int ui_alignment_marker = 0x7f0f0119;
-        public static final int ui_back_button = 0x7f0f0118;
-        public static final int ui_settings_button = 0x7f0f011a;
+        public static final int back_button = 0x7f0f0115;
+        public static final int divider = 0x7f0f011b;
+        public static final int transition_bottom_frame = 0x7f0f0119;
+        public static final int transition_frame = 0x7f0f0114;
+        public static final int transition_icon = 0x7f0f0117;
+        public static final int transition_question_text = 0x7f0f011a;
+        public static final int transition_switch_action = 0x7f0f011c;
+        public static final int transition_text = 0x7f0f0118;
+        public static final int transition_top_frame = 0x7f0f0116;
+        public static final int ui_alignment_marker = 0x7f0f011e;
+        public static final int ui_back_button = 0x7f0f011d;
+        public static final int ui_settings_button = 0x7f0f011f;
     }
     public static final class layout {
         public static final int back_button = 0x7f040020;

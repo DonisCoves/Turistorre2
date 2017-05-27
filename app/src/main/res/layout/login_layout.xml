@@ -48,11 +48,13 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:background="@color/blue_grey_900"
+
         android:gravity="center_vertical|center_horizontal">
 
         <LinearLayout
             android:id="@+id/ll_login_nativo"
+            android:background="@color/firebase"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -63,6 +65,8 @@
                 android:id="@+id/btnCrearCuenta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/firebase"
+                android:textColor="@color/blanco"
                 android:text="@string/crear"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
 
@@ -122,8 +126,7 @@
         android:id="@+id/rlGoogle"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/blue_grey_900">
+        android:layout_weight="1">
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_conectar_g"
@@ -146,8 +149,7 @@
         android:id="@+id/rlFacebook"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/blue_grey_900">
+        android:layout_weight="1">
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/sign_conectar_f"

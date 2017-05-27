@@ -928,11 +928,11 @@ public final class Utils {
         rootDataBase = (DatabaseReference) tipoBean.get("DataBase");
         uri = (Uri) tipoBean.get("fileUri");
         datosImagenOk=false;
-        mStorageRef = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+mFirebaseUser.getUid()).child(uri.getLastPathSegment());
+        mStorageRef = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+uidUser).child(uri.getLastPathSegment());
         String pathPre = uri.getLastPathSegment();
         pathPre = pathPre.substring(0,pathPre.length()-5);
         pathPre = pathPre.concat("_PRE.jpg");
-        mStorageRefPre = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+mFirebaseUser.getUid()).child(pathPre);
+        mStorageRefPre = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+uidUser).child(pathPre);
         showProgressDialog(context,context.getString(R.string.dataUpload));
         Log.d(TAG, "uploadFromUri:dst:" + mStorageRef.getPath());
         mStorageRefPre.putBytes(escalarImagen(uri,1/8f)) //Pre
@@ -958,7 +958,6 @@ public final class Utils {
                                 imagenStatic.setDescripcion(descripcion);  // Si es raco o bando su descripcion
                             datosImagenOk =true;
                         }
-                        hideProgressDialog();
                     }
                 })
                 .addOnFailureListener(activity, new OnFailureListener() {
@@ -968,7 +967,7 @@ public final class Utils {
                         hideProgressDialog();
                     }
                 });
-        mStorageRef.putBytes(escalarImagen(uri,1/4f))
+        mStorageRef.putBytes(escalarImagen(uri,1))
                 .addOnSuccessListener(activity, new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

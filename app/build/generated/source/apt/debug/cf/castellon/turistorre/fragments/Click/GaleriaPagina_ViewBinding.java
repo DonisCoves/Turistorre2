@@ -5,7 +5,6 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import butterknife.Unbinder;
 import butterknife.internal.Utils;
 import cf.castellon.turistorre.R;
@@ -19,7 +18,6 @@ public class GaleriaPagina_ViewBinding implements Unbinder {
   public GaleriaPagina_ViewBinding(GaleriaPagina target, View source) {
     this.target = target;
 
-    target.tvTitulo = Utils.findRequiredViewAsType(source, R.id.tvTitImg, "field 'tvTitulo'", TextView.class);
     target.ivAvatar = Utils.findRequiredViewAsType(source, R.id.ivAvatar, "field 'ivAvatar'", ImageView.class);
     target.ivPortada = Utils.findRequiredViewAsType(source, R.id.ivPortada, "field 'ivPortada'", ImageView.class);
   }
@@ -31,7 +29,6 @@ public class GaleriaPagina_ViewBinding implements Unbinder {
     if (target == null) throw new IllegalStateException("Bindings already cleared.");
     this.target = null;
 
-    target.tvTitulo = null;
     target.ivAvatar = null;
     target.ivPortada = null;
   }

@@ -35,4 +35,6 @@
     <color name="mineral_tones_negro2">#222525</color>
     <color name="mineral_tones_negro3">#080C0B</color>
     <color name="background_material_light">#ea1010</color>
+    <color name="firebase">#ffca28</color>
+
 </resources>

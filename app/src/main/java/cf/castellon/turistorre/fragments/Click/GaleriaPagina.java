@@ -7,10 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
@@ -20,7 +17,6 @@ import cf.castellon.turistorre.bean.Usuario;
 public class GaleriaPagina extends Fragment {
     Imagen imagen;
     Usuario usuario;
-    @BindView(R.id.tvTitImg) TextView tvTitulo;
     @BindView(R.id.ivAvatar) ImageView ivAvatar;
     @BindView(R.id.ivPortada) ImageView ivPortada;
 
@@ -39,8 +35,12 @@ public class GaleriaPagina extends Fragment {
         ButterKnife.bind(this,inflatedView);
         Uri urlImg = Uri.parse(imagen.getUriStr());
         Uri urlAvatar = Uri.parse(usuario.getAvatar());
-        tvTitulo.setText(imagen.getTitulo());
-        Glide.with(getContext()).load(urlImg).into(ivPortada);
+        Glide
+                .with(getContext())
+                .load(urlImg)
+                .placeholder(R.drawable.escudo)
+                .crossFade()
+                .into(ivPortada);
         Glide.with(getContext()).load(urlAvatar).into(ivAvatar);
         return inflatedView;
     }

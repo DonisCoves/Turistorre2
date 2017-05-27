@@ -27,6 +27,7 @@ public class Permisos extends Fragment {
     @BindView(R.id.tvPoder) TextView tvPoder;
     @BindView(R.id.tvNoPoder) TextView tvNoPoder;
     @BindView(R.id.spPermisos) Spinner spiner;
+    @BindView(R.id.llpermisos) LinearLayout layoutPermisos;
     List<String> grupos;
     private ArrayAdapter<String> adaptador;
     private String gpoSolicitado;
@@ -63,6 +64,10 @@ public class Permisos extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
         spiner.setAdapter(adaptador);
+        if (grupoActual.equals("bandos"))
+            layoutPermisos.setVisibility(View.INVISIBLE);
+        else
+            layoutPermisos.setVisibility(View.VISIBLE);
      return view;
     }
 

@@ -1,5 +1,6 @@
 
 package cf.castellon.turistorre.fragments.Principal;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -59,7 +60,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cf.castellon.turistorre.R;
+
 import static cf.castellon.turistorre.utils.Constantes.*;
+
 import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.ActionBar.Permisos;
 import cf.castellon.turistorre.utils.MiAplicacion;
@@ -69,22 +72,34 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
     private static final String TAG = "LoginFragment";
 
     private ProgressDialog mAuthProgressDialog;
-    @BindView(R.id.ivAvatar) ImageView ivAvatar;
+    @BindView(R.id.ivAvatar)
+    ImageView ivAvatar;
     Editor editor;
-    @BindView(R.id.etEmail) EditText email;
-    @BindView(R.id.etPassword) EditText password;
-    @BindView(R.id.btDesconectar) Button btnNativoDesc;
-    @BindView(R.id.ll_login_nativo) LinearLayout layoutLoginNativo;
-    @BindView(R.id.ll_registro_nativo) LinearLayout layoutRegistroNativo;
-    @BindView(R.id.rlGoogle) RelativeLayout layoutGoogle;
-    @BindView(R.id.rlFacebook) RelativeLayout layoutFacebook;
-    @BindView(R.id.rlNativo) RelativeLayout layoutNativo;
+    @BindView(R.id.etEmail)
+    EditText email;
+    @BindView(R.id.etPassword)
+    EditText password;
+    @BindView(R.id.btDesconectar)
+    Button btnNativoDesc;
+    @BindView(R.id.ll_login_nativo)
+    LinearLayout layoutLoginNativo;
+    @BindView(R.id.ll_registro_nativo)
+    LinearLayout layoutRegistroNativo;
+    @BindView(R.id.rlGoogle)
+    RelativeLayout layoutGoogle;
+    @BindView(R.id.rlFacebook)
+    RelativeLayout layoutFacebook;
+    @BindView(R.id.rlNativo)
+    RelativeLayout layoutNativo;
     String emailStr, passwordStr;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    @BindView(R.id.sign_conectar_f) LoginButton btnFacebook;
+    @BindView(R.id.sign_conectar_f)
+    LoginButton btnFacebook;
     private CallbackManager mFacebookCallbackManager;
-    @BindView(R.id.btn_desconectar_g) Button signoutG;
-    @BindView(R.id.sign_conectar_g) SignInButton mGoogleLoginButton;
+    @BindView(R.id.btn_desconectar_g)
+    Button signoutG;
+    @BindView(R.id.sign_conectar_g)
+    SignInButton mGoogleLoginButton;
     private Activity mActivity;
 
     @Override
@@ -112,7 +127,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                 .requestIdToken(getString(R.string.server_web_id_str))
                 .requestEmail()
                 .build();
-        if (mGoogleApiClient==null) {
+        if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(getContext())
                     .enableAutoManage(getActivity(), this)
                     .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
@@ -121,30 +136,34 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                String email,rand;
+                String email, rand;
                 Editor et;
                 Random random;
+                String uidUser;
 
                 mAuthProgressDialog.hide();
                 mFirebaseUser = firebaseAuth.getCurrentUser();
-                if (mFirebaseUser != null){
+                if (mFirebaseUser != null) {
                     for (UserInfo profile : mFirebaseUser.getProviderData())
-                        if (profile.getProviderId().equals("password") )
-                            crearUsuarioBBDDFire(mFirebaseUser.getEmail(), mFirebaseUser.getEmail(),mFirebaseUser.getEmail(), URL_AVATAR, "multimedia");
+                        if (profile.getProviderId().equals("password"))
+                            crearUsuarioBBDDFire(mFirebaseUser.getEmail(), mFirebaseUser.getEmail(), mFirebaseUser.getEmail(), URL_AVATAR, "multimedia");
                         else if (profile.getProviderId().equals("facebook.com") || profile.getProviderId().equals("google.com")) {
                             email = profile.getEmail();
-                            if (email==null){
-                                email = prefs.getString("emailNulo","");
-                                if (email.isEmpty()){
+                            if (email == null) {
+                                email = prefs.getString("emailNulo", "");
+                                if (email.isEmpty()) {
                                     random = new Random();
                                     rand = Integer.toString(random.nextInt());
-                                    email = "mail"+rand;
+                                    email = "mail" + rand;
                                     et = prefs.edit();
-                                    et.putString("emailNulo",email);
+                                    et.putString("emailNulo", email);
                                     et.apply();
                                 }
                             }
-                            crearUsuarioBBDDFire(email, mFirebaseUser.getDisplayName(),mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+                            uidUser = prefs.getString("uidUser","");
+                            if (uidUser.isEmpty())
+                                crearUsuarioBBDDFire(email, mFirebaseUser.getDisplayName(), mFirebaseUser.getEmail(), mFirebaseUser.getPhotoUrl().toString(), "multimedia");
+
                         }
                     setAuthenticatedUser(mFirebaseUser);
                 } else {
@@ -157,7 +176,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
     @Override
     public void onStop() {
         super.onStop();
-        if (mFirebaseUser!=null) {
+        if (mFirebaseUser != null) {
             mGoogleApiClient.disconnect();
         }
         if (mAuthListener != null)
@@ -177,7 +196,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode != REQUEST_CODE_FACEBOOK ){ //
+        if (requestCode != REQUEST_CODE_FACEBOOK) { //
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
                 GoogleSignInAccount acct = result.getSignInAccount();
@@ -195,7 +214,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful())
-                            showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
+                            showError(getContext(), getClass().getName(), task.getException().getStackTrace()[0].getMethodName(), task.getException().getMessage());
                         mAuthProgressDialog.hide();
                     }
                 });
@@ -210,7 +229,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful())
-                                showError(getContext(),getClass().getName(),task.getException().getStackTrace()[0].getMethodName(),task.getException().getMessage());
+                                showError(getContext(), getClass().getName(), task.getException().getStackTrace()[0].getMethodName(), task.getException().getMessage());
                             mAuthProgressDialog.hide();
                         }
                     });
@@ -295,7 +314,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         mDataBaseGruposRef.child("Multimedia").child(mFirebaseUser.getUid()).setValue(null);
         mFirebaseUser.delete();
         FirebaseAuth.getInstance().signOut();
-        usuario=null;
+        usuario = null;
         switch (proveedor) {
             case "facebook.com":
                 LoginManager.getInstance().logOut();
@@ -395,9 +414,9 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
 
     private void updateAvatar() {
         String url = "";
-        if (mFirebaseUser != null){
+        if (mFirebaseUser != null) {
             for (UserInfo profile : mFirebaseUser.getProviderData())
-                if (profile.getProviderId().equals("password") )
+                if (profile.getProviderId().equals("password"))
                     url = usuario.getAvatar();
                 else if (profile.getProviderId().equals("facebook.com") || profile.getProviderId().equals("google.com"))
                     url = profile.getPhotoUrl().toString();
@@ -408,10 +427,10 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult result) {
-        showError(getContext(),getClass().getName(),result.getClass().getName(),result.getErrorMessage());
-     }
+        showError(getContext(), getClass().getName(), result.getClass().getName(), result.getErrorMessage());
+    }
 
-    private void crearUsuarioBBDDFire(final String userId, final String nombre,final String email, final String avatar, final String grupo) {
+    private void crearUsuarioBBDDFire(final String userId, final String nombre, final String email, final String avatar, final String grupo) {
         final String uidUser;
 
         uidUser = parserId(userId);
@@ -420,14 +439,13 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
         editor.putString("uidUser", uidUser);
         editor.apply();
 
-        if (nombre.equalsIgnoreCase("TurisTorre Turistorre")){
-            usuario = new Usuario(nombre, avatar, email,  uidUser, "administrador");
+        if (nombre.equalsIgnoreCase("TurisTorre Turistorre") || nombre.equalsIgnoreCase("TurisTorre Admin")) {
+            usuario = new Usuario(nombre, avatar, email, uidUser, "administrador");
             FirebaseMessaging.getInstance().subscribeToTopic("administrador");
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean("userBandos", true);
             editor.apply();
-        }
-        else
+        } else
             usuario = new Usuario(nombre, avatar, email, uidUser, grupo);
         mDataBaseUsersRef.child(uidUser).setValue(usuario).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -453,13 +471,18 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        String uidUser;
+        Usuario user;
         switch (item.getItemId()) {
             case (R.id.it_permisos):
                 FragmentTransaction transaccion = getFragmentManager().beginTransaction();
                 Permisos permisos = new Permisos();
                 Bundle bundle = new Bundle();
-                if (mFirebaseUser != null)
-                    bundle.putString("GRUPO", usuario.getGrupo());
+                if (mFirebaseUser != null) {
+                    uidUser = prefs.getString("uidUser","");
+                    user = buscarUsuario(uidUser);
+                    bundle.putString("GRUPO", user.getGrupo());
+                }
                 else
                     bundle.putString("GRUPO", "anonimo");
                 permisos.setArguments(bundle);

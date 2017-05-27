@@ -73,8 +73,10 @@ public class BandoRecyclerView extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Usuario usuario;
-        final String uidUser = prefs.getString("uidUser","");
+        final String uidUser;
+
         if (mFirebaseUser!=null) {
+            uidUser = prefs.getString("uidUser","");
             usuario = buscarUsuario(uidUser);
             if (usuario.getGrupo().equals("bandos") || usuario.getGrupo().equals("administrador")){
                 transaccion = getFragmentManager().beginTransaction();

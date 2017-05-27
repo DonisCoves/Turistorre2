@@ -60,7 +60,7 @@
         <item name="android:padding">@dimen/padding_normal</item>
         <item name="android:capitalize">sentences</item>
         <item name="android:lineSpacingExtra">2sp</item>
-        <item name="android:textSize">@dimen/texto</item>
+        <item name="android:textSize">@dimen/texto_normal</item>
     </style>
 
     <style name="TNegritaGrande" parent="Fuentes">
@@ -103,14 +103,19 @@
     </style>
 
     <style name="drawer">
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/drawer_alto</item>
+
     </style>
 
     <style name="TextoDrawer">
-        <item name="android:paddingLeft">@dimen/padding_normal</item>
+        <item name="android:paddingLeft">@dimen/padding_triple</item>
         <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/texto</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/texto_mediano</item>
     </style>
 
     <style name="mitadHorizontal">

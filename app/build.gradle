@@ -9,7 +9,12 @@ android {
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
+        multiDexEnabled true
         versionName "1.0"
+    }
+
+    dexOptions {
+        preDexLibraries = false
     }
 
     buildTypes {
@@ -24,7 +29,6 @@ apply plugin: 'com.android.application'
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    //apply plugin: 'com.android.application'
     compile files('libs/httpclient-4.5.2.jar')
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
