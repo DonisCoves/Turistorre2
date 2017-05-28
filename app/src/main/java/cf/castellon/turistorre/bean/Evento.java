@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -64,9 +65,12 @@ public class Evento implements Parcelable{
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.hora_inicial = hora_inicial;
-        this.imagenes = imagenes;
-    }
+        if (imagenes!=null)
+            this.imagenes = imagenes;
+        else
+            this.imagenes = new HashMap<>();
 
+    }
 
 
     public String getUidEvento() {
@@ -110,6 +114,8 @@ public class Evento implements Parcelable{
     }
 
     public void addImagen(Imagen imagen){
+        if (this.imagenes==null)
+            this.imagenes = new HashMap<>();
         this.imagenes.put(imagen.getUidImg(),imagen);
     }
 }

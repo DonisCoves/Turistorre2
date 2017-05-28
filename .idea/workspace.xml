@@ -52,309 +52,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6eb5c54-f295-4d42-adee-2e0b61a363fc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/answers_1_3_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/beta_1_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/crashlytics_2_6_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/crashlytics_core_2_3_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/fabric_1_3_17.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash$4.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_6/buildId.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/bean/Evento$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/bean/Evento$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/bean/Evento.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/bean/Evento.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Login$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Login$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Login$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Login$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Login.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/Splash.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/ui/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/MiAplicacion.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/MiAplicacion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/cf/castellon/turistorre/utils/Utils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/vr/cardboard/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/vr/cardboard/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/vr/widgets/pano/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/google/vr/widgets/pano/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/bean/Evento$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/bean/Evento$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/bean/Evento.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/bean/Evento.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Login$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Login$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Login$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Login$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Login.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/Splash.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/ui/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/MiAplicacion.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/MiAplicacion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/cf/castellon/turistorre/utils/Utils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/google/vr/cardboard/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/google/vr/cardboard/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/google/vr/widgets/pano/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/com/google/vr/widgets/pano/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/e4ZKFvdFOG2sbF8Wtbx_V3EllvM=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/e4ZKFvdFOG2sbF8Wtbx_V3EllvM=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/qLnRqrzrezF1dw2Oo08oac6o84g=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/zip-cache/qLnRqrzrezF1dw2Oo08oac6o84g=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/qLnRqrzrezF1dw2Oo08oac6o84g=" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/zip-cache/qLnRqrzrezF1dw2Oo08oac6o84g=" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/dep/dependencies.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/dep/dependencies.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_0.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_0.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_1.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_2.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_2.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_4.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_4.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_6.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_6.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_7.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_7.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_8.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_8.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_9.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_3.apk" afterPath="$PROJECT_DIR$/app/build/intermediates/split-apk/debug/slices/slice_3.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/bean/Evento$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/bean/Evento$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/bean/Evento.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/bean/Evento.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Login$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Login$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Login$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Login$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Login.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/Splash.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/ui/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/MiAplicacion.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/MiAplicacion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/cf/castellon/turistorre/utils/Utils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/google/vr/cardboard/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/google/vr/cardboard/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/google/vr/widgets/pano/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/com/google/vr/widgets/pano/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Login$10.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Login$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Login$9.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Login$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Login.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/Splash.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$style.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$styleable.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$styleable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$xml.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/cf/castellon/turistorre/R$xml.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/cf/castellon/turistorre/fragments/Click/TerratSeleccionado.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/MiAplicacion.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/MiAplicacion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$6.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$7.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/cf/castellon/turistorre/utils/Utils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$5.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/cf/castellon/turistorre/ui/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/com/google/vr/cardboard/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/com/google/vr/cardboard/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView$MiFireViewHolder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/GenerarBando.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/cf/castellon/turistorre/fragments/ActionBar/GenerarRaco.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/google/vr/widgets/pano/R$string.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/com/google/vr/widgets/pano/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/cf/castellon/turistorre/bean/Evento$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/cf/castellon/turistorre/bean/Evento$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/cf/castellon/turistorre/bean/Evento.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/cf/castellon/turistorre/bean/Evento.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/cf/castellon/turistorre/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/cf/castellon/turistorre/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/vr/cardboard/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/vr/cardboard/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/vr/widgets/pano/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/google/vr/widgets/pano/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/multi/values.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/layout.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.crc" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.crc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/manifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_dependencies/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_dependencies/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_0/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_0/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_1/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_1/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_3/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_3/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_4/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_4/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_5/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_5/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_6/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_6/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_7/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_7/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_8/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_8/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/instant-run/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_1/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_4/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_7/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/GaleriaRecyclerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/RaconsViewPager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/MiAplicacion.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/MiAplicacion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java" afterPath="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="Turistorre.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -395,8 +117,8 @@
       <file leaf-file-name="FiestasRecylerView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="85" column="62" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
+            <state relative-caret-position="131">
+              <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -405,8 +127,8 @@
       <file leaf-file-name="FiestasEventosRecylerView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="113" column="37" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
+            <state relative-caret-position="275">
+              <caret line="100" column="51" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
               <folding>
                 <element signature="method#onCreate#0;class#FiestasEventosRecylerView#0" expanded="false" />
                 <element signature="e#2642#2651#0" expanded="false" />
@@ -417,11 +139,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="696" column="11" selection-start-line="696" selection-start-column="11" selection-end-line="696" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Evento.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="FiestasGridView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
               <folding>
                 <element signature="e#1549#2293#0" expanded="true" />
                 <element signature="e#2292#2293#0" expanded="true" />
@@ -433,8 +175,8 @@
       <file leaf-file-name="FiestasEventosGaleriaRecyclerView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
+            <state relative-caret-position="213">
+              <caret line="127" column="24" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
               <folding>
                 <element signature="e#3782#4614#0" expanded="true" />
                 <element signature="e#4613#4614#0" expanded="true" />
@@ -443,56 +185,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="303" column="43" selection-start-line="303" selection-start-column="43" selection-end-line="303" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#4728:5625" expanded="false" />
-                <element signature="method#onDataChange#0;class#4728:5625" expanded="false" />
-                <element signature="method#onCancelled#0;class#4728:5625" expanded="false" />
-                <element signature="e#5705#5800#0" expanded="false" />
-                <element signature="method#prepareDrawer#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#9252:9758" expanded="false" />
-                <element signature="method#onDrawerOpened#0;class#9252:9758" expanded="false" />
-                <element signature="method#onDrawerClosed#0;class#9252:9758" expanded="false" />
-                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#pedirPermiso#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onRequestPermissionsResult#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#goGaleria#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#goCamera#0;class#MainActivity#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MyFireAdapterGaleriaEventoRecyclerView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaEventoRecyclerView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Splash.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="960" column="21" selection-start-line="960" selection-start-column="21" selection-end-line="960" selection-end-column="21" />
+            <state relative-caret-position="166">
+              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2739,7 +2436,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/BandoSeleccionado.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Imagen2.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/bando_seleccionado_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/RacoSeleccionado.java" />
@@ -2775,7 +2471,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/BandoRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/TerratsRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_crash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/CrashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -2787,9 +2482,11 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MiFireAdapterBandoRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaRecyclerView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Splash.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java" />
       </list>
     </option>
   </component>
@@ -2937,10 +2634,6 @@
               <option name="myItemId" value="Turistorre" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -3004,166 +2697,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="turistorre" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Principal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Click" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Click" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Click" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ActionBar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="turistorre" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ActionBar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Click" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3736,7 +3269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495901924659</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Atras ok pa tots&#10;Antes de cambiar com pujar les fotos de les festes">
+      <created>1495985297954</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1495985297955</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -3758,7 +3298,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.03587963" sideWeight="0.6156958" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3599537" sideWeight="0.52589" order="8" side_tool="true" content_ui="tabs" x="14" y="242" width="1326" height="221" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3599537" sideWeight="0.5291262" order="8" side_tool="true" content_ui="tabs" x="14" y="242" width="1326" height="221" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.228471" sideWeight="0.33055976" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3618421" sideWeight="0.49092284" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32072368" sideWeight="0.35022694" order="7" side_tool="false" content_ui="tabs" />
@@ -3771,7 +3311,7 @@
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3804841" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5109034" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3599537" sideWeight="0.47411004" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3599537" sideWeight="0.47087377" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2645631" sideWeight="0.5615616" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3813,7 +3353,8 @@
     <MESSAGE value="Antes de la backstack" />
     <MESSAGE value="Eliminats metodes que no es gasten en Utils" />
     <MESSAGE value="Atras soles pa Terrats" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atras soles pa Terrats" />
+    <MESSAGE value="Atras ok pa tots&#10;Antes de cambiar com pujar les fotos de les festes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atras ok pa tots&#10;Antes de cambiar com pujar les fotos de les festes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3861,30 +3402,6 @@
           <option name="timeStamp" value="2114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="2325" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="2326" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="2327" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java</url>
-          <line>126</line>
-          <properties />
-          <option name="timeStamp" value="2340" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/Login.java</url>
           <line>304</line>
           <properties />
@@ -3921,28 +3438,10 @@
           <option name="timeStamp" value="2719" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java</url>
-          <line>99</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java</url>
+          <line>63</line>
           <properties />
-          <option name="timeStamp" value="2722" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>962</line>
-          <properties />
-          <option name="timeStamp" value="2723" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>947</line>
-          <properties />
-          <option name="timeStamp" value="2729" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java</url>
-          <line>643</line>
-          <properties />
-          <option name="timeStamp" value="2730" />
+          <option name="timeStamp" value="2740" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>
@@ -3957,7 +3456,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="2731" />
+      <option name="time" value="2741" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -4174,13 +3673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/GaleriaEventosViewPager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-454">
@@ -4316,49 +3808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="85" column="62" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="113" column="37" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
-          <folding>
-            <element signature="method#onCreate#0;class#FiestasEventosRecylerView#0" expanded="false" />
-            <element signature="e#2642#2651#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#FiestasEventosRecylerView#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#FiestasEventosRecylerView#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding>
-            <element signature="e#1549#2293#0" expanded="true" />
-            <element signature="e#2292#2293#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="120" column="28" selection-start-line="120" selection-start-column="28" selection-end-line="120" selection-end-column="28" />
-          <folding>
-            <element signature="e#3782#4614#0" expanded="true" />
-            <element signature="e#4613#4614#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/ui/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
@@ -4382,18 +3831,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/FiestasEventosRecylerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="100" column="51" selection-start-line="100" selection-start-column="51" selection-end-line="100" selection-end-column="51" />
+          <folding>
+            <element signature="method#onCreate#0;class#FiestasEventosRecylerView#0" expanded="false" />
+            <element signature="e#2642#2651#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#FiestasEventosRecylerView#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#FiestasEventosRecylerView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Principal/FiestasRecylerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/Click/Click/FiestasEventosGaleriaRecyclerView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="127" column="24" selection-start-line="127" selection-start-column="24" selection-end-line="127" selection-end-column="24" />
+          <folding>
+            <element signature="e#3782#4614#0" expanded="true" />
+            <element signature="e#4613#4614#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/fragments/ActionBar/FiestasGridView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="22" column="47" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="47" />
+          <folding>
+            <element signature="e#1549#2293#0" expanded="true" />
+            <element signature="e#2292#2293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/adaptadores/MyFireAdapterGaleriaEventoRecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="166">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="960" column="21" selection-start-line="960" selection-start-column="21" selection-end-line="960" selection-end-column="21" />
+        <state relative-caret-position="173">
+          <caret line="696" column="11" selection-start-line="696" selection-start-column="11" selection-end-line="696" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cf/castellon/turistorre/bean/Evento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding />
         </state>
       </provider>

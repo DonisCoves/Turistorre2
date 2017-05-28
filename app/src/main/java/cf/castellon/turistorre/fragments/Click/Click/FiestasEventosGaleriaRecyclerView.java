@@ -71,7 +71,6 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
                                                                MyFireAdapterGaleriaEventoRecyclerView.MyFireViewHolder.class,
                                                                ref , uidDiaFiesta, uidEvento
                                                                );
-        manager = new GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false);
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
     }
 
@@ -82,6 +81,7 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         recView.setHasFixedSize(true);
+        manager = new GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false);
         recView.setLayoutManager(manager);
 
         adaptador.setOnClickListener(new View.OnClickListener() {
