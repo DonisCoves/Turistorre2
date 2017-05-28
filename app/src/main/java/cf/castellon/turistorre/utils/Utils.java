@@ -919,7 +919,9 @@ public final class Utils {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Imagen raco = postSnapshot.getValue(Imagen.class);
-                    racons.add(raco);
+                    Usuario user = buscarUsuario(raco.getUidUser());
+                    if (user.getGrupo().equals("bandos") || user.getGrupo().equals("administrador"))
+                        racons.add(raco);
                 }
                 baseDatos.put(Tablas.Racons.name(),racons);
             }
