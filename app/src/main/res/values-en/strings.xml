@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="secciones">
+        <item>Home</item>
+        <item>Corners</item>
+        <item>Gallery</item>
+        <item>Street Cry</item>
+        <item>Terrace</item>
+        <item>Login</item>
+        <item>Settings</item>
+        <item>Social</item>
+    </string-array>
+
+</resources>

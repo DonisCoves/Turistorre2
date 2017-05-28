@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="secciones">
+        <item>Inici</item>
+        <item>Racons</item>
+        <item>Galeria</item>
+        <item>Bandos</item>
+        <item>Terrats</item>
+        <item>Login</item>
+        <item>Ajustos</item>
+        <item>Social</item>
+    </string-array>
+
+</resources>

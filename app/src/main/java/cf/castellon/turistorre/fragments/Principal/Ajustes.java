@@ -15,7 +15,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import static cf.castellon.turistorre.utils.Constantes.BANDOS;
-import static cf.castellon.turistorre.utils.Constantes.CATALAN;
 import static cf.castellon.turistorre.utils.Constantes.IMAGENES;
 import static cf.castellon.turistorre.utils.Constantes.NINGUNA;
 import static cf.castellon.turistorre.utils.Constantes.TERRATS;
@@ -25,10 +24,8 @@ import static cf.castellon.turistorre.utils.Utils.prefs;
 
 public class Ajustes extends Fragment {
     @BindView(R.id.spNotificaciones) AppCompatSpinner spNotificaciones;
-    @BindView(R.id.spIdiomas) AppCompatSpinner spIdiomas;
     ArrayAdapter <String> adaptadorNotificaciones;
     private int notificacionesPrefs;
-    private int idiomasPrefs;
     private SharedPreferences.Editor editor;
 
 
@@ -37,7 +34,6 @@ public class Ajustes extends Fragment {
         super.onCreate(savedInstanceState);
         adaptadorNotificaciones = new ArrayAdapter<>(getContext(),android.R.layout.simple_spinner_item);
         notificacionesPrefs = prefs.getInt("notificaciones", TODAS);
-        idiomasPrefs = prefs.getInt("idiomas", CATALAN);
     }
 
     @Nullable
@@ -47,12 +43,10 @@ public class Ajustes extends Fragment {
         ButterKnife.bind(this,view);
 
         spNotificaciones.setSelection(notificacionesPrefs);
-        spIdiomas.setSelection(idiomasPrefs);
 
         spNotificaciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //notificacionesPrefs = prefs.getInt("notificaciones", TODAS);
                 if (position != notificacionesPrefs){
                     editor = prefs.edit();
                     editor.putInt("notificaciones", position);

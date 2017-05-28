@@ -223,13 +223,13 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             case "Login":
                 frSeccion = new Login();
                 break;
-            case "Fiestas":
+            case "Festes":
                 frSeccion = new FiestasRecylerView();
                 break;
             case "Ajustes":
                 frSeccion = new Ajustes();
                 break;
-            case "Acerca_de":
+            case "Social":
                 frSeccion = new Acerca();
                 break;
         }

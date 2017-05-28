@@ -8,13 +8,13 @@ package com.google.vr.cardboard;
 
 public final class R {
     public static final class color {
-        public static final int alignment_marker_color = 0x7f0d0007;
-        public static final int white_transparent = 0x7f0d0083;
+        public static final int alignment_marker_color = 0x7f0e0007;
+        public static final int white_transparent = 0x7f0e0083;
     }
     public static final class dimen {
-        public static final int alignment_marker_height = 0x7f090059;
-        public static final int alignment_marker_thickness = 0x7f09005a;
-        public static final int transition_bottom_bar_height = 0x7f09001a;
+        public static final int alignment_marker_height = 0x7f0a0059;
+        public static final int alignment_marker_thickness = 0x7f0a005a;
+        public static final int transition_bottom_bar_height = 0x7f0a001a;
     }
     public static final class drawable {
         public static final int quantum_ic_close_white_24 = 0x7f0200b4;
@@ -23,18 +23,18 @@ public final class R {
         public static final int transition = 0x7f0200ba;
     }
     public static final class id {
-        public static final int back_button = 0x7f0f0115;
-        public static final int divider = 0x7f0f011b;
-        public static final int transition_bottom_frame = 0x7f0f0119;
-        public static final int transition_frame = 0x7f0f0114;
-        public static final int transition_icon = 0x7f0f0117;
-        public static final int transition_question_text = 0x7f0f011a;
-        public static final int transition_switch_action = 0x7f0f011c;
-        public static final int transition_text = 0x7f0f0118;
-        public static final int transition_top_frame = 0x7f0f0116;
-        public static final int ui_alignment_marker = 0x7f0f011e;
-        public static final int ui_back_button = 0x7f0f011d;
-        public static final int ui_settings_button = 0x7f0f011f;
+        public static final int back_button = 0x7f0f0114;
+        public static final int divider = 0x7f0f011a;
+        public static final int transition_bottom_frame = 0x7f0f0118;
+        public static final int transition_frame = 0x7f0f0113;
+        public static final int transition_icon = 0x7f0f0116;
+        public static final int transition_question_text = 0x7f0f0119;
+        public static final int transition_switch_action = 0x7f0f011b;
+        public static final int transition_text = 0x7f0f0117;
+        public static final int transition_top_frame = 0x7f0f0115;
+        public static final int ui_alignment_marker = 0x7f0f011d;
+        public static final int ui_back_button = 0x7f0f011c;
+        public static final int ui_settings_button = 0x7f0f011e;
     }
     public static final class layout {
         public static final int back_button = 0x7f040020;
@@ -70,9 +70,9 @@ public final class R {
         public static final int switch_viewer_prompt = 0x7f08004e;
     }
     public static final class style {
-        public static final int GvrDialogTheme = 0x7f0a0087;
-        public static final int NoSystemUI = 0x7f0a00f3;
-        public static final int UiButton = 0x7f0a0152;
-        public static final int VrActivityTheme = 0x7f0a0153;
+        public static final int GvrDialogTheme = 0x7f0b0087;
+        public static final int NoSystemUI = 0x7f0b00f3;
+        public static final int UiButton = 0x7f0b0152;
+        public static final int VrActivityTheme = 0x7f0b0153;
     }
 }

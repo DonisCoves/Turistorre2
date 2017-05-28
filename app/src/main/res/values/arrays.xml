@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="secciones">
+    <!--<string-array name="secciones">
         <item>Home</item>
         <item>Racons</item>
         <item>Galeria</item>
@@ -11,7 +11,7 @@
         <item>Ajustes</item>
         <item>Acerca_de</item>
     </string-array>
-
+-->
     <string-array name="titulosHome">
         <item>Titulo 1</item>
         <item>Titulo 2</item>

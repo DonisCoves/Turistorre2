@@ -8,7 +8,7 @@ package com.google.vr.widgets.common;
 
 public final class R {
     public static final class dimen {
-        public static final int button_padding = 0x7f09005b;
+        public static final int button_padding = 0x7f0a005b;
     }
     public static final class drawable {
         public static final int quantum_ic_cardboard_white_24 = 0x7f0200b3;
@@ -17,17 +17,17 @@ public final class R {
         public static final int quantum_ic_info_white_24 = 0x7f0200b6;
     }
     public static final class id {
-        public static final int control_layout = 0x7f0f0122;
-        public static final int fullscreen_back_button = 0x7f0f0120;
-        public static final int fullscreen_button = 0x7f0f0124;
-        public static final int info_button = 0x7f0f0121;
-        public static final int vr_mode_button = 0x7f0f0123;
+        public static final int control_layout = 0x7f0f0121;
+        public static final int fullscreen_back_button = 0x7f0f011f;
+        public static final int fullscreen_button = 0x7f0f0123;
+        public static final int info_button = 0x7f0f0120;
+        public static final int vr_mode_button = 0x7f0f0122;
         public static final int vrwidget_inner_view = 0x7f0f000b;
     }
     public static final class layout {
         public static final int ui_view_embed = 0x7f040073;
     }
     public static final class style {
-        public static final int ControlButton = 0x7f0a00d8;
+        public static final int ControlButton = 0x7f0b00d8;
     }
 }

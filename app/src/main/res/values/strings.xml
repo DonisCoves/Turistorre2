@@ -15,6 +15,17 @@
     <string name="textoTitulo">Esto es el titulo</string>
     <string name="atencion">Atencion</string>
     <string name="adminUpload">Solo el administrador puede subir racons</string>
+    <string-array name="secciones">
+        <item>Home</item>
+        <item>Racons</item>
+        <item>Galeria</item>
+        <item>Bandos</item>
+        <item>Teerrats</item>
+        <item>Login</item>
+        <item>Festes</item>
+        <item>Ajustes</item>
+        <item>Social</item>
+    </string-array>
 
     <!-- ****************************   Utils   **********************************************  -->
     <string name="imgUploadOk">Imagen subida correctamente</string>

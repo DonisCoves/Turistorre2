@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -136,8 +137,10 @@ public class GaleriaRecyclerView extends Fragment{
         menuItem = menu.findItem(R.id.itSharedGaleria);
         mShareActionProvider = (ShareActionProvider)MenuItemCompat.getActionProvider(menuItem);
         shareIntent =new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        shareIntent.putExtra(Intent.EXTRA_TEXT,"Desde TurisTorre");
+        shareIntent.setType("image/*");
+        String archivo = "android.resource://"+  getContext().getPackageName() + "/drawable/escudo";
+        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(archivo));
+
         mShareActionProvider.setShareIntent(shareIntent);
         super.onCreateOptionsMenu(menu, inflater);
     }
