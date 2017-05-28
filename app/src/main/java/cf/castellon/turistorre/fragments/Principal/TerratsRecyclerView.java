@@ -85,6 +85,7 @@ public class TerratsRecyclerView extends Fragment {
                 case R.id.it_gal_terrats:
                     fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame, new GenerarTerrat()).commit();
+                    fragmentTransaction.addToBackStack(null);
             }
         else
             showWarning(getActivity(), R.string.notRegister);

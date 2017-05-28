@@ -15,12 +15,15 @@
         android:name=".utils.MiAplicacion"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:largeHeap="true"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/spring_tones">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="1272305ad396cc9bcc512e1d4014bbf53ea1c4e1" />
 
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -65,6 +68,7 @@
             android:name="com.facebook.FacebookContentProvider"
             android:authorities="com.facebook.app.FacebookContentProvider637714603049615"
             android:exported="true" />
+
     </application>
 
 </manifest>

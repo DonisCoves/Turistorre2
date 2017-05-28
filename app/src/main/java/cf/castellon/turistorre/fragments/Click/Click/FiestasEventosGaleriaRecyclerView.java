@@ -96,6 +96,7 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
                 bund.putString("uidDiaFiesta", uidDiaFiesta);
                 galeriaEventosViewPager.setArguments(bund);
                 fragmentTransaction.replace(R.id.content_frame, galeriaEventosViewPager).commit();
+                fragmentTransaction.addToBackStack(null);
             }
         });
         recView.setAdapter(adaptador);

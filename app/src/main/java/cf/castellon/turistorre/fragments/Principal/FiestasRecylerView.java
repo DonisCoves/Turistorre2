@@ -98,6 +98,7 @@ public class FiestasRecylerView extends Fragment {
                         eventosFragment.setArguments(bund);
                         transaccion = getFragmentManager().beginTransaction();
                         transaccion.replace(R.id.content_frame, eventosFragment).commit();
+                        transaccion.addToBackStack(null);
                     }
                 });
                 adaptadorViejoDiasFiestas = (MyFireAdapterDiasFiestaRecyclerView) recView.getAdapter();

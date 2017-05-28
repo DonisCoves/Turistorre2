@@ -49,6 +49,7 @@ public class FiestasGridView extends Fragment {
                  carruselGaleria = new FiestasGaleriaViewPager();
                 carruselGaleria.setArguments(bund);
                 fragmentTransaction.replace(R.id.content_frame, carruselGaleria).commit();
+                fragmentTransaction.addToBackStack(null);
             }
         });
         return view;

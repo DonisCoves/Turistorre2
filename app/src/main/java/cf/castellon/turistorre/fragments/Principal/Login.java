@@ -451,6 +451,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
             @Override
             public void onSuccess(Void aVoid) {
                 mAuthProgressDialog.hide();
+                loguearFabric(usuario);
                 mDataBaseGruposRef.child(usuario.getGrupo()).child(uidUser).setValue(usuario);
             }
 
@@ -487,6 +488,7 @@ public class Login extends Fragment implements GoogleApiClient.OnConnectionFaile
                     bundle.putString("GRUPO", "anonimo");
                 permisos.setArguments(bundle);
                 transaccion.replace(R.id.content_frame, permisos).commit();
+                transaccion.addToBackStack(null);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -24,6 +24,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -874,10 +875,17 @@ public final class Utils {
         final HashSet<Usuario> usuarios;
         final HashSet<Imagen> terrats;
         final HashSet<Imagen> racons;
+        final HashSet<Imagen> imagenes;
+        final HashSet<Fiestas> fiestasHash;
+        final HashSet<DiaFiesta> diaFiestasHash;
 
+        fiestasHash = new HashSet<>();
+        diaFiestasHash = new HashSet<>();
+        imagenes = new HashSet<>();
         usuarios = new HashSet<>();
         terrats = new HashSet<>();
         racons = new HashSet<>();
+
         mDataBaseUsersRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -919,5 +927,55 @@ public final class Utils {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+        mDataBaseImgRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Imagen imagen = postSnapshot.getValue(Imagen.class);
+                    imagenes.add(imagen);
+                }
+                baseDatos.put(Tablas.Imagenes.name(),imagenes);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        mDataBaseFiestasRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot fiestasFire : dataSnapshot.getChildren()) {
+                    Fiestas fiestas = fiestasFire.getValue(Fiestas.class);
+                    fiestasHash.add(fiestas);
+                }
+                baseDatos.put(Tablas.Fiestas.name(),fiestasHash);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError arg0) {
+            }
+        });
+
+        mDataBaseDiasFiestaRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot diaFiestaFire : dataSnapshot.getChildren()) {
+                    DiaFiesta diaFiesta = diaFiestaFire.getValue(DiaFiesta.class);
+                    diaFiestasHash.add(diaFiesta);
+                }
+                baseDatos.put(Tablas.DiasFiestas.name(),diaFiestasHash);
+            }
+            @Override
+            public void onCancelled(DatabaseError arg0) {
+            }
+        });
     }
+
+    public static void loguearFabric(Usuario user){
+        Crashlytics.setUserIdentifier(user.getUidUser());
+        Crashlytics.setUserEmail(user.getEmail());
+        Crashlytics.setUserName(user.getNombre());
+    }
+
 }

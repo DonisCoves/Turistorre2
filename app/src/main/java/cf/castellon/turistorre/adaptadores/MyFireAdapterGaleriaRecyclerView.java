@@ -61,7 +61,7 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
     //b)Si hay un usuario nuevo que ha creado una foto añadimos tambien el usuario
     @Override
     protected void populateViewHolder(final MyFireViewHolder viewHolder, final Imagen modelo, int position) {
-        anyadirImagen(modelo);
+        //anyadirImagen(modelo);
         viewHolder.bindDatos(modelo.getUriStrPre());
     }
 

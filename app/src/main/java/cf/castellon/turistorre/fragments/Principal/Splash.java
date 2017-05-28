@@ -45,9 +45,8 @@ public class Splash extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.splash_layout, container, false);
         showProgressDialog(getContext(), getString(R.string.cargando));
-        cargas.add(CARGAR_IMAGENES);
-        cargas.add(CARGAR_FIESTAS);
-        cargas.add(CARGAR_DIAFIESTA);
+        //cargas.add(CARGAR_FIESTAS);
+        //cargas.add(CARGAR_DIAFIESTA);
         cargas.add(CARGAR_HOME);
         cargarDatos(cargas);
         return view;
@@ -55,37 +54,13 @@ public class Splash extends Fragment {
 
     @SuppressWarnings("ConstantConditions")
     private void cargarDatos(List<Integer> cargas) {
-        final HashSet<Imagen> imagenes;
-        final HashSet<Imagen> terrats;
-        final HashSet<Imagen> racons;
-        final HashSet<Usuario> usuarios;
         final HashSet<Fiestas> fiestasHash;
         final HashSet<DiaFiesta> diaFiestasHash;
 
-        imagenes = new HashSet<>();
-        terrats = new HashSet<>();
-        racons = new HashSet<>();
-        usuarios = new HashSet<>();
         fiestasHash = new HashSet<>();
         diaFiestasHash = new HashSet<>();
         for (int carga : cargas) {
             switch (carga) {
-                case CARGAR_IMAGENES:
-                    mDataBaseImgRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                                Imagen imagen = postSnapshot.getValue(Imagen.class);
-                                imagenes.add(imagen);
-                            }
-                            baseDatos.put(Tablas.Imagenes.name(),imagenes);
-                            goToHome();
-                        }
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
-                    break;
                 case CARGAR_FIESTAS:
                     mDataBaseFiestasRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override

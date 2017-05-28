@@ -42,7 +42,6 @@ public class BandoRecyclerView extends Fragment {
         super.onCreate(savedInstanceState);
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         adaptador = new MiFireAdapterBandoRecyclerView(Imagen.class,R.layout.fila_bando_layout,MiFireAdapterBandoRecyclerView.MiFireViewHolder.class,mDataBaseBandoRef);
-        manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
     }
 
     @Override
@@ -53,6 +52,7 @@ public class BandoRecyclerView extends Fragment {
         view = inflater.inflate(R.layout.bando_layout,container,false);
         ButterKnife.bind(this,view);
         rvBando.setHasFixedSize(true);
+        manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         rvBando.setLayoutManager(manager);
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +64,7 @@ public class BandoRecyclerView extends Fragment {
                 bund.putParcelable("bando", bando);
                 bandoSeleccionadoFragment.setArguments(bund);
                 transaccion.replace(R.id.content_frame, bandoSeleccionadoFragment).commit();
+                transaccion.addToBackStack(null);
             }
         });
         rvBando.setAdapter(adaptador);
@@ -81,6 +82,7 @@ public class BandoRecyclerView extends Fragment {
             if (usuario.getGrupo().equals("bandos") || usuario.getGrupo().equals("administrador")){
                 transaccion = getFragmentManager().beginTransaction();
                 transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
+                transaccion.addToBackStack(null);
             }
         }
         return super.onOptionsItemSelected(item);

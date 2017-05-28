@@ -80,6 +80,7 @@ public class RaconsViewPager extends Fragment {
                 case R.id.it_gen_raco:
                     fragmentTransaction = getFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.content_frame,new GenerarRaco()).commit();
+                    fragmentTransaction.addToBackStack(null);
                     break;
             }
         else

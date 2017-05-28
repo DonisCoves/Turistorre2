@@ -79,6 +79,7 @@ public class FiestasEventosRecylerView extends Fragment {
                 galeriaEventos.setArguments(bund);
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, galeriaEventos).commit();
+                fragmentTransaction.addToBackStack(null);
             }
         });
         recView.setAdapter(adaptador);
@@ -105,7 +106,7 @@ public class FiestasEventosRecylerView extends Fragment {
                                 for(DataSnapshot imagenDS: eventoDS.child("imagenes").getChildren()){
                                     Imagen imagen = imagenDS.getValue(Imagen.class);
                                     imagenes.add(imagen);
-//                                    anyadirImagenDiaFiesta(uidDiaFiestaMeta,imagen);
+                                    //anyadirImagenDiaFiesta(uidDiaFiestaMeta,imagen);
                                 }
                             }
                             hideProgressDialog();
@@ -115,6 +116,7 @@ public class FiestasEventosRecylerView extends Fragment {
                             bund.putParcelableArrayList("imagenes",imagenes);
                             galeriaDiaFragment.setArguments(bund);
                             fragmentTransaction.replace(R.id.content_frame, galeriaDiaFragment).commit();
+                            fragmentTransaction.addToBackStack(null);
                         }
                         @Override
                         public void onCancelled(DatabaseError databaseError) {}

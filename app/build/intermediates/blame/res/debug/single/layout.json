@@ -68,12 +68,12 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\mipagefragment_carrusel_raco_layout.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\splash_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\splash_layout.xml"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialogo_terrat_layout.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\dialogo_terrat_layout.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\splash_layout.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\splash_layout.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
@@ -88,12 +88,12 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\fila_eventos_galeria.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_alert_dialog_material.xml"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ui_view_embed.xml",
@@ -120,12 +120,12 @@
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\racons_viewpager_layout.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\selector_layout.xml",
         "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\selector_layout.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",

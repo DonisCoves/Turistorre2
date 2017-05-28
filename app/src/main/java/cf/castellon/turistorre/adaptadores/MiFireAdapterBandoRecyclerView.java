@@ -47,7 +47,6 @@ public class MiFireAdapterBandoRecyclerView extends FirebaseRecyclerAdapter<Imag
 
     @Override
     protected void populateViewHolder(MiFireViewHolder viewHolder, Imagen model, int position) {
-        //anyadirBando(model);
         viewHolder.bindDatos(model.getTitulo(),model.getFecha());
     }
 

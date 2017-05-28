@@ -66,7 +66,6 @@ public class GaleriaRecyclerView extends Fragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adaptador = new MyFireAdapterGaleriaRecyclerView(Imagen.class,R.layout.fila_fire_recycle,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder.class,mDataBaseImgRef);
-        manager = new GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false);
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
     }
 
@@ -78,6 +77,7 @@ public class GaleriaRecyclerView extends Fragment{
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
         recView.setHasFixedSize(true);
+        manager = new GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false);
         recView.setLayoutManager(manager);
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +89,7 @@ public class GaleriaRecyclerView extends Fragment{
                 bund.putParcelable("imagen", imagen);
                 carruselGaleriaFragment.setArguments(bund);
                 fragmentTransaction.replace(R.id.content_frame, carruselGaleriaFragment).commit();
+                fragmentTransaction.addToBackStack(null);
             }
         });
 
