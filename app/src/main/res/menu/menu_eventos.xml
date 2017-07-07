@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/itShared"
-        android:title="compartir"
-        app:showAsAction="ifRoom"
-        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
-    <item
         android:id="@+id/it_camera"
         android:title="Hacer Foto"
         android:icon="@android:drawable/ic_menu_camera"

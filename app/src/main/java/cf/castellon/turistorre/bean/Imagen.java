@@ -9,7 +9,6 @@ import com.google.firebase.database.IgnoreExtraProperties;
 public class Imagen implements Parcelable{
     public String uidUser;
     public String uidImg;
-    public String uriStrPre;
     public String uriStr;
     public String titulo;
     public String descripcion;
@@ -40,7 +39,6 @@ public class Imagen implements Parcelable{
     private void readFromParcel(Parcel in) {
         uidUser = in.readString();
         uidImg = in.readString();
-        uriStrPre = in.readString();
         uriStr = in.readString();
         titulo = in.readString();
         descripcion = in.readString();
@@ -51,7 +49,6 @@ public class Imagen implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(uidUser);
         dest.writeString(uidImg);
-        dest.writeString(uriStrPre);
         dest.writeString(uriStr);
         dest.writeString(titulo);
         dest.writeString(descripcion);
@@ -66,10 +63,6 @@ public class Imagen implements Parcelable{
         this.uidImg = uidImg;
     }
 
-    public String getUriStrPre() {
-        return uriStrPre;
-    }
-
     public String getUriStr() {
         return uriStr;
     }
@@ -80,10 +73,6 @@ public class Imagen implements Parcelable{
 
     public void setUidUser(String uidUser) {
         this.uidUser = uidUser;
-    }
-
-    public void setUriStrPre(String uriStrPre) {
-        this.uriStrPre = uriStrPre;
     }
 
     public void setUriStr(String uriStr) {

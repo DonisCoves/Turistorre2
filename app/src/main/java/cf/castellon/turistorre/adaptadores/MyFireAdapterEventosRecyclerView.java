@@ -27,7 +27,7 @@ public class MyFireAdapterEventosRecyclerView  extends FirebaseIndexRecyclerAdap
     @Override
     public MyFireViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fila_eventos_layout, viewGroup, false);
-        cambiarColorFondoTV(itemView);
+        cambiarDrawableFondoTV(itemView);
 
         itemView.setOnClickListener(this);
         return (new MyFireViewHolder(itemView));

@@ -71,11 +71,15 @@ public final class Constantes {
     public static final DatabaseReference mDataBaseRacoRef = mDataBaseRootRef.child(Tablas.Racons.name());
     public static final DatabaseReference mDataBaseImgRef = mDataBaseRootRef.child(Tablas.Imagenes.name());
     public static final DatabaseReference mDataBaseUsersRef = mDataBaseRootRef.child(Tablas.Usuarios.name());
+    public static final DatabaseReference fatamDataBaseUsersRef = mDataBaseRootRef.child(Tablas.Usuarios.name());
     public static final DatabaseReference mDataBaseFiestasRef = mDataBaseRootRef.child(Tablas.Fiestas.name());
     public static final DatabaseReference mDataBaseBandoRef = mDataBaseRootRef.child(Tablas.Bandos.name());
     public static final DatabaseReference mDataBaseDiasFiestaRef = mDataBaseRootRef.child(Tablas.DiasFiestas.name());
     public static final DatabaseReference mDataBaseGruposRef = mDataBaseRootRef.child("Grupos");
     public static final DatabaseReference mDataBaseKeysRef = mDataBaseRootRef.child("keys");
+    public static final DatabaseReference mDataBaseKeysTerratsRef = mDataBaseKeysRef.child("Terrats");
+    public static final DatabaseReference mDataBaseKeysBandosRef = mDataBaseKeysRef.child("Bandos");
+    public static final DatabaseReference mDataBaseKeysImagenesRef = mDataBaseKeysRef.child("Imagenes");
     public static final String URL_AVATAR = "https://firebasestorage.googleapis.com/v0/b/project-1031372115432573568.appspot.com/o/user.png?alt=media&token=4b2581dc-889f-41b9-8704-c138bf6dcab6";
 
     public static final String TAG = "TurisTorre";

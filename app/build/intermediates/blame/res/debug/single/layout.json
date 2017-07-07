@@ -44,10 +44,6 @@
         "source": "C:\\Users\\pccc\\.android\\build-cache\\2d6fe20436dba6f66046f01b08800177580cd629\\output\\res\\layout\\com_facebook_login_fragment.xml"
     },
     {
-        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\raco_seleccionado_layout.xml",
-        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\raco_seleccionado_layout.xml"
-    },
-    {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_action_menu_item_layout.xml"
     },
@@ -182,6 +178,10 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bando_seleccionado_layout2.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\bando_seleccionado_layout2.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
@@ -358,6 +358,10 @@
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "C:\\Users\\pccc\\.android\\build-cache\\aeea70743fe45afc0ced707c70839add19ef97b8\\output\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mipagefragment_carrusel_raco_layout2.xml",
+        "source": "C:\\workspace\\Turistorre\\app\\src\\main\\res\\layout\\mipagefragment_carrusel_raco_layout2.xml"
     },
     {
         "merged": "C:\\workspace\\Turistorre\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",

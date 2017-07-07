@@ -2,9 +2,11 @@ package cf.castellon.turistorre.fragments.Click.Click;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +26,7 @@ import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.MyFireAdapterGaleriaEventoRecyclerView;
 import cf.castellon.turistorre.bean.Imagen;
+import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.Click.GaleriaEventosViewPager;
 import cf.castellon.turistorre.ui.MainActivity;
 
@@ -38,6 +41,7 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
     private String uidEvento,uidDiaFiesta;
     OnPedirPermisosListener mCallback;
     AppCompatActivity mActivity;
+    String uidUser;
 
     public interface OnPedirPermisosListener {
         void pedirPermiso(String permiso, int permisoRequest, View viewSnack, String tabla, ImageView imageView, boolean camara);
@@ -72,6 +76,7 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
                                                                ref , uidDiaFiesta, uidEvento
                                                                );
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+        uidUser = prefs.getString("uidUser","");
     }
 
     @Override
@@ -99,6 +104,42 @@ public class FiestasEventosGaleriaRecyclerView extends Fragment {
                 fragmentTransaction.addToBackStack(null);
             }
         });
+
+        adaptador.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(final View v) {
+                final Imagen imagen;
+                Usuario user;
+
+                imagen = adaptador.getItem(recView.getChildAdapterPosition(v));
+                user = buscarUsuario(uidUser);
+                if (user!=null && (imagen.getUidUser().equals(uidUser) || user.getGrupo().equalsIgnoreCase("administrador"))) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage(R.string.deleteImg)
+                            .setCancelable(false)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    DatabaseReference refEliminar = adaptador.getRef(recView.getChildAdapterPosition(v));
+                                    refEliminar.removeValue();
+                                    eliminarImagenDeEvento(imagen,uidDiaFiesta,uidEvento);
+                                    dialog.cancel();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+                else
+                    showWarning(getActivity(),R.string.deleteImgErr);
+
+                return true;
+            }
+        });
+
         recView.setAdapter(adaptador);
         return view;
     }

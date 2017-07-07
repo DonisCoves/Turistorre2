@@ -61,13 +61,13 @@ public class TerratSeleccionado extends Fragment  {
         Glide.
                 with(getContext()).
                 load(urlAvatar).
-                placeholder(R.drawable.escudo).
+                 thumbnail(0.1f).
                 into(ivAvatar);
         Glide
                 .with(this)
                 .load(urlImg)
                 .asBitmap()
-                .placeholder(R.drawable.escudo)
+                .thumbnail(0.1f)
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap resource, GlideAnimation glideAnimation) {

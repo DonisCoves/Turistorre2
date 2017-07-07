@@ -16,13 +16,13 @@ import java.lang.Override;
 public class GenerarRaco_ViewBinding implements Unbinder {
   private GenerarRaco target;
 
+  private View view2131689671;
+
+  private View view2131689672;
+
   private View view2131689673;
 
   private View view2131689674;
-
-  private View view2131689675;
-
-  private View view2131689676;
 
   @UiThread
   public GenerarRaco_ViewBinding(final GenerarRaco target, View source) {
@@ -33,7 +33,7 @@ public class GenerarRaco_ViewBinding implements Unbinder {
     target.etDescripcion = Utils.findRequiredViewAsType(source, R.id.etDescRaco, "field 'etDescripcion'", EditText.class);
     target.ivRaco = Utils.findRequiredViewAsType(source, R.id.ivGenerarRaco, "field 'ivRaco'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.btnCamaraRaco, "method 'onClick'");
-    view2131689673 = view;
+    view2131689671 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -41,7 +41,7 @@ public class GenerarRaco_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.btnMemoriaRaco, "method 'onClick'");
-    view2131689674 = view;
+    view2131689672 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -49,7 +49,7 @@ public class GenerarRaco_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.btnConfRaco, "method 'onClick'");
-    view2131689675 = view;
+    view2131689673 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -57,7 +57,7 @@ public class GenerarRaco_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.btnCancRaco, "method 'onClick'");
-    view2131689676 = view;
+    view2131689674 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -77,13 +77,13 @@ public class GenerarRaco_ViewBinding implements Unbinder {
     target.etDescripcion = null;
     target.ivRaco = null;
 
+    view2131689671.setOnClickListener(null);
+    view2131689671 = null;
+    view2131689672.setOnClickListener(null);
+    view2131689672 = null;
     view2131689673.setOnClickListener(null);
     view2131689673 = null;
     view2131689674.setOnClickListener(null);
     view2131689674 = null;
-    view2131689675.setOnClickListener(null);
-    view2131689675 = null;
-    view2131689676.setOnClickListener(null);
-    view2131689676 = null;
   }
 }

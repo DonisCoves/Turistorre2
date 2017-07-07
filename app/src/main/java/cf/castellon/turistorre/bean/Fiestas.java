@@ -91,5 +91,16 @@ public class Fiestas implements Parcelable{
         this.diasFiestas = diasFiestas;
     }
 
+    @Override
+    public int hashCode() {
+        return 1;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Fiestas fiestas = (Fiestas)obj;
+        return uidFiestas.equals(fiestas.getUidFiestas());
+    }
+
 
 }

@@ -3,24 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false">
-    <FrameLayout
-        android:id="@+id/flHomeImagen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true">
 
-        <ImageView
-            android:id="@+id/ivPortadaImagen"
-            android:layout_width="360dp"
-            android:layout_height="640dp"
-            android:scaleType="fitXY"/>
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/ivPortadaImagen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
 
     <LinearLayout
         android:id="@+id/llHomeImagen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white_transparent"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
@@ -35,11 +29,11 @@
         <TextView
             android:id="@+id/tvTitImagen"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_gravity="center_vertical"
+            android:text="@string/textoLargo"
             android:textSize="24sp"
             android:padding="5dp"
-            android:background="@color/spring_tones_azul2"
             android:textColor="#000000"
             android:textStyle="bold" />
     </LinearLayout>

@@ -16,11 +16,11 @@ import java.lang.Override;
 public class GenerarBando_ViewBinding implements Unbinder {
   private GenerarBando target;
 
-  private View view2131689669;
-
-  private View view2131689668;
-
   private View view2131689667;
+
+  private View view2131689666;
+
+  private View view2131689665;
 
   @UiThread
   public GenerarBando_ViewBinding(final GenerarBando target, View source) {
@@ -31,7 +31,7 @@ public class GenerarBando_ViewBinding implements Unbinder {
     target.etDescripcion = Utils.findRequiredViewAsType(source, R.id.etDescBando, "field 'etDescripcion'", EditText.class);
     target.ivBando = Utils.findRequiredViewAsType(source, R.id.ivGenerarBando, "field 'ivBando'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.btnConf, "method 'onClick'");
-    view2131689669 = view;
+    view2131689667 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -39,7 +39,7 @@ public class GenerarBando_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.btnMemoria, "method 'onClick'");
-    view2131689668 = view;
+    view2131689666 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -47,7 +47,7 @@ public class GenerarBando_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.btnCamara, "method 'onClick'");
-    view2131689667 = view;
+    view2131689665 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -67,11 +67,11 @@ public class GenerarBando_ViewBinding implements Unbinder {
     target.etDescripcion = null;
     target.ivBando = null;
 
-    view2131689669.setOnClickListener(null);
-    view2131689669 = null;
-    view2131689668.setOnClickListener(null);
-    view2131689668 = null;
     view2131689667.setOnClickListener(null);
     view2131689667 = null;
+    view2131689666.setOnClickListener(null);
+    view2131689666 = null;
+    view2131689665.setOnClickListener(null);
+    view2131689665 = null;
   }
 }

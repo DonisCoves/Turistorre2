@@ -2,6 +2,7 @@ package cf.castellon.turistorre.fragments.ActionBar;
 
 import android.Manifest;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -61,7 +62,11 @@ public class GenerarTerrat extends Fragment {
     public void onClick(View v){
             switch (v.getId()) {
                 case (R.id.btnEnvTerrat):
-                    guardarFotoStorageFire(referenciasFire.get(Tablas.Terrats.name()),getContext(),getFragmentManager(),etDireccion.getText().toString(),null);
+                    confirmacion();
+                    break;
+                case (R.id.btnCanTerrat):
+                    etDireccion.setText("");
+                    ivTerrat.setImageBitmap(null);
                     break;
                 case (R.id.btnGalTerrat):
                     if (numPermisos==2)
@@ -71,5 +76,16 @@ public class GenerarTerrat extends Fragment {
                     ivTerrat.setImageBitmap(null);
                     break;
             }
+    }
+    private void confirmacion() {
+        Map<String, Object> tipoTerrat;
+        Uri fileUri;
+
+        tipoTerrat = referenciasFire.get(Tablas.Terrats.name());
+        fileUri = (Uri)tipoTerrat.get("fileUri");
+        if (!etDireccion.getText().toString().isEmpty() && fileUri!=null)
+            guardarFotoStorageFire(referenciasFire.get(Tablas.Terrats.name()),getContext(),getFragmentManager(),etDireccion.getText().toString(),null);
+        else
+            showWarning(getContext(),R.string.rellenaDesc);
     }
 }

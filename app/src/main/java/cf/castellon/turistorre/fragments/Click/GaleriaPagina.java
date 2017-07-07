@@ -38,8 +38,8 @@ public class GaleriaPagina extends Fragment {
         Glide
                 .with(getContext())
                 .load(urlImg)
-                .placeholder(R.drawable.escudo)
                 .crossFade()
+                .thumbnail(0.1f)
                 .into(ivPortada);
         Glide.with(getContext()).load(urlAvatar).into(ivAvatar);
         return inflatedView;

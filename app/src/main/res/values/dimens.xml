@@ -9,5 +9,5 @@
     <dimen name="padding_normal">10dp</dimen>
     <dimen name="padding_doble">20dp</dimen>
     <dimen name="padding_triple">30dp</dimen>
-    <dimen name="drawer_alto">55dp</dimen>
+    <dimen name="drawer_alto">65dp</dimen>
 </resources>

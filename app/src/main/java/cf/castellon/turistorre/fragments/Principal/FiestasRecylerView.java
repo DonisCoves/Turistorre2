@@ -80,7 +80,7 @@ public class FiestasRecylerView extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 LinearLayout layout = (LinearLayout) view;
                 TextView textoTv = (TextView) layout.findViewById(R.id.tvFiestasSpinner);
-                uidFiestaSeleccionada = textoTv.getText().toString();
+                uidFiestaSeleccionada = textoTv.getText().toString().replace(" ","");
                 keysFire = mDataBaseKeysRef.child(uidFiestaSeleccionada).orderByValue();
                 mDataBaseDiasFiestaSelRef = mDataBaseFiestasRef.child(uidFiestaSeleccionada).child("diasFiestas");
                 adaptadorDiasFiestas = new MyFireAdapterDiasFiestaRecyclerView(DiaFiestaMeta.class,

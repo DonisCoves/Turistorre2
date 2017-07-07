@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseIndexRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
@@ -16,13 +19,13 @@ import cf.castellon.turistorre.bean.Imagen;
 import static cf.castellon.turistorre.utils.Utils.*;
 
 @SuppressWarnings("unchecked")
-public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Imagen,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder>
+public class MyFireAdapterGaleriaRecyclerView extends FirebaseIndexRecyclerAdapter<Imagen,MyFireAdapterGaleriaRecyclerView.MyFireViewHolder>
         implements View.OnClickListener, View.OnLongClickListener{
     private View.OnClickListener listener;
     private View.OnLongClickListener listenerLong;
 
-    public MyFireAdapterGaleriaRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref) {
-        super(modelClass, modelLayout, viewHolderClass, ref);
+    public MyFireAdapterGaleriaRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, Query keyRef, DatabaseReference ref) {
+        super(modelClass, modelLayout, viewHolderClass,keyRef, ref);
     }
 
     @Override
@@ -56,15 +59,10 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
         return true;
     }
 
-    //Casos especiales:
-    //a)Si otro usuario añade una foto y este usuario la pincha se tendra que actualizar en su bbdd. Por lo tanto la añadimos
-    //b)Si hay un usuario nuevo que ha creado una foto añadimos tambien el usuario
-    @Override
+     @Override
     protected void populateViewHolder(final MyFireViewHolder viewHolder, final Imagen modelo, int position) {
-        //anyadirImagen(modelo);
-        viewHolder.bindDatos(modelo.getUriStrPre());
+        viewHolder.bindDatos(modelo.getUriStr());
     }
-
 
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.ivFilaRecycle) ImageView imageView;
@@ -79,8 +77,8 @@ public class MyFireAdapterGaleriaRecyclerView extends FirebaseRecyclerAdapter<Im
             Glide
                     .with(imageView.getContext())
                     .load(url)
-                    .placeholder(R.drawable.escudo)
                     .crossFade()
+                    .thumbnail(0.5f)
                     .into(imageView);
         }
 

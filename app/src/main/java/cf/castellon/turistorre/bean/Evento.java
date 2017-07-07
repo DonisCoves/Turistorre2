@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 
@@ -117,5 +118,16 @@ public class Evento implements Parcelable{
         if (this.imagenes==null)
             this.imagenes = new HashMap<>();
         this.imagenes.put(imagen.getUidImg(),imagen);
+    }
+
+    public void removeImagen(Imagen imagen){
+        Iterator<String> it = this.imagenes.keySet().iterator();
+
+        while (it.hasNext())
+        {
+            String key = it.next();
+            if (imagen.getUidImg().equals(key))
+                it.remove();
+        }
     }
 }

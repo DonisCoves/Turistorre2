@@ -10,17 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-
 import static cf.castellon.turistorre.utils.Utils.*;
 import java.lang.reflect.Field;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 
 import cf.castellon.turistorre.R;
 import cf.castellon.turistorre.adaptadores.MiPageHomeAdapter;
+import cf.castellon.turistorre.bean.DiaFiesta;
+import cf.castellon.turistorre.bean.Evento;
+import cf.castellon.turistorre.bean.Fiestas;
 import cf.castellon.turistorre.bean.Imagen;
 import cf.castellon.turistorre.bean.Usuario;
 import cf.castellon.turistorre.fragments.Click.HomePagina;
-
 import cf.castellon.turistorre.utils.FixedSpeedScroller;
 
 @SuppressWarnings("unchecked")
@@ -78,7 +81,7 @@ public class HomeViewPager extends Fragment {
             FixedSpeedScroller scroller = new FixedSpeedScroller(mViewPager.getContext(), sInterpolator);
             mScroller.set(mViewPager, scroller);
         } catch (NoSuchFieldException | IllegalAccessException eNoSuchFieldException) {
-            showError(getContext(),getClass().getName(),eNoSuchFieldException.getStackTrace()[0].getMethodName(),eNoSuchFieldException.toString());
+            showError(getContext(), getClass().getName(), eNoSuchFieldException.getStackTrace()[0].getMethodName(), eNoSuchFieldException.toString());
         }
         adaptador = new MiPageHomeAdapter(fragmentManager);
         crearPaginas();
@@ -89,23 +92,46 @@ public class HomeViewPager extends Fragment {
     private void crearPaginas() {
         HashSet<Imagen> imagenes;
         Usuario user;
+        DiaFiesta diaFiesta;
+        Map<String, Evento> eventos;
+        Map<String, Imagen> mapImg;
+        Imagen img;
+        Iterator<String> itImagen;
+        Iterator<String> itEvento;
+        String uidEvento;
+        Evento evento;
+
 
         imagenes = new HashSet<>();
-        switch (mFirebaseRemoteConfig.getString(portadaRC)) {
-            case ("Usuarios"):
-                user = buscarUsuario(mFirebaseRemoteConfig.getString(usuarioUidRC));
-                imagenes = buscarImagenes(user.getUidUser());
-                break;
-            case ("Fiestas"):
-//                fiestasList = baseDatos.get(portadaRC);
-                break;
+        portadaRC = mFirebaseRemoteConfig.getString("portada");
+        diaRC = mFirebaseRemoteConfig.getString("dia");
+        usuarioUidRC = mFirebaseRemoteConfig.getString("uidUser");
+        switch (portadaRC) {
             case ("DiasFiestas"):
-//                diaFiestaList = baseDatos.get(portadaRC);
+                diaFiesta = getDiaFiesta(diaRC);
+                if (diaFiesta!=null) {
+                    eventos = diaFiesta.getEventos();
+                    itEvento = eventos.keySet().iterator();
+                    while (itEvento.hasNext()) {
+                        uidEvento = itEvento.next();
+                        evento = eventos.get(uidEvento);
+                        mapImg = evento.getImagenes();
+                        if (mapImg!=null) {
+                            itImagen = mapImg.keySet().iterator();
+                            while (itImagen.hasNext()) {
+                                String key = itImagen.next();
+                                img = mapImg.get(key);
+                                imagenes.add(img);
+                            }
+                        }
+                    }
+                }
                 break;
-            default: //Terrats,Racons,Imagenes
-                imagenes = baseDatos.get(portadaRC);
+            default: //Terrats,Racons,Galeria
+                if (baseDatos.get(portadaRC) != null)
+                    imagenes = baseDatos.get(portadaRC);
                 break;
-            }
+        }
 
         for (Imagen imagen : imagenes) {
             Bundle bundle = new Bundle();

@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseIndexRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 
 import java.util.HashSet;
 
@@ -22,23 +24,36 @@ import cf.castellon.turistorre.utils.Constantes;
 import static cf.castellon.turistorre.utils.Utils.*;
 
 @SuppressWarnings("unchecked")
-public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Imagen,MyFireAdapterTerratsRecyclerView.MyFireViewHolder>
-                                              implements View.OnClickListener{
+public class MyFireAdapterTerratsRecyclerView extends FirebaseIndexRecyclerAdapter<Imagen,MyFireAdapterTerratsRecyclerView.MyFireViewHolder>
+        implements View.OnClickListener, View.OnLongClickListener{
     private View.OnClickListener listener;
+    private View.OnLongClickListener listenerLong;
 
-    public MyFireAdapterTerratsRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, DatabaseReference ref) {
-        super(modelClass, modelLayout, viewHolderClass, ref);
+    public MyFireAdapterTerratsRecyclerView(Class<Imagen> modelClass, int modelLayout, Class<MyFireViewHolder> viewHolderClass, Query keyRef, DatabaseReference ref) {
+        super(modelClass, modelLayout, viewHolderClass, keyRef, ref);
     }
 
     @Override
     public MyFireViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fila_fire_terrat_recycle, viewGroup, false);
         itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
         return (new MyFireViewHolder(itemView));
     }
 
     public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnLongClickListener(View.OnLongClickListener listener) {
+        this.listenerLong = listener;
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        if(listenerLong != null)
+            listenerLong.onLongClick(view);
+        return true;
     }
 
     @Override
@@ -60,7 +75,7 @@ public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Im
         usuarios.add(usuario);
         baseDatos.put(Constantes.Tablas.Terrats.name(),terrats);
         baseDatos.put(Constantes.Tablas.Usuarios.name(),usuarios);
-        viewHolder.bindDatos(modelo.getUriStrPre());
+        viewHolder.bindDatos(modelo.getUriStr());
     }
 
     public static class MyFireViewHolder extends RecyclerView.ViewHolder {
@@ -76,7 +91,7 @@ public class MyFireAdapterTerratsRecyclerView extends FirebaseRecyclerAdapter<Im
             Glide
                     .with(itemView.getContext())
                     .load(url)
-                    .placeholder(R.drawable.escudo)
+                    .thumbnail(0.1f)
                     .crossFade()
                     .into(imageView);
         }

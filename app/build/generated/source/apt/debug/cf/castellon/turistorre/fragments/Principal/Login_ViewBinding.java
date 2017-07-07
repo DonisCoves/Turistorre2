@@ -5,9 +5,7 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.UiThread;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import butterknife.Unbinder;
 import butterknife.internal.DebouncingOnClickListener;
@@ -21,13 +19,7 @@ import java.lang.Override;
 public class Login_ViewBinding implements Unbinder {
   private Login target;
 
-  private View view2131689696;
-
-  private View view2131689699;
-
-  private View view2131689691;
-
-  private View view2131689695;
+  private View view2131689688;
 
   @UiThread
   public Login_ViewBinding(final Login target, View source) {
@@ -35,26 +27,12 @@ public class Login_ViewBinding implements Unbinder {
 
     View view;
     target.ivAvatar = Utils.findRequiredViewAsType(source, R.id.ivAvatar, "field 'ivAvatar'", ImageView.class);
-    target.email = Utils.findRequiredViewAsType(source, R.id.etEmail, "field 'email'", EditText.class);
-    target.password = Utils.findRequiredViewAsType(source, R.id.etPassword, "field 'password'", EditText.class);
-    view = Utils.findRequiredView(source, R.id.btDesconectar, "field 'btnNativoDesc' and method 'onClick'");
-    target.btnNativoDesc = Utils.castView(view, R.id.btDesconectar, "field 'btnNativoDesc'", Button.class);
-    view2131689696 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onClick(p0);
-      }
-    });
-    target.layoutLoginNativo = Utils.findRequiredViewAsType(source, R.id.ll_login_nativo, "field 'layoutLoginNativo'", LinearLayout.class);
-    target.layoutRegistroNativo = Utils.findRequiredViewAsType(source, R.id.ll_registro_nativo, "field 'layoutRegistroNativo'", LinearLayout.class);
     target.layoutGoogle = Utils.findRequiredViewAsType(source, R.id.rlGoogle, "field 'layoutGoogle'", RelativeLayout.class);
     target.layoutFacebook = Utils.findRequiredViewAsType(source, R.id.rlFacebook, "field 'layoutFacebook'", RelativeLayout.class);
-    target.layoutNativo = Utils.findRequiredViewAsType(source, R.id.rlNativo, "field 'layoutNativo'", RelativeLayout.class);
     target.btnFacebook = Utils.findRequiredViewAsType(source, R.id.sign_conectar_f, "field 'btnFacebook'", LoginButton.class);
     view = Utils.findRequiredView(source, R.id.btn_desconectar_g, "field 'signoutG' and method 'onClick'");
     target.signoutG = Utils.castView(view, R.id.btn_desconectar_g, "field 'signoutG'", Button.class);
-    view2131689699 = view;
+    view2131689688 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -62,22 +40,6 @@ public class Login_ViewBinding implements Unbinder {
       }
     });
     target.mGoogleLoginButton = Utils.findRequiredViewAsType(source, R.id.sign_conectar_g, "field 'mGoogleLoginButton'", SignInButton.class);
-    view = Utils.findRequiredView(source, R.id.btnCrearCuenta, "method 'onClick'");
-    view2131689691 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onClick(p0);
-      }
-    });
-    view = Utils.findRequiredView(source, R.id.btRegistrar, "method 'onClick'");
-    view2131689695 = view;
-    view.setOnClickListener(new DebouncingOnClickListener() {
-      @Override
-      public void doClick(View p0) {
-        target.onClick(p0);
-      }
-    });
   }
 
   @Override
@@ -88,25 +50,13 @@ public class Login_ViewBinding implements Unbinder {
     this.target = null;
 
     target.ivAvatar = null;
-    target.email = null;
-    target.password = null;
-    target.btnNativoDesc = null;
-    target.layoutLoginNativo = null;
-    target.layoutRegistroNativo = null;
     target.layoutGoogle = null;
     target.layoutFacebook = null;
-    target.layoutNativo = null;
     target.btnFacebook = null;
     target.signoutG = null;
     target.mGoogleLoginButton = null;
 
-    view2131689696.setOnClickListener(null);
-    view2131689696 = null;
-    view2131689699.setOnClickListener(null);
-    view2131689699 = null;
-    view2131689691.setOnClickListener(null);
-    view2131689691 = null;
-    view2131689695.setOnClickListener(null);
-    view2131689695 = null;
+    view2131689688.setOnClickListener(null);
+    view2131689688 = null;
   }
 }

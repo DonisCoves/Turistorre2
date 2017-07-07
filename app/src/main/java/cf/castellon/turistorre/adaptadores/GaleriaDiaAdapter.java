@@ -51,11 +51,11 @@ public class GaleriaDiaAdapter extends BaseAdapter {
         }
 
         imageView = (ImageView)inflatedView.findViewById(R.id.ivElementoGridView);
-        url = Uri.parse(imagenes.get(position).getUriStrPre());
+        url = Uri.parse(imagenes.get(position).getUriStr());
         Glide
                 .with(actividad)
                 .load(url)
-                .placeholder(R.drawable.escudo)
+                .thumbnail(0.1f)
                 .crossFade()
                 .into(imageView);
         return inflatedView;

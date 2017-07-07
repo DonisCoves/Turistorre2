@@ -58,7 +58,7 @@ public class MyFireAdapterDiasFiestaRecyclerView extends FirebaseIndexRecyclerAd
 
         private void bindDatos(String titulo) {
             textoTv.setText(titulo);
-            cambiarColorFondoTV(textoTv);
+            cambiarDrawableFondoTV(textoTv);
         }
   }
 

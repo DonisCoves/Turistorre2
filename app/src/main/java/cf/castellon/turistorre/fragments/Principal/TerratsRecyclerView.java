@@ -1,8 +1,10 @@
 package cf.castellon.turistorre.fragments.Principal;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,13 +38,17 @@ public class TerratsRecyclerView extends Fragment {
     private TerratSeleccionado terratSeleccionadoFragment;
     private Bundle bund;
     private FragmentTransaction fragmentTransaction;
+    String uidUser;
+    private Query keysFire;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adaptador = new MyFireAdapterTerratsRecyclerView(Imagen.class, R.layout.fila_fire_terrat_recycle, MyFireAdapterTerratsRecyclerView.MyFireViewHolder.class, mDataBaseTerratRef);
+        keysFire = mDataBaseKeysTerratsRef.orderByValue();
+        adaptador = new MyFireAdapterTerratsRecyclerView(Imagen.class, R.layout.fila_fire_terrat_recycle, MyFireAdapterTerratsRecyclerView.MyFireViewHolder.class, keysFire, mDataBaseTerratRef);
 
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        uidUser = prefs.getString("uidUser","");
     }
 
     @Override
@@ -66,6 +74,41 @@ public class TerratsRecyclerView extends Fragment {
                 fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, terratSeleccionadoFragment).commit();
                 fragmentTransaction.addToBackStack(null);
+            }
+        });
+
+        adaptador.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(final View v) {
+                Imagen imagen;
+                Usuario user;
+
+                imagen = adaptador.getItem(recView.getChildAdapterPosition(v));
+                user = buscarUsuario(uidUser);
+                if (user!=null && (imagen.getUidUser().equals(uidUser) || user.getGrupo().equalsIgnoreCase("administrador"))) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage(R.string.deleteImg)
+                            .setCancelable(false)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    DatabaseReference refEliminar = adaptador.getRef(recView.getChildAdapterPosition(v));
+                                    refEliminar.removeValue();
+                                    String key = refEliminar.getKey();
+                                    mDataBaseKeysTerratsRef.child(key).removeValue();
+                                    dialog.cancel();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+                else
+                    showWarning(getActivity(),R.string.deleteImgErr);
+                return true;
             }
         });
         recView.setAdapter(adaptador);

@@ -86,17 +86,15 @@ public final class Utils {
     public static GoogleApiClient mGoogleApiClient;
     //Lista para actualizar los logins(enabled,disabled)
     public static List<Boolean> estados = new ArrayList<Boolean>(6);
-    //Cuando tengamos todos los datos de la imagen (las 2 url i el id usuario) la guardamos en la bbdd
-    public static boolean datosImagenOk;
+
     public static boolean colorCambiado;
     public static String tokenFireBase;
     public static Usuario usuario;
     public static Map<String, HashSet> baseDatos = new HashMap<>();
-    public static String portadaRC, usuarioUidRC;
+    public static String portadaRC, usuarioUidRC, diaRC;
     public static FirebaseRemoteConfig mFirebaseRemoteConfig;
     public static Map<String,Map<String,Object>> referenciasFire;
     public static Bitmap bitMapStatic;
-    public static Imagen imagenStatic;
 
 
 
@@ -130,11 +128,45 @@ public final class Utils {
         return titulos;
     }
 
+    public static Fiestas getFiesta (String uidFiestas) {
+        HashSet<Fiestas> fiestas;
+        boolean encontrado;
+        Fiestas fiesta=null;
+        Iterator<Fiestas> it;
+
+        encontrado = false;
+        fiestas = (HashSet) baseDatos.get(Tablas.Fiestas.name());
+        it = fiestas.iterator();
+        while (!encontrado){
+            fiesta = it.next();
+            if (fiesta.getUidFiestas().equals(uidFiestas))
+                    encontrado = true;
+        }
+        return fiesta;
+    }
+
+    public static DiaFiesta getDiaFiesta (String uidDiaFiesta) {
+        HashSet<DiaFiesta> diaFiestaHashSet;
+        DiaFiesta diaFiesta=null;
+        Iterator<DiaFiesta> it;
+
+        diaFiestaHashSet = (HashSet) baseDatos.get(Tablas.DiasFiestas.name());
+        it = diaFiestaHashSet.iterator();
+        while (it.hasNext()){
+            diaFiesta = it.next();
+            if (diaFiesta.getUidDiaFiesta().equals(uidDiaFiesta))
+                return diaFiesta;
+            else
+                diaFiesta = null;
+        }
+        return diaFiesta;
+    }
+
     public static Date formatearDia(String tituloDiaFiesta, String key) {
         int dia;
         String mes, anyo, diat;
         String diaFormateado;
-        SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd MMMM yyyy");
+        SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd MMMM yyyy",new Locale("es", "ES"));
         Date fecha = null;
         anyo = key.substring(key.length() - 4);
         StringTokenizer tokens = new StringTokenizer(tituloDiaFiesta, " ");
@@ -168,10 +200,12 @@ public final class Utils {
         String uidFiestaMasReciente;
         Iterator<String> itmapFiestaDia;
 
-        formatoDelTexto = new SimpleDateFormat("dd MMMM yyyy");
+        Date date = new Date();
+        formatoDelTexto = new SimpleDateFormat("dd MMMM yyyy",new Locale("es","ES"));
+        String strDate =formatoDelTexto.format(date);
         uidFiestaMasReciente ="";
         try {
-            fechaMasReciente = formatoDelTexto.parse("15 Enero 1980");
+            fechaMasReciente = formatoDelTexto.parse("15 Junio 1980");
         } catch (ParseException e) {
             fechaMasReciente = new Date();
             e.printStackTrace();
@@ -201,14 +235,17 @@ public final class Utils {
 
     public static Usuario buscarUsuario(String uidUser) {
         Usuario usuario = null;
-        boolean encontrado = false;
         HashSet<Usuario> usuarios;
         usuarios =  baseDatos.get(Tablas.Usuarios.name());
-        Iterator<Usuario> iterator = usuarios.iterator();
-        while (!encontrado) {
-            usuario = iterator.next();
-            if (usuario.getUidUser().equals(uidUser))
-                encontrado = true;
+        if (!usuarios.isEmpty()) {
+            Iterator<Usuario> iterator = usuarios.iterator();
+            while (iterator.hasNext()) {
+                usuario = iterator.next();
+                if (usuario.getUidUser().equals(uidUser))
+                    return usuario;
+                else
+                    usuario = null;
+            }
         }
         return usuario;
     }
@@ -328,13 +365,48 @@ public final class Utils {
         int width = bitmap.getWidth(); //2340
         int height = bitmap.getHeight(); //4160
         Matrix matrix = new Matrix();
-        /*if (height > width)
-            matrix.postRotate(90);*/
+//        if (height > width) //SOLO PARA TERRATS
+//            matrix.postRotate(90);
         matrix.postScale(escalado, escalado);
 
         Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        try {
+            data = baos.toByteArray();
+            baos.flush();
+            baos.close();
+        } catch (Exception e) {
+            data = null;
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    public static byte[] escalarImagen(Uri pathUri, int escalado) {
+        byte[] data;
+        Bitmap bitmap ;
+        BitmapFactory.Options options;
+        Matrix matrix;
+        Map<String, Object> referenciaFire;
+        boolean esTerrat;
+
+        referenciaFire = referenciasFire.get(Tablas.Terrats.name());
+        esTerrat = referenciasFire.containsKey(Tablas.Terrats.name());
+        options = new BitmapFactory.Options();
+        if (esTerrat)
+          options.inSampleSize = 4;// 1/escalado of origin image size from width and height
+        else
+            options.inSampleSize = escalado;
+        bitmap = BitmapFactory.decodeFile(pathUri.getPath(), options);
+        if (bitmap.getWidth() > bitmap.getHeight() && !esTerrat) {
+            matrix = new Matrix();
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getHeight(), bitmap.getHeight(),matrix,  true);
+        }
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         try {
             data = baos.toByteArray();
             baos.flush();
@@ -398,6 +470,14 @@ public final class Utils {
             view.setBackgroundColor(view.getResources().getColor(R.color.spring_tones_verde));
         else
             view.setBackgroundColor(view.getResources().getColor(R.color.paper_succulents_gris3));
+        colorCambiado = !colorCambiado;
+    }
+
+    public static void cambiarDrawableFondoTV(View view) {
+        if (!colorCambiado)
+            view.setBackground(view.getResources().getDrawable(R.drawable.drawer_degrad));
+        else
+            view.setBackground(view.getResources().getDrawable(R.drawable.drawer_degrad_inver));
         colorCambiado = !colorCambiado;
     }
 
@@ -547,86 +627,44 @@ public final class Utils {
 
     public static void guardarFotoStorageFire(final Map<String, Object> tipoBean, final Context context,
                                               final FragmentManager fragmentManager,final @Nullable String titulo, final @Nullable String descripcion) {
-        StorageReference mStorageRefPre;
         StorageReference mStorageRef;
         StorageReference rootStorage;
         final DatabaseReference rootDataBase;
         final Uri uri;
         final Activity activity;
         final String uidUser;
+        Usuario user;
 
         uidUser = prefs.getString("uidUser","");
-
+        user = buscarUsuario(uidUser);
         activity = (Activity)context;
         rootStorage = (StorageReference) tipoBean.get("Storage");
         rootDataBase = (DatabaseReference) tipoBean.get("DataBase");
         uri = (Uri) tipoBean.get("fileUri");
-        datosImagenOk=false;
-        mStorageRef = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+uidUser).child(uri.getLastPathSegment());
-        String pathPre = uri.getLastPathSegment();
-        pathPre = pathPre.substring(0,pathPre.length()-5);
-        pathPre = pathPre.concat("_PRE.jpg");
-        mStorageRefPre = rootStorage.child(mFirebaseUser.getDisplayName()+" - "+uidUser).child(pathPre);
+        mStorageRef = rootStorage.child(user.getNombre() + " - "+uidUser).child(uri.getLastPathSegment());
         showProgressDialog(context,context.getString(R.string.dataUpload));
-        mStorageRefPre.putBytes(escalarImagen(uri,1/8f)) //Pre
+        mStorageRef.putBytes(escalarImagen(uri,8))
                 .addOnSuccessListener(activity, new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        if (datosImagenOk) {
-                            imagenStatic.setUriStrPre(taskSnapshot.getDownloadUrl().toString());
-                            guardarFotoBBDDFire(rootDataBase,imagenStatic,fragmentManager,context,activity);
-                            datosImagenOk = false;
-                       }
-                        else{
-                            imagenStatic = new Imagen();
-                            imagenStatic.setUidUser(uidUser);
-                            imagenStatic.setUriStrPre(taskSnapshot.getDownloadUrl().toString());
-                            imagenStatic.setUidImg(uri.getLastPathSegment().substring(0,uri.getLastPathSegment().length()-4));
-                            imagenStatic.setTitulo("");
-                            imagenStatic.setDescripcion("");
-                            imagenStatic.setFecha(obtenerFecha());
-                            if (titulo!=null)
-                                imagenStatic.setTitulo(titulo);  // Si es terrat,raco o bando el nombre del terrat / raco
-                            if (descripcion!=null)
-                                imagenStatic.setDescripcion(descripcion);  // Si es raco o bando su descripcion
-                            datosImagenOk =true;
-                        }
-                    }
-                })
-                .addOnFailureListener(activity, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        showError(context,getClass().getName(), exception.getStackTrace()[0].getMethodName(),exception.toString());
+                        Imagen imagen;
+
                         hideProgressDialog();
-                    }
-                });
-        mStorageRef.putBytes(escalarImagen(uri,1))
-                .addOnSuccessListener(activity, new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        hideProgressDialog();
-                        if (datosImagenOk) {
-                                imagenStatic.setUriStr(taskSnapshot.getDownloadUrl().toString());
-                                guardarFotoBBDDFire(rootDataBase,imagenStatic,fragmentManager, context, activity);
-                                datosImagenOk = false;
-                        } else {
-                            imagenStatic = new Imagen();
-                            imagenStatic.setUidUser(uidUser);
-                            imagenStatic.setUidImg(uri.getLastPathSegment().substring(0,uri.getLastPathSegment().length()-4));
-                            if (taskSnapshot.getDownloadUrl()==null)
-                                showError(context,getClass().getName(),"mStorageRef.onSuccess","taskSnapshot.getDownloadUrl()==null");
-                            else {
-                                imagenStatic.setUriStr(taskSnapshot.getDownloadUrl().toString());
-                                imagenStatic.setTitulo("");
-                                imagenStatic.setDescripcion("");
-                                imagenStatic.setFecha(obtenerFecha());
-                                if (titulo!=null)
-                                    imagenStatic.setTitulo(titulo);  // Si es terrat,raco o bando el nombre del terrat / raco
-                                if (descripcion!=null)
-                                    imagenStatic.setDescripcion(descripcion);  // Si es raco o bando su descripcion
-                                datosImagenOk = true;
-                            }
+                        imagen = new Imagen();
+                        imagen.setUriStr(taskSnapshot.getDownloadUrl().toString());
+                        imagen.setUidUser(uidUser);
+                        imagen.setUidImg(uri.getLastPathSegment().substring(0,uri.getLastPathSegment().length()-4));
+                        imagen.setUriStr(taskSnapshot.getDownloadUrl().toString());
+                        imagen.setTitulo("");
+                        imagen.setDescripcion("");
+                        imagen.setFecha(obtenerFecha());
+                        if (titulo != null) {
+                            imagen.setTitulo(titulo);  // Si es terrat,raco o bando el nombre del terrat / raco
                         }
+                        if (descripcion != null) {
+                            imagen.setDescripcion(descripcion);  // Si es raco o bando su descripcion
+                        }
+                        guardarFotoBBDDFire(rootDataBase,imagen,fragmentManager, context, activity);
                     }
                 })
                 .addOnFailureListener(activity, new OnFailureListener() {
@@ -638,7 +676,7 @@ public final class Utils {
                 });
     }
 
-    public static void guardarFotoBBDDFire(final DatabaseReference rootRef, final Imagen imagen, final FragmentManager fragmentManager, final Context context, Activity activity) {
+    public static void guardarFotoBBDDFire(final DatabaseReference rootRef, final Imagen imagen, final FragmentManager fragmentManager, final Context context, final Activity activity) {
         final DatabaseReference dbRef;
 
         dbRef = rootRef.child(imagen.getUidImg());
@@ -647,27 +685,48 @@ public final class Utils {
             public void onSuccess(Void aVoid) {
                 String tabla;
                 FragmentTransaction fragmentTransaction;
+                Calendar calendar;
+                long value;
+
+                calendar = Calendar.getInstance();
+                value = -calendar.getTimeInMillis();
                 hideProgressDialog();
                 showToast(context,R.string.imgUploadOk);
                 tabla= parsearKeyATabla(rootRef.getKey());
                 switch (tabla) {
                     case "Terrats":
-                        generarNotificacionTerrat(imagen.getTitulo(), imagen.getUidImg());
-                        fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, new TerratsRecyclerView()).commit();
+                        mDataBaseRootRef.child("keys").child("Terrats").child(imagen.getUidImg()).setValue(value).addOnSuccessListener(activity,new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                FragmentTransaction fragmentTransaction2;
+                                generarNotificacionTerrat(imagen.getTitulo(), imagen.getUidImg());
+                                fragmentTransaction2 = fragmentManager.beginTransaction();
+                                fragmentTransaction2.replace(R.id.content_frame, new TerratsRecyclerView()).commit();
+                                fragmentTransaction2.addToBackStack(null);
+                            }
+                        });
                         break;
                     case "Racons":
                         anyadirRaco(imagen);
                         fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.content_frame, new RaconsViewPager()).commit();
+                        fragmentTransaction.addToBackStack(null);
                         break;
                     case "Bandos":
-                        generarNotificacionBando(context, imagen,dbRef.getKey());
-                        fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, new BandoRecyclerView()).commit();
+                        mDataBaseRootRef.child("keys").child("Bandos").child(imagen.getUidImg()).setValue(value).addOnSuccessListener(activity,new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                FragmentTransaction fragmentTransaction2;
+                                generarNotificacionBando(context, imagen,dbRef.getKey());
+                                fragmentTransaction2 = fragmentManager.beginTransaction();
+                                fragmentTransaction2.replace(R.id.content_frame, new BandoRecyclerView()).commit();
+                                fragmentTransaction2.addToBackStack(null);
+                            }
+                        });
+
                         break;
-                    case "DiasFiestas" :
-//                            anyadirImagenDiaFiesta(imagen);
+                    case "Imagenes" :
+                        mDataBaseRootRef.child("keys").child("Imagenes").child(imagen.getUidImg()).setValue(value);
                         break;
                 }
             }
@@ -689,21 +748,30 @@ public final class Utils {
         HashSet<DiaFiesta> diasFiestaHash;
         DiaFiesta diaFiesta;
         Evento evento;
-        Map<String,Imagen> imagenes;
 
         diasFiestaHash = baseDatos.get(Tablas.DiasFiestas.name());
         diaFiesta = buscarDiaFiesta(uidDiaFiesta);
         evento = buscarEvento(diaFiesta,uidEvento);
-        //Una vez guardada la imagen guardamos toda su estructura
         evento.addImagen(imagen);
         diaFiesta.addEvento(evento);
         diasFiestaHash.add(diaFiesta);
         baseDatos.put(Tablas.DiasFiestas.name(),diasFiestaHash);
     }
 
+    public static ArrayList<Imagen> anyadirImagenArrayList(Imagen imagen,ArrayList<Imagen> imagenes ){
+        boolean repetida=false;
+
+        for (Imagen img : imagenes){
+            if (imagen.getUidImg().equals(img.getUidImg()))
+                repetida=true;
+        }
+        if (!repetida)
+            imagenes.add(imagen);
+        return imagenes;
+    }
     private static String parsearKeyATabla(String key) {
         String tabla;
-        if (key.equals("Terrats") || key.equals("Racons") || key.equals("Terrats") || key.equals("Bandos"))
+        if (key.equals("Terrats") || key.equals("Racons") || key.equals("Imagenes") || key.equals("Bandos"))
             tabla=key;
         else
             tabla = "DiasFiestas";
@@ -742,6 +810,19 @@ public final class Utils {
             matrix.postRotate(90);
         rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
         return rotatedBitmap;
+    }
+
+    public static Bitmap loadImage(String imgPath) {
+        BitmapFactory.Options options;
+        try {
+            options = new BitmapFactory.Options();
+            options.inSampleSize = 4;// 1/4 of origin image size from width and height
+            Bitmap bitmap = BitmapFactory.decodeFile(imgPath, options);
+            return bitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void establecerEstructurasIniciales(){
@@ -794,9 +875,25 @@ public final class Utils {
      *
      * @param imagen La imagen a anyadir
      */
-    public static void anyadirImagen(Imagen imagen){
+    public static void anyadirImagen(String uidDiaFiesta,String uidEvento, Imagen imagen){
         HashSet<Imagen> imagenes;
+        HashSet<DiaFiesta> diaFiestasHash;
+        DiaFiesta diaFiesta;
+        Evento evento;
 
+        diaFiesta = buscarDiaFiesta(uidDiaFiesta);
+        evento = buscarEvento(diaFiesta,uidEvento);
+        imagenes = baseDatos.get(Tablas.Imagenes.name());
+        imagenes.add(imagen);
+        baseDatos.put(Tablas.Imagenes.name(),imagenes);
+    }
+
+    public static void anyadirImagenAEvento(Imagen imagen){
+        HashSet<Imagen> imagenes;
+        final HashSet<DiaFiesta> diaFiestasHash;
+
+
+        diaFiestasHash = baseDatos.get(Tablas.Imagenes.name());
         imagenes = baseDatos.get(Tablas.Imagenes.name());
         imagenes.add(imagen);
         baseDatos.put(Tablas.Imagenes.name(),imagenes);
@@ -819,6 +916,38 @@ public final class Utils {
         baseDatos.put(Tablas.Racons.name(),imagenes);
         baseDatos.put(Tablas.Usuarios.name(),usuarios);
     }
+
+    public static void eliminarRaco(Imagen imagen){
+        HashSet<Imagen> imagenes;
+
+        imagenes = baseDatos.get(Tablas.Racons.name());
+        imagenes.remove(imagen);
+        baseDatos.put(Tablas.Racons.name(),imagenes);
+    }
+
+    public static void eliminarImagen(Imagen imagen){
+        HashSet<Imagen> imagenes;
+
+        imagenes = baseDatos.get(Tablas.Imagenes.name());
+        imagenes.remove(imagen);
+        baseDatos.put(Tablas.Imagenes.name(),imagenes);
+    }
+
+    public static void eliminarImagenDeEvento(Imagen imagen,String uidDiaFiesta, String uidEvento) {
+        HashSet<Imagen> imagenes;
+        HashSet<DiaFiesta> diasFiestaHash;
+        DiaFiesta diaFiesta;
+        Evento evento;
+
+        diasFiestaHash = baseDatos.get(Tablas.DiasFiestas.name());
+        diaFiesta = buscarDiaFiesta(uidDiaFiesta);
+        evento = buscarEvento(diaFiesta,uidEvento);
+        evento.removeImagen(imagen);
+        diaFiesta.addEvento(evento);
+        diasFiestaHash.add(diaFiesta);
+        baseDatos.put(Tablas.DiasFiestas.name(),diasFiestaHash);
+    }
+
 
     public static Map<String,Object> parsearParametrosRFire(String tabla) {
         StorageReference storageReference;
@@ -871,7 +1000,7 @@ public final class Utils {
         return userId;
     }
 
-    public static void loaders() {
+    public static void loaders(final Context context) {
         final HashSet<Usuario> usuarios;
         final HashSet<Imagen> terrats;
         final HashSet<Imagen> racons;
@@ -885,6 +1014,28 @@ public final class Utils {
         usuarios = new HashSet<>();
         terrats = new HashSet<>();
         racons = new HashSet<>();
+        mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
+
+        mFirebaseRemoteConfig.fetch().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                mFirebaseRemoteConfig.activateFetched();
+                portadaRC = mFirebaseRemoteConfig.getString("portada");
+                usuarioUidRC = mFirebaseRemoteConfig.getString("uidUser");
+                diaRC = mFirebaseRemoteConfig.getString("dia");
+            }
+
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                hideProgressDialog();
+                if (e.getMessage()==null)
+                    showToast(context,R.string.sinCobertura);
+                else
+                    showToast(context,R.string.sinCobertura);
+            }
+        });
 
         mDataBaseUsersRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -919,11 +1070,9 @@ public final class Utils {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Imagen raco = postSnapshot.getValue(Imagen.class);
-                    Usuario user = buscarUsuario(raco.getUidUser());
-                    if (user.getGrupo().equals("bandos") || user.getGrupo().equals("administrador"))
-                        racons.add(raco);
+                    racons.add(raco);
+                    baseDatos.put(Tablas.Racons.name(), racons);
                 }
-                baseDatos.put(Tablas.Racons.name(),racons);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -944,7 +1093,7 @@ public final class Utils {
             }
         });
 
-        mDataBaseFiestasRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        mDataBaseFiestasRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot fiestasFire : dataSnapshot.getChildren()) {

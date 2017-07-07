@@ -1,6 +1,5 @@
 package cf.castellon.turistorre.fragments.Principal;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -14,9 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.Query;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,15 +30,17 @@ public class BandoRecyclerView extends Fragment {
     private FragmentTransaction transaccion;
     @BindView(R.id.rvBando) RecyclerView rvBando;
     private MiFireAdapterBandoRecyclerView adaptador;
-    private LinearLayoutManager manager;
+    LinearLayoutManager manager;
     private Bundle bund;
     private BandoSeleccionado bandoSeleccionadoFragment;
+    private Query keysFire;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        keysFire = mDataBaseKeysBandosRef.orderByValue();
         mFirebaseUser= FirebaseAuth.getInstance().getCurrentUser();
-        adaptador = new MiFireAdapterBandoRecyclerView(Imagen.class,R.layout.fila_bando_layout,MiFireAdapterBandoRecyclerView.MiFireViewHolder.class,mDataBaseBandoRef);
+        adaptador = new MiFireAdapterBandoRecyclerView(Imagen.class,R.layout.fila_bando_layout,MiFireAdapterBandoRecyclerView.MiFireViewHolder.class,keysFire, mDataBaseBandoRef);
     }
 
     @Override
@@ -84,7 +83,12 @@ public class BandoRecyclerView extends Fragment {
                 transaccion.replace(R.id.content_frame,new GenerarBando()).commit();
                 transaccion.addToBackStack(null);
             }
+            else
+                showWarning(getContext(),R.string.notPermision);
+
         }
+        else
+            showWarning(getContext(),R.string.notPermision);
         return super.onOptionsItemSelected(item);
     }
 

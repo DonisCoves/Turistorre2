@@ -97,6 +97,7 @@ public class FiestasEventosRecylerView extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()){
                 case R.id.it_galeriaDias:
+                    imagenes=new ArrayList<>();
                     DatabaseReference ref = mDataBaseDiasFiestaRef.child(diaFiestaMeta.getUidDiaFiesta()).child("eventos");
                     showProgressDialog(getContext(),"Cargando Imagenes");
                     ref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -105,7 +106,7 @@ public class FiestasEventosRecylerView extends Fragment {
                             for (DataSnapshot eventoDS: dataSnapshot.getChildren()) {
                                 for(DataSnapshot imagenDS: eventoDS.child("imagenes").getChildren()){
                                     Imagen imagen = imagenDS.getValue(Imagen.class);
-                                    imagenes.add(imagen);
+                                    imagenes = anyadirImagenArrayList(imagen,imagenes);
                                     //anyadirImagenDiaFiesta(uidDiaFiestaMeta,imagen);
                                 }
                             }

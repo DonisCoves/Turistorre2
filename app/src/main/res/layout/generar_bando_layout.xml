@@ -48,7 +48,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/com_facebook_auth_dialog_cancel_background"
+        android:rotation="-90"
         android:id="@+id/ivGenerarBando" />
 
 </LinearLayout>

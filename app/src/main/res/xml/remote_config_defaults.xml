@@ -5,11 +5,15 @@
         <value>Racons</value>
     </entry>
     <entry>
-        <key>usuario</key>
+        <key>uidUser</key>
         <value></value>
     </entry>
     <entry>
         <key>color_fondo_drawer</key>
         <value>verde_claro</value>
+    </entry>
+    <entry>
+        <key>dia</key>
+        <value>Martes2deAgosto2016</value>
     </entry>
 </defaultsMap>

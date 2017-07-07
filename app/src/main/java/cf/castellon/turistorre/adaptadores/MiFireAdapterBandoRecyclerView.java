@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
+
+import com.firebase.ui.database.FirebaseIndexRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cf.castellon.turistorre.R;
@@ -14,12 +17,12 @@ import cf.castellon.turistorre.bean.Imagen;
 
 import static cf.castellon.turistorre.utils.Utils.*;
 
-public class MiFireAdapterBandoRecyclerView extends FirebaseRecyclerAdapter<Imagen, MiFireAdapterBandoRecyclerView.MiFireViewHolder>
+public class MiFireAdapterBandoRecyclerView extends FirebaseIndexRecyclerAdapter<Imagen, MiFireAdapterBandoRecyclerView.MiFireViewHolder>
                                             implements View.OnClickListener {
     private View.OnClickListener listener;
 
-    public MiFireAdapterBandoRecyclerView(Class<Imagen> modelClass, int modelLayout, Class <MiFireViewHolder>viewHolderClass, DatabaseReference ref) {
-        super(modelClass, modelLayout, viewHolderClass, ref);
+    public MiFireAdapterBandoRecyclerView(Class<Imagen> modelClass, int modelLayout, Class <MiFireViewHolder>viewHolderClass, Query keyRef, DatabaseReference ref) {
+        super(modelClass, modelLayout, viewHolderClass, keyRef, ref);
     }
 
     @Override
@@ -30,10 +33,10 @@ public class MiFireAdapterBandoRecyclerView extends FirebaseRecyclerAdapter<Imag
         return (new MiFireViewHolder(itemView));
     }
 
-    @Override
-    public Imagen getItem(int position) {
-        return super.getItem(getItemCount() - position - 1);
-    }
+//    @Override
+//    public Imagen getItem(int position) {
+//        return super.getItem(getItemCount() - position - 1);
+//    }
 
     public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;

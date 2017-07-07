@@ -9,29 +9,32 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="3">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvHora"
-            android:textSize="24sp"
-            android:textStyle="normal|bold" />
-
-        <TextView
-            android:layout_weight="2"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvTituloEvento"
             android:textSize="24sp"
+            android:paddingRight="5dp"
+            android:text="23:00"
             android:textStyle="normal|bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvHora"
+            android:text="@string/textoTitulo"
+            android:textSize="24sp"
+            android:textStyle="normal|bold" />
+
+
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/textoLargo"
         android:id="@+id/tvDescripcion"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 </LinearLayout>

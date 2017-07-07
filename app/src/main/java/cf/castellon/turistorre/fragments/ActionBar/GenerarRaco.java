@@ -63,7 +63,7 @@ public class GenerarRaco extends Fragment {
     public void onClick(View v){
         switch (v.getId()) {
             case (R.id.btnConfRaco):
-                Confirmacion();
+                confirmacion();
                 break;
             case (R.id.btnCancRaco):
                 etTitulo.setText("");
@@ -85,7 +85,7 @@ public class GenerarRaco extends Fragment {
         }
     }
 
-    private void Confirmacion() {
+    private void confirmacion() {
         Map<String, Object> tipoRaco;
         Uri fileUri;
 

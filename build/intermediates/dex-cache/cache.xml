@@ -3,30 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\pccc\.android\build-cache\ab115eeb1203d06c62f1577e6528f9041f9377b1\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="646439081688c43e04ec4aa7ba6915ddfdcc337f">
-        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_aada3c1fd205eebde3adc43f3bae2f9d6cbd153b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\workspace\Turistorre\app\libs\jna-4.1.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="1c12d070e602efd8021891cdd7fd18bc129372d4">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\jna-4.1.0_09a5db280cd609bf46c4e4b8e992fcf0f05f4f8d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\pccc\.android\build-cache\61136f31dd5f1c7074d97bcbb76b017ba9f40ff2\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="204f607419af8247cc1b2a61f50663c65f841c12">
-        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1ab1d2c91e8b6c9cc08782ce176fb8e848d4a9b7\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -43,17 +25,8 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a49becdf84cbd259501106a2e2c35de5fa1bf6d8">
+        sha1="21f52f33871cd44e09a4fe326a862ab7ef63512e">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_fcc6b772a14be54ee8c4b518d34a497f9f833ce3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\pccc\.android\build-cache\07ae7e8bf96ed5e0421d0af1a56f8cf3400aa654\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="461929440e66685425a298693507f6fb27b0a872">
-        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_de149b817588e5720cc61ba9cd8856b3c96c955a\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -61,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_897e787ae916cc820671e2d8123aef730cf401ca\classes.dex" />
     </item>
     <item
@@ -72,24 +45,6 @@
         revision="25.0.0"
         sha1="9ce04e34240f674bc72680f8b843b1457383161a">
         <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-codec-1.9_9bedf6c84d1e1bdecae7434397101d1438bb38a5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\pccc\.android\build-cache\3599129bb9124ce82482060beaaa50b461f14b29\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7045152f3bd1870740b9bcb1cddff495e189774e">
-        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_386c4ce6ee8d996d99cb7c15a85053fc4017c2dc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\pccc\.android\build-cache\58448d4736845c9f46eac22aad10fbf9cd861083\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="005d20a198159b87f65812fc5c51b2d84c5eba0a">
-        <dex dex="C:\workspace\Turistorre\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_35c62a0137d7df38bc225b1fc3e41051e1626984\classes.dex" />
     </item>
     <item
         is-multidex="true"

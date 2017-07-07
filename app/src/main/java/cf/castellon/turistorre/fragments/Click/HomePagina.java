@@ -44,13 +44,13 @@ public class HomePagina extends Fragment {
         Glide
                 .with(getContext())
                 .load(urlImg)
-                .placeholder(R.drawable.escudo)
+                .thumbnail(0.1f)
                 .crossFade()
                 .into(ivPortada);
         Glide
                 .with(getContext())
                 .load(urlAvatar)
-                .placeholder(R.drawable.escudo)
+                .thumbnail(0.1f)
                 .crossFade()
                 .into(ivAvatar);
 

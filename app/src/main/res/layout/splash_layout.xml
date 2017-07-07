@@ -9,6 +9,5 @@
         android:id="@+id/imageView2"
         style="@style/Imagen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/splash" />
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -24,7 +24,7 @@ public class MiAplicacion extends Application {
         establecerPreferenciasIniciales(getApplicationContext());
         setTheme(R.style.dialogos);
         establecerEstructurasIniciales();
-        loaders();
+        loaders(getBaseContext());
     }
 
 

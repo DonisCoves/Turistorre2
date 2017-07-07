@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -42,7 +43,6 @@ import cf.castellon.turistorre.fragments.ActionBar.GenerarBando;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarRaco;
 import cf.castellon.turistorre.fragments.ActionBar.GenerarTerrat;
 import cf.castellon.turistorre.fragments.Click.Click.FiestasEventosGaleriaRecyclerView;
-import cf.castellon.turistorre.fragments.Principal.Acerca;
 import cf.castellon.turistorre.fragments.Principal.Ajustes;
 import cf.castellon.turistorre.fragments.Principal.BandoRecyclerView;
 import cf.castellon.turistorre.fragments.Click.BandoSeleccionado;
@@ -80,13 +80,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 frSeccion = new Splash();
                 seccion = "Home";
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                if (getSupportFragmentManager().findFragmentById(R.id.frSelector) != null) { //tablet
-                    fragmentTransaction.add(R.id.flMain, frSeccion).commit();
-                } else {
-                    fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
-                    prepareDrawer();
-                    mDrawerLayout.setDrawerListener(mDrawerToggle);
-                }
+                fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
+                prepareDrawer();
+                mDrawerLayout.setDrawerListener(mDrawerToggle);
                 break;
             case ACTION_GPO_BANDO:
                 seccion = "Bando";
@@ -148,13 +144,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
-                if (getSupportFragmentManager().findFragmentById(R.id.frSelector) != null) { //tablet
-                    fragmentTransaction.add(R.id.flMain, frSeccion).commit();
-                } else {
-                    fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
-                    prepareDrawer();
-                    mDrawerLayout.setDrawerListener(mDrawerToggle);
-                }
+                fragmentTransaction.add(R.id.content_frame, frSeccion).commit();
+                prepareDrawer();
+                mDrawerLayout.setDrawerListener(mDrawerToggle);
                 break;
             case ACTION_GPO_TERRAT:
                 seccion = "Terrat";
@@ -162,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 prepareDrawer();
                 mDrawerLayout.setDrawerListener(mDrawerToggle);
-                //Falta para tablets
                 Bundle bund2 = getIntent().getExtras();
                 String uidTerrat = bund2.getString("uidTerrat");
                 Imagen pano  = buscarTerrat(uidTerrat);
@@ -229,9 +220,6 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
             case "Ajustes":
                 frSeccion = new Ajustes();
                 break;
-            case "Social":
-                frSeccion = new Acerca();
-                break;
         }
         mDrawerList.setItemChecked(position, true);
         getSupportActionBar().setTitle(seccion);
@@ -289,7 +277,8 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
                     referenciasFire.put(tablaOk,referenciaFire);
                     switch (tablaOk){
                         case "Terrats":
-                            bitMapStatic = formatearBitmapfromPath(path);
+                            //bitMapStatic = formatearBitmapfromPath(path);
+                            bitMapStatic = loadImage(path);
                             imageView.setImageBitmap(bitMapStatic);
                             break;
                         case "Bandos":
@@ -318,23 +307,31 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         this.tabla = tabla;
         this.imageView = imageView;
         this.camara = camara;
-        if (ContextCompat.checkSelfPermission(getBaseContext(), permiso) != PackageManager.PERMISSION_GRANTED)
-            if (shouldShowRequestPermissionRationale(permiso)) {
-                Snackbar.make(viewSnack, R.string.camaraReg, Snackbar.LENGTH_INDEFINITE)
-                        .setAction(android.R.string.ok, new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                requestPermissions(new String[]{permiso}, permisoRequest);
-                            }
-                        })
-                        .show();
-            } else
-                requestPermissions(new String[]{permiso}, permisoRequest);
-        else if (numPermisos != 2)
-            if (this.camara)
-                pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, viewSnack, tabla, imageView, this.camara);
+        if (Build.VERSION.SDK_INT>22) {
+            if (ContextCompat.checkSelfPermission(getBaseContext(), permiso) != PackageManager.PERMISSION_GRANTED)
+                if (shouldShowRequestPermissionRationale(permiso)) {
+                    Snackbar.make(viewSnack, R.string.camaraReg, Snackbar.LENGTH_INDEFINITE)
+                            .setAction(android.R.string.ok, new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    requestPermissions(new String[]{permiso}, permisoRequest);
+                                }
+                            })
+                            .show();
+                } else
+                    requestPermissions(new String[]{permiso}, permisoRequest);
+            else if (numPermisos != 2)
+                if (this.camara)
+                    pedirPermiso(Manifest.permission.WRITE_EXTERNAL_STORAGE, PERMISO_ESCRIBIR_SD, viewSnack, tabla, imageView, this.camara);
+                else
+                    pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack, tabla, imageView, this.camara);
+        }
+        else {
+            if (camara)
+                goCamera(tabla,imageView);
             else
-                pedirPermiso(Manifest.permission.CAMERA, PERMISO_CAMARA, viewSnack, tabla, imageView, this.camara);
+                goGaleria(tabla,imageView);
+        }
 
     }
 

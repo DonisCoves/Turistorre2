@@ -41,7 +41,7 @@ public class BandoSeleccionado extends Fragment {
         Glide
                 .with(getContext())
                 .load(urlImg)
-                .placeholder(R.drawable.escudo)
+                .thumbnail(0.1f)
                 .crossFade()
                 .into(ivImagen);
         return view;

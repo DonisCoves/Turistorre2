@@ -7,6 +7,7 @@
     <string name="deleteImg">¿Estas seguro de eliminar la imagen?</string>
     <string name="deleteImgErr">No puedes eliminar una imagen que no es tuya</string>
     <string name="cargando">Cargando...</string>
+    <string name="sinCobertura">Necesito conectarme al Server...</string>
     <string name="dataUpload">Subiendo datos a Servidor...</string>
     <string name="antenticando">Autenticando con ServerTorrer...</string>
     <string name="registrate">Registrate para subir fotos</string>
@@ -20,16 +21,15 @@
         <item>Racons</item>
         <item>Galeria</item>
         <item>Bandos</item>
-        <item>Teerrats</item>
+        <item>Terrats</item>
         <item>Login</item>
         <item>Festes</item>
         <item>Ajustes</item>
-        <item>Social</item>
     </string-array>
 
     <!-- ****************************   Utils   **********************************************  -->
     <string name="imgUploadOk">Imagen subida correctamente</string>
-    <string name="bando">Se done a saber</string>
+    <string name="bando">Es fa saber</string>
     <!-- ****************************   MainActivity   **********************************************  -->
     <string name="open">Abierto</string>
     <string name="close">Cerrado</string>
@@ -40,6 +40,8 @@
     <string name="sin_fiestas">uidsFiestas es null</string>
     <!-- ****************************   GenerarRaco   **********************************************  -->
     <string name="rellena">Rellena el título, la descripcion y pon una imagen</string>
+    <!-- ****************************   GenerarTerrat   **********************************************  -->
+    <string name="rellenaDesc">Rellena la direccion y pon una imagen</string>
     <!-- ****************************   Ajustes   **********************************************  -->
     <string name="notificaciones">Que avisos quieres activar</string>
     <string name="idioma">Idioma</string>
